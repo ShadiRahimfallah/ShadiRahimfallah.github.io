@@ -1,3 +1,19 @@
+# _config.yml  (abridged)
+
+title: "Shadi Rahimfallah"
+url: "https://shadirahimfallah.github.io"
+baseurl: ""
+repository: "ShadiRahimfallah/ShadiRahimfallah.github.io"
+
+# Tell Jekyll to build files in /_pages
+include:
+  - _pages
+
+
+
+
+
+
 author:
   avatar     : "https://shadirahimfallah.github.io/images/shadi.jpg"    # file must exist
   name       : "Shadi Rahimfallah"
@@ -18,6 +34,5 @@ author:
       icon: "fab fa-github"
       url: "https://github.com/ShadiRahimfallah"
     # add LinkedIn/Twitter if you like
-    include:
-  - _pages
+  
 
