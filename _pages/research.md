@@ -6,33 +6,41 @@ author_profile: true
 ---
 
 ## Research Statement
-My research investigates how used capital mitigates financial frictions in developing economies, enhancing capital allocation, firm growth, and aggregate productivity.
+I study how secondary markets for capital (used machinery and equipment) ease financial frictions in developing economies. My work combines firm-level data with quantitative general equilibrium models to assess how access to lower-priced used capital reshapes firm scale, reallocates resources toward more productive producers, and raises aggregate productivity.
 
-## Working Paper
+---
+
+## Papers
+
+### Working Paper
 **Used Capital, Financial Frictions, and Misallocation (Vietnam, 2005–2015)**  
-I build a quantitative general equilibrium model with heterogeneous firms that rent capital subject to collateral constraints. Firms choose between new and used capital; rental prices are determined endogenously in equilibrium. Using firm-level panel data from Vietnamese manufacturing (2005–2015), I show that access to lower-priced used capital lets constrained firms operate closer to optimal scale, reallocating capital toward more productive firms and improving aggregate efficiency.
+I develop a heterogeneous-firm GE model in which firms rent new or used capital under collateral constraints; rental prices are determined in equilibrium. Using Vietnamese manufacturing panel data (2005–2015), I show that access to used capital allows constrained firms to operate closer to optimal scale, improving allocative efficiency and raising aggregate TFP.
 
+### Publication
+**Geoeconomics of Global Energy Transformation: Exploring the Dynamic Linkages between Oil Prices, Polyethylene Costs, and Shale Gas in the United States**  
+*Published August 2022*  
+This paper examines the impact of oil prices and shale gas developments on polyethylene costs, employing time-series methods to quantify pass-through effects and their timing.
 
-## Publication
-**Geoeconomics of Global Energy Transformation: Exploring the Dynamic Linkages between Oil Prices, Polyethylene Costs, and Shale Gas in the United States.**  
-*Aug 2022.*
+---
 
-## Research Experience
-- **Research Assistant (Macroeconomics), York University** — with **Prof. Tasso Adamopoulos** and **Prof. Chaoran Chen**; macroeconomic data analysis and model support (**4 months**).
-- **Research Assistant (Macroeconomics), York University** — with **Prof. Tasso Adamopoulos**; macroeconomic data analysis.
-- **Master’s Thesis (Energy Economics)** — *The effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry* (Supervisor: **Prof. Farkhondeh Jabal Ameli**).
-- **Research Assistant (Energy Economics), University of Tehran** — with **Dr. Farkhondeh JabalAmeli**; data analysis on energy-sector projects.
-- **Research Assistant (Electricity Market), University of Tehran** — with **Dr. Jeremy Lin**; electricity-market data analysis.
-- **Macroeconomic Indexes and their Impacts on the Petrochemical Industry, University of Tehran.**
-
-### Additional Projects
-- Shale Gas Revolution and its Effects on Polyethylene Prices, University of Tehran.  
-- Gas Pricing Mechanisms, University of Tehran.
-
-
-
-## In Progress
+## Research in Progress
 - Used-capital adoption over the firm life cycle  
-- Collateral constraints and rental market depth  
+- Collateral constraints and rental-market depth  
 - Energy-price shocks and investment reallocation  
-- **Cultural and ESG Predictors of Human Development: A Machine Learning Perspective**
+- Cultural and ESG predictors of human development: a machine-learning perspective  
+
+---
+
+## Research Assistant
+- **Research Assistant, York University (Macroeconomics)** — with Tasso Adamopoulos and Chaoran Chen; macroeconomic data analysis and model support.  
+- **Research Assistant, York University (Macroeconomics)** — with Tasso Adamopoulos; macroeconomic data analysis.  
+- **Research Assistant (Electricity Markets)** — with Jeremy Lin; data analysis on electricity-market projects.  
+- **Research Assistant, University of Tehran (Energy Economics)** — with Farkhondeh Jabal Ameli; energy-sector data analysis.  
+
+---
+
+## Additional Projects
+- **Macroeconomic Indexes and their Impacts on the Petrochemical Industry, University of Tehran** — data collection and empirical analysis.  
+- **Master’s Thesis (Energy Economics)** — *The Effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry* (Supervisor: Farkhondeh Jabal Ameli).  
+- **Shale-gas revolution and its effects on polyethylene prices, University of Tehran**  
+- **Gas pricing mechanisms, University of Tehran**  
