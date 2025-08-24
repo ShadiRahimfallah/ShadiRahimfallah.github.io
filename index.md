@@ -7,7 +7,8 @@ permalink: /
 
 I am a PhD student in the Department of Economics at York University. My research focuses on macroeconomics, financial economics, and development.
 
-**Contact:** shadi.rahimfallah@gmail.com
+**Contact:** shadirf@yorku.ca
+             shadi.rahimfallah@gmail.com
 
 **Research Interests:** Macroeconomics, Financial Frictions, Firm Dynamics, Development, Energy & Sustainability.
 
