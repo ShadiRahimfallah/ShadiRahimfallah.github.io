@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Research Statement
-My research investigates how used capital markets mitigate financial frictions in developing economies, enhancing capital allocation, firm growth, and aggregate productivity.
+My research investigates how used capital mitigates financial frictions in developing economies, enhancing capital allocation, firm growth, and aggregate productivity.
 
 ## Working Paper
 **Used Capital, Financial Frictions, and Misallocation (Vietnam, 2005–2015)**  
