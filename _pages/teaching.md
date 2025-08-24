@@ -5,7 +5,7 @@ permalink: /teaching/
 author_profile: true
 ---
 
-## Teaching Experience
+## Teaching Assistance
 
 - ECON1530 — **Introductory Mathematical Economics I** 
 - ECON1540 — **Introductory Mathematical Economics II**  
