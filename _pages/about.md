@@ -5,7 +5,7 @@ permalink: /
 author_profile: true
 ---
 
-Hello! I am a PhD student in the Department of Economics at York University.  
+I am a PhD student in the Department of Economics at York University.  
 My research focuses on Macroeconomics, Financial Economics, and Development.  
 
 Specifically, I study the role of second-hand capital under financial frictions in developing countries.  
