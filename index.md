@@ -5,10 +5,10 @@ author_profile: true
 permalink: /
 ---
 
-I am a PhD student in the Department of Economics at York University. My research focuses on macroeconomics, financial economics, and development.
+I am a PhD student in the Department of Economics at York University. My research investigates how used capital mitigates financial frictions in developing economies, enhancing capital allocation, firm growth, and aggregate productivity.
 
 **Contact:** shadirf@yorku.ca
-             shadi.rahimfallah@gmail.com
+        
 
 **Research Interests:** Macroeconomics, Financial Frictions, Firm Dynamics, Development, Energy & Sustainability.
 
