@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: home
 title: "Shadi Rahimfallah"
 author_profile: true
 ---
