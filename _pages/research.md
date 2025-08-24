@@ -19,9 +19,9 @@ I build a quantitative general equilibrium model with heterogeneous firms that r
 
 ## Research Experience
 - **Research Assistant (Macroeconomics), York University** — with **Prof. Tasso Adamopoulos** and **Prof. Chaoran Chen**; macroeconomic data analysis and model support (**4 months**).
-- **Research Assistant (Macroeconomics), York University** — with **Prof. Tasso Adamopoulos**; macroeconomic data analysis (Summer 2023).
-- **Master’s Thesis (Energy Economics)** — *The effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry* (Supervisor: **Prof. Farkhondeh Jabal Ameli**), Jan 2019.
-- **Research Assistant (Energy Economics), University of Tehran** — with **Dr. Farkhondeh JabalAmeli**; data analysis on energy-sector projects (Oct 2018).
+- **Research Assistant (Macroeconomics), York University** — with **Prof. Tasso Adamopoulos**; macroeconomic data analysis.
+- **Master’s Thesis (Energy Economics)** — *The effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry* (Supervisor: **Prof. Farkhondeh Jabal Ameli**).
+- **Research Assistant (Energy Economics), University of Tehran** — with **Dr. Farkhondeh JabalAmeli**; data analysis on energy-sector projects.
 - **Research Assistant (Electricity Market), University of Tehran** — with **Dr. Jeremy Lin**; electricity-market data analysis.
 - **Macroeconomic Indexes and their Impacts on the Petrochemical Industry, University of Tehran.**
 
