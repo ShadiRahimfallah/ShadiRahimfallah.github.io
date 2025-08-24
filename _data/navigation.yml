@@ -5,5 +5,7 @@ main:
     url: /research/
   - title: "Teaching"
     url: /teaching/
+  - title: "Professional Experience"
+    url: /experience/
   - title: "Beyond Economics"
     url: /personal/
