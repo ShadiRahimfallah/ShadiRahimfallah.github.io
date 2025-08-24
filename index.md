@@ -11,4 +11,5 @@ I am a PhD student in Economics at York University. My research explores how sec
         
 
 **Research Interests:** Macroeconomics; Financial Economics; Firm Dynamics; Development Economics; Energy & Sustainability
-[CV](/cv/)  <!-- change the link if your CV lives elsewhere -->
+
+
