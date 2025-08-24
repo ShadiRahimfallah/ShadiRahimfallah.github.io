@@ -8,7 +8,7 @@ author_profile: true
 ## Research Statement
 My research investigates how used capital markets mitigate financial frictions in developing economies, enhancing capital allocation, firm growth, and aggregate productivity.
 
-## Job Market Paper / Working Paper
+## Working Paper
 **Used Capital, Financial Frictions, and Misallocation (Vietnam, 2005–2015)**  
 I build a quantitative general equilibrium model with heterogeneous firms that rent capital subject to collateral constraints. Firms choose between new and used capital; rental prices are determined endogenously in equilibrium. Using firm-level panel data from Vietnamese manufacturing (2005–2015), I show that access to lower-priced used capital lets constrained firms operate closer to optimal scale, reallocating capital toward more productive firms and improving aggregate efficiency. In the model, allowing used capital reduces productivity losses from financial frictions from ~16% to ~4% of output (measured by the log-TFP gap between efficient and constrained equilibria).
 
