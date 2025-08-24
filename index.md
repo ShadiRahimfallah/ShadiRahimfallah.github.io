@@ -1,18 +1,14 @@
 ---
-layout: about
+layout: single
 title: "Shadi Rahimfallah"
-permalink: /        # keep this so the page is your homepage
-profile:
-  align: left                     # or "left"
-  image: images/shadi.jpg          # must exist in the repo at images/shadi.jpg
-  name: "Shadi Rahimfallah"
-  pronouns: "she/her"
-  address: "Toronto, Canada"
-
+author_profile: true
+permalink: /
 ---
 
-Welcome! I am a PhD student in the Department of Economics at York University.  
-My research focuses on Macroeconomics, Financial Economics, and Development.  
+I am a PhD student in the Department of Economics at York University. My research focuses on macroeconomics, financial economics, and development.
 
-Specifically, I study the role of second-hand capital under financial frictions in developing countries.  
-I also have over five years of experience in energy economics research, particularly in the oil, gas, and petrochemical industries, with an interest in environmental and sustainability issues.
+**Contact:** shadi.rahimfallah@gmail.com
+
+**Research Interests:** Macroeconomics, Financial Frictions, Firm Dynamics, Development, Energy & Sustainability.
+
+[CV](/cv/)  <!-- change the link if your CV lives elsewhere -->
