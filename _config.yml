@@ -1,49 +1,20 @@
-# =========================
-# Basic Site Settings (fixed)
-# =========================
-locale        : "en-US"
-site_theme    : "default"           # or "air"
-title         : "Shadi Rahimfallah"
-title_separator: "-"
-name          : &name "Shadi Rahimfallah"
-description   : &description "Research in Macroeconomics, Financial Economics, and Economic Development"
-
-url           : "https://ShadiRahimfallah.github.io"   # must match your site URL
-baseurl       : ""                                      # keep empty for USERNAME.github.io sites
-repository    : "ShadiRahimfallah/ShadiRahimfallah.github.io"
-
-# =========================
-# Author (sidebar profile)
-# =========================
 author:
-  # Biographic information
-  avatar     : "/images/shadi.jpg"
+  avatar     : "/images/shadi.jpg"     # file must exist
   name       : "Shadi Rahimfallah"
   pronouns   : "she/her"
-  bio        : "I'm a PhD student in the Department of Economics at York University, focusing on Macroeconomics, Financial Economics, and Development. My research explores the role of second-hand capital under financial frictions in developing countries. I also have over five years of experience in energy economics research, particularly in the oil, gas, and petrochemical industries, with an interest in environmental and sustainability issues."
+  bio        : "Assistant/PhD student, Department of Economics, York University."
   location   : "Toronto, Canada"
-  # employer  : ""
-  uri        : ""                     # optional personal URL
+  #employer  : "York University"
   email      : "shadi.rahimfallah@gmail.com"
-
-  # Academic websites (fill in what you use; others left commented)
-  googlescholar: "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  orcid        : ""                   # e.g., "https://orcid.org/0000-0000-0000-0000"
-  # researchgate : ""
-  # scopus       : ""
-  # pubmed       : ""                  # only if relevant
-
-  # Repositories and software
-  github     : "ShadiRahimfallah"
-  # bitbucket  : ""
-  # kaggle     : ""
-  # stackoverflow: ""
-
-  # Social media
-  # linkedin   : ""                    # e.g., "https://www.linkedin.com/in/username/"
-  # twitter    : ""                    # X/Twitter handle without @
-  # bluesky    : ""                    # your.bsky.social
-  # mastodon   : ""                    # full URL if used
-  # youtube    : ""
-  # instagram  : ""
-  # medium     : ""
+  # Social/link icons shown in the sidebar:
+  links:
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:shadi.rahimfallah@gmail.com"
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"
+      url: "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/ShadiRahimfallah"
+    # add LinkedIn/Twitter if you like
