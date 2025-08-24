@@ -2,10 +2,10 @@ author:
   avatar     : "/images/shadi.jpg"     # file must exist
   name       : "Shadi Rahimfallah"
   pronouns   : "she/her"
-  bio        : "Assistant/PhD student, Department of Economics, York University."
+  bio        : "PhD student, Department of Economics, York University."
   location   : "Toronto, Canada"
   #employer  : "York University"
-  email      : "shadi.rahimfallah@gmail.com"
+  email      : "shadirf@yorku.ca"
   # Social/link icons shown in the sidebar:
   links:
     - label: "Email"
