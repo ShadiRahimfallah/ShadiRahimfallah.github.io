@@ -35,4 +35,5 @@ author:
       url: "https://github.com/ShadiRahimfallah"
     # add LinkedIn/Twitter if you like
   
-
+plugins:
+  - jekyll-sitemap
