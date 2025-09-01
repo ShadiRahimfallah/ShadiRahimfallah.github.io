@@ -13,7 +13,7 @@ I study how secondary markets for capital (used machinery and equipment) ease fi
 ## Papers
 
 ### Working Paper
-**Used Capital, Financial Frictions, and Misallocation (Vietnam, 2005–2015)**  
+**Financial Frictions, Used Capital, and Misallocation (Vietnam, 2005–2015)**  
 I develop a heterogeneous-firm GE model where firms rent new or used capital under collateral constraints and prices are set in equilibrium. Using Vietnamese manufacturing panel data (2005–2015), I show that access to used capital helps constrained firms operate closer to optimal scale, improving allocative efficiency and raising aggregate TFP.
 
 ### Publication
