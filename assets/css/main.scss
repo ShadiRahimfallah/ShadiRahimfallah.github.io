@@ -42,9 +42,17 @@
     "vendor/font-awesome/brands"
 ;
 
-/* ✅ Custom overrides below */
-.author__avatar img {
-  width: 300px;   /* increase size */
-  height: auto;
-  border-radius: 50%; /* keep it round */
+/* Strong override: make avatar bigger */
+.author__avatar { 
+  width: 300px !important;   /* container controls size */
+  height: 300px !important;
 }
+
+.author__avatar img {
+  max-width: 300px !important;  /* theme caps it at 175px; override that */
+  width: 300px !important; 
+  height: 300px !important;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
