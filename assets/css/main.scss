@@ -43,16 +43,24 @@
 ;
 
 /* Strong override: make avatar bigger */
-.author__avatar { 
-  width: 300px !important;   /* container controls size */
-  height: 300px !important;
-}
-
+.author__avatar,
 .author__avatar img {
-  max-width: 300px !important;  /* theme caps it at 175px; override that */
-  width: 300px !important; 
+  width: 300px !important;
   height: 300px !important;
+  max-width: 300px !important;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Optional: enlarge About-page profile picture too */
+.profile-pic,
+.profile-pic img {
+  width: 300px !important;
+  height: auto !important;
+  max-width: 300px !important;
+  border-radius: 50%;
+}
+
+
 }
 
