@@ -42,21 +42,17 @@
     "vendor/font-awesome/brands"
 ;
 
-/* Strong override: make avatar bigger */
+/* Sidebar avatar */
 .author__avatar,
 .author__avatar img {
-  width: 300px !important;
-  height: 300px !important;
-  max-width: 300px !important;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 250px !important;
+  height: 250px !important;
 }
 
-/* Optional: enlarge About-page profile picture too */
+/* About-page photo */
 .profile-pic,
 .profile-pic img {
-  width: 300px !important;
-  height: auto! important;
-  max-width: 300px !important;
-  border-radius: 50%;
+  width: 350px !important;
+  height: auto ! important;
 }
+
