@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Research Statement
-My research focuses on the interaction between **financial frictions, used capital, and misallocation**. I study how the availability of second-hand capital provides firms with a lower-cost financing option that relaxes collateral constraints, reshapes investment scale, and reduces productivity losses from misallocation. Using firm-level data from Vietnamese manufacturing and quantitative general equilibrium models, my research shows that incorporating second-hand capital significantly improves resource allocation in economies with underdeveloped financial systems..
+My research focuses on the interaction between **financial frictions, used capital, and misallocation**. I study how the availability of second-hand capital provides firms with a lower-cost financing option that relaxes collateral constraints, reshapes investment scale, and reduces productivity losses from misallocation. Using firm-level data from Vietnamese manufacturing and quantitative general equilibrium models, my research shows that incorporating second-hand capital significantly improves resource allocation in economies with underdeveloped financial systems.
 
 ---
 
