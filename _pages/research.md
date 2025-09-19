@@ -6,34 +6,51 @@ author_profile: true
 ---
 
 ## Research Statement
-I study how secondary markets for capital (used machinery and equipment) ease financial frictions in developing economies. My work combines firm-level data with quantitative general equilibrium models to assess how access to lower-priced used capital reshapes firm scale, reallocates resources toward more productive producers, and raises aggregate productivity.
+My research focuses on the interaction between financial frictions, used capital, and misallocation. I study how the availability of second-hand capital provides firms with a lower-cost financing option that relaxes collateral constraints, reshapes investment scale, and reduces productivity losses from misallocation. Using firm-level data from Vietnamese manufacturing and quantitative general equilibrium models, my research shows that incorporating second-hand capital significantly improves resource allocation in economies with underdeveloped financial systems..
 
 ---
 
 ## Papers
 
 ### Working Paper
-**Financial Frictions, Used Capital, and Misallocation (Vietnam, 2005–2015)**  
-I develop a heterogeneous-firm GE model where firms rent new or used capital under collateral constraints and prices are set in equilibrium. Using Vietnamese manufacturing panel data (2005–2015), I show that access to used capital helps constrained firms operate closer to optimal scale, improving allocative efficiency and raising aggregate TFP.
+**Entry, Exit, and Equipment Choice: How Collateral Constraints Shape Firm Dynamics**  
+Brief: The entry/exit model with a new-vs-used equipment margin shows that tighter collateral limits and higher entry costs push entrants toward used equipment, compress startup scale, raise early exit, and reduce TFP; calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
+<details><summary>Read more</summary>
+I develop a heterogeneous-firm model with entry, exit, and an explicit choice between new and used equipment. Two frictions—collateral limits and entry costs—govern market access, startup scale, vintage at birth, leverage, and survival. The used stock evolves realistically: each period, some new equipment transitions into the used pool, and some used equipment retires. I solve and simulate the model in MATLAB (collocation plus large-panel simulations) and build calibration targets in Stata from Vietnam’s 2005–2015 manufacturing data, including the used-investment share, debt-to-GDP, output volatility, and short- to medium-run persistence. The framework quantifies how tighter finance and higher entry fees push marginal entrants toward cheaper used equipment and smaller initial scale, increasing early-life exit and lowering TFP through composition and scale distortions. Policy counterfactuals compare lowering entry fees with relaxing collateral limits, tracing impacts on entry and exit, the cohort vintage mix, leverage, output moments, and productivity.
+</details>
+
+**Heterogeneous Firms, Collateral Constraints, and Used Capital: A General Equilibrium Analysis of Capital Misallocation**
+Brief: A general equilibrium model shows that access to used capital reduces misallocation by relaxing collateral constraints, improving capital allocation and productivity. Firm-level evidence confirms that financially constrained firms make greater use of used capital.
+<details><summary>Read more</summary>
+This study examines how used capital helps reduce the productivity losses created by financial frictions in developing economies. Drawing on Vietnamese manufacturing data, it develops a general equilibrium model in which heterogeneous firms rent both new and used capital while facing collateral constraints. Because used capital is cheaper to rent and requires less collateral, constrained firms are able to operate closer to their efficient scale, which improves aggregate efficiency. The model shows that when used capital is available, misallocation losses are markedly lower than in an economy restricted to new capital. Firm-level evidence further confirms that financially constrained firms rely more heavily on used capital, in line with the theoretical predictions. Together, these findings suggest that secondary markets for used capital serve as a key channel for relaxing borrowing constraints and enhancing resource allocation in economies with underdeveloped financial systems.
+</details>
+
+
+**Shadow Cost of Funds, Collateral Constraints, and Used Capital: A Model of Capital Misallocation (York University)**
+Brief: Firms can choose new vs. used equipment. Used capital lowers the shadow cost of funds for financially constrained firms, letting them scale earlier via self-financing, improve short-run survival, and reduce the share of chronically small firms—while changing the vintage mix that drives aggregate misallocation. Calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
+<details><summary>Read more</summary>
+This paper builds a firm-dynamics model (no entry margin here) with a collateral-style affordability cap and a **shadow cost of funds** that summarizes financing tightness. The key addition is a **vintage choice**: firms can buy **new** equipment (more durable, higher price) or **used** equipment (cheaper up front, faster wear). Because the upfront outlay is smaller, used capital acts as a **financing relief channel**—constrained firms expand capacity sooner and rely less on external funds while **self-financing** builds assets. The used stock evolves each period as some new equipment becomes used and some used equipment retires.
+Implementation uses MATLAB for collocation and large-panel simulation; Stata constructs 2005–2015 targets from Vietnam manufacturing (used-investment share, debt-to-GDP, output volatility, and persistence). Draft findings: (i) used capital helps constrained firms scale earlier and survive initial years; (ii) large, unconstrained firms barely change vintage; (iii) aggregate implications run through the vintage mix and scale distribution, informing misallocation and TFP.
+</details>
+
+
+
+
 
 ### Publication
 **Geoeconomics of Global Energy Transformation: Oil Prices, Polyethylene Costs, and Shale Gas in the U.S.**  
 *Published August 2022* — 
 <a href="https://wsps.ut.ac.ir/article_93569.html" target="_blank" rel="noopener noreferrer">Article link</a>  
-Time-series evidence on pass-through from oil and shale-gas shocks to petrochemical input costs; quantifies magnitude and timing.
+Time-series evidence on pass-through from oil and shale-gas shocks to petrochemical input costs quantifies the magnitude and timing.
 
 ---
 
 ## Research in Progress
 
-**Collateral Constraints and Rental-Market Depth (in progress)**  
-Explores how credit frictions interact with the depth of used-capital markets. In the model, tightening collateral constraints raises demand for used capital, altering rental rates and firm scale; shallow rental markets can amplify misallocation in downturns.
-
-**Energy-Price Shocks and Investment Reallocation: Evidence from Iran (in progress)**  
-Examines how oil and gas price volatility reshapes sectoral investment in Iran. Combines sector-level data with macro indicators, using SVAR, local projections, and panel methods to trace dynamic adjustment paths and long-run growth implications.
-
 **Cultural and ESG Predictors of Human Development: A Machine-Learning Approach (in progress)**  
-Builds a predictive framework linking Hofstede cultural dimensions and sovereign ESG metrics to cross-country human development. Uses gradient boosting, penalized regression, and clustering to capture nonlinear interactions in high-dimensional data.
+<details><summary>Read more</summary>
+This project integrates **environmental, social, and governance (ESG) indicators** with **Hofstede’s cultural dimensions** to build a predictive model of the Human Development Index (HDI). Using techniques such as **gradient boosting, penalized regression, and unsupervised clustering**, the framework identifies nonlinear interactions and latent groupings in high-dimensional data. The research highlights how cultural values, governance quality, and sustainability practices jointly shape human development outcomes. It not only improves forecasting accuracy relative to traditional models but also uncovers policy-relevant pathways, showing, for example, how combinations of governance strength and cultural orientation condition the returns to social investment. By merging cross-country datasets with advanced machine learning, the project advances the measurement of development and provides a richer understanding of the institutional and cultural drivers of long-run welfare.
+</details>
 
 
 ---
@@ -55,7 +72,7 @@ The thesis studies how the U.S. shale-gas boom reshaped global petrochemical com
 **Shale-Gas Revolution and Polyethylene Prices (University of Tehran)**  
 Brief: Time-series models trace pass-through from shale-driven gas price declines to lower polyethylene prices, revealing strong energy-to-industry transmission.  
 <details><summary>Read more</summary>
-Econometric analysis shows cheaper gas inputs increased supply and put durable downward pressure on polymer prices, illustrating how energy shocks propagate through manufacturing cost structures and global competition.
+Econometric analysis shows that cheaper gas inputs increased supply and put durable downward pressure on polymer prices, illustrating how energy shocks propagate through manufacturing cost structures and global competition.
 </details>
 
 **Gas Pricing Mechanisms (University of Tehran)**  
@@ -63,6 +80,10 @@ Brief: Policy framework for efficient and equitable natural-gas pricing under na
 <details><summary>Read more</summary>
 Grounded in public-sector pricing and Ramsey principles, the project estimates demand and cost relationships and evaluates alternative pricing rules under subsidy reform. GMM estimation provides consistent dynamics, yielding benchmarks that balance fiscal goals, consumer welfare, and industrial competitiveness.
 </details>
+
+**Health Financing and Inequality in Iran (Industry)**  
+Brief: Using province-by-year data, places with higher average household income have fewer infant and overall deaths, while more income inequality is linked to more deaths. Insurance coverage, education, and health-care capacity also help reduce deaths.
+<details><summary>Read more</summary> I compare each province to itself over time (so fixed local traits don’t bias results) and track two outcomes: infant mortality and all-cause mortality. The main drivers are log household spending (a proxy for income), the Gini index (a measure of inequality), education, insurance coverage, and healthcare capacity. To check the direction of cause and effect, I also repeat the analysis using past values as instruments. The pattern is robust: higher income → lower mortality; higher inequality → higher mortality; more insurance, education, and care capacity → lower mortality. </details>
 
 ---
 
