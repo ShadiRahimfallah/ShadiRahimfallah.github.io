@@ -35,7 +35,7 @@ Brief: Firms can choose new vs. used capital. The lower purchase price of used c
   This paper builds a firm-dynamics model without an entry margin. Firms face a collateral-style affordability cap and a shadow cost of funds that captures financing tightness. The key feature is a vintage choice between new and used capital treated as two distinct goods: a unit bought as new remains new; a unit bought as used remains used. There is no conversion from new to used and no additional within-type quality downgrading beyond standard (type-specific) depreciation.
 Mechanism: Because used capital has a lower upfront price, constrained firms can expand capacity sooner with less external finance, while self-financing builds assets. Large, unconstrained firms change their vintage mix little.
 Implementation uses MATLAB to solve and simulate the model and Stata to construct 2005–2015 targets from Vietnam manufacturing (used-investment share, debt-to-GDP, output volatility, and persistence).
-
+</details>
 
 
 
@@ -86,7 +86,8 @@ Grounded in public-sector pricing and Ramsey principles, the project estimates d
 
 **Health Financing and Inequality in Iran (Industry)**  
 Brief: Using province-by-year data, places with higher average household income have fewer infant and overall deaths, while more income inequality is linked to more deaths. Insurance coverage, education, and health-care capacity also help reduce deaths.
-<details><summary>Read more</summary> I compare each province to itself over time (so fixed local traits don’t bias results) and track two outcomes: infant mortality and all-cause mortality. The main drivers are log household spending (a proxy for income), the Gini index (a measure of inequality), education, insurance coverage, and healthcare capacity. To check the direction of cause and effect, I also repeat the analysis using past values as instruments. The pattern is robust: higher income → lower mortality; higher inequality → higher mortality; more insurance, education, and care capacity → lower mortality. </details>
+<details><summary>Read more</summary> I compare each province to itself over time (so fixed local traits don’t bias results) and track two outcomes: infant mortality and all-cause mortality. The main drivers are log household spending (a proxy for income), the Gini index (a measure of inequality), education, insurance coverage, and healthcare capacity. To check the direction of cause and effect, I also repeat the analysis using past values as instruments. The pattern is robust: higher income → lower mortality; higher inequality → higher mortality; more insurance, education, and care capacity → lower mortality. 
+</details>
 
 ---
 
