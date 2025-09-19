@@ -13,7 +13,7 @@ My research focuses on the interaction between **financial frictions, used capit
 ## Papers
 
 ### Working Paper
-**Entry, Exit, and Equipment Choice: How Collateral Constraints Shape Firm Dynamics (York University)**  
+**Entry, Exit, and Capital Choice: How Collateral Constraints Shape Firm Dynamics (York University)**  
 
 Brief: The entry/exit model with a new-vs-used equipment margin shows that tighter collateral limits and higher entry costs push entrants toward used equipment, compress startup scale, raise early exit, and reduce TFP; calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
 <details><summary>Read more</summary>
