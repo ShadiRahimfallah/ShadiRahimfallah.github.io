@@ -13,14 +13,14 @@ My research focuses on the interaction between **financial frictions, used capit
 ## Papers
 
 ### Working Paper
-**Entry, Exit, and Equipment Choice: How Collateral Constraints Shape Firm Dynamics**  
+**Entry, Exit, and Equipment Choice: How Collateral Constraints Shape Firm Dynamics (York University)**  
 
 Brief: The entry/exit model with a new-vs-used equipment margin shows that tighter collateral limits and higher entry costs push entrants toward used equipment, compress startup scale, raise early exit, and reduce TFP; calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
 <details><summary>Read more</summary>
 I develop a heterogeneous-firm model with entry, exit, and an explicit choice between new and used equipment. Two frictions—collateral limits and entry costs—govern market access, startup scale, vintage at birth, leverage, and survival. The used stock evolves realistically: each period, some new equipment transitions into the used pool, and some used equipment retires. I solve and simulate the model in MATLAB (collocation plus large-panel simulations) and build calibration targets in Stata from Vietnam’s 2005–2015 manufacturing data, including the used-investment share, debt-to-GDP, output volatility, and short- to medium-run persistence. The framework quantifies how tighter finance and higher entry fees push marginal entrants toward cheaper used equipment and smaller initial scale, increasing early-life exit and lowering TFP through composition and scale distortions. Policy counterfactuals compare lowering entry fees with relaxing collateral limits, tracing impacts on entry and exit, the cohort vintage mix, leverage, output moments, and productivity.
 </details>
 
-**Heterogeneous Firms, Collateral Constraints, and Used Capital: A General Equilibrium Analysis of Capital Misallocation**
+**Heterogeneous Firms, Collateral Constraints, and Used Capital: A General Equilibrium Analysis of Capital Misallocation (York University)**
 
 Brief: A general equilibrium model shows that access to used capital reduces misallocation by relaxing collateral constraints, improving capital allocation and productivity. Firm-level evidence confirms that financially constrained firms make greater use of used capital.
 <details><summary>Read more</summary>
