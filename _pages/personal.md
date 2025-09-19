@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Outside Academia
-Outside of research and teaching, I value activities that give me balance and perspective. I enjoy spending time outdoors—hiking, camping, and paddle-boarding. Cooking is another passion: experimenting with new recipes and sharing meals with friends is one of my favorite ways to connect across cultures.  
+Outside of research and teaching, I value activities that give me balance and perspective. I enjoy spending time outdoors—hiking, camping, and paddle-boarding. Cooking is another passion: experimenting with new recipes and sharing meals with friends is one of my favorite ways to connect across cultures. My name, Shadi Rahimfallah, reflects this outlook as well: Shadi means joy in Persian, and Rahimfallah combines mercy and success, a reminder to approach life with kindness and positivity. 
 
 Reading is also an important part of my life. I read broadly beyond economics—literature, history, psychology, and science—which helps me stay curious and often inspires fresh perspectives for my work.  
 
