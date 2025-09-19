@@ -1,6 +1,6 @@
 # _config.yml  (abridged)
 
-title: "Shadi Rahimfallah"
+title: ""
 url: "https://shadirahimfallah.github.io"
 baseurl: ""
 repository: "ShadiRahimfallah/ShadiRahimfallah.github.io"
@@ -17,7 +17,7 @@ include:
 author:
   avatar     : "https://shadirahimfallah.github.io/images/shadi.jpg"    # file must exist
   name       : "Shadi Rahimfallah"
-  pronouns   : "she/her"
+  pronouns   : "She/Her"
   bio        : "PhD student, Department of Economics, York University."
   location   : "Toronto, Canada"
   #employer  : "York University"
