@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Shadi Rahimfallah"
+title: ""
 author_profile: true
 permalink: /
 ---
