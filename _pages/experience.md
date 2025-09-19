@@ -7,11 +7,11 @@ author_profile: true
 
 ## Professional Experience
 
-### Health Economics Researcher
+### Economics Research Analyst
 *Partogen Beh Tashkhis | 2016 – 2021*  
-I worked on applied research projects in health economics and inequality, combining rigorous quantitative analysis with policy-relevant evaluation. My responsibilities included designing cost-effectiveness studies, managing and analyzing large datasets, and applying econometric methods to measure efficiency and distributional outcomes in healthcare.  
+I worked on applied research projects with a focus on data-driven analysis of inequality and resource allocation. My responsibilities included designing empirical studies, managing and analyzing large datasets, and applying econometric and statistical techniques to evaluate efficiency and distributional outcomes.
 
-The role required close collaboration with multidisciplinary teams and the communication of complex findings to both technical and non-technical audiences. This experience deepened my interest in inequality and resource allocation while strengthening my ability to connect analytical methods with real-world challenges.  
+The role required close collaboration with multidisciplinary teams and clear communication of complex results to both technical and non-technical audiences. This experience strengthened my expertise in big data analytics, econometric modeling, and quantitative research, while deepening my ability to connect analytical methods with real-world challenges in both industry and research contexts.
 
 ---
 
