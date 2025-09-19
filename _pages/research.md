@@ -14,12 +14,14 @@ My research focuses on the interaction between financial frictions, used capital
 
 ### Working Paper
 **Entry, Exit, and Equipment Choice: How Collateral Constraints Shape Firm Dynamics**  
+
 Brief: The entry/exit model with a new-vs-used equipment margin shows that tighter collateral limits and higher entry costs push entrants toward used equipment, compress startup scale, raise early exit, and reduce TFP; calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
 <details><summary>Read more</summary>
 I develop a heterogeneous-firm model with entry, exit, and an explicit choice between new and used equipment. Two frictions—collateral limits and entry costs—govern market access, startup scale, vintage at birth, leverage, and survival. The used stock evolves realistically: each period, some new equipment transitions into the used pool, and some used equipment retires. I solve and simulate the model in MATLAB (collocation plus large-panel simulations) and build calibration targets in Stata from Vietnam’s 2005–2015 manufacturing data, including the used-investment share, debt-to-GDP, output volatility, and short- to medium-run persistence. The framework quantifies how tighter finance and higher entry fees push marginal entrants toward cheaper used equipment and smaller initial scale, increasing early-life exit and lowering TFP through composition and scale distortions. Policy counterfactuals compare lowering entry fees with relaxing collateral limits, tracing impacts on entry and exit, the cohort vintage mix, leverage, output moments, and productivity.
 </details>
 
 **Heterogeneous Firms, Collateral Constraints, and Used Capital: A General Equilibrium Analysis of Capital Misallocation**
+
 Brief: A general equilibrium model shows that access to used capital reduces misallocation by relaxing collateral constraints, improving capital allocation and productivity. Firm-level evidence confirms that financially constrained firms make greater use of used capital.
 <details><summary>Read more</summary>
 This study examines how used capital helps reduce the productivity losses created by financial frictions in developing economies. Drawing on Vietnamese manufacturing data, it develops a general equilibrium model in which heterogeneous firms rent both new and used capital while facing collateral constraints. Because used capital is cheaper to rent and requires less collateral, constrained firms are able to operate closer to their efficient scale, which improves aggregate efficiency. The model shows that when used capital is available, misallocation losses are markedly lower than in an economy restricted to new capital. Firm-level evidence further confirms that financially constrained firms rely more heavily on used capital, in line with the theoretical predictions. Together, these findings suggest that secondary markets for used capital serve as a key channel for relaxing borrowing constraints and enhancing resource allocation in economies with underdeveloped financial systems.
@@ -27,6 +29,7 @@ This study examines how used capital helps reduce the productivity losses create
 
 
 **Shadow Cost of Funds, Collateral Constraints, and Used Capital: A Model of Capital Misallocation (York University)**
+
 Brief: Firms can choose new vs. used equipment. Used capital lowers the shadow cost of funds for financially constrained firms, letting them scale earlier via self-financing, improve short-run survival, and reduce the share of chronically small firms—while changing the vintage mix that drives aggregate misallocation. Calibrated to Vietnam manufacturing (2005–2015) using MATLAB (solution/simulation) and Stata (targets).
 <details><summary>Read more</summary>
 This paper builds a firm-dynamics model (no entry margin here) with a collateral-style affordability cap and a **shadow cost of funds** that summarizes financing tightness. The key addition is a **vintage choice**: firms can buy **new** equipment (more durable, higher price) or **used** equipment (cheaper up front, faster wear). Because the upfront outlay is smaller, used capital acts as a **financing relief channel**—constrained firms expand capacity sooner and rely less on external funds while **self-financing** builds assets. The used stock evolves each period as some new equipment becomes used and some used equipment retires.
