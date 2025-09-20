@@ -10,7 +10,7 @@ I am a PhD candidate in Economics at York University. My research examines how f
 
 **Contact:** shadirf[at]yorku.ca
  
-<a href="/files/CVShadiRahimfallah.pdf" target="_blank" class="btn btn--primary">CV</a>
+<a href="/files/Shadi(CV).pdf" target="_blank" class="btn btn--primary">CV</a>
  
 
 **Research Interests:** Macroeconomics; Financial Economics; Firm Dynamics; Development Economics
