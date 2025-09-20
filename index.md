@@ -13,6 +13,6 @@ I am a PhD candidate in Economics at York University. My research examines how f
 <a href="/files/CV.ShadiRahimfallah.pdf" target="_blank" class="btn btn--primary">CV</a>
  
 
-**Research Interests:** Macroeconomics; Financial Economics; Firm Dynamics; Development Economics; Energy & Sustainability; Health Economics & Equality.
+**Research Interests:** Macroeconomics; Financial Economics; Firm Dynamics; Development Economics
 
 
