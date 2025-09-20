@@ -1,11 +1,9 @@
 ---
 layout: single
-title: ""
+title: "Professional Experience"
 permalink: /experience/
 author_profile: true
 ---
-
-## Professional Experience
 
 ### Economics Specialist
 *Partogen Beh Tashkhis | 2016 – 2021*  
