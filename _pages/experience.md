@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Research and Professional Experience"
+title: ""
 permalink: /experience/
 author_profile: true
 ---
