@@ -74,6 +74,15 @@ Health Financing and Inequality in Iran
 <details><summary>Abstract</summary>
 Using province-by-year data, places with higher average household income have fewer infant and overall deaths, while more income inequality is linked to more deaths. Insurance coverage, education, and health-care capacity also help reduce deaths. I compare each province to itself over time (so fixed local traits don’t bias results) and track two outcomes: infant mortality and all-cause mortality. The main drivers are log household spending (a proxy for income), the Gini index (a measure of inequality), education, insurance coverage, and healthcare capacity. To check the direction of cause and effect, I also repeat the analysis using past values as instruments. The pattern is robust: higher income → lower mortality; higher inequality → higher mortality; more insurance, education, and care capacity → lower mortality.
 </details>
+---
 
+## Research Experience   
+### Research Assistant
+- York University (2023 – Present) —  Supervisors: Tasso Adamopoulos and Chaoran Chen; Macroeconomic modeling and data analysis.  
+- Electricity Industry Project (2021) — Supervisor: Jeremy Lin; Econometric analysis of electricity markets.  
+- University of Tehran (2018) — Supervisor: Farkhondeh Jabal Ameli; Energy-sector data analysis.  
+  
+
+  
 
 
