@@ -76,8 +76,4 @@ Using province-by-year data, places with higher average household income have fe
 </details>
 
 
-## Research Assistant
-- York University — with Tasso Adamopoulos and Chaoran Chen; Macroeconomic data analysis and model support.  
-- York University — with Tasso Adamopoulos; Macroeconomic data analysis.  
-- Electricity Markets — with Jeremy Lin; data analysis on electricity-market projects.  
-- University of Tehran — with Farkhondeh Jabal Ameli; Energy-sector data analysis.  
+
