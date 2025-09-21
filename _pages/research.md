@@ -78,9 +78,9 @@ Using province-by-year data, places with higher average household income have fe
 
 ## Research Experience   
 ### Research Assistant
-- York University (2023 – Present) —  Supervisors: Tasso Adamopoulos and Chaoran Chen; Macroeconomic modeling and data analysis.  
-- Electricity Industry Project (2021) — Supervisor: Jeremy Lin; Econometric analysis of electricity markets.  
-- University of Tehran (2018) — Supervisor: Farkhondeh Jabal Ameli; Energy-sector data analysis.  
+- York University(2023 – Present) —  Supervisors: Tasso Adamopoulos and Chaoran Chen 
+- Electricity Industry Project (2021) — Supervisor: Jeremy Lin 
+- University of Tehran (2018) — Supervisor: Farkhondeh Jabal Ameli 
   
 
   
