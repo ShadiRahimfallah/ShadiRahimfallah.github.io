@@ -7,7 +7,7 @@ author_profile: true
 
 ### Economist
 *Partogen Beh Tashkhis | 2016 – 2021*  
-Applied economic analysis using large datasets and quantitative methods.
+Research and quantitative/computational analysis of large datasets.
 
 ---
 
