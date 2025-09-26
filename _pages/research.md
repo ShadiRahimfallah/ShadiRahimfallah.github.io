@@ -7,7 +7,7 @@ author_profile: true
 
 ## Working Papers
 <span class="paper-title-blue">
-  Entry, Exit, and Capital Choice: How Collateral Constraints Shape Firm Dynamics (JMP)
+  Entry, Exit, and Capital Choice: How Collateral Constraints Shape Firm Dynamics
 </span>
 <details><summary>Abstract</summary>
 The entry/exit model with a new-vs-used Capital margin shows that tighter collateral limits and higher entry costs push entrants toward used equipment, compress startup scale, raise early exit, and reduce TFP. I develop a heterogeneous-firm model with entry, exit, and an explicit choice between new and used capital Two frictions—collateral limits and entry costs—govern market access, startup scale, vintage at birth, leverage, and survival. The used stock evolves realistically: each period, some new capital transitions into the used pool, and some used equipment retires. I solve and simulate the model in MATLAB (collocation plus large-panel simulations) and build calibration targets in Stata from Vietnam’s 2005–2015 manufacturing data, including the used-investment share, debt-to-GDP, output volatility, and short- to medium-run persistence. The framework quantifies how tighter finance and higher entry fees push marginal entrants toward cheaper used capital and smaller initial scale, increasing early-life exit and lowering TFP through composition and scale distortions.
