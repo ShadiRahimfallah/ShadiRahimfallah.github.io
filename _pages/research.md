@@ -30,52 +30,11 @@ Firms can choose new vs. used capital. The lower purchase price of used capital 
 ---
 
 ## Publication
+Master Project:
 Geoeconomics of Global Energy Transformation: Oil Prices, Polyethylene Costs, and Shale Gas in the U.S.  
 *Published August 2022* —  
 <a href="https://wsps.ut.ac.ir/article_93569.html" target="_blank" rel="noopener noreferrer">Article link</a>  
 
----
-
-## Additional Projects
-Cultural and ESG Predictors of Human Development: A Machine-Learning Approach (Research in Progress)  
-<details><summary>Abstract</summary>
-This project uses machine-learning methods to link ESG indicators and cultural values with the Human Development Index (HDI), highlighting how institutions and sustainability shape long-run welfare. This project integrates environmental, social, and governance (ESG) indicators with Hofstede’s cultural dimensions to build a predictive model of the Human Development Index (HDI). Using techniques such as gradient boosting, penalized regression, and unsupervised clustering, the framework identifies nonlinear interactions and latent groupings in high-dimensional data. The research highlights how cultural values, governance quality, and sustainability practices jointly shape human development outcomes. It not only improves forecasting accuracy relative to traditional models but also uncovers policy-relevant pathways, showing, for example, how combinations of governance strength and cultural orientation condition the returns to social investment. By merging cross-country datasets with advanced machine learning, the project advances the measurement of development and provides a richer understanding of the institutional and cultural drivers of long-run welfare.
-</details>
-
----
-
-Macroeconomic Indexes and Petrochemical Sector Performance  
-<details><summary>Abstract</summary>
-This panel VAR study shows that higher deposit rates lower petrochemical stock returns, while exchange-rate and overall market gains raise them. Oil-price increases hurt returns at first, but the effect fades gradually. In this study, I apply a panel VAR to examine how oil prices, real exchange rates, deposit rates, and market returns shape stock returns in Iran’s petrochemical sector. Impulse–response functions show deposit-rate shocks reduce returns, exchange-rate shocks increase them, and oil shocks have a negative yet diminishing effect across quarters—highlighting persistent macro-financial channels shaping firm performance.
-</details>
-
----
-
-Master’s Thesis (Energy Economics): The Effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry  
-<details><summary>Abstract</summary>
-The Effect of Shale Gas Expansion on the Attractiveness of Iran’s Petrochemical Industry** Brief: Global shale gas lowered feedstock costs abroad, intensifying competition and challenging Iran’s export position; domestic exchange-rate and inflation dynamics are also pivotal. The thesis studies how the U.S. shale-gas boom reshaped global petrochemical competitiveness. Using time-series and panel econometrics (e.g., VECM/cointegration), it links shale-driven energy price changes with polyethylene prices and sectoral performance, showing how external energy shocks and domestic macro factors jointly determine industry attractiveness.
-</details>
-
----
-
-Shale-Gas Revolution and Polyethylene Prices  
-<details><summary>Abstract</summary>
-Time-series models trace pass-through from shale-driven gas price declines to lower polyethylene prices, revealing strong energy-to-industry transmission. Econometric analysis shows that cheaper gas inputs increased supply and put durable downward pressure on polymer prices, illustrating how energy shocks propagate through manufacturing cost structures and global competition.
-</details>
-
----
-
-Gas Pricing Mechanisms  
-<details><summary>Abstract</summary>
-Policy framework for efficient and equitable natural-gas pricing under natural-monopoly conditions, estimated with GMM to handle endogeneity and dynamics. Grounded in public-sector pricing and Ramsey principles, the project estimates demand and cost relationships and evaluates alternative pricing rules under subsidy reform. GMM estimation provides consistent dynamics, yielding benchmarks that balance fiscal goals, consumer welfare, and industrial competitiveness.
-</details>
-
----
-
-Health Financing and Inequality in Iran  
-<details><summary>Abstract</summary>
-Using province-by-year data, places with higher average household income have fewer infant and overall deaths, while more income inequality is linked to more deaths. Insurance coverage, education, and health-care capacity also help reduce deaths. I compare each province to itself over time (so fixed local traits don’t bias results) and track two outcomes: infant mortality and all-cause mortality. The main drivers are log household spending (a proxy for income), the Gini index (a measure of inequality), education, insurance coverage, and healthcare capacity. To check the direction of cause and effect, I also repeat the analysis using past values as instruments. The pattern is robust: higher income → lower mortality; higher inequality → higher mortality; more insurance, education, and care capacity → lower mortality.
-</details>
 ---
 
 ## Research Experience   
