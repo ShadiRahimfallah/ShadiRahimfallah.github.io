@@ -8,15 +8,6 @@ author_profile: true
 ## Working Papers
 
 <span class="paper-title-blue">
-Used Capital and the Allocation of Entrepreneurial Opportunity under Financial Frictions
-</span>
-
-<details><summary>Abstract</summary>
-
-Standard models of occupational choice with financial frictions treat capital as homogeneous and ask how much output is lost when credit is scarce. This paper asks: how does access to used capital affect entrepreneurial entry when financial frictions prevent talented but poor agents from operating at efficient scale? I develop a dynamic general equilibrium model, calibrated to Vietnamese SME data, in which agents differ in wealth, entrepreneurial productivity, and worker ability, and firms rent new and used capital subject to a rental--collateral constraint. Entry carries no fixed cost: an agent becomes an entrepreneur whenever the value of running a firm exceeds the value of wage work. Used capital matters because it absorbs less collateral capacity than new capital, allowing constrained firms to operate closer to efficient scale for a given level of wealth. The intensive-margin gain is positive across the wealth distribution, but the key selection effect appears on the entry margin: used capital helps productive low-wealth agents enter when collateral is scarce. Removing the used-capital market at fixed benchmark prices destroys a quarter of entrepreneurship. When prices re-clear, aggregate entry almost fully recovers, but its composition changes. Entry tilts toward wealth and away from productivity, MRPK dispersion remains higher, and the TFP cost of financial frictions rises modestly. Used capital is therefore not merely a cheaper input; it is a financial device that reallocates entrepreneurial opportunity from wealth toward talent.
-
-</details>
-
 ---
 
 <span class="paper-title-blue">
@@ -26,6 +17,15 @@ The Last Mile of Technology Diffusion: Finance, Capability, and the Conversion o
 <details><summary>Abstract</summary>
 
 
+
+</details>
+---
+Used Capital and the Allocation of Entrepreneurial Opportunity under Financial Frictions
+</span>
+
+<details><summary>Abstract</summary>
+
+Standard models of occupational choice with financial frictions treat capital as homogeneous and ask how much output is lost when credit is scarce. This paper asks: how does access to used capital affect entrepreneurial entry when financial frictions prevent talented but poor agents from operating at efficient scale? I develop a dynamic general equilibrium model, calibrated to Vietnamese SME data, in which agents differ in wealth, entrepreneurial productivity, and worker ability, and firms rent new and used capital subject to a rental--collateral constraint. Entry carries no fixed cost: an agent becomes an entrepreneur whenever the value of running a firm exceeds the value of wage work. Used capital matters because it absorbs less collateral capacity than new capital, allowing constrained firms to operate closer to efficient scale for a given level of wealth. The intensive-margin gain is positive across the wealth distribution, but the key selection effect appears on the entry margin: used capital helps productive low-wealth agents enter when collateral is scarce. Removing the used-capital market at fixed benchmark prices destroys a quarter of entrepreneurship. When prices re-clear, aggregate entry almost fully recovers, but its composition changes. Entry tilts toward wealth and away from productivity, MRPK dispersion remains higher, and the TFP cost of financial frictions rises modestly. Used capital is therefore not merely a cheaper input; it is a financial device that reallocates entrepreneurial opportunity from wealth toward talent.
 
 </details>
 
