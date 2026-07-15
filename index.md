@@ -12,7 +12,7 @@ My doctoral research examines how financial frictions shape investment, entrepre
 
 **Core skills:** Structural modeling & calibration · Applied econometrics / causal inference · Large-dataset analysis · Investment & policy evaluation · Stata · Python · MATLAB
 
-**Interests:** Development · Macroeconomics · Financial economics · Energy & sustainability · Macroeconomics
+**Interests:** Development · Macroeconomics · Financial economics · Energy & sustainability · 
 
 **Contact:** shadirf[at]yorku.ca
  
