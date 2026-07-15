@@ -1,4 +1,4 @@
-# _config.yml  (abridged)
+# _config.yml (abridged)
 
 title: ""
 url: "https://shadirahimfallah.github.io"
@@ -9,19 +9,14 @@ repository: "ShadiRahimfallah/ShadiRahimfallah.github.io"
 include:
   - _pages
 
-
-
-
-
-
 author:
-  avatar     : "https://shadirahimfallah.github.io/images/Shadi.jpg"    # file must exist
-  name       : "Shadi Rahimfallah"
-  pronouns   : "She/Her"
-  bio        : "PhD student, Department of Economics, York University."
-  location   : "Toronto, Canada"
-  #employer  : "York University"
-  email      : "shadirf[a]yorku.ca"
+  avatar : "https://shadirahimfallah.github.io/images/Shadi.jpg" # file must exist
+  name : "Shadi Rahimfallah"
+  pronouns : "She/Her"
+  bio : "PhD student, Department of Economics, York University."
+  location : "Toronto, Canada"
+  #employer : "York University"
+  email : "shadirf[a]yorku.ca"
   # Social/link icons shown in the sidebar:
   links:
     - label: "Email"
@@ -33,7 +28,10 @@ author:
     - label: "GitHub"
       icon: "fab fa-github"
       url: "https://github.com/ShadiRahimfallah"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/shadi-rahimfallah-aba9539b"
     # add LinkedIn/Twitter if you like
-  
+
 plugins:
   - jekyll-sitemap
