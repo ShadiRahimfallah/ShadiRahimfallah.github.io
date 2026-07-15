@@ -6,11 +6,9 @@ permalink: /
 ---
 Hello, and welcome!
 
-I'm Shadi Rahimfallah — an applied economist and PhD candidate in Economics at York University who turns data and economic modeling into clear, decision-ready analysis. My work bridges academic research and applied policy and economic analysis.
+I am a PhD candidate in Economics at York University. My research combines economic modeling and data analysis to produce clear, decision-ready insight, bridging academic research and applied policy to help translate rigorous evidence into sound economic decisions.
 
-**Research:** My doctoral work studies how financial frictions shape investment, entrepreneurship, and productivity in developing economies.
-
-**Applied experience:** 5+ years as an economist in the medical and financial industry, delivering quantitative analysis for market research, investment evaluation, and strategic decisions.
+My doctoral research examines how financial frictions shape investment, entrepreneurship, and productivity in developing economies. Prior to my doctoral studies, I spent several years as an economist in the medical and financial sectors, providing quantitative analysis to support market research and investment decisions.
 
 **Core skills:** Structural modeling & calibration · Applied econometrics / causal inference · Large-dataset analysis · Investment & policy evaluation · Stata · Python · MATLAB
 
