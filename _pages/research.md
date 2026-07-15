@@ -13,7 +13,6 @@ The Last Mile of Technology Diffusion: Finance, Capability, and the Conversion o
 
 <details><summary>Abstract</summary>
 
-Technology in developing countries fails twice: firms adopt less of the frontier, and much of what they adopt never becomes how they actually produce. This paper defines, measures, and prices a new wedge: the conversion wedge, the gap between technology a firm uses at all and technology that is its primary production method. Using firm-level Adoption of Technology survey data, I construct a stalled-conversion indicator for each firm and business function: an advanced method that is used but not primary. Across countries, a large share of adopted advanced technologies are not the firm’s primary method, and many remain stalled even after several years of use. I document that machines load on the adoption margin but not the conversion margin, while finance and internal capability load on the conversion margin but not adoption. I then build a quantitative general-equilibrium model in which firms choose conversion intensity and where finance and internal capability govern the cost of making adopted technology operational. The results show that technology diffusion is not only about access to machines or adoption; it also depends on whether firms can finance and manage the last mile of conversion inside production.
 
 </details>
 
@@ -43,15 +42,78 @@ Firms can choose new versus used capital. The lower purchase price of used capit
 
 ---
 
-## Publication
 
-**Master Project:**  
-Geoeconomics of Global Energy Transformation: Oil Prices, Polyethylene Costs, and Shale Gas in the U.S.  
+## Master's Thesis
 
-*Published August 2022* —  
-<a href="https://wsps.ut.ac.ir/article_93569.html" target="_blank" rel="noopener noreferrer">Article link</a>
+<span class="paper-title-blue">
+The Effect of Shale Gas Expansion on the Attractiveness of Iran's Petrochemical Industry
+</span>
+
+*Master's thesis, University of Tehran, 2019*  
+Supervisor: Farkhondeh Jabalameli
+
+<details><summary>Research Overview</summary>
+
+This thesis studies how the U.S. shale-gas revolution changed global petrochemical competitiveness and examines the implications for Iran's petrochemical industry. It combines international energy-price analysis, evidence from Iranian petrochemical companies, and an institutional analysis of Iran's feedstock-pricing system.
+
+The research contains three empirical components:
+
+1. A time-series analysis of the relationship between WTI crude-oil prices and U.S. polyethylene prices during the expansion of shale-gas production.
+
+2. A panel-data analysis of the relationship between polyethylene prices and the stock-market performance of major Iranian petrochemical companies.
+
+3. A company-level analysis of how exchange-rate movements, inflation, and product prices were associated with the performance of Shazand Petrochemical Company.
+
+</details>
+
+<details><summary>Main Findings</summary>
+
+The U.S. analysis shows that crude-oil prices had a positive and significant long-run relationship with polyethylene prices, although no significant short-run effect was detected. The results also indicate one-way causality from oil prices to polyethylene prices. Therefore, while shale gas reduced the cost of ethane feedstock, polyethylene prices remained connected to oil-market conditions. This combination strengthened the cost advantage and profit margins of U.S. ethane-based producers.
+
+For Iran, the panel analysis finds a positive long-run association between polyethylene prices and the returns of several major petrochemical companies, including Maron, Persian Gulf Petrochemical Industries, Shazand, and Amir Kabir. The company-level analysis also highlights the importance of exchange-rate movements and inflation for the nominal performance of Iranian petrochemical firms.
+
+Together, the findings show that Iran's petrochemical competitiveness depends on more than access to natural-gas resources. Feedstock costs, international product prices, exchange-rate conditions, technology, capacity utilization, and access to export markets jointly determine investment attractiveness.
+
+</details>
+
+<details><summary>Policy Analysis</summary>
+
+The thesis materials document the evolution of Iran's petrochemical feedstock-pricing system—from subsidized and administratively controlled rates to the 13-cent floor and later formulas linked to international gas prices and exchange rates.
+
+The policy problem was not simply that feedstock was always too cheap or always too expensive. Low and frozen prices generated economic rents and encouraged investment in relatively simple upstream gas-based products. Abrupt increases and volatile benchmark-based formulas subsequently compressed producers' margins and made long-term investment more difficult.
+
+The policy implication is that cheap feedstock alone cannot create a sustainable petrochemical advantage. Iran requires a transparent and predictable pricing formula that balances three objectives:
+
+- capturing a fair public return from natural-gas resources;
+- maintaining regional industrial competitiveness; and
+- encouraging downstream production, technological upgrading, energy efficiency, and export diversification.
+
+A potential reform would combine domestic opportunity cost with regional competitor prices, use a moving average and price collar to reduce sudden shocks, and make preferential pricing conditional on measurable investment and performance.
+
+This institutional policy analysis complements the econometric findings; it is not presented as a causal result estimated by the U.S. price model.
+
+</details>
 
 ---
+
+## Selected Publication from the Thesis
+
+<span class="paper-title-blue">
+Geoeconomics of Global Energy Transformation: Exploring the Dynamic Linkages between Oil Prices, Polyethylene Costs, and Shale Gas in the United States
+</span>
+
+Farkhondeh Jabalameli and Shadi Rahimfallah  
+*Journal of World Sociopolitical Studies*, 7(1), 55–87, January 2023.  
+[Article](https://wsps.ut.ac.ir/article_93569.html) · [DOI](https://doi.org/10.22059/wsps.2023.363112.1370)
+
+*This publication was developed from the U.S. energy-price component of my master's thesis.*
+
+<details><summary>Abstract</summary>
+
+Using monthly data from January 2013 to December 2017 and an autoregressive distributed lag model, this paper examines the relationship between WTI crude-oil prices and U.S. high-density polyethylene prices during the shale-gas expansion. The results identify a positive and significant long-run effect of oil prices on polyethylene prices, no significant short-run effect, and one-way causality from oil to polyethylene prices. The findings explain how inexpensive shale-based ethane, combined with polyethylene prices that remained connected to oil-market conditions, contributed to the competitive advantage of U.S. petrochemical producers.
+
+</details>
+
 
 ## Research Experience
 
