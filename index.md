@@ -4,18 +4,22 @@ title: ""
 author_profile: true
 permalink: /
 ---
-Hello! Welcome to my website.
+Hello, and welcome!
 
-I am a PhD candidate in the Department of Economics at York University, specializing in macroeconomics, financial economics, and development economics.
+I'm Shadi Rahimfallah — an applied economist and PhD candidate in Economics at York University who turns data and economic modeling into clear, decision-ready analysis. My work bridges academic research and applied policy and economic analysis.
 
-My research examines how financial frictions shape occupational choice, capital allocation, and aggregate productivity in developing economies.
-Before my doctoral studies, I accumulated over five years of research experience in energy economics, alongside interests in environmental and sustainability issues.
+**Research:** My doctoral work studies how financial frictions shape investment, entrepreneurship, and productivity in developing economies.
+
+**Applied experience:** 5+ years as an economist in the medical and financial industry, delivering quantitative analysis for market research, investment evaluation, and strategic decisions.
+
+**Core skills:** Structural modeling & calibration · Applied econometrics / causal inference · Large-dataset analysis · Investment & policy evaluation · Stata · Python · MATLAB
+
+**Interests:** Development · Macroeconomics · Financial economics · Energy & sustainability · Macroeconomics
 
 **Contact:** shadirf[at]yorku.ca
  
 <a href="/files/Shadi(CV).pdf" target="_blank" class="btn btn--primary">CV</a>
  
 
-**Research Interests:** Macroeconomics; Financial Economics; Development Economics
 
 
