@@ -13,13 +13,15 @@ html, body { overflow-x:hidden; }
 body, .page__content, .author__name, .sidebar, p, li { font-family:"Open Sans", sans-serif; }
 h1, h2, h3, .page__title, .archive__item-title { font-family:"Playfair Display", serif; }
 
-/* ---- Top nav bar: maroon, links right ---- */
+/* ---- Top nav bar: maroon, flush to top, links right ---- */
 .masthead {
   background:var(--maroon);
   border-bottom:none;
   position:relative;
   z-index:30;
+  margin-top:0;
 }
+body { padding-top:0; margin-top:0; }
 .masthead__inner-wrap { padding-top:14px; padding-bottom:14px; }
 .greedy-nav { background:transparent; }
 .greedy-nav .site-title, .site-title {
@@ -28,10 +30,15 @@ h1, h2, h3, .page__title, .archive__item-title { font-family:"Playfair Display",
   font-weight:700;
   font-size:1.35em;
 }
-.greedy-nav a { color:#e1dfdb; font-family:"Open Sans", sans-serif; }
-.greedy-nav a:hover { color:#ffffff; }
+.greedy-nav a { color:#ffffff !important; font-family:"Open Sans", sans-serif; }
+.greedy-nav a:hover { color:#ffffff; opacity:0.8; }
 .greedy-nav .visible-links a:before { background:#ffffff; }
 .greedy-nav__toggle { color:#ffffff; }
+
+/* ---- Search (magnifying glass) icon top right: white ---- */
+.greedy-nav .search__toggle { color:#ffffff !important; }
+.greedy-nav button.search__toggle:hover { color:#ffffff; opacity:0.8; }
+#theme-icon, .greedy-nav .fa-sun { color:#ffffff !important; }
 
 /* ---- Full-width maroon banner with white boxed title ---- */
 .maroon-banner{
