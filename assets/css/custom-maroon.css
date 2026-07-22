@@ -6,6 +6,9 @@
   --accent:#bf0040;
 }
 
+/* Prevent horizontal scroll from full-bleed banner */
+html, body { overflow-x:hidden; }
+
 /* Base fonts */
 body, .page__content, .author__name, .sidebar, p, li { font-family:"Open Sans", sans-serif; }
 h1, h2, h3, .page__title, .archive__item-title { font-family:"Playfair Display", serif; }
@@ -34,28 +37,29 @@ h1, h2, h3, .page__title, .archive__item-title { font-family:"Playfair Display",
 .maroon-banner{
   position:relative;
   left:50%;
-  margin-left:-50vw;
-  margin-right:-50vw;
+  transform:translateX(-50%);
   width:100vw;
+  max-width:100vw;
   background:var(--maroon);
-  padding:44px 0 70px;
-  margin-top:0;
-  margin-bottom:2.5em;
+  padding:44px 0 66px;
+  margin:0 0 2.5em 0;
   z-index:20;
+  box-sizing:border-box;
 }
 .maroon-banner .banner-box{
   border:3px solid #fff;
-  max-width:1180px;
+  max-width:1140px;
   margin:0 auto;
-  padding:40px 55px;
+  padding:38px 55px;
   display:flex;
   justify-content:flex-end;
   align-items:center;
   min-height:150px;
+  box-sizing:border-box;
 }
 .maroon-banner .banner-box h1{
   color:#fff !important;
-  font-size:72px;
+  font-size:70px;
   font-weight:500;
   line-height:1;
   font-family:"Playfair Display", serif;
@@ -75,8 +79,8 @@ a:hover { color:#7a1f3d; }
 
 @media (max-width:900px){
   .maroon-banner .banner-box{ padding:26px 30px; justify-content:center; }
-  .maroon-banner .banner-box h1{ font-size:46px; text-align:center; }
+  .maroon-banner .banner-box h1{ font-size:44px; text-align:center; }
 }
 @media (max-width:600px){
-  .maroon-banner .banner-box h1{ font-size:34px; }
+  .maroon-banner .banner-box h1{ font-size:32px; }
 }
