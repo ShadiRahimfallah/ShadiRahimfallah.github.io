@@ -1,9 +1,14 @@
 # _config.yml (abridged)
 
-title: ""
+title: "Shadi Rahimfallah"
 url: "https://shadirahimfallah.github.io"
 baseurl: ""
 repository: "ShadiRahimfallah/ShadiRahimfallah.github.io"
+
+# Enable site search (magnifying-glass icon, top right)
+search: true
+search_full_content: true
+search_provider: lunr
 
 # Tell Jekyll to build files in /_pages
 include:
