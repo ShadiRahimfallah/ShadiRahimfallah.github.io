@@ -1,4 +1,4 @@
-/* ===== Exact Hanjoon Ryu style redesign ===== */
+/* ===== Hanjoon Ryu style redesign - v6 ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap');
 
 :root{
@@ -6,39 +6,49 @@
   --accent:#bf0040;
 }
 
-/* Prevent horizontal scroll from full-bleed banner */
 html, body { overflow-x:hidden; }
 
 /* Base fonts */
 body, .page__content, .author__name, .sidebar, p, li { font-family:"Open Sans", sans-serif; }
 h1, h2, h3, .page__title, .archive__item-title { font-family:"Playfair Display", serif; }
 
-/* ---- Top nav bar: maroon, flush to top, links right ---- */
+/* ---- Remove theme's top gap so maroon nav is flush to top ---- */
+body { padding-top:0 !important; }
+
+/* ---- Top nav bar: maroon, flush, links on the LEFT, white text ---- */
 .masthead {
-  background:var(--maroon);
-  border-bottom:none;
+  background:var(--maroon) !important;
+  border-bottom:none !important;
   position:relative;
   z-index:30;
-  margin-top:0;
+  margin-top:0 !important;
 }
-body { padding-top:0; margin-top:0; }
-.masthead__inner-wrap { padding-top:14px; padding-bottom:14px; }
-.greedy-nav { background:transparent; }
-.greedy-nav .site-title, .site-title {
+.masthead__inner-wrap { padding-top:14px !important; padding-bottom:14px !important; }
+.greedy-nav { background:transparent !important; }
+
+/* Make every nav item transparent (kills the white boxes) and left-aligned */
+.greedy-nav .visible-links { justify-content:flex-start !important; }
+.masthead__menu, .masthead__menu ul, .masthead__menu li,
+.masthead__menu-item, .greedy-nav ul, .greedy-nav li {
+  background:transparent !important;
+}
+.greedy-nav a, .masthead__menu-item a {
+  color:#ffffff !important;
+  background:transparent !important;
+  font-family:"Open Sans", sans-serif;
+}
+.greedy-nav a:hover, .masthead__menu-item a:hover { color:#ffffff !important; opacity:0.8; }
+.greedy-nav .site-title, .site-title, .masthead__menu-item--lg a {
   color:#ffffff !important;
   font-family:"Playfair Display", serif !important;
   font-weight:700;
   font-size:1.35em;
 }
-.greedy-nav a { color:#ffffff !important; font-family:"Open Sans", sans-serif; }
-.greedy-nav a:hover { color:#ffffff; opacity:0.8; }
-.greedy-nav .visible-links a:before { background:#ffffff; }
-.greedy-nav__toggle { color:#ffffff; }
+.greedy-nav .visible-links a:before { background:#ffffff !important; }
+.greedy-nav__toggle, .greedy-nav button { color:#ffffff !important; }
 
-/* ---- Search (magnifying glass) icon top right: white ---- */
-.greedy-nav .search__toggle { color:#ffffff !important; }
-.greedy-nav button.search__toggle:hover { color:#ffffff; opacity:0.8; }
-#theme-icon, .greedy-nav .fa-sun { color:#ffffff !important; }
+/* Top-right icon (theme/search) in white */
+#theme-icon, .greedy-nav .fa-sun, .greedy-nav .search__toggle { color:#ffffff !important; }
 
 /* ---- Full-width maroon banner with white boxed title ---- */
 .maroon-banner{
@@ -74,11 +84,19 @@ body { padding-top:0; margin-top:0; }
   text-align:right;
 }
 
-/* Push the photo/sidebar down so it starts BELOW the banner (like Hanjoon) */
-.sidebar.sticky, .sidebar { margin-top:300px; }
-@media (max-width:768px){ .sidebar.sticky, .sidebar { margin-top:0; } }
+/* ---- Fix the photo/sidebar: NOT fixed, scrolls normally, no huge margin ---- */
+.sidebar, .sidebar.sticky {
+  position:relative !important;
+  top:auto !important;
+  margin-top:1.5em !important;
+  float:none;
+}
+.author__avatar img { max-width:200px; }
+@media (min-width:1024px){
+  .sidebar, .sidebar.sticky { position:relative !important; top:auto !important; }
+}
 
-/* ---- Body: accent color for links + Welcome heading ---- */
+/* ---- Body: accent color for links + section headings ---- */
 a { color:var(--accent); }
 a:hover { color:#7a1f3d; }
 .page__content h1, .page__content h2, .page__content h3 { color:var(--accent); font-family:"Playfair Display", serif; }
@@ -91,10 +109,3 @@ a:hover { color:#7a1f3d; }
 @media (max-width:600px){
   .maroon-banner .banner-box h1{ font-size:32px; }
 }
-
-
-                     /* ---- Fixes: remove top gap + transparent nav items so white links show ---- */
-body { padding-top:0 !important; }
-.masthead__menu-item, .masthead__menu li, .masthead__menu ul li { background:transparent !important; }
-.masthead__menu, .masthead__menu ul { background:transparent !important; }
-.greedy-nav .visible-links a { background:transparent !important; }
