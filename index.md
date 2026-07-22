@@ -4,6 +4,8 @@ title: ""
 author_profile: true
 permalink: /
 ---
+<div class="maroon-banner"><div class="banner-box"><h1>Shadi Rahimfallah</h1></div></div>
+
 Hello, and welcome!
 
 I am a PhD candidate in Economics at York University. My research combines economic modeling and data analysis to produce clear, decision-ready insight, bridging academic research and applied policy to help translate rigorous evidence into sound economic decisions.
