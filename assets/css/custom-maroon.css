@@ -91,3 +91,10 @@ a:hover { color:#7a1f3d; }
 @media (max-width:600px){
   .maroon-banner .banner-box h1{ font-size:32px; }
 }
+
+
+                     /* ---- Fixes: remove top gap + transparent nav items so white links show ---- */
+body { padding-top:0 !important; }
+.masthead__menu-item, .masthead__menu li, .masthead__menu ul li { background:transparent !important; }
+.masthead__menu, .masthead__menu ul { background:transparent !important; }
+.greedy-nav .visible-links a { background:transparent !important; }
