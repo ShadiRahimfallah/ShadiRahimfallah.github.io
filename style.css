@@ -1,8 +1,8 @@
 /* Academic site — styled after hanjoonryu.com (burgundy Google Sites theme) */
 :root {
-  --burgundy: #6d2138;
-  --burgundy-dark: #571a2d;
-  --accent: #b3164f;      /* crimson for headings & links */
+  --burgundy: #1f3a5f;    /* navy primary */
+  --burgundy-dark: #16304d;
+  --accent: #2563a6;      /* medium blue for headings & links */
   --text: #3c4043;
   --muted: #5f6368;
   --border: #dadce0;
