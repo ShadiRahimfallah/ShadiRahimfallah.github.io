@@ -150,6 +150,37 @@ h3.item-title {
   margin: 0 0 16px;
 }
 
+/* Presentation venues */
+.venues { margin: 8px 0 10px; }
+.venue-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--burgundy);
+  margin: 0 0 5px;
+}
+ul.venue-list { list-style: none; margin: 0; padding: 0; }
+ul.venue-list li {
+  position: relative;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+  padding-left: 15px;
+  margin-bottom: 4px;
+}
+ul.venue-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
 /* Abstract toggles */
 details.abstract { margin: 8px 0 4px; }
 details.abstract summary {
