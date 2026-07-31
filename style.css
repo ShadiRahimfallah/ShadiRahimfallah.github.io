@@ -243,7 +243,18 @@ footer.site-footer .inner {
   text-decoration: none;
 }
 .footer-social a svg { width: 18px; height: 18px; fill: #fff; }
-.footer-social a:hover { background: var(--burgundy); text-decoration: none; }
+/* Brand colours, one per destination */
+.footer-social a.s-email    { background: #1f3a5f; }  /* site navy */
+.footer-social a.s-github   { background: #181717; }  /* GitHub black */
+.footer-social a.s-linkedin { background: #0a66c2; }  /* LinkedIn blue */
+.footer-social a.s-york     { background: #e31837; }  /* York U red */
+.footer-social a.s-york svg { width: 20px; height: 20px; }
+.footer-social a { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.footer-social a:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
 .footer-note {
   max-width: var(--max-width);
   margin: 24px auto 0;
