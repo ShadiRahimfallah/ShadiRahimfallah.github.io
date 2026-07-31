@@ -248,7 +248,7 @@ footer.site-footer .inner {
 .footer-social a.s-github   { background: #181717; }  /* GitHub black */
 .footer-social a.s-linkedin { background: #0a66c2; }  /* LinkedIn blue */
 .footer-social a.s-york     { background: #e31837; }  /* York U red */
-.footer-social a.s-york svg { width: 20px; height: 20px; }
+.footer-social a.s-york svg { width: 24px; height: 24px; }
 .footer-social a { transition: transform 0.15s ease, box-shadow 0.15s ease; }
 .footer-social a:hover {
   text-decoration: none;
