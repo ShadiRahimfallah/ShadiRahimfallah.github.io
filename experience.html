@@ -8,6 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v6">
+<style>
+  /* Core Skills: label column + tag list, scoped to .skills */
+  .skills { margin: 1.25rem 0 0; padding: 0; border-top: 1px solid rgba(127,127,127,.25); }
+  .skills .row { display: grid; grid-template-columns: 13rem 1fr; gap: .5rem 1.5rem;
+    padding: 1rem 0; border-bottom: 1px solid rgba(127,127,127,.25); align-items: baseline; }
+  .skills dt { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem;
+    font-weight: 700; line-height: 1.35; }
+  .skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+  .skills dd span { display: inline-block; padding: .22rem .7rem; font-size: .92rem; line-height: 1.4;
+    border: 1px solid rgba(127,127,127,.4); border-radius: 999px; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .skills .row { grid-template-columns: 1fr; }
+    .skills dd span { white-space: normal; }
+  }
+</style>
 </head>
 <body>
 
@@ -56,18 +71,15 @@
 
   <h2 class="section">Core Skills</h2>
 
-  <ul class="plain">
-    <li><strong>Business &amp; financial analysis</strong> — Business cases · Market sizing · Pricing ·
-    Budgeting and forecasting · Project appraisal (DCF/NPV) · Scenario and sensitivity analysis</li>
-    <li><strong>Economic modelling</strong> — General-equilibrium models · Calibration ·
-    Counterfactual and policy scenarios</li>
-    <li><strong>Econometrics</strong> — Panel and time-series methods · Randomized controlled trials ·
-    Difference-in-differences · Natural experiments</li>
-    <li><strong>Data</strong> — Large firm and survey datasets · Reproducible analysis pipelines</li>
-    <li><strong>Communication</strong> — Executive and client reporting · Conference presentations ·
-    Teaching</li>
-    <li><strong>Software</strong> — Python · Stata · MATLAB · R · SQL · Tableau · Excel · Git/GitHub · LaTeX</li>
-  </ul>
+  <dl class="skills">
+    <div class="row"><dt>Business &amp; financial analysis</dt><dd><span>Business cases</span><span>Market sizing</span><span>Pricing</span><span>Budgeting and forecasting</span><span>Project appraisal (DCF/NPV)</span><span>Scenario and sensitivity analysis</span></dd></div>
+    <div class="row"><dt>Economic modelling</dt><dd><span>General-equilibrium models</span><span>Calibration</span><span>Counterfactual and policy scenarios</span></dd></div>
+    <div class="row"><dt>Markets &amp; competition</dt><dd><span>Market power</span><span>Auctions and bidding</span><span>Electricity markets</span><span>Regulation</span></dd></div>
+    <div class="row"><dt>Econometrics</dt><dd><span>Panel and time-series methods</span><span>Randomized controlled trials</span><span>Difference-in-differences</span><span>Natural experiments</span></dd></div>
+    <div class="row"><dt>Data</dt><dd><span>Large firm and survey datasets</span><span>Reproducible analysis pipelines</span></dd></div>
+    <div class="row"><dt>Communication</dt><dd><span>Executive and client reporting</span><span>Conference presentations</span><span>Teaching</span></dd></div>
+    <div class="row"><dt>Software</dt><dd><span>Python</span><span>Stata</span><span>MATLAB</span><span>R</span><span>SQL</span><span>Tableau</span><span>Excel</span><span>Git/GitHub</span><span>LaTeX</span></dd></div>
+  </dl>
 </main>
 
 <footer class="site-footer">
