@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canada’s Exporters and the U.S. Market</title>
+<meta name="author" content="Shadi Rahimfallah">
+<meta name="description" content="Open-data analysis of Canadian exporters, 2000–2025: dependence on the United States by firm size and province, destinations, diversification and concentration. Source: Statistics Canada, Trade by Exporter Characteristics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column report; each chart sits in a white figure card with its own data table and CSV download. Light-only to match the companion survey page. */
+:root {
+  color-scheme: light;
+  --bg: #f4f6f8; --panel: #ffffff; --ink: #16202a; --muted: #56616d; --line: #dde3e8; --grid: #e8ecef;
+  --accent: #1f5fae; --accent-soft: #e6eef9;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s-muted: #b9c1ca;
+  --sans: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.wrap { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 0 80px; }
+.hero { padding-block: 56px 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 14px; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; font-weight: 700; text-wrap: balance; }
+.sub { font-size: 1.12rem; color: var(--muted); margin: 0; max-width: 62ch; }
+.meta { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 185px), 1fr)); gap: 12px; margin-top: 28px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font-size: 1.9rem; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.tile span { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
+nav.toc a { font-size: 14px; text-decoration: none; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+nav.toc a:hover { border-color: var(--accent); }
+section { padding-top: 40px; scroll-margin-top: 12px; }
+h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; text-wrap: balance; }
+h2 .n { display: block; font-family: var(--mono); font-size: .78rem; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+p { margin: 0 0 14px; max-width: 70ch; }
+.fig { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px 14px; margin: 18px 0 20px; }
+.fig .fnum { font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
+.fig h3 { font-size: 1.05rem; margin: 2px 0 2px; }
+.fig .fnote { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; margin: 4px 0 6px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.chart { position: relative; width: 100%; min-height: 240px; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); font-size: 12px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.chart text.lab { fill: var(--ink); }
+.tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(20,30,40,.12); padding: 7px 10px; font-size: 13px; line-height: 1.45; min-width: 140px; z-index: 3; }
+.tip .k { color: var(--muted); font-size: 12px; margin-bottom: 2px; }
+.tip i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+.tip b { font-variant-numeric: tabular-nums; float: right; margin-left: 14px; font-weight: 600; }
+.fig-foot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 8px; }
+.src { font-size: 12.5px; color: var(--muted); }
+.actions { display: flex; gap: 8px; }
+.btn { font: inherit; font-size: 13px; color: var(--accent); background: var(--panel); border: 1px solid var(--line); border-radius: 7px; padding: 4px 10px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn:focus-visible, nav.toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.datatable { overflow-x: auto; margin-top: 10px; }
+.datatable[hidden] { display: none; }
+.datatable table { border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; width: 100%; }
+.datatable th, .datatable td { border-bottom: 1px solid var(--line); padding: 4px 8px; text-align: right; white-space: nowrap; }
+.datatable th:first-child, .datatable td:first-child { text-align: left; }
+.datatable th { color: var(--muted); font-weight: 600; font-size: 12px; }
+.callout { background: var(--accent-soft); border-radius: 12px; padding: 16px 20px; margin: 18px 0; }
+.callout p { margin: 0; }
+ul.plain { padding-left: 1.2em; margin: 0 0 14px; }
+ul.plain li { margin-bottom: 8px; max-width: 70ch; }
+code { font-family: var(--mono); font-size: 12.5px; background: #eef1f4; border-radius: 4px; padding: 1px 5px; color: var(--accent); }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 18px; font-size: 14px; color: var(--muted); }
+@media (max-width: 600px) { body { font-size: 16px; } .fig { padding: 14px 12px 10px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <p class="eyebrow">Open data · Trade · 2000–2025</p>
+  <h1>Canada’s exporters and the U.S. market</h1>
+  <p class="sub">How dependent are Canadian exporting firms on the United States, which firms and provinces are most exposed, and how diversified are they? An analysis of a quarter-century of Statistics Canada data on every goods-exporting business.</p>
+  <div class="meta"><span>By <b>Shadi Rahimfallah</b></span><span>Source: Statistics Canada, Trade by Exporter Characteristics</span><span>Coverage: all goods-exporting businesses</span><span>Reference years 2000–2025</span></div>
+  <div class="tiles">
+    <div class="tile"><b>84.7%</b><span>of exporting enterprises sold goods to the U.S. in 2025</span></div>
+    <div class="tile"><b>65.2%</b><span>sold <em>only</em> to the U.S., up from a low of 55.9% in 2010</span></div>
+    <div class="tile"><b>71.9%</b><span>of goods export value went to the U.S. in 2025</span></div>
+    <div class="tile"><b>97.3%</b><span>of exporters are small or medium-sized, but they ship 41.1% of the value</span></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#trend">1 · The long trend</a><a href="#size">2 · Firm size</a><a href="#provinces">3 · Provinces</a>
+  <a href="#destinations">4 · Destinations</a><a href="#diversification">5 · Diversification</a><a href="#concentration">6 · Concentration</a><a href="#method">Data &amp; method</a>
+</nav>
+
+<section id="trend">
+  <h2><span class="n">01</span>Dependence fell for a decade, then came back</h2>
+  <p>In 2000, about three in four Canadian exporters (75.6%) sold only to the United States. That share fell steadily to a low of 55.9% in 2010 as firms added overseas markets, and stayed near 58% through 2019. Since 2020 the trend has reversed: by 2025, 65.2% of exporters again relied on the U.S. alone, and 84.7% sold at least some goods there.</p>
+  <div class="fig" id="fig1">
+    <div class="fnum">Figure 1</div><h3>Share of exporting enterprises selling to the United States</h3>
+    <p class="fnote">Percent of all goods-exporting enterprises, 2000–2025.</p>
+    <div class="chart" data-chart="c2" data-kind="line" data-unit="%"></div>
+  </div>
+  <p>The number of exporters tells a similar story. It fell from 48,657 in 2000 to a low of 40,611 in 2010, and has since recovered to 47,948. Almost all of the post-2020 rebound came from firms that sell only to the U.S.</p>
+  <div class="fig" id="fig2">
+    <div class="fnum">Figure 2</div><h3>Exporting enterprises by type of market</h3>
+    <p class="fnote">Number of enterprises, 2000–2025.</p>
+    <div class="chart" data-chart="c1" data-kind="line" data-unit="n"></div>
+  </div>
+</section>
+
+<section id="size">
+  <h2><span class="n">02</span>Small exporters are the most exposed</h2>
+  <p>The smaller the firm, the more likely it sells only to the United States. About two-thirds of exporters with fewer than 50 employees depend on the U.S. alone, against about half of large enterprises, which are far more likely to serve both the U.S. and other markets.</p>
+  <div class="fig" id="fig3">
+    <div class="fnum">Figure 3</div><h3>Market reach by enterprise size, 2025</h3>
+    <p class="fnote">Percent of exporting enterprises in each employment-size class.</p>
+    <div class="chart" data-chart="c3" data-kind="stack" data-unit="%"></div>
+  </div>
+  <p>Small and medium-sized enterprises make up 97.3% of exporters but only 41.1% of export value. A small number of large enterprises ship most of the goods.</p>
+  <div class="fig" id="fig4">
+    <div class="fnum">Figure 4</div><h3>Share of exporters and of export value by enterprise size, 2025</h3>
+    <p class="fnote">Percent of all exporting enterprises and of total goods export value.</p>
+    <div class="chart" data-chart="c3b" data-kind="bars" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="provinces">
+  <h2><span class="n">03</span>Manitoba, Saskatchewan, New Brunswick and P.E.I. are the most U.S.-oriented</h2>
+  <p>In every province, most exporting establishments sell to the United States. The share is highest in Manitoba, New Brunswick, Saskatchewan and Prince Edward Island, and lowest in Newfoundland and Labrador, Quebec and British Columbia. Across Canada, the share in 2025 (85.7%) is a little below its 2000 level (89.1%) after a dip in the 2010s.</p>
+  <div class="fig" id="fig5">
+    <div class="fnum">Figure 5</div><h3>Exporting establishments selling to the U.S., by province</h3>
+    <p class="fnote">Percent of exporting establishments in each province; 2025 (bar) and 2000 (dot). The dashed line is Canada in 2025.</p>
+    <div class="chart" data-chart="c4" data-kind="dumbbell" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="destinations">
+  <h2><span class="n">04</span>After the U.S., the next markets are far smaller</h2>
+  <p>The United States receives 71.9% of goods export value and is a market for 85.7% of exporting establishments. The next destinations — the United Kingdom, China, Australia, Germany and France — each reach only a few percent of exporters. The U.K. and China stand out for value; Australia and the U.A.E. attract many exporters but little value.</p>
+  <div class="fig" id="fig6">
+    <div class="fnum">Figure 6</div><h3>Top export destinations, 2025</h3>
+    <p class="fnote">Share of exporting establishments selling to each country, and share of total goods export value. An establishment can sell to several countries.</p>
+    <div class="chart" data-chart="c5" data-kind="bars" data-unit="%" data-skip="1"></div>
+  </div>
+</section>
+
+<section id="diversification">
+  <h2><span class="n">05</span>Most exporters sell to a single country</h2>
+  <p>Three in four exporters (74.7%) sell to only one foreign country, usually the United States. Together they account for just 17.5% of export value. The few firms that reach six or more markets carry most of the value.</p>
+  <div class="fig" id="fig7">
+    <div class="fnum">Figure 7</div><h3>Exporters and export value by number of partner countries, 2025</h3>
+    <p class="fnote">Percent of exporting enterprises and of total goods export value.</p>
+    <div class="chart" data-chart="c7" data-kind="bars" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="concentration">
+  <h2><span class="n">06</span>A hundred firms ship most of Canada’s goods</h2>
+  <p>Export value is highly concentrated. The ten largest exporting enterprises account for about a quarter of goods exports (24.3% in 2025) and the top 100 for 59.5%. These shares have stayed within a narrow range for 25 years, while total nominal export value rose from $372 billion to $713 billion.</p>
+  <div class="fig" id="fig8">
+    <div class="fnum">Figure 8</div><h3>Share of export value held by the largest exporters</h3>
+    <p class="fnote">Percent of total goods export value, 2000–2025.</p>
+    <div class="chart" data-chart="c6" data-kind="line" data-unit="%"></div>
+  </div>
+  <div class="fig" id="fig9">
+    <div class="fnum">Figure 9</div><h3>Total value of goods exports</h3>
+    <p class="fnote">Billions of current dollars (not adjusted for inflation), 2000–2025.</p>
+    <div class="chart" data-chart="c8" data-kind="line" data-unit="$"></div>
+  </div>
+  <div class="callout"><p><b>Why it matters.</b> Canada’s export base combines a long tail of small, U.S.-only exporters with a small core of large, diversified firms. U.S. trade policy therefore reaches tens of thousands of small businesses directly, even though most export value is concentrated in a few hundred enterprises.</p></div>
+</section>
+
+<section id="method">
+  <h2><span class="n">07</span>Data and method</h2>
+  <ul class="plain">
+    <li><b>Source.</b> Statistics Canada, Trade by Exporter Characteristics (goods), which links customs export records to the Business Register and covers all goods-exporting businesses. Tables: <code>12-10-0096-01</code> (enterprise size and region type), <code>12-10-0091-01</code> (number of partner countries), <code>12-10-0093-01</code> (concentration of exports), <code>12-10-0104-01</code> (country of destination and province). Data downloaded October 2026.</li>
+    <li><b>Units.</b> Tables 12-10-0091, 0093 and 0096 count <em>enterprises</em>; table 12-10-0104 counts <em>establishments</em> (locations), which is why provincial and destination totals are larger. Values are in current dollars and are not adjusted for inflation or exchange rates.</li>
+    <li><b>Definitions.</b> “U.S. only” enterprises export only to the United States; “U.S. and other markets” export to the U.S. and at least one other country; “Non-U.S. only” export only outside the U.S. Size classes are based on enterprise employment; small and medium-sized enterprises have fewer than 500 employees.</li>
+    <li><b>Calculations.</b> All shares are computed by the author from the published counts and values. Each chart’s exact figures can be shown with “Show data” and downloaded as CSV.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Source: Statistics Canada, Tables 12-10-0091-01, 12-10-0093-01, 12-10-0096-01 and 12-10-0104-01 (Trade by Exporter Characteristics), 2000–2025. Reproduced and distributed on an “as is” basis with the permission of Statistics Canada. Adapted from Statistics Canada data; this does not constitute an endorsement by Statistics Canada of this product. Contains information licensed under the Statistics Canada Open Licence.</p>
+  <p><b>Author:</b> Shadi Rahimfallah. Analysis, calculations and interpretations are the author’s own; all errors are my own.</p>
+</footer>
+</div>
+
+<script>
+const DATA = {"c1":{"years":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"series":[{"name":"U.S. only","values":[36801,36695,35989,32269,29965,29368,29197,28231,27100,23973,22687,24200,24424,23651,25281,25566,25072,25030,26130,26420,26039,30458,31133,31850,31649,31269]},{"name":"U.S. and other markets","values":[6587,6926,7520,8801,9680,10742,10873,11160,11007,10432,10286,10691,10612,10166,10333,10351,10132,10178,10413,10474,9744,9643,9654,9632,9522,9360]},{"name":"Non-U.S. only","values":[5269,5668,6296,7616,8906,8790,8632,9118,8842,8197,7638,7238,7489,7942,7916,8042,8085,8272,8538,8639,7847,7600,7249,7236,6865,7319]}]},"c2":{"years":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"series":[{"name":"Sell to the U.S. (any)","values":[89.2,88.5,87.4,84.4,81.7,82.0,82.3,81.2,81.2,80.8,81.2,82.8,82.4,81.0,81.8,81.7,81.3,81.0,81.1,81.0,82.0,84.1,84.9,85.1,85.7,84.7]},{"name":"Sell only to the U.S.","values":[75.6,74.4,72.3,66.3,61.7,60.1,60.0,58.2,57.7,56.3,55.9,57.4,57.4,56.6,58.1,58.2,57.9,57.6,58.0,58.0,59.7,63.9,64.8,65.4,65.9,65.2]}]},"c3":{"labels":["No employees","1\u20139","10\u201349","50\u201399","100\u2013249","250\u2013499","500+"],"series":[{"name":"U.S. only","values":[72.2,66.5,64.7,58.6,52.4,50.3,49.2]},{"name":"U.S. and other markets","values":[4.3,13.5,25.8,34.5,43.0,45.6,46.5]},{"name":"Non-U.S. only","values":[23.5,20.0,9.5,6.9,4.6,4.1,4.3]}],"counts":[11995,13528,13687,3945,2524,965,1304]},"c3b":{"labels":["No employees","1\u20139","10\u201349","50\u201399","100\u2013249","250\u2013499","500+"],"series":[{"name":"Share of exporters","values":[25.0,28.2,28.5,8.2,5.3,2.0,2.7]},{"name":"Share of export value","values":[1.9,2.5,9.9,4.4,14.7,7.7,58.9]}]},"c4":{"labels":["Manitoba","Saskatchewan","New Brunswick","Prince Edward Island","Alberta","Ontario","Nova Scotia","Territories","British Columbia","Quebec","Newfoundland and Labrador"],"series":[{"name":"2025","values":[94.5,93.2,92.2,91.3,89.1,85.9,84.0,83.1,82.9,82.3,81.8]},{"name":"2000","values":[96.0,94.3,93.6,91.5,90.4,90.3,85.9,96.2,85.9,87.1,75.3]}],"counts":[1809,1440,869,252,6186,22685,1062,77,7597,10980,319],"canada":[89.1,85.7],"countLabel":"Exporting establishments, 2025"},"c5":{"labels":["United States","United Kingdom","China","Australia","Germany","France","Japan","United Arab Emirates","India","Netherlands","Italy","Mexico","South Korea","Spain","Hong Kong"],"series":[{"name":"Share of exporting establishments","values":[85.7,6.8,6.2,5.7,5.4,4.9,4.1,4.0,3.7,3.7,3.3,3.3,3.3,2.8,2.7]},{"name":"Share of export value","values":[71.9,6.4,4.7,0.4,1.1,0.6,2.0,0.3,0.5,1.2,0.5,1.2,1.0,0.3,0.5]}],"counts":[45637,3606,3315,3020,2891,2607,2175,2140,1970,1960,1760,1742,1739,1488,1446],"values":[512.72,45.62,33.17,2.89,7.73,4.54,14.08,2.09,3.61,8.71,3.72,8.39,6.81,2.47,3.26],"countLabel":"Exporting establishments"},"c6":{"years":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"series":[{"name":"Top 10","values":[28.6,28.0,26.9,27.8,25.8,25.5,23.8,22.9,22.1,20.5,23.1,23.8,24.2,22.5,22.9,22.2,22.7,22.3,21.4,22.0,20.4,20.8,24.0,22.3,22.2,24.3]},{"name":"Top 100","values":[58.4,57.5,56.3,57.5,58.0,58.4,58.2,58.4,61.6,58.7,60.9,62.1,62.1,61.5,61.3,57.3,57.7,58.0,57.8,58.2,56.0,57.9,61.3,59.9,58.9,59.5]},{"name":"Top 1000","values":[84.5,83.8,83.0,84.3,84.4,84.0,83.8,84.1,85.8,84.6,86.3,86.9,86.4,86.3,86.3,84.4,83.9,84.4,84.4,84.0,83.0,84.2,85.5,84.5,84.5,84.6]}]},"c7":{"labels":["1","2","3\u20135","6\u20139","10\u201314","15\u201319","20+"],"series":[{"name":"Share of exporters, 2025","values":[74.7,8.7,8.2,3.6,2.0,1.0,1.8]},{"name":"Share of export value, 2025","values":[17.5,9.4,17.3,13.4,9.0,7.1,26.2]}]},"c8":{"years":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"series":[{"name":"Export value (billions of current dollars)","values":[371.6,360.34,353.61,339,367.83,390.73,391.43,399.75,430.67,321.05,359.92,400.24,407.8,423.61,469.27,464.75,453.69,483.64,522.84,533.25,471.92,575.19,717.61,703.28,712.82,713.15]}],"counts":[48657,49289,49805,48686,48551,48900,48702,48509,46949,42602,40611,42129,42525,41759,43530,43959,43289,43480,45081,45533,43630,47701,48036,48718,48036,47948]}};
+const COLORS = ['var(--s1)', 'var(--s2)', 'var(--s3)'];
+const HEX = ['#2a78d6', '#eb6834', '#1baf7a'];
+const NS = 'http://www.w3.org/2000/svg';
+const fmt = (v, u) => v == null ? '–' : u === '%' ? v.toFixed(1) + '%' : u === '$' ? '$' + v.toFixed(1) + 'B' : Math.round(v).toLocaleString('en-CA');
+const axisFmt = (v, u) => u === '%' ? v + '%' : u === '$' ? '$' + v : v.toLocaleString('en-CA');
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function niceMax(m) { const p = Math.pow(10, Math.floor(Math.log10(m))); for (const k of [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (k * p >= m) return k * p; return 10 * p; }
+function ticks(max, n) { const step = max / n; return Array.from({ length: n + 1 }, (_, i) => +(i * step).toFixed(6)); }
+function measure(svg, txt) { const t = el('text', { x: -999, y: -999 }, svg); t.textContent = txt; const w = t.getComputedTextLength(); t.remove(); return w; }
+
+function legend(box, names) {
+  const lg = document.createElement('div'); lg.className = 'legend';
+  names.forEach((n, i) => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.style.background = HEX[i]; s.append(sw, n); lg.append(s); });
+  box.before(lg);
+}
+function tipper(box) {
+  const t = document.createElement('div'); t.className = 'tip'; t.hidden = true; box.append(t);
+  return {
+    show(ev, head, rows) {
+      t.replaceChildren(); const k = document.createElement('div'); k.className = 'k'; k.textContent = head; t.append(k);
+      rows.forEach(([name, val, ci]) => { const d = document.createElement('div'); if (ci != null) { const sw = document.createElement('i'); sw.style.background = HEX[ci]; d.append(sw); } d.append(name); const b = document.createElement('b'); b.textContent = val; d.append(b); t.append(d); });
+      t.hidden = false;
+      const r = box.getBoundingClientRect(), pt = ev.touches ? ev.touches[0] : ev;
+      let x = pt.clientX - r.left + 14, y = pt.clientY - r.top + 14;
+      if (x + t.offsetWidth > r.width) x = Math.max(0, pt.clientX - r.left - t.offsetWidth - 14);
+      if (y + t.offsetHeight > r.height) y = Math.max(0, pt.clientY - r.top - t.offsetHeight - 10);
+      t.style.left = x + 'px'; t.style.top = y + 'px';
+    },
+    hide() { t.hidden = true; }
+  };
+}
+
+function lineChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = Math.max(300, box.clientWidth), H = Math.round(Math.min(340, Math.max(230, W * 0.48)));
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const all = c.series.flatMap(s => s.values).filter(v => v != null);
+  const ymax = niceMax(Math.max(...all) * 1.05), yt = ticks(ymax, 4);
+  const left = Math.max(...yt.map(v => measure(svg, axisFmt(v, unit)))) + 10, right = 14, top = 10, bottom = 26;
+  const X = i => left + (W - left - right) * i / (c.years.length - 1), Yp = v => top + (H - top - bottom) * (1 - v / ymax);
+  yt.forEach(v => { el('line', { x1: left, x2: W - right, y1: Yp(v), y2: Yp(v), stroke: v === 0 ? '#9aa3ad' : '#e8ecef', 'stroke-width': 1 }, svg); const t = el('text', { x: left - 8, y: Yp(v) + 4, 'text-anchor': 'end' }, svg); t.textContent = axisFmt(v, unit); });
+  const step = W < 520 ? 10 : 5;
+  c.years.forEach((y, i) => { const last = c.years.length - 1; if (((y % step === 0) && (last - i >= (W < 520 ? 6 : 2))) || i === last) { const t = el('text', { x: X(i), y: H - 6, 'text-anchor': i === c.years.length - 1 ? 'end' : 'middle' }, svg); t.textContent = y; } });
+  c.series.forEach((s, k) => {
+    const d = s.values.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Yp(v).toFixed(1)).join(' ');
+    el('path', { d, fill: 'none', stroke: HEX[k], 'stroke-width': 2.2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    el('circle', { cx: X(s.values.length - 1), cy: Yp(s.values[s.values.length - 1]), r: 3.5, fill: HEX[k] }, svg);
+  });
+  const rule = el('line', { y1: top, y2: H - bottom, stroke: '#8a929c', 'stroke-dasharray': '3 3', visibility: 'hidden' }, svg);
+  const dots = c.series.map((s, k) => el('circle', { r: 4.5, fill: HEX[k], stroke: '#fff', 'stroke-width': 1.5, visibility: 'hidden' }, svg));
+  const tt = tipper(box);
+  const hit = el('rect', { x: left, y: top, width: W - left - right, height: H - top - bottom, fill: 'transparent' }, svg);
+  const move = ev => {
+    const r = svg.getBoundingClientRect(), pt = ev.touches ? ev.touches[0] : ev;
+    const px = (pt.clientX - r.left) * W / r.width; const i = Math.max(0, Math.min(c.years.length - 1, Math.round((px - left) / (W - left - right) * (c.years.length - 1))));
+    rule.setAttribute('x1', X(i)); rule.setAttribute('x2', X(i)); rule.setAttribute('visibility', 'visible');
+    dots.forEach((d, k) => { d.setAttribute('cx', X(i)); d.setAttribute('cy', Yp(c.series[k].values[i])); d.setAttribute('visibility', 'visible'); });
+    tt.show(ev, String(c.years[i]), c.series.map((s, k) => [s.name, fmt(s.values[i], unit), c.series.length > 1 ? k : null]));
+  };
+  const out = () => { rule.setAttribute('visibility', 'hidden'); dots.forEach(d => d.setAttribute('visibility', 'hidden')); tt.hide(); };
+  hit.addEventListener('mousemove', move); hit.addEventListener('touchstart', move, { passive: true }); hit.addEventListener('touchmove', move, { passive: true });
+  hit.addEventListener('mouseleave', out); hit.addEventListener('touchend', out);
+}
+
+function barChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = Math.max(300, box.clientWidth), n = c.series.length, rowH = n > 1 ? 34 : 26, top = 4, bottom = 24;
+  const H = top + bottom + c.labels.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.min(W * 0.36, Math.max(...c.labels.map(l => measure(svg, l)))) + 12;
+  const vmax = niceMax(Math.max(...c.series.flatMap(s => s.values)) * 1.08), xt = ticks(vmax, W < 520 ? 3 : 5);
+  const right = 44, Xp = v => lw + (W - lw - right) * v / vmax;
+  xt.forEach(v => { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: v === 0 ? '#9aa3ad' : '#e8ecef' }, svg); const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = axisFmt(v, unit); });
+  const tt = tipper(box), bh = n > 1 ? 11 : 14;
+  c.labels.forEach((lab, i) => {
+    const y0 = top + i * rowH;
+    const t = el('text', { x: lw - 10, y: y0 + rowH / 2 + 4, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = lab;
+    c.series.forEach((s, k) => {
+      const y = y0 + (rowH - n * bh - (n - 1) * 2) / 2 + k * (bh + 2);
+      el('rect', { x: Xp(0), y, width: Math.max(1, Xp(s.values[i]) - Xp(0)), height: bh, rx: 3, fill: HEX[k] }, svg);
+      if (W >= 420) { const vt = el('text', { x: Xp(s.values[i]) + 5, y: y + bh - 2, 'font-size': 11 }, svg); vt.textContent = fmt(s.values[i], unit); }
+    });
+    const hit = el('rect', { x: 0, y: y0, width: W, height: rowH, fill: 'transparent' }, svg);
+    const rows = c.series.map((s, k) => [s.name, fmt(s.values[i], unit), n > 1 ? k : null]);
+    if (c.counts) rows.push([c.countLabel || 'Count', Math.round(c.counts[i]).toLocaleString('en-CA'), null]);
+    const show = ev => tt.show(ev, lab, rows);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function stackChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = Math.max(300, box.clientWidth), rowH = 30, top = 4, bottom = 24, H = top + bottom + c.labels.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.max(...c.labels.map(l => measure(svg, l))) + 12, right = 8, Xp = v => lw + (W - lw - right) * v / 100;
+  [0, 25, 50, 75, 100].forEach(v => { const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': v === 100 ? 'end' : v === 0 ? 'start' : 'middle' }, svg); t.textContent = v + '%'; });
+  const tt = tipper(box);
+  c.labels.forEach((lab, i) => {
+    const y = top + i * rowH + 6; let acc = 0;
+    const t = el('text', { x: lw - 10, y: y + 13, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = lab;
+    c.series.forEach((s, k) => { const v = s.values[i]; el('rect', { x: Xp(acc) + (acc ? 1 : 0), y, width: Math.max(0, Xp(acc + v) - Xp(acc) - (acc ? 1 : 0)), height: 18, fill: HEX[k] }, svg); if (v >= 9 && W >= 420) { const vt = el('text', { x: Xp(acc + v / 2), y: y + 13, 'text-anchor': 'middle', 'font-size': 11, fill: '#fff', style: 'fill:#fff' }, svg); vt.textContent = Math.round(v) + '%'; } acc += v; });
+    const hit = el('rect', { x: 0, y: y - 6, width: W, height: rowH, fill: 'transparent' }, svg);
+    const rows = c.series.map((s, k) => [s.name, fmt(s.values[i], unit), k]); if (c.counts) rows.push(['Exporting enterprises', c.counts[i].toLocaleString('en-CA'), null]);
+    const show = ev => tt.show(ev, lab + ' employees', rows);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function dumbbell(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = Math.max(300, box.clientWidth), rowH = 26, top = 4, bottom = 24, H = top + bottom + c.labels.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.min(W * 0.4, Math.max(...c.labels.map(l => measure(svg, l)))) + 12, right = 44;
+  const lo = 50, hi = 100, Xp = v => lw + (W - lw - right) * (v - lo) / (hi - lo);
+  [50, 60, 70, 80, 90, 100].forEach(v => { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: '#e8ecef' }, svg); const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = v + '%'; });
+  [c.canada[1]].forEach(v => { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: '#8a929c', 'stroke-dasharray': '4 3' }, svg); });
+  const tt = tipper(box);
+  c.labels.forEach((lab, i) => {
+    const y = top + i * rowH + rowH / 2, v25 = c.series[0].values[i], v00 = c.series[1].values[i];
+    const t = el('text', { x: lw - 10, y: y + 4, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = lab;
+    el('rect', { x: Xp(lo), y: y - 6, width: Math.max(1, Xp(v25) - Xp(lo)), height: 12, rx: 3, fill: HEX[0] }, svg);
+    el('circle', { cx: Xp(v00), cy: y, r: 4.5, fill: '#fff', stroke: HEX[1], 'stroke-width': 2.2 }, svg);
+    if (W >= 420) { const vt = el('text', { x: Math.max(Xp(v25), Xp(v00)) + 8, y: y + 4, 'font-size': 11 }, svg); vt.textContent = fmt(v25, unit); }
+    const hit = el('rect', { x: 0, y: y - rowH / 2, width: W, height: rowH, fill: 'transparent' }, svg);
+    const show = ev => tt.show(ev, lab, [['2025', fmt(v25, unit), 0], ['2000', fmt(v00, unit), 1], ['Exporting establishments, 2025', c.counts[i].toLocaleString('en-CA'), null]]);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function tableFor(c, unit) {
+  const tbl = document.createElement('table'), head = tbl.createTHead().insertRow(), body = tbl.createTBody();
+  const cols = c.years ? ['Year', ...c.series.map(s => s.name)] : ['', ...c.series.map(s => s.name)].concat(c.counts ? ['Count'] : []).concat(c.values ? ['Value ($B)'] : []);
+  cols.forEach(h => { const th = document.createElement('th'); th.textContent = h; head.append(th); });
+  const rows = c.years ? c.years.map((y, i) => [y, ...c.series.map(s => fmt(s.values[i], unit))]) : c.labels.map((l, i) => [l, ...c.series.map(s => fmt(s.values[i], unit))].concat(c.counts ? [Math.round(c.counts[i]).toLocaleString('en-CA')] : []).concat(c.values ? [c.values[i].toFixed(2)] : []));
+  rows.forEach(r => { const tr = body.insertRow(); r.forEach(v => { const td = tr.insertCell(); td.textContent = v; }); });
+  return { tbl, cols, raw: c.years ? c.years.map((y, i) => [y, ...c.series.map(s => s.values[i])]) : c.labels.map((l, i) => [l, ...c.series.map(s => s.values[i])].concat(c.counts ? [c.counts[i]] : []).concat(c.values ? [c.values[i]] : [])) };
+}
+
+document.querySelectorAll('.chart').forEach(box => {
+  const key = box.dataset.chart, c = DATA[key], kind = box.dataset.kind, unit = box.dataset.unit, fig = box.closest('.fig');
+  if (kind === 'dumbbell') legend(box, ['2025', '2000']); else if (c.series.length > 1 || kind === 'stack') legend(box, c.series.map(s => s.name));
+  const draw = () => (kind === 'line' ? lineChart : kind === 'stack' ? stackChart : kind === 'dumbbell' ? dumbbell : barChart)(box, c, unit);
+  draw();
+  let w = box.clientWidth; new ResizeObserver(() => { if (Math.abs(box.clientWidth - w) > 4) { w = box.clientWidth; draw(); } }).observe(box);
+  const { tbl, cols, raw } = tableFor(c, unit);
+  const foot = document.createElement('div'); foot.className = 'fig-foot';
+  const src = document.createElement('span'); src.className = 'src'; src.textContent = 'Source: Statistics Canada, ' + ({ c1: 'Table 12-10-0096-01', c2: 'Table 12-10-0096-01', c3: 'Table 12-10-0096-01', c3b: 'Table 12-10-0096-01', c4: 'Table 12-10-0104-01', c5: 'Table 12-10-0104-01', c6: 'Table 12-10-0093-01', c7: 'Table 12-10-0091-01', c8: 'Table 12-10-0096-01' }[key]) + '; author’s calculations.';
+  const acts = document.createElement('div'); acts.className = 'actions';
+  const bt = document.createElement('button'); bt.className = 'btn'; bt.type = 'button'; bt.textContent = 'Show data'; bt.setAttribute('aria-expanded', 'false');
+  const dl = document.createElement('button'); dl.className = 'btn'; dl.type = 'button'; dl.textContent = 'Download CSV';
+  acts.append(bt, dl); foot.append(src, acts);
+  const dt = document.createElement('div'); dt.className = 'datatable'; dt.hidden = true; dt.append(tbl);
+  fig.append(foot, dt);
+  bt.addEventListener('click', () => { dt.hidden = !dt.hidden; bt.textContent = dt.hidden ? 'Show data' : 'Hide data'; bt.setAttribute('aria-expanded', String(!dt.hidden)); });
+  dl.addEventListener('click', () => {
+    const esc = v => /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v);
+    const csv = [cols.map(esc).join(','), ...raw.map(r => r.map(v => v == null ? '' : esc(v)).join(','))].join('\n') + '\n\nSource: Statistics Canada, Trade by Exporter Characteristics; author\'s calculations (Shadi Rahimfallah). Statistics Canada Open Licence.';
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    a.download = 'canada-exporters-' + fig.id + '.csv'; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+});
+</script>
+</body>
+</html>
