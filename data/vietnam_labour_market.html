@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jobs, Wages and Training in Vietnam’s Small Manufacturers</title>
+<meta name="author" content="Shadi Rahimfallah">
+<meta name="description" content="Labour-market analysis of five waves of a worker survey in Vietnam's small and medium manufacturing firms, 2007–2015: wages, gender gaps, contracts and social insurance, how workers find jobs, training and its wage premium, job stability and provincial differences. Source: Viet Nam SME Survey, employee module.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+
+/* Layout: single reading column report; each chart sits in a white figure card; no data tables or downloads (licensed microdata). Light-only to match the companion reports. Built on the same chart system as the Canada exporters report. */
+:root {
+  color-scheme: light;
+  --bg: #f4f6f8; --panel: #ffffff; --ink: #16202a; --muted: #56616d; --line: #dde3e8; --grid: #e8ecef;
+  --accent: #1f5fae; --accent-soft: #e6eef9;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s-muted: #b9c1ca;
+  --sans: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+.wrap { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 0 80px; }
+.hero { padding-block: 56px 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-size: 13px; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 14px; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; font-weight: 700; text-wrap: balance; }
+.sub { font-size: 1.12rem; color: var(--muted); margin: 0; max-width: 62ch; }
+.meta { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 185px), 1fr)); gap: 12px; margin-top: 28px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile b { font-size: 1.9rem; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.tile span { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
+nav.toc a { font-size: 14px; text-decoration: none; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+nav.toc a:hover { border-color: var(--accent); }
+section { padding-top: 40px; scroll-margin-top: 12px; }
+h2 { font-size: 1.55rem; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 10px; text-wrap: balance; }
+h2 .n { display: block; font-family: var(--mono); font-size: .78rem; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+p { margin: 0 0 14px; max-width: 70ch; }
+.fig { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px 14px; margin: 18px 0 20px; }
+.fig .fnum { font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
+.fig h3 { font-size: 1.05rem; margin: 2px 0 2px; }
+.fig .fnote { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; margin: 4px 0 6px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.chart { position: relative; width: 100%; min-height: 240px; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--sans); font-size: 12px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.chart text.lab { fill: var(--ink); }
+.tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(20,30,40,.12); padding: 7px 10px; font-size: 13px; line-height: 1.45; min-width: 140px; z-index: 3; }
+.tip .k { color: var(--muted); font-size: 12px; margin-bottom: 2px; }
+.tip i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+.tip b { font-variant-numeric: tabular-nums; float: right; margin-left: 14px; font-weight: 600; }
+.fig-foot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); margin-top: 10px; padding-top: 8px; }
+.src { font-size: 12.5px; color: var(--muted); }
+.actions { display: flex; gap: 8px; }
+.btn { font: inherit; font-size: 13px; color: var(--accent); background: var(--panel); border: 1px solid var(--line); border-radius: 7px; padding: 4px 10px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn:focus-visible, nav.toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.datatable { overflow-x: auto; margin-top: 10px; }
+.datatable[hidden] { display: none; }
+.datatable table { border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; width: 100%; }
+.datatable th, .datatable td { border-bottom: 1px solid var(--line); padding: 4px 8px; text-align: right; white-space: nowrap; }
+.datatable th:first-child, .datatable td:first-child { text-align: left; }
+.datatable th { color: var(--muted); font-weight: 600; font-size: 12px; }
+.callout { background: var(--accent-soft); border-radius: 12px; padding: 16px 20px; margin: 18px 0; }
+.callout p { margin: 0; }
+ul.plain { padding-left: 1.2em; margin: 0 0 14px; }
+ul.plain li { margin-bottom: 8px; max-width: 70ch; }
+code { font-family: var(--mono); font-size: 12.5px; background: #eef1f4; border-radius: 4px; padding: 1px 5px; color: var(--accent); }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 18px; font-size: 14px; color: var(--muted); }
+@media (max-width: 600px) { body { font-size: 16px; } .fig { padding: 14px 12px 10px; } }
+
+/* Additions for this report: coefficient chart notes, indicator switch, map layout. */
+.tip { max-width: 290px; }
+.tip .note { color: var(--muted); font-size: 12px; margin-top: 4px; line-height: 1.4; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+.seg button { font: inherit; font-size: 13px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mapgrid { display: grid; grid-template-columns: minmax(170px, 240px) 1fr; gap: 18px 28px; align-items: start; }
+.mapcol svg { width: 100%; height: auto; display: block; }
+.scale { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.scale .bar { height: 10px; border-radius: 3px; background: linear-gradient(90deg, rgb(160,194,238), rgb(15,63,124)); }
+.scale .ends { display: flex; justify-content: space-between; margin-top: 3px; font-variant-numeric: tabular-nums; }
+.scale .key { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.scale .key i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #eceef1; border: 1px solid var(--line); }
+.rank-title { font-size: 13.5px; font-weight: 600; margin: 0 0 6px; }
+.chart[data-kind="map"], .chart[data-kind="bars"], .chart[data-kind="stack"], .chart[data-kind="coef"] { min-height: 0; }
+@media (max-width: 600px) { .mapgrid { grid-template-columns: 1fr; } .mapcol { max-width: 220px; margin: 0 auto; width: 100%; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <p class="eyebrow">Survey microdata · Labour markets · 2007–2015</p>
+  <h1>Jobs, wages and training in Vietnam’s small manufacturers</h1>
+  <p class="sub">What kinds of jobs do Vietnam’s small and medium-sized manufacturers offer? How did wages, contracts and social insurance change as the economy grew, how do workers find these jobs, and does training pay? An analysis of five waves of a worker survey, 2007–2015.</p>
+  <div class="meta"><span>By <b>Shadi Rahimfallah</b></span><span>Source: Viet Nam SME Survey, employee module</span><span>Coverage: 6,878 worker interviews in 1,219 firms, ten provinces</span><span>Survey years 2007, 2009, 2011, 2013, 2015</span></div>
+  <div class="tiles">
+    <div class="tile"><b>+43%</b><span>rise in the median real monthly wage between 2007 and 2015</span></div>
+    <div class="tile"><b>54%</b><span>of workers had a formal labour contract in 2015, up from 48% in 2009</span></div>
+    <div class="tile"><b>41%</b><span>had employer-paid unemployment insurance in 2015, up from 28% in 2011</span></div>
+    <div class="tile"><b>72%</b><span>found their job through family or friends; 9% through an agency or job ad (2009–2015)</span></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#workers">1 · The workers</a><a href="#wages">2 · Wages</a><a href="#contracts">3 · Contracts and insurance</a>
+  <a href="#search">4 · Finding a job</a><a href="#training">5 · Training</a><a href="#stay">6 · Who stays</a><a href="#provinces">7 · Provinces</a><a href="#method">Data &amp; method</a>
+</nav>
+
+<section id="workers">
+  <h2><span class="n">01</span>A more educated workforce, often tied to the owner’s family</h2>
+  <p>The survey interviews a few workers in each firm, 2.4 on average, in ten provinces. In every wave about 41% of the workers are women, and between half and three in five are production workers. The workforce is ageing slowly: the average worker was 34 in 2007 and 37 in 2015, and average time with the current firm rose from 6.3 to 7.7 years.</p>
+  <p>Education rose. The share of workers with primary schooling or less halved, from 10.8% to 5.1%, while the share with vocational or technical training rose from 22% to 28% and the share with a college or university degree from 18% to 22%.</p>
+  <div class="fig" id="fig1">
+    <div class="fnum">Figure 1</div><h3>Highest level of education of workers</h3>
+    <p class="fnote">Percent of workers interviewed in each survey year.</p>
+    <div class="chart" data-chart="edu" data-kind="stack" data-unit="%"></div>
+  </div>
+  <p>Family ties are common. In 2011–2015, about a third of the workers interviewed (32–33%) were the owner, a member of the owner’s household, or another relative of the owner.</p>
+</section>
+
+<section id="wages">
+  <h2><span class="n">02</span>Real wages rose by about two-fifths in eight years</h2>
+  <p>Among workers paid by the month, about four in five, the median monthly wage rose from 1.35 million dong in 2007 to 4.0 million dong in 2015. Consumer prices roughly doubled over the same period, so in 2015 prices the median rose from 2.8 to 4.0 million dong: an increase of 43%, or about 4.6% a year. Men’s median real wage rose from 2.90 to 4.50 million dong and women’s from 2.70 to 4.00 million.</p>
+  <div class="fig" id="fig2">
+    <div class="fnum">Figure 2</div><h3>Median real monthly wage, by sex</h3>
+    <p class="fnote">Thousand dong per month in 2015 prices; workers paid by the month.</p>
+    <div class="chart" data-chart="wage" data-kind="line" data-unit="n"></div>
+  </div>
+  <p>Women earn less than comparable men. Comparing workers with the same education, age, tenure, job type and province, women earned between 86% and 91% of men’s wages in every wave, and the gap changed little over the period. The unadjusted gap is smaller because women in these firms are better educated than men on average: 26% of women interviewed had a college or university degree, against 13% of men.</p>
+  <div class="fig" id="fig3">
+    <div class="fnum">Figure 3</div><h3>Women’s wages as a percent of men’s</h3>
+    <p class="fnote">Unadjusted: women’s median wage divided by men’s. Adjusted: from a regression of log wages on sex, education, age, tenure, job type and province, estimated separately for each wave.</p>
+    <div class="chart" data-chart="gap" data-kind="line" data-unit="%"></div>
+  </div>
+  <p>Education pays. Holding sex, age, tenure, province and survey year constant, workers with a college or university degree earned 55% more than workers with primary schooling or less, workers with vocational or technical training 28% more, and workers who finished upper secondary school 19% more.</p>
+  <div class="fig" id="fig4">
+    <div class="fnum">Figure 4</div><h3>Wage premium by education</h3>
+    <p class="fnote">Percent difference in monthly wage relative to workers with primary schooling or less, holding sex, age, tenure, province and year constant; 2007–2015 pooled.</p>
+    <div class="chart" data-chart="eduprem" data-kind="bars" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="contracts">
+  <h2><span class="n">03</span>Formal jobs spread slowly, and social insurance followed the contract</h2>
+  <p>Just under half of workers had a formal labour contract in 2009 (47.9%); by 2015 the share had reached 54.0%. Employer-paid benefits spread faster. The share of workers whose employer paid for health insurance rose from 26% in 2007 to 48% in 2015, paid annual leave from 28% to 48%, and paid sick leave from 33% to 53%.</p>
+  <p>Vietnam launched unemployment insurance in 2009 and widened it from 2015 under its Employment Law, which extended coverage to employers of any size and to contracts of three months or more. In the survey, the share of workers whose employer paid into unemployment insurance rose from 28% in 2011 to 41% in 2015. Coverage is almost entirely tied to the labour contract: across 2011–2015, 64% of workers with a formal contract had unemployment insurance, against 3% of workers without one.</p>
+  <div class="fig" id="fig5">
+    <div class="fnum">Figure 5</div><h3>Formal contracts and employer-paid insurance</h3>
+    <p class="fnote">Percent of workers. The contract question was first asked in 2009 and the unemployment-insurance question in 2011.</p>
+    <div class="chart" data-chart="cov" data-kind="line" data-unit="%"></div>
+  </div>
+  <p>The gaps between groups are large. In 2015, 89% of workers with a college or university degree had a formal contract, against 37% of those with upper secondary schooling or less. Only 32% of the owner and owner’s relatives had one, against 64% of workers with no family tie. Women were more likely than men to have a contract (60% against 50%) and unemployment insurance (46% against 38%).</p>
+  <div class="fig" id="fig6">
+    <div class="fnum">Figure 6</div><h3>Contracts and unemployment insurance by group, 2015</h3>
+    <p class="fnote">Percent of workers in each group with a formal labour contract and with employer-paid unemployment insurance.</p>
+    <div class="chart" data-chart="covgrp" data-kind="bars" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="search">
+  <h2><span class="n">04</span>Seven in ten jobs are found through family and friends</h2>
+  <p>Between 2009 and 2015, 72% of workers said they found their job through family or friends: 29–35% through the owner or a relative working in the firm, and 39–40% through a friend or acquaintance. Only 9% found it through an employment agency or a job advertisement, although that share rose from 6.2% in 2011 to 11.6% in 2015.</p>
+  <div class="fig" id="fig7">
+    <div class="fnum">Figure 7</div><h3>How workers found their current job</h3>
+    <p class="fnote">Percent of workers in each survey year. “Family” is the owner as a relative or a relative working in the firm; “Friends” is the owner as a friend or a friend working in the firm.</p>
+    <div class="chart" data-chart="chan" data-kind="stack" data-unit="%"></div>
+  </div>
+  <p>Formal channels matter mainly for educated workers: 15% of college or university graduates found their job through an agency or advertisement, against 3–4% of workers with lower secondary schooling or less.</p>
+  <div class="fig" id="fig8">
+    <div class="fnum">Figure 8</div><h3>Found the job through an employment agency or job advertisement, by education</h3>
+    <p class="fnote">Percent of workers; 2009–2015 pooled.</p>
+    <div class="chart" data-chart="chanedu" data-kind="bars" data-unit="%"></div>
+  </div>
+  <div class="callout"><p><b>Why it matters.</b> When most hiring runs through personal networks, workers without contacts inside a firm hear about fewer vacancies, and public employment services see only a small part of the market. Measuring how jobs are actually found is a starting point for designing job-matching services that reach those workers.</p></div>
+</section>
+
+<section id="training">
+  <h2><span class="n">05</span>Training is common, but much of its wage premium reflects who gets it</h2>
+  <p>In 2007–2011, between 31% and 40% of workers said they had received general or on-the-job training at their current firm. From 2013 the survey asked separately about formal on-the-job, off-the-job and informal training, so the two periods are not directly comparable. In 2015, 22% of workers had received formal on-the-job training, 2.5% off-the-job training and 37% informal training; 44% had received at least one kind.</p>
+  <div class="fig" id="fig9">
+    <div class="fnum">Figure 9</div><h3>Workers who received training at their current firm</h3>
+    <p class="fnote">Percent of workers. The question changed in 2013, so the series are shown separately.</p>
+    <div class="chart" data-chart="train" data-kind="line" data-unit="%"></div>
+  </div>
+  <p>Training goes to workers who already have more. In 2007–2011, 40% of college or university graduates had been trained at their firm, against 26–27% of workers with lower secondary schooling or less; in 2009–2011, 44% of workers with a formal contract had been trained, against 28% of those without one.</p>
+  <div class="fig" id="fig10">
+    <div class="fnum">Figure 10</div><h3>Training by education, 2007–2011</h3>
+    <p class="fnote">Percent of workers who received general or on-the-job training at their current firm.</p>
+    <div class="chart" data-chart="trainedu" data-kind="bars" data-unit="%"></div>
+  </div>
+  <p>Does training raise wages? In 2007–2011, trained workers earned about 11% more than untrained workers. But because training goes to more educated workers in better firms, that raw gap mixes the effect of training with the effect of who is trained and where. Figure 11 makes the comparison progressively fairer. Comparing workers with the same education, age, tenure, sex, job type and province lowers the premium to 7%; comparing trained workers with untrained co-workers in the same firm lowers it to 6%. In each wave on its own, the same-firm estimate is well below the raw gap. Following the same workers from 2013 to 2015, those who started training in between saw their wages grow about 5% more than others, but with few such workers the estimate is imprecise: the 95% interval runs from −7% to +17%.</p>
+  <div class="fig" id="fig11">
+    <div class="fnum">Figure 11</div><h3>Wage premium for trained workers under four comparisons</h3>
+    <p class="fnote">Percent difference in monthly wage; dots are estimates and lines are 95% confidence intervals, with standard errors clustered by firm. The last row uses the 2013–2015 training questions and workers interviewed in both waves.</p>
+    <div class="chart" data-chart="coef" data-kind="coef" data-unit="%"></div>
+  </div>
+  <p>Workers’ own reports point the same way: in 2013–2015, 45% of trained workers said their wage rose after the training.</p>
+  <div class="callout"><p><b>What this means for evaluating training.</b> A simple comparison of trained and untrained workers overstates what training delivers, because the two groups differ before any training takes place. A credible evaluation of a training program needs a comparison group that resembles the participants — through random assignment, matching, or following the same people over time — and enough participants to measure the effect precisely.</p></div>
+</section>
+
+<section id="stay">
+  <h2><span class="n">06</span>Two in five workers are still with their firm two years later</h2>
+  <p>Because the survey returns to the same firms, it can follow workers over time. Among firms surveyed in consecutive waves, 43% of the workers interviewed in 2011 or 2013 were interviewed again in the same firm two years later. Younger workers move more: 37% of workers under 30 were still there, against 47% of those aged 30 or older. Having a formal contract or training made little difference. Workers who stayed saw their real wage rise by a median of 10.7% over the two years, or about 5% a year.</p>
+  <div class="fig" id="fig12">
+    <div class="fnum">Figure 12</div><h3>Workers re-interviewed in the same firm two years later</h3>
+    <p class="fnote">Percent of workers interviewed in 2011 or 2013 in firms surveyed again two years later. Because only a few workers are interviewed per firm, this understates how many workers stay; differences between groups are more informative than the level.</p>
+    <div class="chart" data-chart="ret" data-kind="bars" data-unit="%"></div>
+  </div>
+</section>
+
+<section id="provinces">
+  <h2><span class="n">07</span>Formal jobs cluster in the big cities</h2>
+  <p>Job quality varies widely across the ten provinces (2011–2015 pooled). The share of workers with a formal contract ranges from 20% in Phu Tho to 71% in Ha Noi city, and unemployment-insurance coverage from 13–14% in Phu Tho and the former Ha Tay province to 53% in Ho Chi Minh City. Median real wages are highest in Ha Noi and Hai Phong (4.0 million dong) and lowest in Khanh Hoa (3.0 million). Hiring through family and friends is most common in Nghe An and Hai Phong (85% and 84%) and least common in Lam Dong (45%).</p>
+  <div class="fig" id="fig13">
+    <div class="fnum">Figure 13</div><h3>Job quality by province, 2011–2015</h3>
+    <p class="fnote">Choose an indicator. Darker provinces have higher values; grey provinces are not in the survey. Ha Tay merged into Ha Noi in 2008, so the map shows Ha Noi including former Ha Tay, while the ranking shows both. Hover over a province or a bar for details.</p>
+    <div class="chart" data-chart="map" data-kind="map"></div>
+  </div>
+</section>
+
+<section id="method">
+  <h2><span class="n">08</span>Data and method</h2>
+  <ul class="plain">
+    <li><b>Source.</b> Viet Nam SME Survey, employee module, waves 2007, 2009, 2011, 2013 and 2015, run by the Central Institute for Economic Management (CIEM), the Institute of Labour Science and Social Affairs (ILSSA), the University of Copenhagen and UNU-WIDER. The survey revisits small and medium-sized manufacturing firms in ten provinces every two years and interviews a few of their workers: 6,878 interviews with about 5,500 workers in 1,219 firms. The microdata are available only on registration and are not reproduced or redistributed here; the report shows summary results only.</li>
+    <li><b>Coverage.</b> Results describe workers in the surveyed firms. They are not weighted and are not representative of all workers in Vietnam.</li>
+    <li><b>Wages.</b> Wage figures use workers paid by the month (76–82% of interviews in each wave). The 2007 questionnaire asks for the wage after tax. Wages are deflated with the World Bank consumer price index for Vietnam (<code>FP.CPI.TOTL</code>) and expressed in 2015 prices.</li>
+    <li><b>Harmonization.</b> Education categories were mapped to five common groups (the 2013 and 2015 questionnaires use finer categories). The training question changed in 2013 and is reported separately. Job-search channels are shown from 2009 because the 2007 wave records a much larger share of “door-to-door” answers (24%, against 2% or less later), which suggests a coding difference. The question on relationship to the owner was not asked in 2009, the contract question starts in 2009 and the unemployment-insurance question in 2011.</li>
+    <li><b>Estimation.</b> Wage premia come from ordinary least squares regressions of the log real monthly wage, with standard errors clustered by firm. The training comparisons in Figure 11 add, in turn, worker characteristics (sex, education, age and its square, tenure, job type, province, survey year) and firm fixed effects; the last row is a first-difference regression for workers interviewed in both 2013 and 2015.</li>
+    <li><b>Following workers.</b> Workers are linked across waves by firm and the worker code recorded in the later wave, and a link is kept only if sex matches and birth years differ by two years or less. Links before 2011 are less reliable, so Figures 11 (last row) and 12 use 2011–2015.</li>
+    <li><b>Map.</b> Province boundaries from Natural Earth (public domain), simplified for display, as they stood before Vietnam’s 2025 provincial reorganization. Province values pool 2011–2015 to give enough interviews per province (228 to 1,080 workers).</li>
+    <li><b>Calculations.</b> All figures are the author’s calculations from the survey microdata.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Source: CIEM, ILSSA, University of Copenhagen and UNU-WIDER, Viet Nam SME Survey (2007–2015), employee module; World Bank, World Development Indicators (consumer price index); Natural Earth (boundaries). Policy dates: Vietnam’s unemployment-insurance programme began in 2009 and was expanded from 2015 under the Employment Law.</p>
+  <p><b>Author:</b> Shadi Rahimfallah. Analysis, calculations and interpretations are the author’s own; all errors are my own.</p>
+</footer>
+</div>
+
+<script>
+const DATA = {"edu":{"labels":["2007","2009","2011","2013","2015"],"series":[{"name":"Primary or less","values":[10.8,10.0,5.9,5.6,5.1]},{"name":"Lower secondary","values":[28.2,28.5,20.6,16.0,19.2]},{"name":"Upper secondary","values":[21.1,30.6,33.8,29.2,26.0]},{"name":"Vocational or technical","values":[22.3,15.8,21.0,30.4,28.0]},{"name":"College or university","values":[17.5,15.1,18.7,18.8,21.7]}],"colors":["#93b6e6","#6b9cdc","#4580cf","#2a60aa","#163f74"],"head":"Survey year","src":"2007–2015"},"wage":{"years":[2007,2009,2011,2013,2015],"series":[{"name":"Men","values":[2904.0,3157.0,3410.0,3666.0,4500.0]},{"name":"Women","values":[2696.0,2841.0,3167.0,3561.0,4000.0]}],"src":"2007–2015","ymax":5000,"nt":5},"gap":{"years":[2007,2009,2011,2013,2015],"series":[{"name":"Unadjusted (ratio of medians)","values":[92.9,90.0,92.9,97.1,88.9]},{"name":"Adjusted (same education, age, tenure, job, province)","values":[85.7,85.8,90.8,88.7,87.8]}],"src":"2007–2015","ymin":50,"ymax":100},"eduprem":{"labels":["Lower secondary","Upper secondary","Vocational or technical","College or university"],"series":[{"name":"Wage premium over primary or less","values":[9.4,18.8,28.2,55.1]}],"src":"2007–2015, pooled","vmax":60,"nt":6},"cov":{"years":[2007,2009,2011,2013,2015],"series":[{"name":"Formal labour contract","values":[null,47.9,46.9,50.1,54.0]},{"name":"Employer-paid health insurance","values":[26.0,31.0,35.2,42.6,47.9]},{"name":"Employer-paid unemployment insurance","values":[null,null,28.0,34.1,41.0]}],"src":"2007–2015"},"covgrp":{"labels":["All workers","Women","Men","Owner or owner’s relative","No family tie to owner","Production workers","Upper secondary or less","College or university"],"series":[{"name":"Formal labour contract","values":[54.0,60.3,49.6,31.9,64.2,41.3,36.7,89.3]},{"name":"Unemployment insurance","values":[41.0,45.8,37.8,27.3,46.7,28.7,27.6,72.5]}],"src":"2015"},"chan":{"labels":["2009","2011","2013","2015"],"head":"Survey year","src":"2009–2015","colors":["#2a78d6","#eb6834","#1baf7a","#b9c1ca"],"series":[{"name":"Family","values":[32.1,33.5,34.9,28.8]},{"name":"Friends and acquaintances","values":[40.2,40.1,39.7,39.0]},{"name":"Employment agency or job ad","values":[8.1,6.2,9.1,11.6]},{"name":"Other (incl. asking at the door)","values":[19.7,20.2,16.3,20.5]}]},"chanedu":{"labels":["Primary or less","Lower secondary","Upper secondary","Vocational or technical","College or university"],"series":[{"name":"Found the job through an agency or job ad","values":[3.6,3.4,8.6,9.4,15.2]}],"src":"2009–2015, pooled"},"train":{"years":[2007,2009,2011,2013,2015],"src":"2007–2015","series":[{"name":"Trained at current firm (2007–2011 question)","values":[31.2,31.2,39.9,null,null]},{"name":"Any training: formal, off-the-job or informal (2013–2015)","values":[null,null,null,35.8,44.0]},{"name":"Formal on-the-job training (2013–2015)","values":[null,null,null,15.3,22.1]}],"ymax":50,"nt":5},"trainedu":{"labels":["Primary or less","Lower secondary","Upper secondary","Vocational or technical","College or university"],"series":[{"name":"Received training at current firm","values":[26.5,27.3,38.2,37.0,39.7]}],"src":"2007–2011, pooled"},"coef":{"src":"2007–2015","rows":[{"label":"Raw difference","b":10.6,"lo":5.9,"hi":15.3,"n":3086,"ci":0,"note":"All workers, 2007–2011; survey-year effects only"},{"label":"Similar workers","b":7.4,"lo":3.4,"hi":11.4,"n":3086,"ci":0,"note":"Same education, age, tenure, sex, job type, province and year"},{"label":"Co-workers, same firm","b":6.0,"lo":0.5,"hi":11.5,"n":3086,"ci":0,"note":"As above, comparing workers within the same firm"},{"label":"Same worker over time","b":5.3,"lo":-6.8,"hi":17.3,"n":398,"ci":1,"note":"Wage growth 2013–2015 for workers who started training vs. others"}]},"ret":{"labels":["All workers","Under 30","30 and over","Women","Men","Formal labour contract","No formal contract","Owner or owner’s relative","No family tie to owner","Received training","No training"],"series":[{"name":"Re-interviewed in the same firm two years later","values":[43.1,36.7,46.9,41.1,44.5,42.2,43.9,47.2,41.1,43.3,43.0]}],"src":"2011–2015","vmax":60,"nt":6},"map":{"prov":[{"id":"HCMC","name":"Ho Chi Minh City","wage":3771.0,"contract":62.7,"ui":53.3,"network":69.3,"n":848,"firms":153},{"id":"Ha Noi","name":"Ha Noi","wage":4000.0,"contract":70.5,"ui":35.7,"network":64.4,"n":654,"firms":124},{"id":"Ha Tay","name":"Ha Tay (now part of Ha Noi)","wage":3666.0,"contract":31.7,"ui":13.9,"network":79.2,"n":426,"firms":84},{"id":"Hai Phong","name":"Hai Phong","wage":4000.0,"contract":57.5,"ui":42.4,"network":84.0,"n":510,"firms":66},{"id":"Khanh Hoa","name":"Khanh Hoa","wage":3045.0,"contract":55.7,"ui":40.1,"network":72.0,"n":420,"firms":58},{"id":"Lam Dong","name":"Lam Dong","wage":3500.0,"contract":41.3,"ui":23.0,"network":45.1,"n":247,"firms":53},{"id":"Long An","name":"Long An","wage":3654.0,"contract":39.6,"ui":29.6,"network":66.8,"n":260,"firms":59},{"id":"Nghe An","name":"Nghe An","wage":3142.0,"contract":43.3,"ui":28.4,"network":84.8,"n":420,"firms":102},{"id":"Phu Tho","name":"Phu Tho","wage":3142.0,"contract":20.2,"ui":13.3,"network":75.6,"n":228,"firms":74},{"id":"Quang Nam","name":"Quang Nam","wage":3654.0,"contract":31.0,"ui":20.5,"network":76.1,"n":378,"firms":76}],"mapvals":{"HCMC":{"wage":3771.0,"contract":62.7,"ui":53.3,"network":69.3,"n":848,"firms":153},"Ha Noi":{"wage":3980.0,"contract":55.2,"ui":27.3,"network":70.1,"n":1080,"firms":208},"Hai Phong":{"wage":4000.0,"contract":57.5,"ui":42.4,"network":84.0,"n":510,"firms":66},"Khanh Hoa":{"wage":3045.0,"contract":55.7,"ui":40.1,"network":72.0,"n":420,"firms":58},"Lam Dong":{"wage":3500.0,"contract":41.3,"ui":23.0,"network":45.1,"n":247,"firms":53},"Long An":{"wage":3654.0,"contract":39.6,"ui":29.6,"network":66.8,"n":260,"firms":59},"Nghe An":{"wage":3142.0,"contract":43.3,"ui":28.4,"network":84.8,"n":420,"firms":102},"Phu Tho":{"wage":3142.0,"contract":20.2,"ui":13.3,"network":75.6,"n":228,"firms":74},"Quang Nam":{"wage":3654.0,"contract":31.0,"ui":20.5,"network":76.1,"n":378,"firms":76}},"src":"2011–2015, pooled","metrics":[{"key":"contract","label":"Formal contract","long":"Workers with a formal labour contract","unit":"%"},{"key":"ui","label":"Unemployment insurance","long":"Workers with employer-paid unemployment insurance","unit":"%"},{"key":"wage","label":"Median wage","long":"Median real monthly wage (thousand dong, 2015 prices)","unit":"n"},{"key":"network","label":"Hired via family/friends","long":"Workers who found the job through family or friends","unit":"%"}]}};
+const GEO = {"w":300.0,"h":628.1,"features":[{"id":null,"name":"Kon Tum","d":"M217.2 379.5L219.7 374.5L219.7 371.9L220.9 368.7L219.2 363.3L221.9 359.8L218.0 356.9L217.3 354.0L222.7 353.0L222.8 350.9L224.3 349.3L224.7 346.7L225.9 346.3L226.0 343.1L222.8 339.7L222.6 337.9L223.7 337.6L227.3 339.3L228.6 342.1L230.8 342.5L233.8 345.4L237.8 345.4L240.2 346.8L242.8 349.3L242.8 352.8L245.6 356.9L247.7 355.6L248.2 352.3L252.0 353.0L255.9 356.6L258.0 360.2L262.8 363.1L265.1 370.3L260.1 371.6L256.9 371.0L257.3 373.5L256.7 375.6L253.7 379.2L246.2 383.5L228.5 389.6L226.0 391.6L222.5 397.0L217.3 400.8L216.5 397.7L213.6 397.4L213.2 394.0L212.2 392.4L213.8 387.4L213.8 382.2L215.2 379.3Z"},{"id":null,"name":"\u0110\u1eafk N\u00f4ng","d":"M216.1 471.6L220.1 467.8L221.8 462.3L222.2 456.6L221.2 451.9L233.5 451.8L234.8 457.2L236.3 458.3L236.3 459.5L240.2 461.7L239.0 464.0L237.3 464.3L237.5 467.3L239.1 469.3L241.8 470.0L245.2 473.8L244.6 476.3L239.9 477.0L239.3 478.9L240.9 482.0L243.5 484.9L243.2 488.7L239.8 492.1L238.7 491.1L236.5 491.1L235.6 488.4L230.6 488.7L228.4 486.2L222.1 491.4L217.2 493.2L215.1 492.9L215.5 491.0L213.8 485.8L209.7 481.5L208.4 469.2L212.2 468.4L215.2 471.6Z"},{"id":null,"name":"\u0110\u1eafk L\u1eafk","d":"M221.2 451.9L221.0 448.4L219.0 445.4L218.2 441.9L218.8 440.4L217.9 439.0L222.0 428.8L226.9 425.8L237.7 425.2L242.8 423.4L254.8 427.4L256.6 429.3L259.2 436.8L260.9 438.5L266.9 440.1L270.1 445.0L273.3 447.2L282.2 450.4L279.5 452.8L276.6 453.9L274.5 462.2L271.2 461.3L267.5 462.0L267.0 464.9L267.7 469.5L264.6 470.8L260.3 469.7L256.6 472.4L253.1 472.5L250.6 474.0L249.8 475.7L246.0 475.1L244.7 475.9L245.2 473.8L243.1 471.1L241.1 469.7L239.1 469.3L237.5 467.3L237.3 464.3L239.0 464.0L240.2 461.7L236.3 459.5L236.3 458.3L234.8 457.2L233.5 451.8Z"},{"id":null,"name":"Gia Lai","d":"M222.0 428.8L224.0 422.9L223.5 417.2L220.1 410.5L217.2 406.7L217.3 400.8L222.5 397.0L226.0 391.6L228.5 389.6L246.2 383.5L253.7 379.2L256.7 375.6L257.3 373.5L256.9 371.0L260.1 371.6L265.1 370.3L267.1 372.2L268.0 378.1L265.9 391.0L266.8 394.2L269.1 397.1L269.1 401.4L272.9 408.2L273.5 421.6L275.7 430.4L275.2 431.7L268.0 436.9L266.9 440.1L260.9 438.5L259.2 436.8L257.6 431.4L255.7 428.1L244.3 423.6L241.2 423.6L237.0 425.3L226.9 425.8Z"},{"id":null,"name":"B\u00ecnh Ph\u01b0\u1edbc","d":"M195.7 479.5L198.2 478.2L205.4 470.6L208.4 469.2L209.7 481.5L213.8 485.8L215.5 491.0L215.1 492.9L212.5 494.3L210.7 497.0L211.7 500.8L203.4 504.6L202.4 507.7L198.6 512.3L196.4 512.7L190.6 510.6L187.6 511.8L187.9 510.5L186.7 509.5L186.0 511.0L184.4 511.2L183.4 509.1L183.6 506.5L179.7 504.3L177.3 501.3L178.3 501.0L177.6 497.1L176.1 496.0L174.6 493.1L176.2 488.1L174.4 483.6L176.4 483.4L177.7 484.4L178.9 483.5L186.1 483.8L189.8 479.6Z"},{"id":null,"name":"T\u00e2y Ninh","d":"M175.7 496.7L176.1 496.0L177.6 497.1L178.3 501.0L177.3 501.3L173.8 506.2L172.3 511.9L173.9 516.5L175.5 518.2L175.1 522.9L173.2 525.6L170.7 523.8L170.0 525.4L165.6 526.3L166.0 525.8L164.4 521.8L163.0 521.1L161.9 522.4L157.9 517.3L154.3 515.5L153.7 513.4L152.0 512.5L153.2 506.6L152.5 502.1L150.3 500.8L149.9 499.0L151.8 496.9L155.7 497.5L159.0 492.1L167.5 494.0L169.5 496.1L172.8 495.5Z"},{"id":"Long An","name":"Long An","d":"M148.3 524.1L153.4 532.1L154.6 531.7L155.5 529.2L159.1 532.4L165.6 534.7L163.3 526.7L170.0 525.4L170.4 523.8L171.2 524.0L177.8 528.0L179.2 529.7L179.8 532.2L178.6 535.5L178.9 536.5L184.7 540.1L186.8 539.5L188.4 540.4L188.3 545.1L186.4 545.9L185.1 545.1L185.6 546.2L182.6 548.6L182.0 546.5L182.3 548.6L183.4 548.7L182.2 549.6L177.4 549.7L176.4 549.3L176.3 547.2L172.9 545.7L170.1 542.5L164.3 542.2L161.5 544.2L155.2 543.2L139.1 527.6L138.9 526.9Z"},{"id":null,"name":"\u0110\u1ed3ng Th\u00e1p","d":"M138.9 526.9L139.5 528.2L152.9 541.4L156.8 543.7L156.2 546.8L151.9 552.3L152.2 554.4L149.5 553.2L146.6 550.2L143.3 549.5L140.7 547.9L138.6 544.8L133.3 541.8L132.6 537.4L129.5 537.2L126.5 532.0L126.1 529.4L130.5 531.6L134.3 526.4L136.9 527.3Z"},{"id":null,"name":"An Giang","d":"M121.0 527.2L121.5 528.4L126.1 529.4L126.5 532.0L129.5 537.2L132.6 537.4L133.3 541.8L138.6 544.8L141.3 548.3L139.3 550.1L136.9 555.6L135.1 555.6L132.9 557.3L130.6 555.5L127.4 558.8L113.0 551.0L106.3 545.1L111.6 544.7L114.7 540.5L120.3 536.9L118.0 529.7L119.3 527.9Z"},{"id":null,"name":"Ki\u00ean Giang","d":"M99.9 544.8L106.3 545.1L113.0 551.0L130.8 561.2L139.0 569.7L139.0 572.3L138.1 574.3L132.5 579.9L132.3 580.7L133.6 582.4L133.5 584.8L129.6 584.2L130.2 587.8L128.9 590.2L129.6 592.1L127.4 592.0L118.5 587.3L112.6 588.2L110.8 587.0L111.7 578.4L113.2 573.6L116.3 573.4L120.7 569.6L122.2 573.3L121.9 569.2L117.7 563.3L113.5 563.1L108.2 557.6L105.6 557.8L103.3 561.1L101.8 561.1L100.8 556.2L99.2 554.7L98.7 555.3L97.1 551.5L98.2 550.7L98.2 549.4L95.9 551.2L95.3 551.1L95.2 549.4L96.9 549.1ZM80.2 552.2L80.2 556.7L78.1 563.2L78.8 564.3L78.8 566.9L77.2 565.9L75.0 557.3L70.9 553.6L70.5 551.5L74.0 551.7L76.9 548.1Z"},{"id":null,"name":"\u0110i\u1ec7n Bi\u00ean","d":"M21.7 72.5L20.7 65.2L19.3 62.2L14.7 59.8L14.2 58.2L14.9 57.1L12.4 55.3L11.0 53.0L3.6 47.5L1.5 45.0L0.0 41.1L1.9 39.9L4.1 40.5L5.5 36.9L8.4 34.0L16.5 34.1L21.5 39.5L26.8 42.7L28.5 45.4L29.0 48.3L29.7 49.2L32.2 49.4L33.3 52.1L37.6 51.7L41.7 54.3L43.2 54.2L46.7 55.9L47.5 55.7L46.7 54.7L49.2 51.6L51.6 51.6L54.4 55.9L54.8 58.4L56.3 59.3L58.4 62.8L58.9 74.5L55.0 79.0L54.1 81.2L51.3 83.6L52.1 85.9L54.2 88.1L54.2 90.7L53.0 94.2L53.8 97.3L51.5 98.2L47.7 97.1L47.8 99.3L46.1 101.4L45.2 107.8L40.7 106.0L36.5 98.7L34.0 97.5L32.9 94.4L31.4 93.3L31.4 90.8L27.8 89.6L30.9 87.4L31.2 83.9L32.6 81.3L29.8 82.3L34.9 76.0L33.8 69.1L29.7 70.5L28.9 65.5L28.1 64.9L27.4 65.6L27.3 69.0L25.8 71.5Z"},{"id":null,"name":"S\u01a1n La","d":"M85.6 104.8L84.7 103.4L79.1 102.2L77.2 104.3L68.0 106.9L66.8 109.1L66.7 111.3L64.8 112.2L65.1 114.3L63.5 115.0L59.5 111.7L55.9 110.9L53.9 108.2L50.6 109.4L45.2 107.8L46.1 101.4L47.8 99.3L47.7 97.1L51.5 98.2L53.8 97.3L53.0 94.2L54.2 90.7L54.2 88.1L52.1 85.9L51.3 83.6L54.1 81.2L55.0 79.0L58.9 74.5L59.2 71.8L57.8 58.7L59.2 56.5L60.7 56.2L61.9 56.9L65.0 63.9L70.9 70.0L73.7 69.9L83.7 72.4L86.2 72.0L88.5 70.4L90.1 70.7L91.0 72.7L89.4 79.4L91.3 82.7L95.9 85.0L100.5 82.9L104.2 84.2L106.8 83.8L108.5 86.2L110.5 86.4L112.1 89.8L112.4 94.6L113.8 96.1L112.7 99.4L114.0 101.9L121.3 109.1L117.3 111.7L111.7 112.0L111.0 113.3L111.1 116.3L109.8 117.8L107.7 118.5L96.8 113.0L95.2 110.4L92.6 110.1L88.5 105.3Z"},{"id":null,"name":"Thanh H\u00f3a","d":"M98.0 120.8L101.8 115.6L103.0 115.6L107.7 118.5L109.8 117.8L111.1 116.3L115.1 117.8L120.3 118.4L123.2 117.8L130.1 123.5L136.1 126.5L139.7 127.3L151.0 136.2L160.8 140.3L161.0 141.9L156.5 146.0L155.4 151.6L154.9 151.0L152.9 152.5L155.4 152.2L154.1 154.7L152.9 154.7L151.0 160.3L150.9 159.4L150.3 159.3L149.8 159.7L149.8 160.3L150.4 159.4L151.0 160.9L150.7 167.3L150.1 167.0L149.0 168.2L150.6 171.6L150.7 172.3L149.8 171.7L150.4 173.6L145.6 172.1L141.5 168.8L139.3 166.0L134.5 165.2L131.5 162.0L128.8 163.5L128.2 159.0L124.4 155.0L123.2 151.9L123.3 150.2L124.9 147.5L115.3 143.2L115.3 140.0L116.1 139.6L113.7 137.1L113.8 135.4L110.2 133.5L104.9 134.5L103.6 133.8L103.6 131.0L104.8 130.1L104.5 128.4L100.2 125.3L94.4 125.4L91.4 124.2L94.9 120.2L95.9 120.9Z"},{"id":"Nghe An","name":"Ngh\u1ec7 An","d":"M112.4 143.6L118.1 144.1L124.9 147.5L123.3 150.2L123.2 151.9L124.4 155.0L128.2 159.0L128.8 163.5L131.5 162.0L134.5 165.2L139.3 166.0L141.5 168.8L145.6 172.1L150.4 173.6L149.4 174.0L149.1 175.3L147.9 175.4L147.6 180.7L145.9 181.8L144.8 181.5L142.6 185.3L143.4 189.1L146.8 191.5L146.2 192.3L145.1 191.5L148.5 195.0L147.8 196.7L148.2 199.6L145.7 201.3L145.3 203.2L138.1 202.4L134.4 202.8L128.7 201.2L124.5 201.5L122.1 198.1L114.3 196.5L113.4 195.0L112.4 194.7L105.7 193.9L99.4 189.7L97.1 186.6L93.6 186.0L91.2 183.3L87.4 180.9L85.3 181.0L84.8 179.0L82.8 177.5L78.2 175.5L75.6 175.7L72.4 172.8L70.6 172.6L74.8 168.7L78.3 167.8L79.2 165.3L80.4 164.8L79.7 161.6L77.5 159.8L76.8 156.4L80.4 157.6L82.3 156.1L86.1 155.3L88.8 157.5L92.3 156.2L97.4 159.7L100.4 159.1L101.8 159.5L104.3 154.5L109.6 151.7L110.1 149.3L107.6 148.5L108.6 146.7Z"},{"id":null,"name":"H\u00e0 T\u0129nh","d":"M124.2 202.3L124.5 201.5L128.7 201.2L134.4 202.8L138.1 202.4L144.5 203.5L146.7 200.2L149.0 199.2L148.7 195.5L149.5 196.0L151.2 202.5L153.4 206.0L154.9 207.6L156.3 207.7L157.4 210.7L162.8 216.0L162.2 216.7L165.1 216.5L169.4 219.1L172.5 222.1L172.8 222.9L170.8 223.5L172.2 223.5L172.5 225.2L173.0 223.5L176.1 222.5L175.8 224.6L179.5 229.5L172.6 229.1L169.7 231.6L164.0 230.7L160.9 229.6L159.5 226.1L155.4 224.7L152.6 225.0L147.6 226.8L145.4 228.5L142.2 229.0L137.0 222.3L136.6 220.0L134.3 219.2L132.6 221.4L130.7 220.5L129.6 219.4L129.5 217.0L127.2 217.1L123.9 214.1L124.2 212.2L120.8 208.4L122.2 203.1L122.8 202.3Z"},{"id":null,"name":"Qu\u1ea3ng B\u00ecnh","d":"M159.1 253.4L151.0 243.8L147.0 241.6L143.8 235.4L142.2 233.9L142.2 229.0L145.4 228.5L147.6 226.8L152.6 225.0L155.4 224.7L159.5 226.1L160.9 229.6L164.0 230.7L169.7 231.6L172.6 229.1L179.5 229.5L179.7 230.1L176.1 232.7L178.3 240.3L173.6 237.7L170.0 237.4L175.9 239.1L174.0 239.6L173.8 240.5L175.0 241.2L174.5 240.3L175.4 239.9L178.9 241.2L184.2 250.2L189.5 255.9L199.4 263.3L195.2 265.9L191.7 271.1L190.4 271.6L182.3 271.3L180.1 272.3L179.7 270.6L178.6 271.7L177.0 271.3L175.1 270.3L174.1 268.2L174.5 267.3L170.8 262.7L171.0 260.5L169.9 258.1L168.9 257.9L167.4 259.8L165.9 259.2Z"},{"id":null,"name":"Qu\u1ea3ng Tr\u1ecb","d":"M185.7 293.7L184.5 290.9L184.5 287.7L181.7 286.6L180.4 284.6L180.1 272.3L182.3 271.3L188.9 271.8L191.7 271.1L195.2 265.9L199.4 263.3L203.7 266.4L204.1 269.4L207.3 273.3L204.9 275.8L206.9 275.5L208.0 274.1L215.9 280.8L211.7 286.3L203.8 288.7L204.0 290.7L205.9 292.9L201.9 297.4L201.9 300.3L197.8 299.9L194.1 294.9L193.3 295.0L193.6 291.2L192.9 290.1L191.9 290.1L188.6 294.7Z"},{"id":null,"name":"Th\u1eeba Thi\u00ean Hu\u1ebf","d":"M204.6 304.6L203.9 301.8L201.9 300.3L201.7 298.0L205.9 292.9L203.6 289.1L204.4 288.2L211.7 286.3L215.9 280.8L225.1 288.0L218.5 284.9L217.2 285.1L225.1 288.9L224.0 289.5L226.2 289.2L225.6 290.5L226.2 291.5L227.6 290.5L233.5 296.5L231.5 296.5L232.8 299.7L235.7 300.8L237.4 299.4L237.1 297.6L240.4 299.1L241.7 297.9L243.8 302.6L242.1 301.5L242.1 302.6L248.3 303.4L245.3 304.0L240.8 303.1L238.0 303.4L235.3 307.8L234.1 308.9L231.9 309.0L228.9 312.0L226.2 308.7L222.6 310.3L216.8 310.2L216.7 309.5L211.3 309.9L208.9 307.1Z"},{"id":"Quang Nam","name":"Qu\u1ea3ng Nam","d":"M208.8 318.7L214.5 316.0L217.3 312.2L216.8 310.2L223.5 310.2L226.2 308.7L228.9 312.0L232.7 308.7L240.0 308.8L240.4 311.9L241.3 313.2L251.4 313.0L255.8 316.9L256.1 317.7L255.2 318.1L256.7 317.7L258.5 323.3L265.2 332.6L267.8 333.1L267.2 334.6L266.7 334.0L265.6 334.4L265.6 335.7L266.6 336.4L268.4 334.2L268.6 336.1L271.0 338.2L254.5 342.1L251.3 346.7L251.4 348.2L253.3 351.4L252.0 353.0L248.2 352.3L247.7 355.6L245.6 356.9L242.8 352.8L242.8 349.3L240.2 346.8L237.8 345.4L233.8 345.4L230.8 342.5L228.6 342.1L227.8 339.9L225.6 338.1L220.0 337.7L219.3 337.2L219.0 334.6L217.9 334.5L217.4 333.5L214.2 334.0L212.0 330.1L208.9 327.7L208.3 324.6L205.2 322.2L206.7 318.6Z"},{"id":null,"name":"H\u00e0 Giang","d":"M130.3 0.0L131.6 2.6L134.9 3.9L136.9 7.3L139.1 8.9L139.4 11.3L138.4 11.8L137.5 15.2L135.2 15.5L129.6 21.2L136.0 25.1L140.7 32.8L138.0 33.3L131.6 32.5L124.9 30.6L123.1 35.7L120.5 39.2L119.5 42.8L118.8 43.4L115.3 43.3L114.7 46.6L111.4 50.7L108.2 50.3L104.9 46.7L103.3 46.6L101.2 48.0L101.0 43.9L96.0 40.2L94.7 34.5L96.3 33.2L94.0 30.3L91.8 29.6L91.5 28.6L99.3 22.5L100.8 23.7L101.6 23.0L103.8 23.5L105.9 22.9L108.3 19.9L110.3 18.7L109.3 11.9L111.9 10.4L112.2 8.6L114.9 9.0L120.0 5.7L123.9 4.2L125.7 4.7L127.6 1.5Z"},{"id":null,"name":"Cao B\u1eb1ng","d":"M139.4 11.5L140.6 13.2L146.1 13.9L152.4 19.6L153.3 18.6L156.8 18.4L158.3 16.6L163.7 16.6L166.6 17.8L167.6 20.8L168.8 21.7L177.0 20.2L178.2 18.7L182.1 20.0L183.2 21.8L185.6 21.1L188.1 24.1L190.9 24.7L188.8 26.4L186.1 33.4L184.7 33.8L183.1 32.1L181.9 32.7L179.8 39.4L180.1 40.8L178.6 41.7L174.6 41.9L169.4 39.1L165.0 40.6L164.0 39.6L162.7 35.4L161.7 34.9L152.7 37.8L150.8 36.5L148.8 31.8L149.1 27.7L147.1 27.2L145.8 27.8L140.7 32.8L136.0 25.1L129.6 21.2L135.2 15.5L137.5 15.2L138.4 11.8Z"},{"id":null,"name":"L\u00e0o Cai","d":"M86.4 26.5L94.0 30.3L96.3 33.2L94.7 34.5L96.0 40.2L101.0 43.9L101.0 47.8L102.4 47.0L103.1 50.6L99.4 53.9L95.2 51.7L93.0 52.2L92.3 53.7L94.9 59.2L94.1 61.4L92.8 62.3L86.2 59.7L84.8 62.8L78.9 61.0L76.1 59.1L73.1 63.9L74.8 66.8L74.2 69.0L73.7 69.9L70.9 70.0L65.0 63.9L61.9 56.9L60.7 56.2L59.2 56.5L60.5 51.6L61.8 49.8L65.6 48.0L67.4 45.7L68.7 42.6L66.4 40.1L62.6 40.2L59.9 38.8L59.5 37.5L61.0 35.3L58.4 30.4L58.3 28.2L60.0 25.4L62.3 24.1L70.1 32.4L75.1 36.4L76.2 35.6L77.7 27.4L80.3 24.4L86.6 23.0Z"},{"id":null,"name":"Lai Ch\u00e2u","d":"M56.9 33.0L58.4 30.4L60.8 34.4L60.9 36.0L59.5 37.5L59.9 38.8L62.6 40.2L66.4 40.1L68.7 42.6L67.4 45.7L65.6 48.0L61.8 49.8L60.1 52.3L59.2 56.5L57.8 58.7L58.4 62.8L56.3 59.3L54.8 58.4L54.4 55.9L51.6 51.6L49.2 51.6L46.7 54.7L47.5 55.7L46.7 55.9L43.2 54.2L41.7 54.3L37.6 51.7L33.3 52.1L32.2 49.4L29.7 49.2L29.0 48.3L28.5 45.4L26.8 42.7L21.5 39.5L16.5 34.1L8.4 34.0L10.8 31.3L9.7 29.5L11.3 29.1L12.5 26.3L14.2 25.3L16.2 26.3L17.0 28.4L19.1 27.6L29.1 32.5L32.0 37.7L37.1 39.7L37.8 39.3L37.8 37.3L41.7 35.1L41.7 32.2L45.9 29.6L49.1 24.4L52.3 26.7L52.4 28.7L54.2 31.7L55.8 33.2Z"},{"id":null,"name":"L\u1ea1ng S\u01a1n","d":"M180.1 41.1L181.0 43.9L184.2 44.8L185.4 48.5L184.4 49.9L185.8 54.0L184.8 58.2L185.2 59.5L188.1 57.6L190.2 59.0L193.6 59.3L195.9 61.5L198.8 60.7L200.0 61.7L198.6 64.6L199.3 66.0L201.8 66.6L206.2 70.1L210.3 69.9L211.5 71.2L212.7 74.4L208.6 77.3L209.3 81.0L207.9 83.1L203.2 85.0L200.1 84.4L199.4 81.7L196.0 81.5L192.1 75.1L188.8 77.1L185.2 74.6L182.0 75.0L179.6 77.3L177.8 81.4L174.6 83.0L172.7 82.4L170.3 80.1L165.1 78.5L165.2 76.2L168.8 71.3L165.7 67.1L164.1 66.2L163.1 62.3L163.4 55.7L166.1 53.2L168.9 46.8L166.2 40.7L168.9 39.0L174.6 41.9Z"},{"id":null,"name":"Qu\u1ea3ng Ninh","d":"M213.3 75.0L216.5 72.7L217.8 73.6L217.9 75.1L219.6 75.7L220.9 74.6L224.2 74.7L230.9 72.6L233.1 73.3L239.6 79.8L237.1 81.6L236.2 78.1L235.1 77.7L234.6 78.6L234.3 77.9L233.2 79.7L232.9 78.1L232.3 78.3L232.6 79.5L231.6 78.4L230.4 78.3L229.8 78.9L231.3 79.4L231.2 80.9L230.2 81.3L229.7 83.0L227.6 83.5L226.4 83.0L226.2 84.4L225.0 84.1L225.3 85.9L223.9 86.2L223.2 87.9L221.7 87.5L220.4 85.6L220.6 87.7L216.1 86.5L215.8 87.0L217.2 88.2L214.1 88.8L213.8 90.3L213.6 92.3L215.0 92.6L213.6 96.9L214.4 99.2L212.8 100.2L207.8 100.7L208.6 101.3L207.0 102.4L207.2 103.0L205.2 103.3L201.8 102.2L205.2 98.7L202.6 100.2L202.4 99.0L201.7 100.0L201.3 99.0L201.0 100.4L201.0 99.3L200.2 99.0L200.7 100.4L199.0 99.5L200.2 101.6L199.2 102.5L193.2 100.7L196.8 104.2L195.1 104.3L194.0 103.0L194.6 104.2L193.7 105.4L192.3 103.0L191.2 103.3L189.9 102.2L191.8 101.4L190.9 99.4L190.1 99.2L190.4 99.8L188.2 99.1L187.3 99.5L187.6 100.2L176.5 97.7L176.6 95.8L179.0 94.5L180.6 92.2L192.0 93.5L197.6 92.0L199.7 86.2L207.9 83.1L209.3 81.0L208.6 77.3L212.7 74.4ZM202.6 109.0L203.0 109.4L202.2 109.1L201.8 108.3L202.1 109.7L200.4 109.4L202.1 111.8L201.6 111.5L201.0 113.0L201.0 112.0L199.9 112.0L200.7 111.8L200.4 111.2L199.0 110.9L199.3 111.8L198.5 111.2L195.5 108.1L195.6 107.3L197.4 105.6L197.7 106.5L199.3 107.1L200.1 106.2L201.0 106.8L200.9 107.6L203.5 108.9ZM192.0 104.0L194.3 108.0L194.0 109.3L192.9 109.0L191.8 105.6L191.8 107.1L189.8 106.4L190.4 103.3ZM220.2 104.8L221.7 101.6L221.4 103.8L218.1 108.3L218.8 106.1L218.3 105.4ZM230.1 99.7L231.5 101.0L230.7 100.7L230.6 102.2L229.3 103.0L230.1 101.1L229.2 100.3ZM221.4 98.9L220.0 103.6L215.3 104.8L219.2 101.9L219.7 99.5ZM224.8 95.3L222.8 101.1L222.0 101.0L223.4 96.6ZM223.7 91.1L218.3 96.3L215.0 98.4L214.3 97.9L216.2 92.1L217.5 91.7L217.7 88.7L220.5 90.6L220.9 92.0ZM231.1 85.3L232.5 85.6L228.2 87.4ZM239.9 83.3L237.7 84.8L234.0 85.5L233.5 85.6L233.7 84.7L234.0 85.3L234.7 84.5L232.9 84.7ZM214.7 108.1L214.6 109.0L213.4 108.4L213.1 107.1ZM215.1 105.3L214.1 106.4L212.7 105.4L213.0 105.1ZM233.5 98.9L233.9 99.6L232.5 100.9L232.8 99.3Z"},{"id":null,"name":"S\u00f3c Tr\u0103ng","d":"M167.5 583.9L170.3 584.8L169.9 586.6L168.3 587.0L168.5 585.9L166.4 583.8L167.6 585.7L166.4 585.4L163.5 581.1L162.2 577.4ZM161.3 577.9L166.6 587.3L166.9 589.7L165.2 591.9L166.3 592.7L165.8 594.3L153.0 598.9L151.1 593.6L149.6 593.0L145.8 593.4L142.0 591.9L141.1 590.2L140.8 583.8L145.0 582.5L151.3 579.0L154.3 570.8ZM184.4 620.8L185.1 622.5L182.9 622.6L182.9 624.3L182.1 624.5L181.2 623.2L181.6 622.2L185.5 619.7L185.4 620.7Z"},{"id":null,"name":"Ti\u1ec1n Giang","d":"M188.8 556.1L189.3 556.9L187.9 557.6L186.5 556.6L181.2 555.6L179.2 554.7ZM182.2 549.6L185.1 547.1L185.7 548.9L186.5 548.9L187.5 547.4L188.6 547.4L190.5 550.6L190.6 555.1L182.7 555.0L172.8 552.9L164.0 554.7L159.1 553.6L157.2 553.9L156.5 555.0L152.0 554.2L151.9 552.3L156.2 546.8L156.8 543.7L161.5 544.2L164.3 542.2L170.6 542.8L172.9 545.7L176.3 547.2L176.8 549.6Z"},{"id":null,"name":"B\u00e0 R\u1ecba-V\u0169ng T\u00e0u","d":"M206.2 547.5L207.8 549.2L206.9 548.9L202.7 553.5L202.4 550.6L205.2 549.6ZM199.2 541.0L200.2 541.6L199.6 543.4L200.2 544.5L198.8 543.0ZM200.4 547.1L200.4 541.5L199.6 540.2L203.9 539.0L205.0 538.1L205.3 536.4L209.5 534.4L210.9 535.0L211.4 537.7L213.1 538.2L217.8 533.2L218.8 533.4L220.2 535.2L223.1 542.9L220.0 545.9L212.8 548.0L210.2 551.2L206.9 550.0L208.0 549.2L208.0 548.8L206.3 547.0L204.9 546.8L204.7 547.4L203.3 546.4L201.6 546.8L201.6 545.7Z"},{"id":"HCMC","name":"Ho Chi Minh","d":"M196.5 548.6L198.2 550.0L194.6 551.5L194.0 549.2L194.6 545.8L196.2 545.1L197.0 545.7L196.0 549.2ZM195.2 545.1L193.2 543.4L193.9 541.4L193.2 540.5L194.6 540.3L196.3 541.9L196.0 544.2L194.9 542.8ZM197.7 541.5L199.6 545.1L197.7 547.4L196.6 543.9L196.8 541.7L194.3 539.6L192.1 540.5L189.9 538.1L188.6 538.8L189.9 541.6L189.0 542.8L188.7 543.8L188.7 541.0L187.9 539.9L186.8 539.5L184.7 540.1L178.9 536.5L178.6 535.5L179.8 532.2L179.2 529.7L177.8 528.0L173.2 525.6L175.1 522.9L175.9 519.5L179.7 519.3L182.1 523.2L183.5 523.5L187.8 530.1L192.4 529.6L194.3 532.7L194.3 534.9L192.2 534.5L190.7 535.3L189.0 534.5L189.2 537.3L192.5 539.2L194.8 538.8ZM194.0 547.7L192.3 547.2L191.8 547.4L193.4 548.9L192.6 550.0L189.8 547.5L189.0 543.2L190.1 542.8L190.4 541.7L189.0 539.0L190.3 539.1L192.9 541.2L192.6 543.5L193.9 545.4L192.6 546.0Z"},{"id":"Khanh Hoa","name":"Kh\u00e1nh H\u00f2a","d":"M294.4 473.1L295.0 473.8L294.3 474.3L292.5 474.3L290.7 472.7ZM296.1 447.0L296.1 449.4L297.9 453.0L300.0 454.5L299.1 455.2L299.1 458.1L298.7 458.4L297.3 456.1L298.0 454.7L297.2 453.2L296.1 453.8L296.1 455.2L294.7 454.3L296.6 452.2L295.4 448.5L290.3 453.2L289.1 454.9L288.9 457.3L289.3 459.3L290.2 457.3L290.9 457.5L290.4 460.2L292.9 462.1L292.7 463.7L294.5 465.0L294.7 466.3L293.9 466.0L292.9 467.5L288.3 462.9L287.1 463.1L287.7 464.0L286.8 463.7L287.9 465.4L288.7 465.3L289.5 468.2L290.6 469.4L289.1 471.2L287.9 470.6L289.3 471.8L289.9 473.8L288.8 473.5L288.4 473.6L288.2 474.1L289.1 474.1L290.0 476.5L289.3 477.7L289.7 480.2L292.4 483.7L291.6 486.2L292.7 487.8L289.9 487.5L289.6 481.7L287.9 476.9L287.4 477.6L289.2 483.4L285.9 488.1L286.1 489.6L287.4 489.8L289.1 488.0L289.0 491.3L286.2 491.2L284.2 490.0L282.8 486.7L275.7 484.3L273.0 477.1L269.3 474.7L267.2 466.7L267.3 462.5L271.2 461.3L274.5 462.2L276.9 453.4L279.2 453.0L282.2 450.4L284.3 450.1L287.9 446.7L294.7 446.2ZM296.4 455.9L297.1 458.7L293.5 456.3L293.8 455.7Z"},{"id":null,"name":"C\u00e0 Mau","d":"M134.9 609.3L130.4 617.6L128.1 619.8L125.1 620.7L121.7 625.2L111.7 628.1L106.2 626.5L110.8 624.1L110.2 622.8L110.7 622.5L113.9 623.0L116.0 621.6L113.8 622.4L111.6 621.9L111.5 621.2L114.6 620.4L114.3 617.8L110.1 619.4L108.4 617.4L109.9 612.3L110.8 587.0L112.6 588.2L118.5 587.3L129.0 592.5L130.0 593.9L129.3 595.6L130.5 597.1L129.0 599.7L129.1 601.0L130.5 601.6L131.4 606.0L134.4 607.8Z"},{"id":null,"name":"B\u1ea1c Li\u00eau","d":"M153.0 598.9L139.5 604.2L134.9 609.3L134.4 607.8L131.4 606.0L130.5 601.6L129.1 601.0L129.0 599.7L130.5 597.1L129.3 595.6L130.0 593.9L129.0 592.5L129.7 591.6L128.9 590.2L130.2 587.8L129.6 584.2L136.4 584.7L140.8 583.8L141.1 590.2L142.0 591.9L145.8 593.4L150.3 593.1L151.5 594.2Z"},{"id":null,"name":"H\u1eadu Giang","d":"M151.7 567.0L151.0 566.9L154.3 570.8L151.3 579.0L145.0 582.5L139.3 584.2L133.5 584.8L133.6 582.4L132.3 580.7L132.5 579.9L138.1 574.3L139.1 571.1L138.7 569.3L134.8 565.4L145.8 562.0Z"},{"id":null,"name":"V\u0129nh Long","d":"M158.2 572.0L145.8 562.0L147.2 559.4L151.0 561.2L153.0 561.3L154.3 560.4L154.9 558.2L152.2 554.4L162.5 556.7L164.8 558.9L165.8 561.6L168.4 564.0L163.8 567.5L163.7 569.5Z"},{"id":null,"name":"Tr\u00e0 Vinh","d":"M168.4 564.0L178.8 574.3L179.9 577.3L181.8 578.3L181.3 583.6L178.6 586.3L174.6 586.7L168.6 582.9L158.2 572.0L163.7 569.5L163.8 567.5L166.0 566.3L167.1 564.5Z"},{"id":null,"name":"B\u1ebfn Tre","d":"M172.8 552.9L190.9 560.6L190.6 562.6L188.4 564.9L187.1 565.2L186.8 563.7L185.6 565.9L186.2 566.7L184.8 568.3L183.1 568.3L177.5 564.7L173.0 557.9L170.3 556.1L172.6 558.1L173.4 560.6L177.2 565.7L186.7 571.6L186.2 573.4L185.6 573.9L185.4 572.2L185.2 573.7L183.3 575.0L174.5 568.3L164.3 557.5L156.5 555.0L158.5 553.6L164.0 554.7ZM180.0 573.3L180.2 574.5L175.6 569.8L178.2 571.4Z"},{"id":null,"name":"\u0110\u00f4ng Nam B\u1ed9","d":"M199.6 539.4L198.5 543.2L194.8 538.8L192.5 539.2L189.2 537.3L189.0 534.5L190.7 535.3L192.2 534.5L194.1 535.0L194.5 533.8L190.5 525.6L190.5 523.3L192.1 522.4L195.1 523.7L197.3 522.1L198.1 519.6L196.4 515.7L197.7 512.8L202.4 507.7L203.4 504.6L211.7 500.8L214.7 501.1L215.4 503.3L217.9 504.3L217.2 506.1L217.8 507.4L220.6 507.7L224.0 509.4L221.5 512.5L216.7 523.2L217.9 524.4L220.8 524.8L221.9 525.7L223.1 528.5L223.2 531.1L220.2 535.2L218.8 533.4L217.8 533.2L213.1 538.2L211.4 537.7L210.9 535.0L210.0 534.4L205.3 536.4L204.6 538.6L200.8 540.2L200.2 540.3L198.5 537.6Z"},{"id":null,"name":"B\u00ecnh Thu\u1eadn","d":"M276.9 511.1L274.1 510.8L272.1 512.0L269.7 517.1L266.7 516.6L261.6 518.3L259.2 522.5L255.0 523.8L254.0 526.8L252.8 527.2L252.2 528.5L251.6 527.2L250.5 526.8L244.3 528.3L242.6 530.4L239.9 537.6L235.1 536.8L223.1 542.9L220.2 535.2L223.2 531.1L223.1 528.5L221.4 525.1L218.6 524.7L216.7 523.2L220.0 515.4L223.5 509.6L230.0 511.4L240.3 512.0L241.8 512.8L242.6 516.2L245.3 513.4L250.2 511.8L253.2 509.7L253.7 508.7L252.8 505.0L253.9 503.2L260.9 502.4L263.6 503.4L265.2 500.9L268.4 501.6L269.4 504.6L271.1 505.3L271.4 507.5L275.3 508.3ZM279.1 544.4L279.1 545.9L278.3 545.8L277.8 544.1Z"},{"id":null,"name":"Ninh Thu\u1eadn","d":"M289.0 491.5L290.6 493.6L286.3 500.6L283.5 500.0L282.5 497.7L281.6 497.9L282.4 499.3L282.4 501.8L281.2 501.8L281.9 504.7L281.6 509.2L281.0 510.2L278.0 511.6L276.9 511.1L275.3 508.3L271.7 507.7L271.1 505.3L269.1 504.2L268.4 501.6L265.2 500.9L264.7 498.7L267.8 493.9L265.9 489.2L267.7 483.5L268.3 475.8L269.3 474.7L272.3 476.2L276.3 484.8L282.1 486.3L284.7 490.5Z"},{"id":null,"name":"Ph\u00fa Y\u00ean","d":"M290.5 410.6L290.8 413.5L293.1 415.8L292.4 416.3L292.7 417.4L289.6 412.5L289.3 413.1L292.4 418.3L293.5 417.7L293.1 419.6L294.6 420.2L293.3 422.7L291.9 421.6L293.0 420.3L290.7 419.3L290.2 423.2L292.2 424.9L293.3 424.9L292.4 425.9L292.7 427.3L291.9 426.7L291.3 427.3L292.7 429.9L293.1 427.1L293.7 427.7L293.3 434.3L299.7 443.6L299.6 445.8L298.3 446.5L299.1 445.3L298.6 445.1L296.4 447.0L294.7 446.2L288.7 446.4L283.7 450.4L275.1 448.1L270.1 445.0L266.9 440.1L268.0 436.9L275.6 431.0L273.5 421.6L273.6 416.3L279.8 416.9L284.0 415.0L287.4 411.3Z"},{"id":null,"name":"B\u00ecnh \u0110\u1ecbnh","d":"M283.6 368.7L284.3 372.5L283.9 372.6L283.2 373.6L283.5 374.1L283.8 372.9L285.9 377.7L286.3 381.9L288.5 385.1L288.5 388.1L290.5 391.8L288.8 390.4L287.8 390.2L287.8 390.8L289.9 393.1L291.6 400.8L293.3 402.7L293.1 407.7L291.7 407.9L291.9 404.9L291.0 402.1L289.7 405.7L291.3 406.9L290.0 408.4L290.4 410.3L287.4 411.3L283.3 415.6L277.0 417.1L273.6 416.3L272.5 407.0L269.1 401.4L269.1 397.1L266.2 392.8L265.8 388.2L268.0 378.1L267.1 372.2L272.2 369.2L275.1 368.6Z"},{"id":null,"name":"Qu\u1ea3ng Ng\u00e3i","d":"M271.2 338.3L271.7 341.2L272.0 340.4L273.4 340.4L272.1 339.2L273.2 337.7L272.6 336.8L273.7 336.8L274.2 339.2L275.9 340.8L276.1 342.9L278.8 344.4L276.8 345.6L277.6 346.5L277.1 346.2L276.6 348.5L275.1 348.6L276.3 349.0L276.6 350.0L277.1 348.8L278.4 355.9L281.0 361.9L280.1 362.0L284.0 366.5L284.6 369.2L283.8 368.4L283.9 368.9L273.1 368.9L267.1 372.2L265.1 370.3L262.3 362.4L258.9 361.1L255.9 356.6L252.0 353.0L253.2 350.9L251.2 347.5L253.7 343.0L255.1 341.8Z"},{"id":null,"name":"Da Nang","d":"M248.1 303.6L246.2 305.4L245.8 307.5L248.0 309.5L249.2 308.8L249.4 311.0L248.0 312.4L250.1 311.6L250.5 312.2L250.0 307.4L249.1 307.2L249.9 305.7L252.9 306.9L253.5 306.0L254.1 306.9L252.8 308.4L250.8 308.0L250.5 309.6L251.4 313.0L247.8 312.7L242.2 313.5L240.6 312.5L240.0 308.8L234.1 308.9L238.0 303.4Z"},{"id":null,"name":"Ninh B\u00ecnh","d":"M164.6 137.5L161.7 144.3L160.5 143.8L159.8 142.8L161.1 141.7L160.8 140.3L151.0 136.2L139.7 127.3L141.4 126.5L145.9 129.2L146.7 128.6L146.7 125.0L148.5 124.1L151.9 125.0L156.3 128.6L157.4 131.3L160.7 132.7L162.2 132.1L164.7 133.6Z"},{"id":null,"name":"Nam \u0110\u1ecbnh","d":"M176.9 130.8L179.7 129.8L180.7 130.5L181.6 133.0L173.9 133.8L174.2 134.5L168.9 140.2L166.4 142.3L166.6 140.8L165.5 143.2L162.7 144.3L165.0 135.5L164.7 133.6L162.2 132.1L160.3 132.6L156.9 130.8L156.4 126.3L157.5 124.8L158.5 125.7L159.4 125.3L161.2 122.3L165.9 122.0L167.2 123.0L167.3 125.3L169.7 126.2L169.3 128.8L172.6 127.4Z"},{"id":null,"name":"Th\u00e1i B\u00ecnh","d":"M181.2 115.7L183.9 116.7L183.7 117.8L179.5 119.9L182.0 119.6L181.5 120.6L182.0 122.5L179.5 124.3L182.6 123.8L182.2 126.6L181.2 126.9L182.2 128.5L182.1 131.6L179.6 129.5L176.9 130.8L172.6 127.4L169.3 128.8L169.7 126.2L167.3 125.3L167.1 122.7L165.9 122.0L162.9 116.0L164.0 114.5L166.8 114.5L168.8 113.3L175.4 112.3L177.5 117.4L179.9 117.0Z"},{"id":"Hai Phong","name":"Haiphong","d":"M183.0 99.3L186.2 100.2L185.1 100.2L185.9 102.2L189.1 103.0L188.7 105.4L187.6 104.5L186.9 105.4L188.7 106.8L188.9 108.7L187.6 108.6L189.2 111.0L190.1 111.2L191.2 114.1L189.6 112.6L187.6 113.5L185.4 113.2L187.0 114.3L185.7 115.8L183.7 116.1L182.3 114.7L182.6 115.4L181.0 115.8L180.3 116.9L177.5 117.4L175.4 112.3L177.5 112.0L180.2 109.6L180.4 108.7L178.6 107.5L178.6 106.3L180.2 105.1L180.6 102.6L182.3 101.9Z"},{"id":null,"name":"H\u00f2a B\u00ecnh","d":"M151.9 125.0L148.5 124.1L146.7 125.0L146.7 128.6L145.1 129.1L141.4 126.5L139.7 127.3L137.6 127.0L130.1 123.5L126.2 120.8L123.7 118.0L120.3 118.4L115.1 117.8L111.1 116.3L111.0 113.3L111.7 112.0L117.3 111.7L121.3 109.1L114.0 101.9L112.7 99.4L113.8 96.1L115.2 98.1L123.2 102.9L131.1 103.8L131.0 101.2L130.1 99.9L132.9 99.4L136.5 99.9L138.1 100.9L139.3 103.5L138.2 106.2L138.6 107.7L143.2 111.3L145.3 115.8L149.6 118.7Z"},{"id":null,"name":"Tuy\u00ean Quang","d":"M121.5 70.0L121.4 65.8L117.4 61.2L116.8 57.7L112.8 54.2L111.4 50.7L114.7 46.6L115.3 43.3L118.8 43.4L119.5 42.8L120.5 39.2L123.1 35.7L124.9 30.6L131.6 32.5L138.0 33.3L140.7 32.8L142.3 36.0L142.4 38.0L137.9 45.4L137.5 51.4L138.0 54.7L140.3 60.0L139.3 63.6L138.9 74.6L141.1 77.3L136.3 79.3L130.5 78.6L127.1 74.1Z"},{"id":null,"name":"Y\u00ean B\u00e1i","d":"M112.8 54.2L117.2 58.4L117.4 61.2L121.4 65.8L121.0 68.6L122.1 70.5L115.4 73.2L113.6 75.1L113.0 78.2L114.3 83.5L110.5 86.4L108.5 86.2L106.8 83.8L104.2 84.2L100.5 82.9L95.9 85.0L91.3 82.7L89.4 79.4L91.0 71.9L89.3 70.3L83.7 72.4L73.7 69.9L74.9 67.3L73.1 63.9L76.1 59.1L78.9 61.0L84.8 62.8L86.2 59.7L91.1 61.9L93.5 62.0L94.9 59.2L92.4 53.0L95.2 51.7L99.8 53.7L103.1 50.6L102.4 47.0L103.3 46.6L105.6 47.2L108.2 50.3L111.4 50.7Z"},{"id":null,"name":"V\u0129nh Ph\u00fac","d":"M135.3 88.5L136.2 87.7L136.0 86.7L133.5 83.1L131.6 82.0L130.5 78.6L136.3 79.3L141.1 77.3L148.7 84.1L149.4 92.8L148.7 95.9L144.9 93.7L137.7 93.0L135.5 90.4Z"},{"id":"Phu Tho","name":"Ph\u00fa Th\u1ecd","d":"M131.6 82.0L133.5 83.1L136.2 87.7L135.1 88.7L134.5 87.4L132.0 87.6L131.5 90.3L129.2 92.3L130.0 95.0L129.2 98.1L131.0 101.2L131.1 103.8L123.2 102.9L114.3 97.3L112.4 94.6L112.1 89.8L110.5 86.4L114.3 83.5L113.0 78.2L113.1 76.3L114.4 74.1L122.1 70.5L128.9 76.2Z"},{"id":"Ha Noi","name":"Hanoi","d":"M149.6 118.7L145.3 115.8L143.2 111.3L138.6 107.7L138.2 106.2L139.3 103.5L138.1 100.9L135.4 99.6L130.1 99.9L129.4 98.8L130.0 95.0L129.2 92.3L131.5 90.3L132.0 87.6L134.5 87.4L136.1 91.6L137.7 93.0L144.9 93.7L148.7 95.9L149.4 92.8L149.0 85.0L152.2 85.0L155.1 86.5L156.1 89.1L155.1 91.5L155.2 94.0L155.9 95.8L158.8 98.5L158.9 99.7L158.5 100.8L154.8 101.8L154.1 104.0L155.3 105.2L154.9 108.5L156.6 109.5L157.6 112.4L158.6 112.6L157.4 113.9L151.2 114.8Z"},{"id":null,"name":"Northeast Vietnam","d":"M140.3 60.0L137.7 53.7L137.7 46.6L138.8 43.5L142.4 38.0L142.3 36.0L140.7 32.8L144.0 29.2L147.1 27.2L149.1 27.7L148.8 31.8L150.8 36.5L152.7 37.8L160.3 35.0L162.7 35.4L164.0 39.6L166.2 40.7L168.9 46.8L166.1 53.2L163.4 55.7L163.0 60.2L159.8 61.0L154.9 65.0L151.8 65.9L150.7 67.3L149.7 65.3L149.1 58.9L147.5 57.1L146.1 56.6L143.9 57.1Z"},{"id":null,"name":"Red River Delta","d":"M168.8 113.3L164.0 114.5L162.9 116.0L160.8 116.7L159.4 114.7L159.6 112.8L157.6 112.4L156.6 109.5L154.9 108.5L155.3 105.2L154.1 104.0L154.8 101.8L159.3 100.5L164.5 100.5L164.9 103.5L163.5 108.3Z"},{"id":null,"name":"B\u1eafc Ninh","d":"M161.5 100.3L158.5 100.8L158.8 98.5L155.4 95.0L155.0 92.3L156.1 89.9L160.2 91.6L167.6 92.9L170.5 94.7L171.2 98.3L170.4 100.4L167.6 101.0Z"},{"id":null,"name":"B\u1eafc Giang","d":"M199.7 86.2L198.0 91.4L197.0 92.4L189.3 93.5L175.6 90.6L171.8 92.4L170.5 94.7L167.6 92.9L160.2 91.6L156.1 89.9L155.1 86.5L157.2 83.1L159.8 82.6L161.1 80.8L159.9 74.1L161.1 73.5L164.7 74.5L164.9 77.9L165.6 78.8L170.3 80.1L172.7 82.4L174.6 83.0L177.8 81.4L179.6 77.3L182.0 75.0L185.2 74.6L188.8 77.1L192.1 75.1L196.0 81.5L199.4 81.7L200.1 84.4L201.8 85.1Z"},{"id":null,"name":"Th\u00e1i Nguy\u00ean","d":"M140.2 76.8L138.7 73.4L139.3 63.6L140.3 60.0L141.4 59.8L143.1 57.5L145.4 56.7L146.8 56.7L149.1 58.9L150.5 67.3L151.8 65.9L154.2 65.4L158.4 62.7L159.8 61.0L163.0 60.2L164.1 66.2L165.7 67.1L168.8 71.3L165.2 76.2L164.2 74.0L160.0 73.7L161.1 80.8L159.8 82.6L157.2 83.1L155.1 86.5L152.2 85.0L149.0 85.0L147.7 82.7Z"},{"id":null,"name":"H\u1ea3i D\u01b0\u01a1ng","d":"M168.8 113.3L163.5 108.3L164.9 103.5L164.5 100.5L167.6 101.0L170.4 100.4L171.2 98.3L170.5 94.7L172.7 91.7L175.6 90.6L179.3 91.2L180.6 92.2L176.3 96.7L177.0 98.0L183.0 99.3L182.5 101.5L180.6 102.6L180.2 105.1L178.4 107.0L180.5 109.1L177.1 112.2Z"},{"id":null,"name":"H\u00e0 Nam","d":"M156.3 128.6L151.9 125.0L149.6 118.7L151.2 114.8L156.5 114.2L159.2 112.6L159.4 114.7L160.8 116.7L163.5 116.3L165.9 122.0L161.2 122.3L158.9 125.6L157.5 124.8L156.4 126.3Z"},{"id":null,"name":"B\u00ecnh D\u01b0\u01a1ng","d":"M182.1 523.2L179.3 519.0L175.9 519.5L172.5 513.2L172.7 508.6L177.3 501.3L179.7 504.3L183.6 506.5L183.4 509.1L184.4 511.2L186.0 511.0L186.7 509.5L187.9 510.5L187.6 511.8L190.6 510.6L197.7 512.8L196.3 516.4L198.1 519.6L197.3 522.1L195.1 523.7L192.1 522.4L190.3 523.7L190.5 525.6L192.4 529.6L187.4 529.8L183.5 523.5Z"},{"id":"Lam Dong","name":"L\u00e2m \u0110\u1ed3ng","d":"M269.3 474.7L267.8 477.1L267.7 483.5L265.9 489.2L267.8 493.9L264.8 497.6L265.2 500.9L264.4 502.7L263.6 503.4L260.9 502.4L253.9 503.2L252.7 505.7L253.6 509.2L250.2 511.8L245.3 513.4L243.1 516.0L242.3 516.1L242.1 513.3L240.3 512.0L228.8 511.2L220.6 507.7L217.8 507.4L217.2 506.1L217.9 504.3L215.4 503.3L214.7 501.1L211.7 500.8L210.6 498.2L212.5 494.3L215.1 492.9L217.2 493.2L222.1 491.4L227.8 486.3L229.2 486.3L230.6 488.7L235.2 488.2L236.5 491.1L238.7 491.1L240.3 492.0L243.2 488.7L243.7 485.7L239.3 479.6L239.9 477.0L244.6 476.3L246.0 475.1L249.8 475.7L250.6 474.0L253.1 472.5L256.6 472.4L261.0 469.6L264.6 470.8L268.3 469.7Z"},{"id":null,"name":"C\u1ea7n Th\u01a1","d":"M134.8 565.4L127.4 558.8L128.4 557.3L130.6 555.5L132.9 557.3L135.1 555.6L136.9 555.6L139.3 550.1L141.3 548.3L146.6 550.2L149.5 553.2L152.2 554.4L154.9 558.2L154.6 559.9L153.0 561.3L149.9 560.8L147.2 559.4L145.8 562.0Z"}],"anchors":{"Long An":[165.5,538.0],"Nghe An":[111.0,173.2],"Quang Nam":[240.0,332.8],"HCMC":[186.8,533.6],"Khanh Hoa":[278.9,468.8],"Hai Phong":[184.1,108.1],"Phu Tho":[123.3,86.9],"Ha Noi":[147.3,101.4],"Lam Dong":[243.3,492.4]}};
+const HEX = ['#2a78d6', '#eb6834', '#1baf7a', '#b9c1ca'];
+const NS = 'http://www.w3.org/2000/svg';
+const fmt = (v, u) => v == null ? '–' : u === '%' ? v.toFixed(1) + '%' : Math.round(v).toLocaleString('en-CA');
+const axisFmt = (v, u) => u === '%' ? v + '%' : v.toLocaleString('en-CA');
+const colorsOf = c => c.colors || HEX;
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function niceMax(m) { const p = Math.pow(10, Math.floor(Math.log10(m))); for (const k of [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (k * p >= m) return k * p; return 10 * p; }
+function ticks(max, n) { const step = max / n; return Array.from({ length: n + 1 }, (_, i) => +(i * step).toFixed(6)); }
+function measure(svg, txt) { const t = el('text', { x: -999, y: -999 }, svg); t.textContent = txt; const w = t.getComputedTextLength(); t.remove(); return w; }
+function lum(hex) { const n = parseInt(hex.slice(1), 16), f = x => (x /= 255) <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); return 0.2126 * f(n >> 16) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255); }
+
+function legend(box, names, colors) {
+  const lg = document.createElement('div'); lg.className = 'legend';
+  names.forEach((n, i) => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.style.background = colors[i]; s.append(sw, n); lg.append(s); });
+  box.before(lg);
+}
+function tipper(box) {
+  const t = document.createElement('div'); t.className = 'tip'; t.hidden = true; box.append(t);
+  return {
+    show(ev, head, rows, note) {
+      t.replaceChildren(); const k = document.createElement('div'); k.className = 'k'; k.textContent = head; t.append(k);
+      rows.forEach(([name, val, col]) => { const d = document.createElement('div'); if (col) { const sw = document.createElement('i'); sw.style.background = col; d.append(sw); } d.append(name); const b = document.createElement('b'); b.textContent = val; d.append(b); t.append(d); });
+      if (note) { const n = document.createElement('div'); n.className = 'note'; n.textContent = note; t.append(n); }
+      t.hidden = false;
+      const r = box.getBoundingClientRect(), pt = ev.touches ? ev.touches[0] : ev;
+      let x = pt.clientX - r.left + 14, y = pt.clientY - r.top + 14;
+      if (x + t.offsetWidth > r.width) x = Math.max(0, pt.clientX - r.left - t.offsetWidth - 14);
+      if (y + t.offsetHeight > r.height) y = Math.max(0, pt.clientY - r.top - t.offsetHeight - 10);
+      t.style.left = x + 'px'; t.style.top = y + 'px';
+    },
+    hide() { t.hidden = true; }
+  };
+}
+
+function lineChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const col = colorsOf(c), n = c.years.length;
+  const W = Math.max(300, box.clientWidth), H = Math.round(Math.min(320, Math.max(220, W * 0.44)));
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const all = c.series.flatMap(s => s.values).filter(v => v != null);
+  const ymin = c.ymin || 0, ymax = c.ymax || niceMax(Math.max(...all) * 1.05);
+  const yt = ymin ? Array.from({ length: 6 }, (_, i) => ymin + i * (ymax - ymin) / 5) : ticks(ymax, c.nt || 4);
+  const left = Math.max(...yt.map(v => measure(svg, axisFmt(v, unit)))) + 10, right = 16, top = 10, bottom = 26, pad = 14;
+  const X = i => left + pad + (W - left - right - 2 * pad) * i / (n - 1), Yp = v => top + (H - top - bottom) * (1 - (v - ymin) / (ymax - ymin));
+  yt.forEach(v => { el('line', { x1: left, x2: W - right, y1: Yp(v), y2: Yp(v), stroke: v === ymin ? '#9aa3ad' : '#e8ecef', 'stroke-width': 1 }, svg); const t = el('text', { x: left - 8, y: Yp(v) + 4, 'text-anchor': 'end' }, svg); t.textContent = axisFmt(v, unit); });
+  c.years.forEach((y, i) => { const t = el('text', { x: X(i), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = y; });
+  c.series.forEach((s, k) => {
+    let d = '', pen = false;
+    s.values.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Yp(v).toFixed(1) + ' '; pen = true; });
+    el('path', { d, fill: 'none', stroke: col[k], 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    s.values.forEach((v, i) => { if (v != null) el('circle', { cx: X(i), cy: Yp(v), r: 4, fill: col[k], stroke: '#fff', 'stroke-width': 2 }, svg); });
+  });
+  const rule = el('line', { y1: top, y2: H - bottom, stroke: '#8a929c', 'stroke-width': 1, visibility: 'hidden' }, svg);
+  const dots = c.series.map((s, k) => el('circle', { r: 5.5, fill: col[k], stroke: '#fff', 'stroke-width': 2, visibility: 'hidden' }, svg));
+  const tt = tipper(box);
+  const hit = el('rect', { x: left, y: top, width: W - left - right, height: H - top - bottom, fill: 'transparent' }, svg);
+  const move = ev => {
+    const r = svg.getBoundingClientRect(), pt = ev.touches ? ev.touches[0] : ev;
+    const px = (pt.clientX - r.left) * W / r.width; const i = Math.max(0, Math.min(n - 1, Math.round((px - left - pad) / (W - left - right - 2 * pad) * (n - 1))));
+    rule.setAttribute('x1', X(i)); rule.setAttribute('x2', X(i)); rule.setAttribute('visibility', 'visible');
+    dots.forEach((d, k) => { const v = c.series[k].values[i]; if (v == null) { d.setAttribute('visibility', 'hidden'); return; } d.setAttribute('cx', X(i)); d.setAttribute('cy', Yp(v)); d.setAttribute('visibility', 'visible'); });
+    tt.show(ev, String(c.years[i]), c.series.map((s, k) => [s.name, s.values[i] == null ? 'not asked' : fmt(s.values[i], unit), c.series.length > 1 ? col[k] : null]));
+  };
+  const out = () => { rule.setAttribute('visibility', 'hidden'); dots.forEach(d => d.setAttribute('visibility', 'hidden')); tt.hide(); };
+  hit.addEventListener('mousemove', move); hit.addEventListener('touchstart', move, { passive: true }); hit.addEventListener('touchmove', move, { passive: true });
+  hit.addEventListener('mouseleave', out); hit.addEventListener('touchend', out);
+}
+
+function barChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const col = colorsOf(c);
+  const W = Math.max(300, box.clientWidth), n = c.series.length, rowH = n > 1 ? 34 : 26, top = 4, bottom = 24;
+  const H = top + bottom + c.labels.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.min(W * 0.42, Math.max(...c.labels.map(l => measure(svg, l)))) + 12;
+  const vmax = c.vmax || niceMax(Math.max(...c.series.flatMap(s => s.values)) * 1.08), xt = ticks(vmax, W < 520 ? 3 : (c.nt || 5));
+  const right = 48, Xp = v => lw + (W - lw - right) * v / vmax;
+  xt.forEach(v => { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: v === 0 ? '#9aa3ad' : '#e8ecef' }, svg); const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = axisFmt(v, unit); });
+  const tt = tipper(box), bh = n > 1 ? 11 : 14;
+  c.labels.forEach((lab, i) => {
+    const y0 = top + i * rowH;
+    const t = el('text', { x: lw - 10, y: y0 + rowH / 2 + 4, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = lab;
+    c.series.forEach((s, k) => {
+      const y = y0 + (rowH - n * bh - (n - 1) * 2) / 2 + k * (bh + 2);
+      el('rect', { x: Xp(0), y, width: Math.max(1, Xp(s.values[i]) - Xp(0)), height: bh, rx: 3, fill: col[k] }, svg);
+      if (W >= 420) { const vt = el('text', { x: Xp(s.values[i]) + 5, y: y + bh - 2, 'font-size': 11 }, svg); vt.textContent = fmt(s.values[i], unit); }
+    });
+    const hit = el('rect', { x: 0, y: y0, width: W, height: rowH, fill: 'transparent' }, svg);
+    const rows = c.series.map((s, k) => [s.name, fmt(s.values[i], unit), n > 1 ? col[k] : null]);
+    const show = ev => tt.show(ev, lab, rows);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function stackChart(box, c, unit) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const col = colorsOf(c);
+  const W = Math.max(300, box.clientWidth), rowH = 32, top = 4, bottom = 24, H = top + bottom + c.labels.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.max(...c.labels.map(l => measure(svg, l))) + 12, right = 8, Xp = v => lw + (W - lw - right) * v / 100;
+  [0, 25, 50, 75, 100].forEach(v => { const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': v === 100 ? 'end' : v === 0 ? 'start' : 'middle' }, svg); t.textContent = v + '%'; });
+  const tt = tipper(box);
+  c.labels.forEach((lab, i) => {
+    const y = top + i * rowH + 6; let acc = 0;
+    const t = el('text', { x: lw - 10, y: y + 14, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = lab;
+    const tot = c.series.reduce((a, s) => a + s.values[i], 0);
+    c.series.forEach((s, k) => {
+      const v = s.values[i] * 100 / tot;
+      el('rect', { x: Xp(acc) + (acc ? 1 : 0), y, width: Math.max(0, Xp(acc + v) - Xp(acc) - (acc ? 2 : 0)), height: 20, fill: col[k] }, svg);
+      if (v >= 9 && W >= 420) { const ink = lum(col[k]) > 0.3 ? '#16202a' : '#ffffff'; const vt = el('text', { x: Xp(acc + v / 2), y: y + 14, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:' + ink }, svg); vt.textContent = Math.round(s.values[i]) + '%'; }
+      acc += v;
+    });
+    const hit = el('rect', { x: 0, y: y - 6, width: W, height: rowH, fill: 'transparent' }, svg);
+    const rows = c.series.map((s, k) => [s.name, fmt(s.values[i], unit), col[k]]);
+    const show = ev => tt.show(ev, (c.head ? c.head + ' ' : '') + lab, rows);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function coefChart(box, c) {
+  box.querySelectorAll('svg').forEach(s => s.remove());
+  const W = Math.max(300, box.clientWidth), rowH = 42, top = 6, bottom = 26, H = top + bottom + c.rows.length * rowH;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); box.prepend(svg);
+  const lw = Math.min(W * 0.42, Math.max(...c.rows.map(r => measure(svg, r.label)))) + 14, right = 16;
+  const a = Math.floor(Math.min(0, ...c.rows.map(r => r.lo)) / 5) * 5, b = Math.ceil(Math.max(...c.rows.map(r => r.hi)) / 5) * 5;
+  const Xp = v => lw + (W - lw - right) * (v - a) / (b - a), step = W < 520 ? 10 : 5;
+  for (let v = a; v <= b; v += step) { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: v === 0 ? '#9aa3ad' : '#e8ecef', 'stroke-width': v === 0 ? 1.2 : 1 }, svg); const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = (v > 0 ? '+' : '') + v + '%'; }
+  const tt = tipper(box);
+  c.rows.forEach((r, i) => {
+    const y = top + i * rowH + rowH / 2, colr = HEX[r.ci];
+    const t = el('text', { x: lw - 12, y: y + 4, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = r.label;
+    el('line', { x1: Xp(r.lo), x2: Xp(r.hi), y1: y, y2: y, stroke: colr, 'stroke-width': 2, 'stroke-linecap': 'round' }, svg);
+    el('circle', { cx: Xp(r.b), cy: y, r: 5.5, fill: colr, stroke: '#fff', 'stroke-width': 2 }, svg);
+    const vt = el('text', { x: Xp(r.b), y: y - 10, 'text-anchor': 'middle', 'font-size': 11, class: 'lab' }, svg); vt.textContent = (r.b > 0 ? '+' : '') + r.b.toFixed(1) + '%';
+    const hit = el('rect', { x: 0, y: y - rowH / 2, width: W, height: rowH, fill: 'transparent' }, svg);
+    const show = ev => tt.show(ev, r.label, [['Estimate', (r.b > 0 ? '+' : '') + r.b.toFixed(1) + '%', colr], ['95% interval', r.lo.toFixed(1) + '% to ' + r.hi.toFixed(1) + '%', null], ['Observations', r.n.toLocaleString('en-CA'), null]], r.note);
+    hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => tt.hide());
+  });
+}
+
+function mapChart(box, c) {
+  let cur = c.metrics[0];
+  const seg = document.createElement('div'); seg.className = 'seg'; seg.setAttribute('role', 'group'); seg.setAttribute('aria-label', 'Indicator');
+  c.metrics.forEach(m => {
+    const bt = document.createElement('button'); bt.type = 'button'; bt.textContent = m.label; bt.setAttribute('aria-pressed', String(m === cur));
+    bt.addEventListener('click', () => { cur = m; seg.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === bt))); paint(); });
+    seg.append(bt);
+  });
+  box.before(seg);
+  const grid = document.createElement('div'); grid.className = 'mapgrid'; box.append(grid);
+  const mcol = document.createElement('div'); mcol.className = 'mapcol'; const rcol = document.createElement('div'); rcol.className = 'rankcol'; grid.append(mcol, rcol);
+  const msvg = el('svg', { viewBox: `0 0 ${GEO.w} ${GEO.h}`, role: 'img', 'aria-label': 'Map of Vietnam highlighting the ten survey provinces' }, null); mcol.append(msvg);
+  const paths = {};
+  GEO.features.forEach(f => { const p = el('path', { d: f.d, fill: '#eceef1', stroke: '#ffffff', 'stroke-width': 0.7, 'stroke-linejoin': 'round' }, msvg); if (f.id) paths[f.id] = p; });
+  Object.values(paths).forEach(p => msvg.append(p));
+  const scale = document.createElement('div'); scale.className = 'scale'; mcol.append(scale);
+  const title = document.createElement('p'); title.className = 'rank-title'; rcol.append(title);
+  const rbox = document.createElement('div'); rcol.append(rbox);
+  const tt = tipper(box);
+  const LIGHT = [160, 194, 238], DARK = [15, 63, 124];
+  const ramp = t => 'rgb(' + LIGHT.map((l, i) => Math.round(l + (DARK[i] - l) * t)).join(',') + ')';
+  const mapName = id => id === 'Ha Noi' ? 'Ha Noi (incl. former Ha Tay)' : id === 'HCMC' ? 'Ho Chi Minh City' : id;
+  let hl = null;
+  const highlight = id => {
+    if (hl) { hl.setAttribute('stroke', '#ffffff'); hl.setAttribute('stroke-width', 0.7); }
+    hl = id ? paths[id === 'Ha Tay' ? 'Ha Noi' : id] : null;
+    if (hl) { hl.setAttribute('stroke', '#16202a'); hl.setAttribute('stroke-width', 1.8); msvg.append(hl); }
+  };
+  const rowsFor = (v, id) => [[cur.long, fmt(v[cur.key], cur.unit), null], ['Workers interviewed', v.n.toLocaleString('en-CA'), null], ['Firms', v.firms.toLocaleString('en-CA'), null]];
+  function paint() {
+    const k = cur.key, vals = Object.values(c.mapvals).map(v => v[k]), mn = Math.min(...vals), mx = Math.max(...vals);
+    Object.entries(paths).forEach(([id, p]) => {
+      const v = c.mapvals[id];
+      p.setAttribute('fill', ramp((v[k] - mn) / (mx - mn || 1)));
+      const show = ev => { highlight(id); tt.show(ev, mapName(id), rowsFor(v, id)); };
+      p.onmousemove = show; p.ontouchstart = show; p.onmouseleave = () => { highlight(null); tt.hide(); };
+    });
+    scale.innerHTML = '<div class="bar"></div><div class="ends"><span>' + fmt(mn, cur.unit) + '</span><span>' + fmt(mx, cur.unit) + '</span></div><div class="key"><i></i>Not in the survey</div>';
+    title.textContent = cur.long + ', 2011–2015';
+    drawRank();
+  }
+  function drawRank() {
+    rbox.replaceChildren();
+    const rows = [...c.prov].sort((p, q) => q[cur.key] - p[cur.key]);
+    const W = Math.max(260, rbox.clientWidth), rowH = 26, top = 4, bottom = 24, H = top + bottom + rows.length * rowH;
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, null); rbox.append(svg);
+    svg.style.display = 'block'; svg.style.width = '100%'; svg.style.height = 'auto';
+    const lw = Math.min(W * 0.52, Math.max(...rows.map(r => measure(svg, r.name)))) + 12, right = 48;
+    const vmax = cur.unit === '%' ? 100 : niceMax(Math.max(...rows.map(r => r[cur.key])) * 1.05), xt = ticks(vmax, W < 420 ? 2 : (cur.unit === '%' ? 4 : 5));
+    const Xp = v => lw + (W - lw - right) * v / vmax;
+    xt.forEach(v => { el('line', { x1: Xp(v), x2: Xp(v), y1: top, y2: H - bottom, stroke: v === 0 ? '#9aa3ad' : '#e8ecef' }, svg); const t = el('text', { x: Xp(v), y: H - 6, 'text-anchor': 'middle' }, svg); t.textContent = axisFmt(v, cur.unit); });
+    rows.forEach((r, i) => {
+      const y0 = top + i * rowH;
+      const t = el('text', { x: lw - 10, y: y0 + rowH / 2 + 4, 'text-anchor': 'end', class: 'lab' }, svg); t.textContent = r.name;
+      el('rect', { x: Xp(0), y: y0 + 6, width: Math.max(1, Xp(r[cur.key]) - Xp(0)), height: 14, rx: 3, fill: HEX[0] }, svg);
+      const vt = el('text', { x: Xp(r[cur.key]) + 5, y: y0 + 18, 'font-size': 11 }, svg); vt.textContent = fmt(r[cur.key], cur.unit);
+      const hit = el('rect', { x: 0, y: y0, width: W, height: rowH, fill: 'transparent' }, svg);
+      const show = ev => { highlight(r.id); tt.show(ev, r.name, rowsFor(r, r.id)); };
+      hit.addEventListener('mousemove', show); hit.addEventListener('touchstart', show, { passive: true }); hit.addEventListener('mouseleave', () => { highlight(null); tt.hide(); });
+    });
+  }
+  paint();
+  let w = rbox.clientWidth; new ResizeObserver(() => { if (Math.abs(rbox.clientWidth - w) > 4) { w = rbox.clientWidth; drawRank(); } }).observe(rbox);
+}
+
+document.querySelectorAll('.chart').forEach(box => {
+  const key = box.dataset.chart, c = DATA[key], kind = box.dataset.kind, unit = box.dataset.unit, fig = box.closest('.fig');
+  if (kind === 'map') mapChart(box, c);
+  else {
+    if (kind === 'coef') legend(box, ['Cross-section, 2007–2011', 'Same workers, 2013–2015'], HEX);
+    else if (c.series.length > 1) legend(box, c.series.map(s => s.name), colorsOf(c));
+    const draw = () => (kind === 'line' ? lineChart : kind === 'stack' ? stackChart : kind === 'coef' ? coefChart : barChart)(box, c, unit);
+    draw();
+    let w = box.clientWidth; new ResizeObserver(() => { if (Math.abs(box.clientWidth - w) > 4) { w = box.clientWidth; draw(); } }).observe(box);
+  }
+  const foot = document.createElement('div'); foot.className = 'fig-foot';
+  const src = document.createElement('span'); src.className = 'src'; src.textContent = 'Source: Viet Nam SME Survey, employee module, ' + c.src + '; author’s calculations.';
+  foot.append(src); fig.append(foot);
+});
+</script>
+</body>
+</html>
