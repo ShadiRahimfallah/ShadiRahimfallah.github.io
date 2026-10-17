@@ -8,6 +8,51 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v6">
+<style>
+/* Research page only: one card per item, each with a title and one link. */
+.research [id] { scroll-margin-top: 84px; }
+.research a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.research section.group + section.group { margin-top: 60px; }
+
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  padding: 20px 22px;
+}
+a.card:hover { border-color: var(--burgundy); text-decoration: none; }
+a.card:hover .go { text-decoration: underline; }
+.card .kind { font-size: 13.5px; font-weight: 700; color: var(--burgundy); margin: 0 0 6px; }
+.card .title { font-size: 17px; font-weight: 700; line-height: 1.45; color: var(--accent); margin: 0 0 14px; }
+.card .go { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--burgundy); }
+.card .note { margin-top: auto; font-size: 14px; color: var(--muted); }
+
+/* Job market paper: full width, framed like the page banner */
+.card.jmp { grid-column: 1 / -1; border: 3px solid var(--burgundy); padding: 26px 30px; }
+.card.jmp .title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.25; color: var(--burgundy); margin-bottom: 18px; }
+.jmp-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.jmp-links a { display: inline-block; border: 1px solid var(--burgundy); color: var(--burgundy); font-size: 14px; font-weight: 600; padding: 6px 16px; }
+.jmp-links a:hover { background: var(--burgundy); color: #fff; text-decoration: none; }
+.jmp-links a.primary { background: var(--burgundy); color: #fff; }
+.jmp-links a.primary:hover { background: var(--burgundy-dark); }
+
+
+.exp { list-style: none; margin: 0; padding: 0; }
+.exp li { display: grid; grid-template-columns: 120px 1fr; gap: 0 20px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.exp .yr { font-size: 14px; font-weight: 700; color: var(--burgundy); padding-top: 2px; }
+
+@media (max-width: 900px) { .research [id] { scroll-margin-top: 120px; } }
+@media (max-width: 640px) {
+  .research [id] { scroll-margin-top: 160px; }
+  .cards { grid-template-columns: 1fr; }
+  .card.jmp { border-width: 2px; padding: 20px 18px; }
+  .card.jmp .title { font-size: 24px; }
+  .exp li { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
@@ -31,220 +76,90 @@
   </div>
 </div>
 
-<main>
-  <h2 class="section">Job Market Paper</h2>
+<main class="research">
 
-  <h3 class="item-title" id="jmp" style="scroll-margin-top: 160px">Financial Frictions, Used Capital, and Misallocation</h3>
-  <p class="item-meta"><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a> ·
-  <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7571042" target="_blank" rel="noopener">SSRN</a> ·
-  <a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides (PDF)</a> ·
-  <a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">Replication package (code &amp; data)</a></p>
-  <p>Many productive small businesses cannot borrow enough to rent the equipment they need. My
-  research shows that access to lower-cost, second-hand equipment can give these firms a more
-  affordable way to expand. Using data from Vietnam, I study how used equipment reduces the economic
-  cost of borrowing constraints and helps more high-potential, low-wealth individuals become
-  entrepreneurs.</p>
-  <div class="venues">
-    <p class="venue-label">Presented at</p>
-    <ul class="venue-list">
-      <li>60th Annual Meetings of the Canadian Economics Association (CEA), Simon Fraser
-      University, May 2026</li>
-      <li>Macro Development Group (MDG), York University, 2026</li>
+  <section class="group" id="papers">
+    <h2 class="section">Papers</h2>
+    <div class="cards">
+      <div class="card jmp" id="jmp">
+        <p class="kind">Job market paper</p>
+        <h3 class="title">Financial Frictions, Used Capital, and Misallocation</h3>
+        <ul class="jmp-links">
+          <li><a class="primary" href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a></li>
+          <li><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides</a></li>
+          <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7571042" target="_blank" rel="noopener">SSRN</a></li>
+          <li><a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">Code &amp; data</a></li>
+        </ul>
+      </div>
+
+      <div class="card" id="second-hand-machines">
+        <p class="kind">Working paper</p>
+        <h3 class="title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
+        <span class="note">Draft in progress</span>
+      </div>
+
+      <a class="card" id="publication" href="https://wsps.ut.ac.ir/article_93569.html">
+        <p class="kind">Published, 2023</p>
+        <h3 class="title">Geoeconomics of Global Energy Transformation</h3>
+        <span class="go">Article</span>
+      </a>
+
+      <div class="card">
+        <p class="kind">Work in progress</p>
+        <h3 class="title">Electricity Capacity Market</h3>
+        <span class="note">With Dr. Jeremy Lin, Johns Hopkins University</span>
+      </div>
+
+      <div class="card">
+        <p class="kind">Work in progress</p>
+        <h3 class="title">News, the Economy, and Bond Returns</h3>
+        <span class="note">With Alireza Naeiji, York University</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="group" id="data-reports">
+    <h2 class="section">Data reports</h2>
+    <div class="cards">
+      <a class="card" id="canada-firms" href="data/canada_firms_2024.html">
+        <h3 class="title">How Canadian Firms Work: Evidence from the 2024 Enterprise Survey</h3>
+        <span class="go">View report</span>
+      </a>
+
+      <a class="card" id="canada-exporters" href="data/canada_exporters_us_market.html">
+        <h3 class="title">Canada’s Exporters and the U.S. Market, 2000–2025</h3>
+        <span class="go">View report</span>
+      </a>
+
+      <a class="card" id="canada-io" href="data/inputoutputcanada.html">
+        <h3 class="title">One Dollar, Thirteen Economies: Input–Output Multipliers Across Canada’s Provinces, 2010–2022</h3>
+        <span class="go">View report</span>
+      </a>
+
+      <a class="card" id="vietnam-labour" href="data/vietnam_labour_market.html">
+        <h3 class="title">Jobs, Wages and Training in Vietnam’s Small Manufacturers, 2007–2015</h3>
+        <span class="go">View report</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="group" id="thesis">
+    <h2 class="section">Master's thesis</h2>
+    <div class="cards">
+      <div class="card">
+        <h3 class="title">Shale Gas and the Export Competitiveness of Iran's Petrochemical Industry</h3>
+        <span class="note">University of Tehran, 2019</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="group" id="research-experience">
+    <h2 class="section">Research experience</h2>
+    <ul class="exp">
+      <li><span class="yr">2023–2025</span><span><strong>Research Assistant</strong>, York University</span></li>
+      <li><span class="yr">2018</span><span><strong>Research Assistant</strong>, University of Tehran</span></li>
     </ul>
-  </div>
-  <div class="venues">
-    <p class="venue-label">Accepted at</p>
-    <ul class="venue-list">
-      <li>57th Annual Conference of the Money, Macro and Finance Society (MMF), Lancaster
-      University, 2026 (unable to attend)</li>
-    </ul>
-  </div>
-  <div class="venues">
-    <p class="venue-label">Earlier version — <em>Financial Frictions, Used Capital, and Firm Dynamics</em> — presented at</p>
-    <ul class="venue-list">
-      <li>59th Annual Meetings of the Canadian Economics Association (CEA), Université du Québec
-      à Montréal, May 2025</li>
-      <li>Macro Development Group (MDG), York University, 2025</li>
-    </ul>
-  </div>
-  <details class="abstract">
-    <summary>Abstract</summary>
-    <p>Standard macro-finance models treat capital as homogeneous. Financially constrained firms
-    can therefore adjust only the quantity of capital they operate, not its vintage. This assumption
-    is at odds with the data: young, small, and likely constrained firms use second-hand equipment
-    disproportionately. I build a dynamic macro-finance model in which firms rent both new and used
-    capital. Second-hand capital lets constrained firms operate closer to their efficient scale,
-    even when they cannot meet the collateral requirements for new capital. It thereby reduces the
-    dispersion of marginal revenue products of capital and weakens the dependence of entrepreneurship
-    on initial wealth. I calibrate the model to Vietnamese firms and find that used capital
-    mitigates the allocative and occupational distortions created by financial frictions.</p>
-  </details>
-  <details class="abstract">
-    <summary>Replication package</summary>
-    <p>Rahimfallah, S. (2026). &ldquo;Replication Package for <em>Financial Frictions, Used Capital,
-    and Misallocation</em>.&rdquo; Zenodo.
-    <a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.22947884</a></p>
-  </details>
-
-  <h2 class="section">Working Paper</h2>
-
-  <h3 class="item-title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
-  <p class="item-meta">Draft in progress</p>
-  <p>Many small firms in developing countries use only second-hand machines and adopt less advanced
-  technology. I study whether these machines hold firms back or whether they are a sensible choice
-  for firms that cannot fully benefit from new technology. Using data from fifteen countries and
-  Vietnam, I find that these firms are generally smaller and have lower management capability, while
-  credit plays a smaller role. My model shows why a cheaper used machine can be the best option when
-  a firm gains little from a more advanced new machine.</p>
-  <details class="abstract">
-    <summary>Abstract</summary>
-    <p>Much of the technology used by firms in developing countries is embodied in machines, and small
-    firms often use second-hand equipment. This paper asks whether used machines hold firms back
-    because they contain older technology, or whether firms choose them because they are cheaper and
-    better suited to their capabilities. Using firm surveys from fifteen countries and panel data from
-    Vietnamese small firms, I find that firms that buy only used machines are generally smaller and
-    have weaker management. These differences account for most of their technology-adoption gap,
-    while credit constraints play a smaller role. Firms whose equipment is entirely used also buy
-    machinery about half as often as firms whose equipment is entirely new. I develop a model in which
-    a new machine is more valuable to a firm with stronger skills and management. Firms with lower
-    capability may therefore choose cheaper used machines and keep them until they break down. In an
-    extension with a domestic used-machine market, capable firms sell their outdated machines to less
-    capable firms. The model shows that banning used machines can harm both the firms that buy them
-    and the firms that sell them.</p>
-  </details>
-
-  <h2 class="section">Work in Progress</h2>
-
-  <h3 class="item-title">Electricity Capacity Market</h3>
-  <p class="item-meta">With Dr. <a href="https://advanced.jhu.edu/directory/jeremy-lin/">Jeremy Lin</a>,
-  Johns Hopkins University (formerly PJM Interconnection)</p>
-
-  <h3 class="item-title">News, the Economy, and Bond Returns</h3>
-  <p class="item-meta">With Alireza Naeiji, Computer Science, York University</p>
-
-  <h2 class="section">Data Analysis: Canada</h2>
-
-  <h3 class="item-title" id="canada-firms">How Canadian Firms Work: Evidence from the 2024 Enterprise Survey</h3>
-  <p class="item-meta">Interactive report · Data: World Bank Enterprise Survey, Canada 2024 ·
-  <a href="data/canada_firms_2024.html">View report</a></p>
-  <p>What holds Canadian businesses back, who innovates and exports, how firms finance themselves,
-  and how this differs by firm size, sector, region and gender. Using firm-level survey data, I map
-  the main obstacles facing Canadian firms and run 35 applied analyses on innovation, productivity,
-  finance, labour, trade, infrastructure, regulation and ownership.</p>
-  <details class="abstract">
-    <summary>What’s inside</summary>
-    <p>The report has four parts: an overview of the survey, descriptive findings on obstacles,
-    innovation, trade, finance, gender, regions and green practices, thirty-five further analyses
-    (including exporter productivity premia, the R&amp;D–innovation–productivity chain, credit
-    constraints, gender gaps, tax-compliance burden by firm size and a business-environment index),
-    and a data and methods section. All estimates use survey weights and design-based standard errors.
-    The firm-level data are licensed by the World Bank and are not reproduced; the report shows
-    aggregate results only.</p>
-  </details>
-
-  <h3 class="item-title" id="canada-exporters">Canada’s Exporters and the U.S. Market, 2000–2025</h3>
-  <p class="item-meta">Open-data report · Data: Statistics Canada, Trade by Exporter Characteristics ·
-  <a href="data/canada_exporters_us_market.html">View report</a></p>
-  <p>How dependent are Canadian exporters on the United States, and which firms and provinces are most
-  exposed? Using a quarter-century of Statistics Canada data on every goods-exporting business, I show
-  that the share of exporters selling only to the U.S. fell for a decade and has risen again since
-  2020, and that small firms are the most dependent.</p>
-  <details class="abstract">
-    <summary>Key findings</summary>
-    <p>About 85% of exporting enterprises sold to the United States in 2025, and about 65% sold only
-    there, up from a low of 56% in 2010. Small and medium-sized enterprises make up 97% of exporters but
-    ship 41% of export value. Three in four exporters sell to a single country, while the top 100
-    exporters account for about 60% of goods exports. Every chart in the report includes the
-    underlying data and a CSV download.</p>
-  </details>
-
-  <h3 class="item-title" id="canada-io">One Dollar, Thirteen Economies: Input–Output Multipliers Across Canada’s Provinces, 2010–2022</h3>
-  <p class="item-meta">Interactive report · Data: Statistics Canada, Input-Output Multipliers (Table 36-10-0595-01) ·
-  <a href="data/inputoutputcanada.html">View report</a></p>
-  <p>When an industry in a Canadian province produces one more dollar of output, how much of that dollar
-  stays in the province, how much flows to other provinces, and how much leaves Canada as imports? Using
-  Statistics Canada’s provincial input–output multipliers, I trace each cent through the supply chain,
-  map the results, test whether neighbouring provinces look alike, and group the provinces into four
-  types of economy.</p>
-  <details class="abstract">
-    <summary>Key findings</summary>
-    <p>Ontario and Quebec lose the least to other provinces, 5.7¢ and 7.3¢ of each dollar, but Ontario
-    sends 19.6¢ abroad. Nunavut and the Northwest Territories send about 23¢ of each dollar to the rest of
-    Canada, and this spillover is the only measure that clusters geographically (Moran’s I = 0.31).
-    Alberta, Saskatchewan and Newfoundland and Labrador keep 76–78¢ at home but support only about six
-    jobs per $1 million of output, against nearly ten in Prince Edward Island and Nova Scotia. New
-    Brunswick sends 28.6¢ abroad, the most of any province, likely because of its oil refinery. The
-    report includes an interactive map, trends from 2010 to 2022, rankings of the industries in every
-    province, and the cleaned data as CSV files.</p>
-  </details>
-
-  <h2 class="section">Data Analysis: Labour Markets</h2>
-
-  <h3 class="item-title" id="vietnam-labour">Jobs, Wages and Training in Vietnam’s Small Manufacturers, 2007–2015</h3>
-  <p class="item-meta">Interactive report · Data: Viet Nam SME Survey, employee module, 2007–2015 ·
-  <a href="data/vietnam_labour_market.html">View report</a></p>
-  <p>How did jobs in Vietnam’s small manufacturing firms change as the economy grew? Using five waves
-  of a worker survey (6,878 interviews in 1,219 firms), I track wages and gender gaps, contracts and
-  social insurance, how workers find jobs, who gets trained and whether training pays, and how job
-  quality differs across provinces.</p>
-  <details class="abstract">
-    <summary>Key findings</summary>
-    <p>The median real monthly wage rose 43% between 2007 and 2015, while women earned 86–91% of the
-    wages of comparable men throughout. The share of workers with a formal labour contract rose from 48%
-    to 54%, and employer-paid unemployment insurance from 28% in 2011 to 41% in 2015, almost entirely
-    among contract holders. Seven in ten workers found their job through family or friends, and fewer
-    than one in ten through an agency or job advertisement. Trained workers earn about 11% more than
-    untrained workers, but the premium falls to 6% when they are compared with co-workers in the same
-    firm. The report includes a map of job quality across the ten survey provinces.</p>
-  </details>
-
-  <h2 class="section">Publication</h2>
-
-  <h3 class="item-title">Geoeconomics of Global Energy Transformation</h3>
-  <p class="item-meta">Farkhondeh Jabalameli and Shadi Rahimfallah ·
-  <em>Journal of World Sociopolitical Studies</em>, 7(1), 55–87, January 2023 ·
-  <a href="https://wsps.ut.ac.ir/article_93569.html">Article</a> ·
-  <a href="https://doi.org/10.22059/wsps.2023.363112.1370">DOI</a></p>
-  <details class="abstract">
-    <summary>Abstract</summary>
-    <p>Using monthly data from January 2013 to December 2017 and an autoregressive distributed lag
-    model, this paper examines the relationship between WTI crude-oil prices and U.S. high-density
-    polyethylene prices during the shale-gas expansion. The results identify a positive and
-    significant long-run effect of oil prices on polyethylene prices, no significant short-run
-    effect, and one-way causality from oil to polyethylene prices. The findings explain how
-    inexpensive shale-based ethane, combined with polyethylene prices that remained connected to
-    oil-market conditions, contributed to the competitive advantage of U.S. petrochemical producers.</p>
-  </details>
-
-  <h2 class="section">Master's Thesis</h2>
-
-  <h3 class="item-title">Shale Gas and the Export Competitiveness of Iran's Petrochemical
-  Industry</h3>
-  <p class="item-meta">Master's thesis, University of Tehran, 2019 · Supervisor: Farkhondeh Jabalameli</p>
-  <details class="abstract">
-    <summary>Overview &amp; findings</summary>
-    <p>This thesis studies how the U.S. shale-gas revolution changed global petrochemical
-    competitiveness and what it means for Iran's petrochemical industry. It combines a time-series
-    analysis of WTI crude-oil and U.S. polyethylene prices, a panel analysis of polyethylene prices
-    and the stock-market performance of major Iranian petrochemical companies, a company-level study
-    of Shazand Petrochemical Company, and an institutional analysis of Iran's feedstock-pricing
-    system. Competitiveness depends on much more than access to natural gas: feedstock costs,
-    international product prices, exchange rates, technology, capacity utilization, and access to
-    export markets all matter, and sanctions raise banking, insurance, and shipping costs and
-    concentrate exports in a few markets, mainly China. The policy conclusion is that cheap
-    feedstock alone cannot create a lasting advantage. Iran needs a transparent, predictable
-    feedstock-pricing formula that balances a fair public return with regional competitiveness (for
-    example, combining domestic opportunity cost with regional competitor prices, smoothed with a
-    moving average and a price collar), together with effective export-credit support and more
-    diverse export destinations.</p>
-  </details>
-
-  <h2 class="section">Research Experience</h2>
-
-  <ul class="plain">
-    <li><strong>Research Assistant</strong>, York University · 2023–2025</li>
-    <li><strong>Research Assistant</strong>, University of Tehran · 2018</li>
-  </ul>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -255,6 +170,7 @@
       <a href="teaching.html">Teaching</a>
       <a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_CV.pdf">CV</a>
       <a href="references.html">References</a>
+      <a href="https://calendly.com/shadi-rahimfallah/coffee-chat" target="_blank" rel="noopener">Book a 15-min chat</a>
     </div>
     <div class="footer-social">
       <a class="s-email" href="mailto:shadirf@yorku.ca" title="Email" aria-label="Email"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
