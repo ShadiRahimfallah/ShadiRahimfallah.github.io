@@ -14,7 +14,7 @@
 .research a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .research section.group + section.group { margin-top: 60px; }
 
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .card {
   display: flex;
   flex-direction: column;
@@ -29,6 +29,11 @@ a.card:hover .go { text-decoration: underline; }
 .card .title { font-size: 17px; font-weight: 700; line-height: 1.45; color: var(--accent); margin: 0 0 14px; }
 .card .go { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--burgundy); }
 .card .note { margin-top: auto; font-size: 14px; color: var(--muted); }
+
+.card .title a { color: inherit; }
+.card details.abstract { margin: -6px 0 14px; }
+.card details.abstract p + p { margin-top: 8px; }
+a.go:hover { text-decoration: underline; }
 
 /* Job market paper: full width, framed like the page banner */
 .card.jmp { grid-column: 1 / -1; border: 3px solid var(--burgundy); padding: 26px 30px; }
@@ -95,7 +100,22 @@ a.card:hover .go { text-decoration: underline; }
       <div class="card" id="second-hand-machines">
         <p class="kind">Working paper</p>
         <h3 class="title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
-        <span class="note">Draft in progress</span>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p>Much of the technology used by firms in developing countries is embodied in machines, and small
+    firms often use second-hand equipment. This paper asks whether used machines hold firms back
+    because they contain older technology, or whether firms choose them because they are cheaper and
+    better suited to their capabilities. Using firm surveys from fifteen countries and panel data from
+    Vietnamese small firms, I find that firms that buy only used machines are generally smaller and
+    have weaker management. These differences account for most of their technology-adoption gap,
+    while credit constraints play a smaller role. Firms whose equipment is entirely used also buy
+    machinery about half as often as firms whose equipment is entirely new. I develop a model in which
+    a new machine is more valuable to a firm with stronger skills and management. Firms with lower
+    capability may therefore choose cheaper used machines and keep them until they break down. In an
+    extension with a domestic used-machine market, capable firms sell their outdated machines to less
+    capable firms. The model shows that banning used machines can harm both the firms that buy them
+    and the firms that sell them.</p>
+        </details>
       </div>
 
       <a class="card" id="publication" href="https://wsps.ut.ac.ir/article_93569.html">
@@ -121,25 +141,81 @@ a.card:hover .go { text-decoration: underline; }
   <section class="group" id="data-reports">
     <h2 class="section">Data reports</h2>
     <div class="cards">
-      <a class="card" id="canada-firms" href="data/canada_firms_2024.html">
-        <h3 class="title">How Canadian Firms Work: Evidence from the 2024 Enterprise Survey</h3>
-        <span class="go">View report</span>
-      </a>
+      <div class="card" id="canada-firms">
+        <h3 class="title"><a href="data/canada_firms_2024.html">How Canadian Firms Work: Evidence from the 2024 Enterprise Survey</a></h3>
+        <details class="abstract">
+          <summary>Summary</summary>
+          <p>What holds Canadian businesses back, who innovates and exports, how firms finance themselves,
+  and how this differs by firm size, sector, region and gender. Using firm-level survey data, I map
+  the main obstacles facing Canadian firms and run 35 applied analyses on innovation, productivity,
+  finance, labour, trade, infrastructure, regulation and ownership.</p>
+          <p>The report has four parts: an overview of the survey, descriptive findings on obstacles,
+    innovation, trade, finance, gender, regions and green practices, thirty-five further analyses
+    (including exporter productivity premia, the R&amp;D–innovation–productivity chain, credit
+    constraints, gender gaps, tax-compliance burden by firm size and a business-environment index),
+    and a data and methods section. All estimates use survey weights and design-based standard errors.
+    The firm-level data are licensed by the World Bank and are not reproduced; the report shows
+    aggregate results only.</p>
+        </details>
+        <a class="go" href="data/canada_firms_2024.html">View report</a>
+      </div>
 
-      <a class="card" id="canada-exporters" href="data/canada_exporters_us_market.html">
-        <h3 class="title">Canada’s Exporters and the U.S. Market, 2000–2025</h3>
-        <span class="go">View report</span>
-      </a>
+      <div class="card" id="canada-exporters">
+        <h3 class="title"><a href="data/canada_exporters_us_market.html">Canada’s Exporters and the U.S. Market, 2000–2025</a></h3>
+        <details class="abstract">
+          <summary>Summary</summary>
+          <p>How dependent are Canadian exporters on the United States, and which firms and provinces are most
+  exposed? Using a quarter-century of Statistics Canada data on every goods-exporting business, I show
+  that the share of exporters selling only to the U.S. fell for a decade and has risen again since
+  2020, and that small firms are the most dependent.</p>
+          <p>About 85% of exporting enterprises sold to the United States in 2025, and about 65% sold only
+    there, up from a low of 56% in 2010. Small and medium-sized enterprises make up 97% of exporters but
+    ship 41% of export value. Three in four exporters sell to a single country, while the top 100
+    exporters account for about 60% of goods exports. Every chart in the report includes the
+    underlying data and a CSV download.</p>
+        </details>
+        <a class="go" href="data/canada_exporters_us_market.html">View report</a>
+      </div>
 
-      <a class="card" id="canada-io" href="data/inputoutputcanada.html">
-        <h3 class="title">One Dollar, Thirteen Economies: Input–Output Multipliers Across Canada’s Provinces, 2010–2022</h3>
-        <span class="go">View report</span>
-      </a>
+      <div class="card" id="canada-io">
+        <h3 class="title"><a href="_data/inputoutputcanada.html">One Dollar, Thirteen Economies: Input–Output Multipliers Across Canada’s Provinces, 2010–2022</a></h3>
+        <details class="abstract">
+          <summary>Summary</summary>
+          <p>When an industry in a Canadian province produces one more dollar of output, how much of that dollar
+  stays in the province, how much flows to other provinces, and how much leaves Canada as imports? Using
+  Statistics Canada’s provincial input–output multipliers, I trace each cent through the supply chain,
+  map the results, test whether neighbouring provinces look alike, and group the provinces into four
+  types of economy.</p>
+          <p>Ontario and Quebec lose the least to other provinces, 5.7¢ and 7.3¢ of each dollar, but Ontario
+    sends 19.6¢ abroad. Nunavut and the Northwest Territories send about 23¢ of each dollar to the rest of
+    Canada, and this spillover is the only measure that clusters geographically (Moran’s I = 0.31).
+    Alberta, Saskatchewan and Newfoundland and Labrador keep 76–78¢ at home but support only about six
+    jobs per $1 million of output, against nearly ten in Prince Edward Island and Nova Scotia. New
+    Brunswick sends 28.6¢ abroad, the most of any province, likely because of its oil refinery. The
+    report includes an interactive map, trends from 2010 to 2022, rankings of the industries in every
+    province, and the cleaned data as CSV files.</p>
+        </details>
+        <a class="go" href="_data/inputoutputcanada.html">View report</a>
+      </div>
 
-      <a class="card" id="vietnam-labour" href="data/vietnam_labour_market.html">
-        <h3 class="title">Jobs, Wages and Training in Vietnam’s Small Manufacturers, 2007–2015</h3>
-        <span class="go">View report</span>
-      </a>
+      <div class="card" id="vietnam-labour">
+        <h3 class="title"><a href="data/vietnam_labour_market.html">Jobs, Wages and Training in Vietnam’s Small Manufacturers, 2007–2015</a></h3>
+        <details class="abstract">
+          <summary>Summary</summary>
+          <p>How did jobs in Vietnam’s small manufacturing firms change as the economy grew? Using five waves
+  of a worker survey (6,878 interviews in 1,219 firms), I track wages and gender gaps, contracts and
+  social insurance, how workers find jobs, who gets trained and whether training pays, and how job
+  quality differs across provinces.</p>
+          <p>The median real monthly wage rose 43% between 2007 and 2015, while women earned 86–91% of the
+    wages of comparable men throughout. The share of workers with a formal labour contract rose from 48%
+    to 54%, and employer-paid unemployment insurance from 28% in 2011 to 41% in 2015, almost entirely
+    among contract holders. Seven in ten workers found their job through family or friends, and fewer
+    than one in ten through an agency or job advertisement. Trained workers earn about 11% more than
+    untrained workers, but the premium falls to 6% when they are compared with co-workers in the same
+    firm. The report includes a map of job quality across the ten survey provinces.</p>
+        </details>
+        <a class="go" href="data/vietnam_labour_market.html">View report</a>
+      </div>
     </div>
   </section>
 
@@ -149,6 +225,23 @@ a.card:hover .go { text-decoration: underline; }
       <div class="card">
         <h3 class="title">Shale Gas and the Export Competitiveness of Iran's Petrochemical Industry</h3>
         <span class="note">University of Tehran, 2019</span>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p>This thesis studies how the U.S. shale-gas revolution changed global petrochemical
+    competitiveness and what it means for Iran's petrochemical industry. It combines a time-series
+    analysis of WTI crude-oil and U.S. polyethylene prices, a panel analysis of polyethylene prices
+    and the stock-market performance of major Iranian petrochemical companies, a company-level study
+    of Shazand Petrochemical Company, and an institutional analysis of Iran's feedstock-pricing
+    system. Competitiveness depends on much more than access to natural gas: feedstock costs,
+    international product prices, exchange rates, technology, capacity utilization, and access to
+    export markets all matter, and sanctions raise banking, insurance, and shipping costs and
+    concentrate exports in a few markets, mainly China. The policy conclusion is that cheap
+    feedstock alone cannot create a lasting advantage. Iran needs a transparent, predictable
+    feedstock-pricing formula that balances a fair public return with regional competitiveness (for
+    example, combining domestic opportunity cost with regional competitor prices, smoothed with a
+    moving average and a price collar), together with effective export-credit support and more
+    diverse export destinations.</p>
+        </details>
       </div>
     </div>
   </section>
