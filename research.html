@@ -32,7 +32,7 @@ a.card:hover .go { text-decoration: underline; }
 .card .note { margin-top: auto; font-size: 14px; color: var(--muted); }
 
 .card .title a { color: inherit; }
-.card details.abstract { margin: -6px 0 14px; }
+.card details.abstract { margin: -6px 0 0; }
 .card details.abstract p + p { margin-top: 8px; }
 a.go:hover { text-decoration: underline; }
 
@@ -40,17 +40,24 @@ a.go:hover { text-decoration: underline; }
 .card.jmp { border: 3px solid var(--burgundy); padding: 26px 30px; }
 .card.jmp .title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.25; color: var(--burgundy); margin-bottom: 18px; }
 
-/* Micro/Macro & Foundations breakdown inside cards */
+/* Micro/Macro & Foundations breakdown inside cards and abstracts */
 .paper-dimensions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin: 0 0 18px;
 }
+details.abstract .paper-dimensions {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
 .dim-box {
   background: #faf8f8;
   border: 1px solid var(--border);
   padding: 12px 14px;
+}
+.dim-box.full-width {
+  grid-column: 1 / -1;
 }
 .dim-tag {
   display: inline-block;
@@ -168,39 +175,32 @@ a.go:hover { text-decoration: underline; }
         <p class="kind">Working Paper &bull; Empirical Industrial Organization (IO) / Development</p>
         <h3 class="title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
 
-        <!-- Micro / IO & Market-Level Structure of Tech Adoption Paper -->
-        <div class="paper-dimensions">
-          <div class="dim-box">
-            <span class="dim-tag">Firm-Level Decision (Micro)</span>
-            <ul>
-              <li><strong>Managerial Capability:</strong> Weak skills and management explain most of the technology-adoption gap, while credit constraints play a smaller role.</li>
-              <li><strong>Vintage Choice:</strong> Firms with lower capability optimize by matching with cheaper used equipment and holding machines longer.</li>
-            </ul>
-          </div>
-          <div class="dim-box">
-            <span class="dim-tag">Market Reallocation &amp; Policy</span>
-            <ul>
-              <li><strong>Secondary Market:</strong> Higher-capability firms upgrade by selling older machines to less capable firms, generating mutual gains.</li>
-              <li><strong>Policy Evaluation:</strong> Import or resale bans on used machinery distort reallocation and harm both buying and selling firms.</li>
-            </ul>
-          </div>
-        </div>
-
         <details class="abstract">
           <summary>Abstract</summary>
-          <p>Much of the technology used by firms in developing countries is embodied in machines, and small
-    firms often use second-hand equipment. This paper asks whether used machines hold firms back
-    because they contain older technology, or whether firms choose them because they are cheaper and
-    better suited to their capabilities. Using firm surveys from fifteen countries and panel data from
-    Vietnamese small firms, I find that firms that buy only used machines are generally smaller and
-    have weaker management. These differences account for most of their technology-adoption gap,
-    while credit constraints play a smaller role. Firms whose equipment is entirely used also buy
-    machinery about half as often as firms whose equipment is entirely new. I develop a model in which
-    a new machine is more valuable to a firm with stronger skills and management. Firms with lower
-    capability may therefore choose cheaper used machines and keep them until they break down. In an
-    extension with a domestic used-machine market, capable firms sell their outdated machines to less
-    capable firms. The model shows that banning used machines can harm both the firms that buy them
-    and the firms that sell them.</p>
+          <div class="paper-dimensions">
+            <div class="dim-box">
+              <span class="dim-tag">Micro foundation (the firm’s decision)</span>
+              <ul>
+                <li>Firms choose new or used technology. New technology raises productivity but carries a know-how cost that falls with capability and must be financed under a collateral constraint.</li>
+                <li>Used-only firms are 96% capability-bound and 4% finance-bound. Financially constrained firms instead combine new and used machines (JMP).</li>
+              </ul>
+            </div>
+            <div class="dim-box">
+              <span class="dim-tag">Macro implications (the economy)</span>
+              <ul>
+                <li><strong>Adoption:</strong> Raising capability lifts the new-technology share from 93.1% to 97.3%. Removing the credit constraint lifts it only to 93.3%, so capability has 17 times the effect.</li>
+                <li><strong>Output:</strong> Removing the constraint raises output by 1.6%, mostly through more capital rather than better technology. Raising capability adds 0.15%.</li>
+                <li><strong>Misallocation:</strong> Finance distorts how much capital firms use, while capability determines which technology they use.</li>
+                <li><strong>Policy:</strong> Credit helps mixed firms expand, and know-how helps used-only firms upgrade. Banning used machines hurts mixed firms without helping used-only firms.</li>
+              </ul>
+            </div>
+            <div class="dim-box full-width">
+              <span class="dim-tag">IO extension (the used-machine market)</span>
+              <ul>
+                <li>Buyers and sellers of used machines meet through search, and capability lowers search costs because capable firms know which machine to buy and how to judge it. The used price is set in the market, so policies change prices as well as choices.</li>
+              </ul>
+            </div>
+          </div>
         </details>
       </div>
 
