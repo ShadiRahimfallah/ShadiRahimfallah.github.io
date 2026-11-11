@@ -40,8 +40,8 @@ a.go:hover { text-decoration: underline; }
 .card.jmp { border: 3px solid var(--burgundy); padding: 26px 30px; }
 .card.jmp .title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.25; color: var(--burgundy); margin-bottom: 18px; }
 
-/* Micro/Macro breakdown inside the JMP card */
-.jmp-dimensions {
+/* Micro/Macro & Foundations breakdown inside cards */
+.paper-dimensions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
@@ -87,7 +87,7 @@ a.go:hover { text-decoration: underline; }
   .research [id] { scroll-margin-top: 160px; }
   .card.jmp { border-width: 2px; padding: 20px 18px; }
   .card.jmp .title { font-size: 24px; }
-  .jmp-dimensions { grid-template-columns: 1fr; }
+  .paper-dimensions { grid-template-columns: 1fr; }
   .exp li { grid-template-columns: 1fr; }
 }
 </style>
@@ -125,7 +125,7 @@ a.go:hover { text-decoration: underline; }
         <h3 class="title">Financial Frictions, Used Capital, and Misallocation</h3>
 
         <!-- Micro vs Macro Structure of the Paper -->
-        <div class="jmp-dimensions">
+        <div class="paper-dimensions">
           <div class="dim-box">
             <span class="dim-tag">Micro Foundations</span>
             <ul>
@@ -136,8 +136,9 @@ a.go:hover { text-decoration: underline; }
           <div class="dim-box">
             <span class="dim-tag">Macro Implications</span>
             <ul>
-              <li><strong>General Equilibrium:</strong> Dynamic market clearing across labor, deposits, and capital vintages.</li>
               <li><strong>Aggregate TFP:</strong> Used capital reduces the aggregate TFP loss from financial frictions by 39%.</li>
+              <li><strong>Entrepreneurial Entry:</strong> Expands entry of talented but low-wealth entrepreneurs (+7.7 pp), repairing 23% of the entry distortion.</li>
+              <li><strong>General Equilibrium:</strong> Dynamic market clearing across labor, deposits, and capital vintages.</li>
             </ul>
           </div>
         </div>
@@ -166,6 +167,25 @@ a.go:hover { text-decoration: underline; }
       <div class="card" id="second-hand-machines">
         <p class="kind">Working Paper &bull; Empirical Industrial Organization (IO) / Development</p>
         <h3 class="title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
+
+        <!-- Micro / IO & Market-Level Structure of Tech Adoption Paper -->
+        <div class="paper-dimensions">
+          <div class="dim-box">
+            <span class="dim-tag">Firm-Level Decision (Micro)</span>
+            <ul>
+              <li><strong>Managerial Capability:</strong> Weak skills and management explain most of the technology-adoption gap, while credit constraints play a smaller role.</li>
+              <li><strong>Vintage Choice:</strong> Firms with lower capability optimize by matching with cheaper used equipment and holding machines longer.</li>
+            </ul>
+          </div>
+          <div class="dim-box">
+            <span class="dim-tag">Market Reallocation &amp; Policy</span>
+            <ul>
+              <li><strong>Secondary Market:</strong> Higher-capability firms upgrade by selling older machines to less capable firms, generating mutual gains.</li>
+              <li><strong>Policy Evaluation:</strong> Import or resale bans on used machinery distort reallocation and harm both buying and selling firms.</li>
+            </ul>
+          </div>
+        </div>
+
         <details class="abstract">
           <summary>Abstract</summary>
           <p>Much of the technology used by firms in developing countries is embodied in machines, and small
@@ -340,4 +360,3 @@ a.go:hover { text-decoration: underline; }
 
 </body>
 </html>
-```[cite: 3, 46]
