@@ -39,6 +39,39 @@ a.go:hover { text-decoration: underline; }
 /* Job market paper: full width, framed like the page banner */
 .card.jmp { border: 3px solid var(--burgundy); padding: 26px 30px; }
 .card.jmp .title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.25; color: var(--burgundy); margin-bottom: 18px; }
+
+/* Micro/Macro breakdown inside the JMP card */
+.jmp-dimensions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0 0 18px;
+}
+.dim-box {
+  background: #faf8f8;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+}
+.dim-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+.dim-box ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.dim-box li + li {
+  margin-top: 6px;
+}
+
 .jmp-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
 .jmp-links a { display: inline-block; border: 1px solid var(--burgundy); color: var(--burgundy); font-size: 14px; font-weight: 600; padding: 6px 16px; }
 .jmp-links a:hover { background: var(--burgundy); color: #fff; text-decoration: none; }
@@ -54,6 +87,7 @@ a.go:hover { text-decoration: underline; }
   .research [id] { scroll-margin-top: 160px; }
   .card.jmp { border-width: 2px; padding: 20px 18px; }
   .card.jmp .title { font-size: 24px; }
+  .jmp-dimensions { grid-template-columns: 1fr; }
   .exp li { grid-template-columns: 1fr; }
 }
 </style>
@@ -87,8 +121,27 @@ a.go:hover { text-decoration: underline; }
     <div class="cards">
       <!-- 1. Job Market Paper -->
       <div class="card jmp" id="jmp">
-        <p class="kind">Job Market Paper &bull; Macro-Finance / Macroeconomics</p>
+        <p class="kind">Job Market Paper &bull; Macro-Finance / Applied Micro</p>
         <h3 class="title">Financial Frictions, Used Capital, and Misallocation</h3>
+
+        <!-- Micro vs Macro Structure of the Paper -->
+        <div class="jmp-dimensions">
+          <div class="dim-box">
+            <span class="dim-tag">Micro Foundations</span>
+            <ul>
+              <li><strong>Firm Data:</strong> Panel evidence on collateral constraints and used vs. new equipment mix (Vietnam SME Survey).</li>
+              <li><strong>Firm Decision:</strong> Constrained entrepreneurs optimize machine vintage, lowering collateral absorbed per rental dollar.</li>
+            </ul>
+          </div>
+          <div class="dim-box">
+            <span class="dim-tag">Macro Implications</span>
+            <ul>
+              <li><strong>General Equilibrium:</strong> Dynamic market clearing across labor, deposits, and capital vintages.</li>
+              <li><strong>Aggregate TFP:</strong> Used capital reduces the aggregate TFP loss from financial frictions by 39%.</li>
+            </ul>
+          </div>
+        </div>
+
         <ul class="jmp-links">
           <li><a class="primary" href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a></li>
           <li><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides</a></li>
@@ -287,3 +340,4 @@ a.go:hover { text-decoration: underline; }
 
 </body>
 </html>
+```[cite: 3, 46]
