@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — Shadi Rahimfallah</title>
-<meta name="description" content="Research by Shadi Rahimfallah — job market paper on financial frictions, used capital, and misallocation; second-hand machines, firm capability, and technology adoption; capacity market design.">
+<meta name="description" content="Research by Shadi Rahimfallah — job market paper on financial frictions, used capital, and misallocation; electricity capacity market design; second-hand machines, firm capability, and technology adoption; and bond returns.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v6">
@@ -14,7 +14,8 @@
 .research a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .research section.group + section.group { margin-top: 60px; }
 
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+/* Set to 1 column so each research item is on its own line */
+.cards { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
 .card {
   display: flex;
   flex-direction: column;
@@ -36,14 +37,13 @@ a.card:hover .go { text-decoration: underline; }
 a.go:hover { text-decoration: underline; }
 
 /* Job market paper: full width, framed like the page banner */
-.card.jmp { grid-column: 1 / -1; border: 3px solid var(--burgundy); padding: 26px 30px; }
+.card.jmp { border: 3px solid var(--burgundy); padding: 26px 30px; }
 .card.jmp .title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.25; color: var(--burgundy); margin-bottom: 18px; }
 .jmp-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
 .jmp-links a { display: inline-block; border: 1px solid var(--burgundy); color: var(--burgundy); font-size: 14px; font-weight: 600; padding: 6px 16px; }
 .jmp-links a:hover { background: var(--burgundy); color: #fff; text-decoration: none; }
 .jmp-links a.primary { background: var(--burgundy); color: #fff; }
 .jmp-links a.primary:hover { background: var(--burgundy-dark); }
-
 
 .exp { list-style: none; margin: 0; padding: 0; }
 .exp li { display: grid; grid-template-columns: 120px 1fr; gap: 0 20px; padding: 10px 0; border-bottom: 1px solid var(--border); }
@@ -52,7 +52,6 @@ a.go:hover { text-decoration: underline; }
 @media (max-width: 900px) { .research [id] { scroll-margin-top: 120px; } }
 @media (max-width: 640px) {
   .research [id] { scroll-margin-top: 160px; }
-  .cards { grid-template-columns: 1fr; }
   .card.jmp { border-width: 2px; padding: 20px 18px; }
   .card.jmp .title { font-size: 24px; }
   .exp li { grid-template-columns: 1fr; }
@@ -86,6 +85,7 @@ a.go:hover { text-decoration: underline; }
   <section class="group" id="papers">
     <h2 class="section">Papers</h2>
     <div class="cards">
+      <!-- 1. Job Market Paper (Code & Data link removed) -->
       <div class="card jmp" id="jmp">
         <p class="kind">Job market paper</p>
         <h3 class="title">Financial Frictions, Used Capital, and Misallocation</h3>
@@ -93,10 +93,22 @@ a.go:hover { text-decoration: underline; }
           <li><a class="primary" href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a></li>
           <li><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides</a></li>
           <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7571042" target="_blank" rel="noopener">SSRN</a></li>
-          <li><a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">Code &amp; data</a></li>
         </ul>
       </div>
 
+      <!-- 2. Working Paper: Electricity Capacity Market -->
+      <div class="card" id="electricity-capacity-market">
+        <p class="kind">Working paper</p>
+        <h3 class="title">Electricity Capacity Market</h3>
+        <details class="abstract">
+          <summary>Summary</summary>
+          <p>Large-load market design for new data-centre load in PJM.</p>
+          <p><strong>Keywords:</strong> capacity market auction; financial modelling of new and existing plants; plant-dispatch model; energy and ancillary revenues (E&amp;AS); reliability requirement.</p>
+        </details>
+        <span class="note">With Dr. Jeremy Lin, Johns Hopkins University</span>
+      </div>
+
+      <!-- 3. Working Paper: Second-Hand Machines -->
       <div class="card" id="second-hand-machines">
         <p class="kind">Working paper</p>
         <h3 class="title">Second-Hand Machines, Firm Capability, and Technology Adoption</h3>
@@ -118,23 +130,19 @@ a.go:hover { text-decoration: underline; }
         </details>
       </div>
 
+      <!-- 4. Work in Progress / Working Paper: News, the Economy, and Bond Returns -->
+      <div class="card" id="bond-returns">
+        <p class="kind">Work in progress</p>
+        <h3 class="title">News, the Economy, and Bond Returns</h3>
+        <span class="note">Deep learning &bull; With Alireza Naeiji, York University</span>
+      </div>
+
+      <!-- 5. Published Article -->
       <a class="card" id="publication" href="https://wsps.ut.ac.ir/article_93569.html">
         <p class="kind">Published, 2023</p>
         <h3 class="title">Geoeconomics of Global Energy Transformation</h3>
         <span class="go">Article</span>
       </a>
-
-      <div class="card">
-        <p class="kind">Work in progress</p>
-        <h3 class="title">Electricity Capacity Market</h3>
-        <span class="note">With Dr. Jeremy Lin, Johns Hopkins University</span>
-      </div>
-
-      <div class="card">
-        <p class="kind">Work in progress</p>
-        <h3 class="title">News, the Economy, and Bond Returns</h3>
-        <span class="note">With Alireza Naeiji, York University</span>
-      </div>
     </div>
   </section>
 
