@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Powering Data Centres: PJM, US Markets &amp; Canada — Economic &amp; Policy Briefing</title>
+<style>
+
+:root{
+  color-scheme:light;
+  --bg:#f6f5f2; --surface-1:#fcfcfb; --surface-2:#f0efeb; --line:#e2e0da; --grid:#ebe9e4;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7a7873;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s7:#6250d6;
+  --neutral:#a9a7a0; --land:#e7e5df; --accent:#2a78d6; --good:#0b7a3e; --bad:#b42318;
+}
+@media (prefers-color-scheme: dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme:dark;
+    --bg:#121211; --surface-1:#1a1a19; --surface-2:#232321; --line:#33322f; --grid:#2a2a28;
+    --text-primary:#f0efec; --text-secondary:#c3c2b7; --text-muted:#8f8d86;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s7:#9085e9;
+    --neutral:#6b6a64; --land:#2c2c2a; --accent:#3987e5; --good:#4ade80; --bad:#f87171;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121211; --surface-1:#1a1a19; --surface-2:#232321; --line:#33322f; --grid:#2a2a28;
+  --text-primary:#f0efec; --text-secondary:#c3c2b7; --text-muted:#8f8d86;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s7:#9085e9;
+  --neutral:#6b6a64; --land:#2c2c2a; --accent:#3987e5; --good:#4ade80; --bad:#f87171;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text-primary);font:15.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header.hero{padding:52px 0 30px;border-bottom:1px solid var(--line)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+h1{font-size:38px;line-height:1.15;margin:8px 0 14px;letter-spacing:-.01em;max-width:920px}
+h2{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+h3{font-size:18px;margin:20px 0 6px}
+h4{font-size:15px;margin:12px 0 4px}
+.lede{font-size:18px;color:var(--text-secondary);max-width:860px;margin:0}
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:2px;overflow-x:auto;padding-top:8px;padding-bottom:8px;align-items:center}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--text-secondary);font-size:13px;padding:6px 10px;border-radius:6px}
+nav.toc a:hover{background:var(--surface-2);color:var(--text-primary)}
+nav.toc button{margin-left:auto;font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface-1);color:var(--text-secondary);border-radius:6px;padding:5px 10px;cursor:pointer}
+section{padding:44px 0;border-bottom:1px solid var(--line);scroll-margin-top:50px}
+.sub{color:var(--text-secondary);margin:0 0 20px;max-width:880px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}h1{font-size:30px}}
+.card{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.card p{margin:6px 0}
+.card ul{margin:6px 0;padding-left:18px}
+.card li{margin:4px 0}
+.stat .num{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.stat .lab{font-size:13px;color:var(--text-secondary);margin-top:4px}
+.stat .src{font-size:11px;color:var(--text-muted);margin-top:6px}
+.bl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+@media(max-width:900px){.bl{grid-template-columns:1fr}}
+.bl .card{border-top:3px solid var(--s7)}
+.bl b{display:block;font-size:16px;margin-bottom:4px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--surface-2);color:var(--text-secondary);border:1px solid var(--line);margin-right:4px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.callout{border-left:3px solid var(--s7);background:var(--surface-1);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0 0;color:var(--text-secondary)}
+.callout b{color:var(--text-primary)}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface-1);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.t th,table.t td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t th{background:var(--surface-2);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary)}
+table.t tr:last-child td{border-bottom:none}
+table.t td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.chart{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:16px 18px 10px;position:relative}
+.chart .ct{font-weight:650;font-size:15px}
+.chart .cs{font-size:12.5px;color:var(--text-secondary);margin-bottom:6px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--text-secondary);margin:4px 0 6px}
+.legend span{display:inline-flex;align-items:center}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px}
+.legend i.box{height:10px;width:10px;border-radius:3px}
+.chart details{font-size:12.5px;color:var(--text-secondary);margin-top:6px}
+.chart details table{border-collapse:collapse;margin-top:6px;font-size:12px}
+.chart details td,.chart details th{padding:3px 8px;border-bottom:1px solid var(--line);text-align:right}
+.chart details th:first-child,.chart details td:first-child{text-align:left}
+.note{font-size:11.5px;color:var(--text-muted);margin-top:4px}
+.tip{position:absolute;pointer-events:none;background:var(--surface-1);border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.14);border-radius:8px;padding:8px 10px;font-size:12px;min-width:150px;max-width:280px;opacity:0;transition:opacity .08s;z-index:5}
+.tip .h{font-weight:650;margin-bottom:4px;color:var(--text-primary)}
+.tip .r{display:flex;justify-content:space-between;gap:12px;color:var(--text-secondary)}
+.tip .r b{color:var(--text-primary);font-variant-numeric:tabular-nums}
+.axis text{fill:var(--text-muted);font-size:11px}
+.gridline{stroke:var(--grid);stroke-width:1}
+.baseline{stroke:var(--line);stroke-width:1}
+/* map */
+.mapwrap{display:grid;grid-template-columns:1fr;gap:16px}
+.mapwrap .panel{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}
+@media(max-width:900px){.mapwrap .panel{grid-template-columns:1fr}}
+@media(max-width:980px){.mapwrap{grid-template-columns:1fr}}
+#geoMap path.reg{stroke:var(--surface-1);stroke-width:.8;cursor:pointer;transition:filter .12s}
+#geoMap path.reg:hover{filter:brightness(1.08)}
+#geoMap path.reg.on{stroke:var(--text-primary);stroke-width:2}
+#geoMap path.bg{fill:var(--land);stroke:var(--surface-1);stroke-width:.6}
+#geoMap text{pointer-events:none}
+.panel h3{margin-top:0}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:5px 12px;font-size:13.5px;margin:10px 0}
+.kv div:nth-child(odd){color:var(--text-muted)}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.pm div{background:var(--surface-2);border-radius:8px;padding:10px 12px;font-size:13px}
+.pm div b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.plus b{color:var(--good)} .minus b{color:var(--bad)}
+/* scorecard */
+.sc h3{margin:0 0 2px}
+.sc .model{font-size:12.5px;color:var(--text-muted);margin-bottom:10px}
+.sc .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.sc .cols{grid-template-columns:1fr}}
+.sc .cols h4{margin:0 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.sc .cols ul{margin:0;padding-left:18px;font-size:14px}
+.sc .verdict{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--text-secondary)}
+.sc .verdict b{color:var(--text-primary)}
+/* calc */
+.calc{display:grid;grid-template-columns:300px 1fr;gap:16px}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.ctrl label{display:block;font-size:13px;color:var(--text-secondary);margin-top:12px}
+.ctrl label b{color:var(--text-primary);font-variant-numeric:tabular-nums}
+.ctrl input[type=range]{width:100%;accent-color:var(--s7)}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:var(--surface-2);border-radius:8px;padding:10px 12px;margin-top:14px;color:var(--text-secondary)}
+.pill{display:inline-block;white-space:nowrap;font-size:11px;font-weight:650;padding:1px 7px;border-radius:999px;border:1px solid var(--line)}
+.p-short{background:color-mix(in srgb,var(--s3) 18%,transparent)}
+.p-mid{background:color-mix(in srgb,var(--s4) 22%,transparent)}
+.p-long{background:color-mix(in srgb,var(--s1) 18%,transparent)}
+footer{padding:36px 0 60px;color:var(--text-secondary);font-size:13px}
+footer ol{padding-left:18px}
+footer li{margin:3px 0;word-break:break-word}
+
+/* multipage */
+.page{display:none}
+.page.active{display:block}
+.tabs{display:flex;gap:4px}
+.tabs a{font-weight:600}
+.tabs a.on{background:var(--text-primary);color:var(--bg)}
+.crumb{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+.btn{display:inline-block;font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--surface-2);color:var(--text-primary);border-radius:8px;padding:7px 12px;cursor:pointer;text-decoration:none;margin-top:10px}
+.btn:hover{background:var(--line)}
+.mapcard svg path.reg{stroke:var(--surface-1);stroke-width:.8;cursor:pointer;transition:filter .12s}
+.mapcard svg path.reg:hover{filter:brightness(1.1)}
+.mapcard svg path.reg.on{stroke:var(--text-primary);stroke-width:2.2}
+.mapcard svg path.bg{fill:var(--land);stroke:var(--surface-1);stroke-width:.6}
+.mapcard svg path.ghost{fill:var(--land);stroke:var(--surface-1);stroke-width:.6;opacity:.55}
+.mapcard svg text{pointer-events:none}
+.hint{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-secondary);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;margin-bottom:8px}
+.sc.focus{outline:2px solid var(--text-primary);outline-offset:2px}
+.seasonrow td:nth-child(n+2){text-align:center}
+.yes{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}.soon{color:var(--s4);font-weight:700}
+</style>
+</head>
+<body>
+
+<nav class="toc"><div class="wrap">
+  <div class="tabs" id="tabs">
+    <a href="javascript:void(0)" data-go="overview" data-p="overview">Overview map</a>
+    <a href="javascript:void(0)" data-go="pjm" data-p="pjm">PJM &amp; US markets</a>
+    <a href="javascript:void(0)" data-go="canada" data-p="canada">Canada</a>
+    <a href="javascript:void(0)" data-go="tech" data-p="tech">Technology &amp; policy</a>
+    <a href="javascript:void(0)" data-go="sources" data-p="sources">Sources</a>
+  </div>
+  <button id="themeBtn" type="button" aria-label="Toggle colour theme">◐ Theme</button>
+</div></nav>
+
+<!-- =================== OVERVIEW =================== -->
+<main class="page" id="p-overview">
+<header class="hero"><div class="wrap">
+  <div class="kicker">Economic &amp; policy briefing · November 2026</div>
+  <h1>Powering data centres: who builds the power, who pays, and how fast?</h1>
+  <p class="lede">A guide to how the US electricity markets, with a focus on PJM, and Canada's provinces are dealing with the data-centre wave. <b>Click the map</b>: PJM opens the PJM page, and a province opens the Canada page.</p>
+  <div class="bl">
+    <div class="card"><b>1 · The bottleneck is time, not energy.</b>Data centres want power in 18–24 months. A new gas turbine ordered today arrives around 2031, and transmission takes 5–10 years.</div>
+    <div class="card"><b>2 · The real fight is over who carries the risk.</b>Consumers (PJM's capacity price), the developer (Alberta and Texas), or the province through rationing (BC, Québec). Market design decides.</div>
+    <div class="card"><b>3 · Flexibility is the cheapest MW.</b>Every data centre has backup power. Written into a contract, it lets the site connect sooner and protects other customers.</div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>North American electricity markets</h2>
+  <p class="sub">Colour shows how each region pays for the power plants it needs at peak, which is the key to how it handles data centres.</p>
+  <div class="mapwrap">
+    <div class="chart mapcard">
+      <span class="hint">👆 Click a region</span>
+      <div class="legend" id="naLegend"></div>
+      <svg id="naMap" role="img" aria-label="Map of US markets and Canadian provinces"></svg>
+      <div class="note">US markets are shown by state and are approximate. Where a state is split, it takes the colour of its main operator, and states partly in PJM are hatched. US Southeast and West (outside California) are mostly vertically integrated utilities.</div>
+    </div>
+    <div class="card panel" id="naPanel"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Four ways to pay for power plants</h2>
+  <p class="sub">Every grid needs plants that run only a few hours a year, at peak. How those plants get paid decides who carries the risk when a 500 MW data centre shows up.</p>
+  <div class="scroll"><table class="t">
+    <thead><tr><th>Model</th><th>In plain words</th><th>Who carries the risk</th><th>United States</th><th>Canada</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sw" style="background:var(--s1)"></span><b>Capacity market</b></td><td>An auction pays plants to <i>be available</i> at peak.</td><td>Consumers, through the auction price</td><td><b>PJM</b> (3 yrs ahead, annual); <span class="sw" style="background:var(--s7)"></span>MISO (seasonal), NYISO (summer/winter), ISO-NE (moving to seasonal)</td><td>Ontario's short seasonal auction (partial)</td></tr>
+      <tr><td><span class="sw" style="background:var(--s2)"></span><b>Contracts + market</b></td><td>The system operator signs long-term contracts for most new plants.</td><td>Ratepayers, through contracts</td><td>Emerging: PJM's one-time backstop procurement</td><td><b>Ontario</b> (IESO LT1/LT2 + auction)</td></tr>
+      <tr><td><span class="sw" style="background:var(--s3)"></span><b>Energy-only market</b></td><td>Plants earn only from selling energy. Price spikes are the signal to build.</td><td>Investors and the large load ("bring your own generation")</td><td><b>ERCOT</b> (Texas)</td><td><b>Alberta</b></td></tr>
+      <tr><td><span class="sw" style="background:var(--s4)"></span><b>Resource-adequacy obligation</b></td><td>Utilities must hold enough capacity and buy it bilaterally. There is no central auction.</td><td>Utilities and their customers</td><td>CAISO (California), SPP</td><td>—</td></tr>
+      <tr><td><span class="sw" style="background:var(--neutral)"></span><b>Vertically integrated utility</b></td><td>One utility plans, builds and sets regulated rates.</td><td>The utility's customers (or the province), with access rationed by policy</td><td>Southeast, much of the West</td><td>BC, Québec, Manitoba, Sask., Atlantic</td></tr>
+    </tbody>
+  </table></div>
+  <div style="margin-top:16px"><a class="btn" href="javascript:void(0)" data-go="pjm">Go to PJM &amp; US markets →</a> &nbsp; <a class="btn" href="javascript:void(0)" data-go="canada">Go to Canada →</a></div>
+</div></section>
+</main>
+
+<!-- =================== PJM =================== -->
+<main class="page" id="p-pjm">
+<header class="hero"><div class="wrap">
+  <div class="crumb">PJM &amp; US markets</div>
+  <h1>PJM: the price signal hit a political ceiling</h1>
+  <p class="lede">PJM runs the grid for 13 states plus DC, from Chicago to Virginia. It is home to "Data Center Alley" in Loudoun County. Its capacity market went from among the cheapest in North America to price-capped in three auctions, and data centres are the main reason.</p>
+</div></header>
+
+<section><div class="wrap">
+  <h2>Key numbers</h2>
+  <div class="grid g4">
+    <div class="card stat"><div class="num">$325</div><div class="lab">2028/29 capacity price ($/MW-day), at the cap for the third straight auction. PJM's uncapped estimate: $554.72.</div><div class="src">PJM, Jul 2026</div></div>
+    <div class="card stat"><div class="num">6.8 GW</div><div class="lab">Shortfall against PJM's reliability requirement in that auction</div><div class="src">PJM, Jul 2026</div></div>
+    <div class="card stat"><div class="num">+66 GW</div><div class="lab">Summer peak growth to 2036 (156 → 222 GW), mostly data centres</div><div class="src">PJM 2026 Load Forecast</div></div>
+    <div class="card stat"><div class="num">525 MW</div><div class="lab">New generation and uprates that cleared in 2028/29, against the 6.8 GW shortfall</div><div class="src">PJM, Jul 2026</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Where PJM is</h2>
+  <p class="sub">The fully coloured states are entirely, or almost entirely, in PJM. Hatched states have only some utilities in PJM (e.g. ComEd in northern Illinois, parts of Indiana, Michigan, Kentucky, North Carolina and Tennessee). Ontario sits just across Lake Erie.</p>
+  <div class="chart mapcard">
+    <div class="legend"><span><i class="box" style="background:var(--s1)"></i>In PJM</span><span><i class="box" style="background:repeating-linear-gradient(45deg,var(--s1) 0 2px,var(--land) 2px 4px)"></i>Partly in PJM</span><span><i class="box" style="background:var(--s2)"></i>Ontario (IESO)</span></div>
+    <svg id="pjmMap" role="img" aria-label="Zoomed map of the PJM footprint"></svg>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How PJM's capacity market works</h2>
+  <div class="grid g3">
+    <div class="card"><h4 style="margin-top:0">1 · Forecast</h4><p>PJM forecasts peak load 3 years out and sets a reliability requirement: enough capacity for a loss-of-load event no more than once in 10 years.</p></div>
+    <div class="card"><h4 style="margin-top:0">2 · Auction</h4><p>Plants, batteries and demand response offer MW of "accredited" capacity. A sloped demand curve sets one price in $/MW-day. Accreditation discounts each MW for how reliable it is in risky hours.</p></div>
+    <div class="card"><h4 style="margin-top:0">3 · Pay and perform</h4><p>Winners get paid for the year and face penalties if they fail to perform in emergencies. Consumers pay through their utility bills.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="chart" id="cBRA"></div>
+    <div class="chart" id="cPJMLoad"></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h4 style="margin-top:0">What happened</h4><ul>
+      <li>The price jumped from $28.92 (2024/25) to $269.92 (2025/26), then hit the cap three times.</li>
+      <li>Supply could not respond within 3 years because of turbine backlogs and the interconnection queue.</li>
+      <li>Higher prices became a transfer from consumers to existing plants.</li></ul></div>
+    <div class="card"><h4 style="margin-top:0">Policy response</h4><ul>
+      <li>Price collar ($175–$325) extended to 2029/30.</li>
+      <li><b>Reliability Backstop Procurement</b>: a one-time buy of new capacity, with costs aimed at utilities serving data centres. FERC accepted it on Sep 29, 2026.</li>
+      <li>Large loads without their own supply can be curtailed first.</li></ul></div>
+    <div class="card"><h4 style="margin-top:0">Benefits vs challenges</h4><ul>
+      <li><span class="yes">+</span> Deep market. Prices reveal scarcity.</li>
+      <li><span class="yes">+</span> Backstop puts new-supply cost on data-centre utilities.</li>
+      <li><span class="no">−</span> Gas turbines are sold out to around 2031.</li>
+      <li><span class="no">−</span> Local moratoria are spreading across PJM states.</li></ul></div>
+  </div>
+  <div class="callout"><b>Economist's reading:</b> a scarcity price cannot build plants faster than supply chains allow. PJM is quietly adding long-term contracts on top of its market, which is close to Ontario's model.</div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Summer vs winter: does PJM have seasonal capacity markets?</h2>
+  <p class="sub"><b>Not yet.</b> PJM buys one annual product. Since 2028/29 it pairs summer-only and winter-only resources into one commitment, and a full summer/winter market is in design because winter demand is growing faster than summer. Other markets are already further along:</p>
+  <div class="scroll"><table class="t">
+    <thead><tr><th>Market</th><th>Capacity product</th><th>Separate summer / winter prices?</th><th>Timing</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sw" style="background:var(--s1)"></span><b>PJM</b></td><td>Annual, with seasonal resources paired</td><td><span class="soon">In design</span></td><td>~3 yrs ahead (compressed)</td><td>Sub-annual market being designed in a stakeholder task force</td></tr>
+      <tr><td><span class="sw" style="background:var(--s7)"></span><b>MISO</b></td><td>Four seasons (summer, fall, winter, spring)</td><td><span class="yes">Yes</span></td><td>Year-ahead</td><td>Summer hit $666.50/MW-day in 2025/26. The 2026/27 summer price fell to $424.30 (North/Central)</td></tr>
+      <tr><td><span class="sw" style="background:var(--s7)"></span><b>NYISO</b></td><td>Summer and winter capability periods</td><td><span class="yes">Yes</span></td><td>Strip and monthly auctions</td><td>Large-load reforms targeted for ~2027</td></tr>
+      <tr><td><span class="sw" style="background:var(--s7)"></span><b>ISO-NE</b></td><td>Annual, 3 yrs ahead → prompt + seasonal</td><td><span class="soon">From 2028</span></td><td>Moving to a "prompt" auction just before delivery</td><td>Winter gas constraint expected to bind in the winter auction</td></tr>
+      <tr><td><span class="sw" style="background:var(--s2)"></span><b>Ontario (IESO)</b></td><td>Two 6-month obligation periods</td><td><span class="yes">Yes</span></td><td>Annual auction</td><td>Winter cleared above summer in the 2025 auction ($725 vs $645/MW-day)</td></tr>
+      <tr><td><span class="sw" style="background:var(--s3)"></span><b>ERCOT</b></td><td>None (energy-only)</td><td><span class="no">No</span></td><td>—</td><td>Scarcity pricing in the energy market instead</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Other US markets at a glance</h2>
+  <p class="sub">Click these regions on the overview map for more detail. Texas is the other big data-centre story.</p>
+  <div class="grid g3" id="usCards"></div>
+</div></section>
+</main>
+
+<!-- =================== CANADA =================== -->
+<main class="page" id="p-canada">
+<header class="hero"><div class="wrap">
+  <div class="crumb">Canada</div>
+  <h1>Canada: five provinces, five different answers</h1>
+  <p class="lede">Most Canadian provinces have no capacity market. Electricity is run by Crown utilities or planned by a system operator, so the data-centre shortage shows up as <b>rationing</b>: caps, ministerial approval, "bring your own generation" and special rates.</p>
+</div></header>
+
+<section><div class="wrap">
+  <h2>Key numbers</h2>
+  <div class="grid g4">
+    <div class="card stat"><div class="num">153%</div><div class="lab">Alberta: data-centre requests (~19.6 GW) vs record peak (12.8 GW)</div><div class="src">Gov. of Alberta; AESO</div></div>
+    <div class="card stat"><div class="num">~40%</div><div class="lab">Ontario: data-centre pipeline (&gt;10 GW) vs peak (24.9 GW)</div><div class="src">Ontario MEM; IESO</div></div>
+    <div class="card stat"><div class="num">400 MW</div><div class="lab">BC: total AI and data-centre allocation over 2 years, by competition</div><div class="src">Gov. of BC</div></div>
+    <div class="card stat"><div class="num">13¢/kWh</div><div class="lab">Québec: proposed data-centre rate, about 2× the large-industrial rate</div><div class="src">Hydro-Québec</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Province map</h2>
+  <p class="sub">Click a province to see its market model, the benefits and the challenges.</p>
+  <div class="mapwrap">
+    <div class="chart mapcard">
+      <span class="hint">👆 Click a province</span>
+      <div class="legend"><span><i class="box" style="background:var(--s2)"></i>Hybrid (contracts + seasonal auction)</span><span><i class="box" style="background:var(--s3)"></i>Energy-only market</span><span><i class="box" style="background:var(--neutral)"></i>Crown utility</span></div>
+      <svg id="canMap" role="img" aria-label="Map of Canadian provinces by market model"></svg>
+    </div>
+    <div class="card panel" id="canPanel"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Benefits and challenges by province</h2>
+  <p class="sub">Points marked "panel" come from the November 2026 conference.</p>
+  <div class="grid g2" id="scGrid"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How big is the ask? My own estimate</h2>
+  <p class="sub">Each province's data-centre demand set against the size of its own grid, using operator figures. The categories differ (requests, caps, plans), and that difference is the policy story.</p>
+  <div class="grid g2">
+    <div class="chart" id="cPeakShare"></div>
+    <div class="card">
+      <h4 style="margin-top:0">Reading the chart</h4>
+      <ul>
+        <li><b>Alberta</b> faces requests larger than its whole grid. That is why it made developers bring their own generation.</li>
+        <li><b>Ontario</b> sits in the middle (~40%), enough to justify a ministerial gate (Bill 40) and a separate rate class.</li>
+        <li><b>BC and Québec</b> look small only because policy has <i>capped</i> them.</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><b>Economist's reading:</b> markets reveal demand and then cap prices. Crown utilities hide demand by capping quantity. Either way, someone is rationing.</div>
+    </div>
+  </div>
+  <h3>Calculator: what if the requests actually connect?</h3>
+  <p class="sub">Requests are not demand. Many are speculative or duplicates. Test how much of the pipeline gets built and how hard it runs.</p>
+  <div class="calc">
+    <div class="card ctrl">
+      <label>Share of requests that get built: <b id="vMat">40%</b><input id="sMat" type="range" min="10" max="100" step="5" value="40"></label>
+      <label>Load factor (average use ÷ peak): <b id="vLF">80%</b><input id="sLF" type="range" min="50" max="95" step="5" value="80"></label>
+      <div class="formula">TWh/yr = MW × built share × load factor × 8,760 h ÷ 10⁶</div>
+      <p class="note" style="margin-top:10px">Inputs: Alberta 19,565 MW requested; Ontario 10,000 MW pipeline; Québec 1,000 MW planned by 2035; BC 400 MW allocation (QC and BC are not scaled by the built share).</p>
+    </div>
+    <div class="chart" id="cCalc"></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Ontario in detail</h2>
+  <p class="sub">The IESO plans 24 years ahead. Bill 40 (Dec 2025) gave the Minister the final say on data-centre connections, and the draft Playbook (Aug 2026) sets the tests: economic value, sovereignty, community benefit and environment.</p>
+  <div class="grid g2">
+    <div class="chart" id="cAPO"></div>
+    <div class="chart" id="cIESO"></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h4 style="margin-top:0">IESO outlook (Nov 2026)</h4><ul>
+      <li>Capacity covered to 2033. Gaps of <b>950 MW in 2035</b> and <b>~2,500 MW from 2036</b>.</li>
+      <li>Energy gaps of <b>8.5 TWh in 2032</b> and <b>20+ TWh from 2036</b>.</li></ul></div>
+    <div class="card"><h4 style="margin-top:0">Rate design</h4><ul>
+      <li>Proposed <b>Class C</b> rate for new data centres over 1 MW.</li>
+      <li>They would be <b>excluded from ICI</b> (the peak-shaving discount).</li>
+      <li>The risk: that also removes the incentive to cut load at peak.</li></ul></div>
+    <div class="card"><h4 style="margin-top:0">On the ground (panel)</h4><ul>
+      <li>Grandbridge: <b>80 MW</b> connected in 18 months.</li>
+      <li>Enova: <b>10 MW</b> fits existing feeders. <b>150 MW</b> needs a new station.</li>
+      <li>NPEI: certainty of load, beneficiary pays, and confidence to invest.</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Ontario's virtual power plant and data-centre flexibility (IESO)</h2>
+  <p class="sub">A <b>virtual power plant (VPP)</b> links thousands of small devices (smart thermostats, batteries, EV chargers) and dispatches them together like one power plant. At the conference the IESO argued that data centres could join this kind of flexibility.</p>
+  <div class="grid g2">
+    <div class="chart" id="cFlex"></div>
+    <div class="card">
+      <h4 style="margin-top:0">Peak Perks: Canada's largest VPP</h4>
+      <ul>
+        <li>The IESO designed and launched it in about <b>six months</b>.</li>
+        <li>It has <b>320,000+ households and businesses</b> and delivers <b>≥220 MW</b> when called. In 2025 it averaged about <b>211 MW per event</b>.</li>
+        <li>Since May 2026 the IESO publishes demand-side activations on its website, so the resource is visible and verified.</li>
+      </ul>
+      <h4>The data-centre angle (IESO panel)</h4>
+      <ul>
+        <li>Every data centre has a <b>UPS with ~2 hours of backup</b>. A 2,000 MW campus therefore holds something like a 2,000 MW / 2-hour battery.</li>
+        <li>Demand response, ICI and peak tools are about <b>25%</b> of Ontario's resources. If data centres offered 20–25% flexible load, connecting them would get much easier.</li>
+        <li>The Class C rate proposal removes ICI for new data centres. A flexibility credit would keep the incentive to cut load at peak.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h4 style="margin-top:0"><span class="yes">+</span> Benefits</h4><ul><li>The fastest "new MW": months, not years</li><li>No new plant, wires or fuel</li><li>Lowers peak cost for everyone</li></ul></div>
+    <div class="card"><h4 style="margin-top:0"><span class="no">−</span> Challenges</h4><ul><li>Only counts if it is <b>contracted, metered and penalized</b> for non-performance</li><li>Limited duration (hours, not days) in long cold snaps</li><li>Backup on diesel or gas adds local emissions</li></ul></div>
+    <div class="card"><h4 style="margin-top:0">Policy idea</h4><p>Offer data centres a <b>faster connection or lower rate in exchange for a VPP-style commitment</b>: X MW cut within Y minutes, up to Z hours a year, verified by the IESO. That turns backup power into a capacity resource.</p></div>
+  </div>
+</div></section>
+</main>
+
+<!-- =================== TECH & POLICY =================== -->
+<main class="page" id="p-tech">
+<header class="hero"><div class="wrap">
+  <div class="crumb">Technology &amp; policy · applies to both PJM and Canada</div>
+  <h1>Which technologies, how fast, and which policy tools?</h1>
+  <p class="lede">The short run is about using what already exists and flexibility. The long run is about firm supply and wires. Good policy sequences the two.</p>
+</div></header>
+<section><div class="wrap">
+  <h2>Technology options: short run vs long run</h2>
+  <div class="chart" id="cGantt"></div>
+  <div class="scroll" style="margin-top:16px"><table class="t">
+    <thead><tr><th>Option</th><th>Horizon</th><th>Firm at peak?</th><th>Indicative capital cost</th><th>Carbon</th><th>Economist's note</th></tr></thead>
+    <tbody>
+      <tr><td><b>Use existing grid headroom</b></td><td><span class="pill p-short">0–2 yrs</span></td><td>Yes, if studied</td><td class="num">Lowest</td><td>Grid mix</td><td>Spreads fixed network costs over more MWh, which can lower rates for others (NPEI, IESO).</td></tr>
+      <tr><td><b>Flexible connection</b> using on-site UPS and backup</td><td><span class="pill p-short">0–2 yrs</span></td><td>Load drops at peak</td><td class="num">Already paid for</td><td>Backup fuel if run</td><td>~2-hour UPS is an embedded battery (IESO panel). Counts only if contracted and metered.</td></tr>
+      <tr><td><b>Demand response / VPP</b></td><td><span class="pill p-short">0.5–1 yr</span></td><td>Partly</td><td class="num">Program cost</td><td>None</td><td>IESO built Peak Perks in about six months: 320,000+ participants, ≥220 MW.</td></tr>
+      <tr><td><b>Battery storage (4-h)</b></td><td><span class="pill p-short">1–2 yrs</span></td><td>Short-duration</td><td class="num">~$1,469/kW (US 2024)</td><td>None</td><td>The fastest new firm-ish MW. Weak for multi-day cold snaps.</td></tr>
+      <tr><td><b>Recip. engines / aero turbines</b> (on-site)</td><td><span class="pill p-short">1–3 yrs</span></td><td>Yes</td><td class="num">~$1,428–2,240/kW (EIA)</td><td>Gas</td><td>The usual "bridge" for bring-your-own-generation.</td></tr>
+      <tr><td><b>Solar / wind + storage</b></td><td><span class="pill p-mid">2–4 yrs</span></td><td>With storage</td><td class="num">~$1,865 / $1,882/kW (US 2024)</td><td>None</td><td>Fast, and the federal ITC cuts capex 30–50% (panel). Needs firming.</td></tr>
+      <tr><td><b>Heavy-duty gas / combined cycle</b></td><td><span class="pill p-mid">4–6 yrs</span></td><td>Yes</td><td class="num">AEO ~$1,176–1,330/kW; new proposals ≥$2,500</td><td>Gas</td><td>Turbines are sold out to about 2031. Fuel and carbon-price risk.</td></tr>
+      <tr><td><b>New transmission</b></td><td><span class="pill p-long">5–10 yrs</span></td><td>Enabler</td><td class="num">Project-specific</td><td>—</td><td>Often the real binding constraint.</td></tr>
+      <tr><td><b>SMR</b> (BWRX-300)</td><td><span class="pill p-long">5–8+ yrs</span></td><td>Yes, 24/7</td><td class="num">C$20.9B for 4×300 MW</td><td>None</td><td>OPG estimated ~14.9¢/kWh. The first unit targeted 2030, and OPG has announced delays and overruns.</td></tr>
+      <tr><td><b>Large hydro / nuclear</b></td><td><span class="pill p-long">10–15 yrs</span></td><td>Yes</td><td class="num">Highest</td><td>None</td><td>Low marginal cost. Heritage-hydro rent is why BC and Québec ration access.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+<section><div class="wrap">
+  <h2>Policy toolkit</h2>
+  <p class="sub"><b>Price</b> tools charge for the cost a load causes. <b>Quantity</b> tools cap, rank or approve.</p>
+  <div class="scroll"><table class="t">
+    <thead><tr><th>Instrument</th><th>Type</th><th>Used by</th><th>Benefit</th><th>Risk</th></tr></thead>
+    <tbody>
+      <tr><td><b>Scarcity / capacity price</b></td><td>Price</td><td>PJM (capped), MISO</td><td>Efficient signal</td><td>Supply can't respond fast, so politicians cap it</td></tr>
+      <tr><td><b>Long-term contract / backstop</b></td><td>Quantity + price</td><td>PJM backstop; Ontario LT2; BC calls</td><td>Cheaper financing; certainty</td><td>Stranded cost if data-centre load doesn't arrive</td></tr>
+      <tr><td><b>Bring your own generation</b></td><td>Cost allocation</td><td>Alberta; Texas; PJM curtailment</td><td>Causer pays; protects others</td><td>Gas lock-in; favours deep pockets</td></tr>
+      <tr><td><b>Special data-centre tariff</b></td><td>Price</td><td>Québec, Ontario (Class C), Manitoba</td><td>Charges the marginal cost of new supply</td><td>Legal challenge (Google at the Régie)</td></tr>
+      <tr><td><b>Hard cap + competition</b></td><td>Quantity</td><td>BC</td><td>Predictable; picks high-value projects</td><td>Investment goes elsewhere</td></tr>
+      <tr><td><b>Ministerial approval</b></td><td>Quantity</td><td>Ontario, Québec, Manitoba</td><td>Sovereignty and community goals</td><td>Slow; politicized; ends equal access</td></tr>
+      <tr><td><b>Flexible / non-firm connection</b></td><td>Service design</td><td>Alberta, PJM, Texas (SB 6)</td><td>Connects sooner</td><td>Must be enforceable and verified</td></tr>
+      <tr><td><b>Deposits, milestones, study fees</b></td><td>Screening</td><td>Texas ($50k/MW security), BC, Ontario LDCs</td><td>Removes phantom load</td><td>Can deter small local projects</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+<section><div class="wrap">
+  <h2>Recommendations</h2>
+  <div class="grid g3">
+    <div class="card"><h4 style="margin-top:0">1 · Price the cost caused</h4><p>Charge new large loads the incremental cost of supply and wires, and recycle any surplus to households (as Manitoba's levy does).</p></div>
+    <div class="card"><h4 style="margin-top:0">2 · "Flexible now, firm later"</h4><p>Offer fast curtailable connections backed by on-site backup, with a path to firm service as supply arrives.</p></div>
+    <div class="card"><h4 style="margin-top:0">3 · Clean the queue</h4><p>Escalating deposits and milestones. Phantom load leads to over-building.</p></div>
+    <div class="card"><h4 style="margin-top:0">4 · Go seasonal</h4><p>Winter risk is rising. Separate summer and winter capacity products, as Ontario, MISO and NYISO have, value resources correctly.</p></div>
+    <div class="card"><h4 style="margin-top:0">5 · Rules before discretion</h4><p>Publish size thresholds, scoring and timelines. Investors can price a rule, not discretion.</p></div>
+    <div class="card"><h4 style="margin-top:0">6 · Municipality first</h4><p>Social licence is now on the critical path. Engage early and lead with community and Indigenous equity.</p></div>
+  </div>
+</div></section>
+</main>
+
+<!-- =================== SOURCES =================== -->
+<main class="page" id="p-sources">
+<section><div class="wrap">
+  <h2>Sources</h2>
+  <p class="sub">The brief uses system operators, utilities, governments, regulators, the US EIA, OEM disclosures and the November 2026 conference material (IESO, Enova and NPEI presentations and the panel transcript). All charts were built for this brief. The "How big is the ask?" chart and the calculator are my own calculations.</p>
+  <div class="card"><ol style="margin:0;padding-left:18px">
+    <li>PJM, <a href="https://www.pjm.com/-/media/DotCom/about-pjm/newsroom/2026-releases/20260714-pjm-capacity-auction-procures-138318-mw-of-generation-resources.pdf">2028/2029 BRA results</a> and <a href="https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf">BRA report</a>; historical BRA prices.</li>
+    <li>PJM, <a href="https://www.pjm.com/-/media/DotCom/library/reports-notices/load-forecast/2026-load-report.pdf">2026 Long-Term Load Forecast Report</a>.</li>
+    <li>FERC, <a href="https://www.pjm.com/pjmfiles/directory/etariff/FercOrders/9154/20260929-er26-3380-000.pdf">order accepting PJM's Reliability Backstop Procurement</a> (Sep 29 2026).</li>
+    <li>MISO, 2026/27 Planning Resource Auction results (Apr 28 2026), via <a href="https://www.publicpower.org/node/30000">APPA</a> and <a href="https://psc.mo.gov/CMSInternetData/Agenda%20Presentations/2026%20Presentations/5-28-26%20MISO%20Status%20Update.pdf">MISO update to Missouri PSC</a>; <a href="https://secure.in.gov/iurc/files/1.-MISO-SRF-Presentation-2025.pdf">2025 PRA results</a>.</li>
+    <li>ISO-NE, <a href="https://www.iso-ne.com/committees/key-projects/capacity-auction-reforms-key-project">Capacity Auction Reforms</a>; <a href="https://www.iso-ne.com/static-assets/documents/100037/nepool_counsel_memo_ra_informational_reports_summary.pdf">RTO large-load resource-adequacy reports (FERC EL26-67 to -72)</a>.</li>
+    <li>ERCOT, <a href="https://www.ercot.com/files/docs/2026/07/29/ERCOT-Senate-July-29-Panel-1-Assessing-The-Grid.pdf">Update to Texas Senate (Jul 29 2026)</a>; <a href="https://www.ercot.com/files/docs/2026/08/19/ERCOTPanel1DataCenters.pdf">Batch Zero overview (Aug 2026)</a>.</li>
+    <li>IESO, Data Centres and Long-Term Planning (Nov 10 2026); <a href="https://www.ieso.ca/Sector-Participants/Market-Operations/Markets-and-Related-Programs/Capacity-Auction">Capacity Auction</a>; <a href="https://www.ieso.ca/-/media/Files/IESO/Document-Library/engage/cae/cae-20260129-Presentation.pdf">2025 auction results</a>; <a href="https://ieso.ca/Corporate-IESO/Media/Year-End-Data">2025 Year in Review</a>; <a href="https://ieso.ca/Sector-Participants/IESO-News/2026/05/May-28---IESO-Integrates-Demand-Side-Management-Activations-into-Website">Peak Perks</a>.</li>
+    <li>Ontario, <a href="https://ero.ontario.ca/node/16431">ERO 16431 (Class C)</a>; <a href="https://ero.ontario.ca/node/14660">ERO 14660 (connection approval)</a>.</li>
+    <li>AESO, <a href="https://www.aeso.ca/market/market-and-system-reporting/annual-market-statistic-reports/">2025 Annual Market Statistics</a>; Gov. of Alberta, <a href="https://www.alberta.ca/datacentres/grid.html">Is Alberta's grid ready?</a></li>
+    <li>Gov. of BC, <a href="https://www2.gov.bc.ca/gov/content/industry/electricity-alternative-energy/electricity/industrial-electricity-allocation-framework">Industrial Electricity Allocation Framework</a>; BC Hydro <a href="https://www.bchydro.com/about/strategies-plans-regulatory/supply-operations/long-term-electricity-planning/integrated-resource-plan.html">IRP</a>.</li>
+    <li>Hydro-Québec, <a href="https://www.newswire.ca/news-releases/a-new-rate-for-data-centres-and-a-rate-adjustment-for-blockchains-to-reflect-the-value-of-renewable-electricity-807882140.html">data-centre rate</a>; <a href="https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-reports-solid-financial-results-major-contribution-quebec-economy.html">2025 results</a>; Régie R-4333-2026.</li>
+    <li>Manitoba, <a href="https://web2.gov.mb.ca/bills/43-3/pdf/b039.pdf">Bill 39</a>.</li>
+    <li>US EIA, <a href="https://www.eia.gov/electricity/generatorcosts/">Generator construction costs</a>; <a href="https://www.eia.gov/aeo/assumptions/pdf/elec_cost_perf.pdf">AEO cost assumptions</a>.</li>
+    <li>OPG / <a href="https://world-nuclear-news.org/articles/what-is-the-budget-for-canadas-first-smr-project">World Nuclear News</a>; <a href="https://www.canarymedia.com/articles/nuclear/small-modular-nuclear-reactor-late-canada">OPG schedule update</a>.</li>
+    <li>Gas-turbine lead times: <a href="https://oilprice.com/Energy/Energy-General/The-Gas-Turbine-Shortage-Just-Became-AIs-Biggest-Constraint.amp.html">OEM backlog reporting (GE Vernova, Siemens Energy)</a>.</li>
+  </ol></div>
+  <div class="callout" style="margin-top:20px"><b>Disclaimer.</b> This report is my own analysis and personal view. It does not represent the position of any organization, employer, system operator, utility or government, or of the conference speakers. It reflects what I have learned from the November 2026 conference, public data and news reports, and how I understand them. All errors and interpretations are my own. Figures may be approximate or out of date, so check the original sources before relying on them. It is not legal, investment or policy advice.</div>
+</div></section>
+</main>
+
+<script>
+const MAPS = {"na":{"W":960,"H":600,"ca":[{"id":"QC","d":"M625.7,3.8L622.9,7.7L621.5,13.5L615.9,13.9L617.8,8.6L620.8,7.2L621.3,0.4ZM826,65.4L838.5,64.9L847.3,66L850.2,70.2L845.5,72.5L834.9,73.8L828.3,73.5L823.6,70.5L818.4,70.4L817.4,66.9ZM753.1,0L752.7,6.7L751.4,11L765,20.2L765.9,27.6L767.6,31.9L771.6,29.8L770.4,25.9L773.3,24.3L775.3,32.4L782.2,37.8L787.8,37L791.9,33L799.7,36.5L802,35.2L801.2,25L798.6,22.5L796.8,17.2L799.9,10.7L803.3,16.1L800.9,21.1L803.5,26.3L807.4,29.9L870.1,0L877.4,0L877.4,0L881,6.8L881,6.8L878.7,6.1L873.8,9.3L872.4,13.3L868.2,15.5L865.5,23.5L866.8,26.2L863.3,32.3L861.7,39.2L843.3,52.6L841,51.2L827.9,55.1L821.8,59L811.9,61.7L807.8,64.5L803.2,65.3L794.9,71.2L790.6,71.3L785.7,82.3L786.2,91.8L778.3,95.7L778.5,98.8L774.2,101.7L770.7,108.2L769.2,117.8L766.9,122.4L766.6,129.2L764.7,135.1L761.9,137.4L761.2,144L763.9,145.1L767.6,136.3L772.1,122.6L776,114.4L787.5,100.6L796,92L806.8,85L814.5,82.9L824.4,84.7L827.4,89.3L827,93.5L823.1,96.7L823.5,99.3L819.1,104.9L812.2,105.5L804.6,108.5L801.1,112.2L796.2,117.2L792.3,115.6L786.3,117.7L783.9,120.2L786.1,126.5L779.9,133.7L776.8,131.9L772.3,148.3L772.4,165.8L769.8,173.6L766.6,178.3L763.7,179.5L763.4,183.8L732.2,193.6L723.1,196.1L727.4,190.9L724.8,189.3L724.6,184.8L718.2,185L711.7,189L707.4,193L703.9,191.3L700.8,193L696.1,191.7L681,184.1L667.6,184.1L663.9,181.8L655.5,172.2L652.9,164.1L648.3,142.7L639.7,102.9L639.6,102.5L637.7,93.9L639.2,89.8L643.6,92.2L645.5,89.3L644.2,85.3L645.9,75L638,64.2L636.5,54.2L633.9,46.4L629.1,43.8L624.5,34.9L636.7,25.9L641.7,20L646,13L649.6,3.3L649.7,0L753.1,0Z","cx":726,"cy":86},{"id":"NL","d":"M884.1,0L882.4,5.6L881,6.8L877.4,0L884.1,0ZM870.1,0L807.4,29.9L803.5,26.3L800.9,21.1L803.3,16.1L799.9,10.7L796.8,17.2L798.6,22.5L801.2,25L802,35.2L799.7,36.5L791.9,33L787.8,37L782.2,37.8L775.3,32.4L773.3,24.3L770.4,25.9L771.6,29.8L767.6,31.9L765.9,27.6L765,20.2L751.4,11L752.7,6.7L753.1,0L870.1,0ZM960,62L959.9,62.1L956.5,54.6L954.6,63.4L951.8,61.9L951.3,53.4L945.5,46.7L943.8,48.6L944.2,57.1L940.7,59.1L940.4,68.6L935.6,73L932.2,70.2L935.7,66.8L936.1,60L931.2,63L928,61.1L908,72.1L902.8,72.7L892.1,81.3L889.6,81.3L886,76.9L888.9,71.1L890.6,63.8L888.1,62.2L886.8,53.9L889.9,51.1L886.6,46L887.1,39.9L885.3,21.7L886.5,17L885.8,5.7L889.2,0L897.3,0L897.3,0L898.3,9L898.3,9L897.3,12.5L896.8,27.5L899.9,33.2L901.8,22L910.7,22L907.2,29.2L913.8,31.7L916.1,27.2L919.5,31L924,27.2L924.2,22.6L929.8,20.4L938,20.6L938.6,24.7L937,30.1L939.3,34.1L944.8,32.4L947.2,33.6L946.1,39.2L951.5,43.5L960,43.1L960,62Z","cx":862,"cy":30},{"id":"BC","d":"M89.3,0L89.4,0.2L87.5,3.1L87.5,3.1L85.5,0L89.3,0ZM92.2,17.1L87.9,13L88.7,8.3L93.8,5L95.6,8.7ZM60.3,0L59.8,4.8L63.2,13L63.2,13L60.4,13.7L59.3,5.8L57.2,0L60.3,0ZM87.6,71.7L85.5,65.2L81.7,59.4L80.1,50L84.7,50L89.9,54.2L92.1,58.3L109.4,71.2L110.9,88.6L116.9,93.8L119.8,98.6L121.3,111.1L117.7,113.7L113.8,111.2L102.5,99.8L103.8,95L99.6,94.9L96.5,90L98.9,88L91.9,81.6L93.1,73.1ZM198.7,0L190.3,26.8L188.8,34.1L189.7,38.4L193.2,40.3L193.6,43.5L198.6,46.6L201.3,56L200.6,61.6L204.3,61.7L206.2,67.8L208.8,68.4L211.6,77.4L214.9,79.2L221.8,96.5L227.8,103.1L229.7,107.8L228.9,118.2L227.1,122.6L229.4,129.8L232.2,134.2L208.7,128.5L176.2,119.5L152.8,112.3L131,105L126.9,102.3L127.2,96.4L121,92.2L118.9,85.3L114.7,80.2L118.1,75.9L113.3,72.5L114.6,69.8L104.8,66.2L103,63.6L105,58.4L101.3,57.9L98.2,54.2L95.5,55.5L92.2,52L89.7,46.1L92.9,45L92.4,37.2L94.1,33.3L104.4,29.3L104.5,26.3L96.5,28L94.5,22.2L97.8,17.7L94.9,15L96,9.4L94,5.3L94.9,0.2L90.2,1.6L89.8,0L198.7,0Z","cx":155,"cy":61},{"id":"NU","d":"M614.3,66L618.8,69.8L620.2,74.1L605.9,71.7L606,67.5Z","cx":613,"cy":70},{"id":"NB","d":"M779.9,133.7L786.1,126.5L783.9,120.2L786.3,117.7L792.3,115.6L796.2,117.2L801.1,112.2L806.8,109.8L814,109.4L817.3,112.4L820.8,108.2L825.7,106.2L827.6,115.8L830.9,119.2L831.5,123L840.2,131.5L849.8,129.9L847.7,133.4L846,137.1L841.6,143.5L836.1,148.8L832.6,154.4L822.7,161.6L814.5,162.7L807.5,156.9L804.9,156.5L796.2,132.6L789.2,129.5L782.3,135.3Z","cx":816,"cy":134},{"id":"NS","d":"M886.2,111.8L883.6,122L888.4,121.2L886,117L889.6,110L895.6,108.1L894.5,118.1L890.5,122.9L887.5,122.6L883.5,126.5L880.2,124.6L876.5,119.8L879.6,100.9L884.5,99.5L885.8,103.6ZM847.7,133.4L851.2,133.9L865.4,130.1L868.6,130.9L873.3,124.1L875.3,127.3L880.2,125.2L884.5,127.9L885.9,131.3L882.8,136.2L875.3,143.1L874.2,145.8L865.1,153L862.8,157.8L857.2,156.4L854.8,159L856,163.1L855.1,168.5L851.9,177.2L844.7,184.3L841.2,180.5L838.2,182.1L834.7,176.3L834.2,171.8L836.3,163.6L844,151.9L849.5,149.4L848,145.7L841.4,147.4L846,137.1Z","cx":861,"cy":144},{"id":"SK","d":"M388.3,0L387.7,7.6L386,29.7L386.3,36.4L385.9,75.7L385.3,88.7L385.5,101.7L384.6,120.6L384.8,127.3L384.1,156.7L351.6,154L326.9,151.1L301.3,147.5L280.4,144L296.6,52.6L304.3,9.3L306,0L388.3,0Z","cx":340,"cy":79},{"id":"AB","d":"M306,0L304.3,9.3L296.6,52.6L280.4,144L254.3,139L232.2,134.2L232.2,134.2L229.4,129.8L227.1,122.6L228.9,118.2L229.7,107.8L227.8,103.1L221.8,96.5L214.9,79.2L211.6,77.4L208.8,68.4L206.2,67.8L204.3,61.7L200.6,61.6L201.3,56L198.6,46.6L193.6,43.5L193.2,40.3L189.7,38.4L188.8,34.1L190.3,26.8L198.7,0L306,0Z","cx":251,"cy":59},{"id":"PE","d":"M845.4,126.4L845.6,121.7L854.2,121.8L861.4,118.6L866.1,125L863.1,127.5L858.8,125L855.7,126.9Z","cx":856,"cy":124},{"id":"MB","d":"M484.7,0L485.1,1L485.6,8.5L488.2,8.6L500,3.6L505.7,4.5L510.5,7.4L519.1,9.5L518.2,14.1L503.6,33.3L488.1,53.6L475,71L458.7,87.9L459.3,152L459.3,158.8L425.6,158.6L398.4,157.6L384.1,156.7L384.8,127.3L384.6,120.6L385.5,101.7L385.3,88.7L385.9,75.7L386.3,36.4L386,29.7L387.7,7.6L388.3,0L484.7,0Z","cx":434,"cy":70},{"id":"ON","d":"M637.7,93.9L639.6,102.5L636.5,99.4ZM639.7,102.9L648.3,142.7L652.9,164.1L655.5,172.2L663.9,181.8L667.6,184.1L681,184.1L696.1,191.7L700.8,193L703.9,191.3L707.4,193L711.7,189L718.2,185L724.6,184.8L724.8,189.3L727.4,190.9L723.1,196.1L716.5,201.3L710.3,211.1L698.9,219.9L697.8,224.1L689.7,222.6L672.5,230.5L667,236.7L665.4,241.6L671.6,242.7L675,240.5L676.2,248.3L671.5,248.6L661.8,252.3L658.4,257.1L652.6,256.4L647.3,257.7L633.8,271.8L628.4,273.6L625.1,272.5L625.6,267.9L632.8,266.7L630.7,263.3L631.7,254.5L639.4,246.1L637,232.8L638.3,227.5L641.4,221.9L640.4,214.9L650.3,220.3L657.2,221.6L658.8,212.4L647.9,202.8L643.5,197L633.9,197.9L631.9,195.5L614.5,197.6L600.7,196.8L595.1,190.7L594,186.4L589.8,186.2L590.8,179L585.1,175.2L586.6,168.6L577.8,170.2L574,169.6L570.1,165.4L565.3,156L554.9,157.3L546.4,154.9L540.3,157.3L537.4,162.6L532.9,164.9L531.1,171.7L524.4,174.6L521.1,172.7L513.9,173.5L512.2,170.7L507.8,174.1L503.7,175.1L501.9,172.2L494.7,169.8L486.3,165L479.6,167.1L466.5,164.1L463.2,152.7L459.3,152L458.7,87.9L475,71L488.1,53.6L503.6,33.3L518.2,14.1L519.1,9.5L522.2,9.4L528.2,14.7L532.2,16.4L539.6,24.9L555,27.8L561.5,32.4L570.2,34.4L577.2,31.8L588.6,33.2L592.2,32.5L596.8,37.7L595.8,47L600.9,56.7L600.6,60.5L602.8,66.4L601.7,72.4L611.6,80.1L615.1,86.2L619.5,87.1L624.9,91.7L628.6,98L633.4,98.7ZM616.5,201L618.4,203.1L623.8,199.4L628.5,198.7L632.3,205L628.1,206.7L619.5,203.8L612.6,203.5Z","cx":570,"cy":126}],"us":[{"n":"Alabama","d":"M568.8,412.4L589.3,410.4L608.4,408.2L620.2,446.7L626.5,457.5L624.1,460.1L623.6,466L625.9,471.8L625.8,478.1L628,481.5L603.5,484.8L585.9,486.6L585.7,489.1L589.9,492.5L588.7,500.1L582,498.3L578.4,500.4L574.1,499.9L570.2,471.2L570.4,433.2L570.5,414.3Z","cx":595,"cy":452},{"n":"Arizona","d":"M154.1,426.4L157.2,426.3L158.5,421.4L155.8,419.6L156.5,415.5L160.1,412.1L162.1,404.8L164.3,402.2L169.7,400.2L167.4,396L165.4,384.9L166.9,382.6L166.8,376.6L168.2,364.6L179.1,365.2L182.5,350.5L204.4,355.4L220.9,358.7L255.7,365L251.3,391.7L245.7,424.5L238.1,470.2L205.7,464.4L186.9,452.7L170.5,442.4L151.6,430.3Z","cx":207,"cy":408},{"n":"Colorado","d":"M267.7,291.6L287.3,294.7L313.7,298.3L336.9,300.9L364.7,303.3L363.3,321.8L360.5,357.9L359.2,377.6L345,376.3L313.5,373.1L287.6,370L255.7,365L261.3,329.9Z","cx":312,"cy":335},{"n":"Florida","d":"M701.5,595.6L707.1,589.8L710.8,592.1ZM628,481.5L631.1,486.6L654.3,484.5L674.4,482.5L677.8,476.9L686.4,477.6L688.6,485.2L692.5,494L700.2,506.2L709.5,517.1L710,524L714.6,530.2L722.2,542.9L724.7,550.9L726.2,565.5L722.7,578.8L712.3,582.6L710.5,577.8L706.6,572.3L700.1,569.3L696.4,566.3L694.2,560.9L689.7,559.7L676.3,542L672.6,535.5L672.4,529.1L673.8,524L671.9,515.1L668.8,510.8L662.8,509.3L658.3,505.5L657.7,502.7L653.3,499.1L646.4,496.1L642.4,497.3L633.4,505.2L626.3,506.2L625,503.1L615,497.8L608.5,496.3L603,496.2L588.7,500.1L589.9,492.5L585.7,489.1L585.9,486.6L603.5,484.8Z","cx":677,"cy":520},{"n":"Georgia","d":"M608.4,408.2L628,405.3L646.4,402.3L643.8,408.8L651.5,411.3L658.1,420.5L663.4,423.2L669.7,428L673.4,433.1L677.7,434.8L681,442.5L686,447.3L686.8,450.5L690.5,451.3L687.8,457.8L685.4,473L686.4,477.6L677.8,476.9L674.4,482.5L654.3,484.5L631.1,486.6L628,481.5L625.8,478.1L625.9,471.8L623.6,466L624.1,460.1L626.5,457.5L620.2,446.7Z","cx":648,"cy":447},{"n":"Indiana","d":"M565.9,287.2L570.2,288.4L575.4,285.2L602.9,281.7L603.1,282.8L606.9,308.4L609.7,330.3L610.9,334.6L606,338.7L597.2,347.5L595,353.3L589.7,351.3L586.1,356.8L583.9,354.6L577.9,357.9L575.4,356.5L566.2,360.1L565,358.3L566.7,350.7L570.4,346.4L572.2,341.9L569.2,334.2L570.4,330.7L568.3,310.2Z","cx":587,"cy":319},{"n":"Kansas","d":"M363.3,321.8L395,323.8L417.2,324.6L444.9,325.1L458.9,325L465.1,328.1L462,333.7L465.1,338.1L469.1,341.2L469.7,380.7L436.9,380.8L414.1,380.3L378.5,378.7L359.2,377.6L360.5,357.9Z","cx":414,"cy":352},{"n":"Maine","d":"M784.7,214.7L779,208.6L767.1,176.8L772,173.1L770.7,169.8L773.8,163.4L771.6,158.2L773.1,153.3L772.2,148.3L776.7,131.7L782.3,135.3L789.2,129.5L796.1,132.4L804.9,156.5L809.6,156.3L811.2,162L816.9,163.2L820.5,167.8L816,175.6L812.2,177.4L807.7,184L799.1,184.5L798.4,193.3L795.8,194.4L791.8,199.5L787.8,201.6L785.1,209.5Z","cx":789,"cy":168},{"n":"Massachusetts","d":"M753.3,230.5L763.8,227.7L779.2,223.5L784.3,218.6L785.8,221.6L784.8,228.9L788.5,229.4L793.9,235.8L793.3,238.7L788.2,243.9L786.1,241.1L785.7,240.6L781.8,235.9L776.4,237.8L753.9,243.8Z","cx":773,"cy":233},{"n":"Minnesota","d":"M434.2,158.8L459.4,158.8L459.3,151.8L463.3,153.4L465.7,163.5L475.6,165.4L485.8,165.2L494.4,170.4L501.7,172.2L505.3,174.8L511.9,170.7L513.6,173.4L521.4,172.7L524.7,174.6L523.7,177.7L514.5,182.2L505.8,191.8L498.5,198.5L499.6,199.9L496.1,201L496.6,211.8L491.3,215.4L489.5,218.6L492.5,224.4L491.1,226.5L490.9,236.1L494.6,239.6L502.9,243.6L503.6,246L509.6,249.4L511.9,252.2L513.1,258.4L487,259.7L467.6,260.2L443.1,260.3L443.3,227.1L438,221.4L441.9,215.3L441.5,208.1L439,202L438.4,184.5L435.2,174.7L435.7,164.5Z","cx":471,"cy":209},{"n":"New Jersey","d":"M738.3,293.4L739.1,291.1L747,282.3L741,278.7L737.8,274.4L737.3,269.2L741.3,260.6L753.7,264L753.4,270.1L753.3,270.7L751.5,274.3L755.5,274.9L757.4,286.9L755.8,293.7L752.6,298.6L749.5,300.6L743.3,299.8L739,297.6Z","cx":747,"cy":281},{"n":"North Carolina","d":"M662.7,369.2L683.4,366.3L709.5,360.7L727.2,356.6L748,351.3L749,357.6L745,360.7L749.4,363.5L753.4,364L749.7,374.4L744.3,375L744.3,380.2L750,382.1L746.7,388.3L739.4,389.9L732.5,396.2L729.5,401.9L728.8,406.9L720,410.1L699.1,396.3L682,399.4L681.8,397.1L677.2,394L658.2,396.5L646.4,402.3L628,405.3L627.8,401L634.7,393.5L638.9,392.6L645.8,387.7L648.7,382.7L651.7,383.3L656.3,378.6L659,378.6L662.5,372.9Z","cx":701,"cy":382},{"n":"North Dakota","d":"M351.8,154L373.8,155.9L402.4,157.8L434.2,158.8L435.7,164.5L435.2,174.7L438.4,184.5L439,202L441.5,208.1L441.9,215.3L418.2,214.9L389.5,213.6L372.3,212.4L346.2,210L350.7,165.5Z","cx":394,"cy":186},{"n":"Oklahoma","d":"M345,376.3L359.2,377.6L378.5,378.7L414.1,380.3L436.9,380.8L469.7,380.7L469.8,390L473.1,410.7L472.8,443.6L466.8,441.6L461.1,437.7L455.4,438.3L451.8,440.2L446.8,440.1L443.3,442.5L440.8,440.4L435.4,439.4L430.9,442L429.6,439.5L422.7,437L418.3,438.9L415.3,434.5L406,433.7L396.8,427.3L391.6,428.4L387.3,425L389.1,388.7L372.9,387.7L344.1,385.6Z","cx":427,"cy":407},{"n":"Pennsylvania","d":"M660.5,267.8L669.6,260.5L670.6,265.4L694.3,260.2L729.5,251.5L733.5,253.5L736.7,259L741.3,260.6L737.3,269.2L737.8,274.4L741,278.7L747,282.3L739.1,291.1L734.3,293.9L710.2,299.9L683.1,305.9L668.6,308.9L665.3,292.1Z","cx":702,"cy":280},{"n":"South Dakota","d":"M344.2,227.4L346.2,210L372.3,212.4L389.5,213.6L418.2,214.9L441.9,215.3L438,221.4L443.3,227.1L443.1,260.3L441.6,265.5L442.2,268.6L440.6,274.9L443,279L439.7,276L431.4,271.8L424.1,271.7L421.7,273.7L415.4,269L400.9,268.5L373.2,266.9L340.6,264.1Z","cx":393,"cy":241},{"n":"Texas","d":"M344.1,385.6L372.9,387.7L389.1,388.7L387.3,425L391.6,428.4L396.8,427.3L406,433.7L415.3,434.5L418.3,438.9L422.7,437L429.6,439.5L430.9,442L435.4,439.4L440.8,440.4L443.3,442.5L446.8,440.1L451.8,440.2L455.4,438.3L461.1,437.7L466.8,441.6L472.8,443.6L474.9,445.4L479.9,445.3L480.2,455.1L480.6,474.6L484.6,480L489.6,492.8L487.2,500.9L487.2,511L483.6,515.9L485,518.3L480.2,519.2L472.6,522.8L470.1,521.7L470.9,517.3L465.6,519.3L467.7,526L459.6,534.5L445.4,541.9L428.8,554.4L424.9,564.2L424.1,578L426.9,588.2L423.8,592.8L420.2,589.4L410.6,588.4L406.1,585.2L395,580.7L392.5,572.6L389.5,569L389.4,559.9L382.8,553.6L379.8,546.8L376.3,544L370.8,527.8L361.8,517.1L358.2,514L348.7,513.1L344.7,511.1L338.7,513.5L335,520.3L330.1,525.6L327,526.9L323.2,523.4L313.2,517.8L307.8,512.2L305.5,506.6L305.9,501.6L301.7,491.4L293.5,484.7L288.1,476.7L284.1,474.3L282,469L279.7,467.8L278.9,463.5L312.2,467.5L335.6,469.8L337.3,450.2L339.3,433.1L341.5,408.8L343.5,385.5Z","cx":396,"cy":485},{"n":"Wyoming","d":"M344.2,227.4L340.6,264.1L336.9,300.9L313.7,298.3L287.3,294.7L267.7,291.6L240.2,286.7L243.6,268.6L249.5,238.5L252.2,223.8L254,214.2L258.4,215.2L289.8,220.4L311.7,223.7Z","cx":294,"cy":258},{"n":"Connecticut","d":"M753.9,243.8L776.4,237.8L779.6,248.2L779.4,250.2L767.8,254.7L757.2,263.4L757,257.3Z","cx":766,"cy":249},{"n":"Missouri","d":"M452.5,314.1L469,314.3L486.4,313.7L509.1,312.2L513.7,316.2L513.1,322.5L515.1,328.1L525,336.8L526.2,342.3L529.8,341.5L534.3,343.3L531.5,355.4L544.5,364.1L546.4,369.4L545.1,371.5L549,376.8L551.4,376.8L550.1,384.8L547.8,386.1L546.8,386.2L546,386.2L546.4,390.3L543.9,395.8L534.1,396.5L538.3,391.2L536.9,386.9L500.8,389.1L469.8,390L469.7,380.7L469.1,341.2L465.1,338.1L462,333.7L465.1,328.1L458.9,325L454.5,319.3Z","cx":501,"cy":354},{"n":"West Virginia","d":"M643.4,338L647.3,336.8L648.9,333.3L647.7,330.1L649.6,325.4L656.3,317.2L660,316.7L663.1,312L665.3,298.2L663.4,293.8L665.3,292.1L668.6,308.9L683.1,305.9L684.9,315.2L693.3,305.6L698,306.5L701.3,302.3L705,303L709.3,307.7L708.6,311.5L699.9,307L700.4,312.6L695.4,321.5L693.2,320.3L690.5,329.2L685,330L682.4,338.1L676.7,349.7L667.3,356.1L664.9,354.6L660.7,358L656.5,355.8L655.3,352.6L650.3,351L643.7,343.2Z","cx":671,"cy":329},{"n":"Illinois","d":"M513.7,316.2L514.3,312L517.6,310.5L519.5,302.5L517.1,300L517.9,296.6L523.2,295.4L527.3,292.8L529.2,288.6L529.1,282.9L526,281.5L522.1,276.2L547.2,274.6L560.6,273.2L560.4,276.8L565.9,287.2L568.3,310.2L570.4,330.7L569.2,334.2L572.2,341.9L570.4,346.4L566.7,350.7L565,358.3L566.2,360.1L564.5,362.9L566.1,366.3L560.3,368.3L561.6,372.7L559.7,374.2L554.1,372.1L551.4,376.8L549,376.8L545.1,371.5L546.4,369.4L544.5,364.1L531.5,355.4L534.3,343.3L529.8,341.5L526.2,342.3L525,336.8L515.1,328.1L513.1,322.5Z","cx":546,"cy":320},{"n":"New Mexico","d":"M255.7,365L287.6,370L313.5,373.1L345,376.3L344.1,385.6L343.5,385.5L341.5,408.8L339.3,433.1L337.3,450.2L335.6,469.8L312.2,467.5L278.9,463.5L279.7,467.8L252.9,463.9L251.6,472.4L238.1,470.2L245.7,424.5L251.3,391.7Z","cx":293,"cy":420},{"n":"Arkansas","d":"M469.8,390L500.8,389.1L536.9,386.9L538.3,391.2L534.1,396.5L543.9,395.8L543.1,400.4L536.5,415.1L533.2,426.1L527.7,431.9L528.6,434.1L523.9,441L524.1,445.4L526.8,450.5L525.6,453.6L513.2,454.1L480.2,455.1L479.9,445.3L474.9,445.4L472.8,443.6L473.1,410.7Z","cx":504,"cy":419},{"n":"California","d":"M69.7,220.2L91.9,227.9L110.8,234.6L124.4,238.8L124.4,238.9L117.6,260.9L108,291.8L123.2,316.8L135,336L147.3,355.7L165.4,384.9L167.4,396L169.7,400.2L164.3,402.2L162.1,404.8L160.1,412.1L156.5,415.5L155.8,419.6L158.5,421.4L157.2,426.3L154.1,426.4L116.1,420.4L114.8,417.3L115.8,408.8L114.3,404.2L107.4,394.5L102.6,392.9L102.3,386.9L98.2,386.5L92.7,381.9L89,375.7L80.8,372L75.8,370.8L73.9,367.6L77.3,358.1L69.7,340.4L66.3,327.7L70.3,322.7L66.8,318.4L64.1,312.7L64.4,306.5L66.1,301.2L61.7,295.5L62.6,291.5L56.5,275.5L57.9,267.9L59.9,264.7L60.6,259.6L56.5,249.6L57,246.3L62.7,240.4L68.1,230.6Z","cx":106,"cy":327},{"n":"Delaware","d":"M734.3,293.9L739.1,291.1L738.3,293.4L738.3,297.8L741.9,300.9L742.8,304.1L748.7,308.3L750.7,314L741.6,316.2Z","cx":742,"cy":306},{"n":"District of Columbia","d":"M719.4,312.7L722.5,312.8L721.1,315Z","cx":721,"cy":313},{"n":"Iowa","d":"M443.1,260.3L467.6,260.2L487,259.7L513.1,258.4L515.5,262.9L514,265.2L516.1,272.3L521,274L522.1,276.2L526,281.5L529.1,282.9L529.2,288.6L527.3,292.8L523.2,295.4L517.9,296.6L517.1,300L519.5,302.5L517.6,310.5L514.3,312L513.7,316.2L509.1,312.2L486.4,313.7L469,314.3L452.5,314.1L450.7,311.7L451.5,306.9L450.1,298L447.9,296.7L447.3,288.6L443,279L440.6,274.9L442.2,268.6L441.6,265.5Z","cx":484,"cy":286},{"n":"Kentucky","d":"M551.4,376.8L554.1,372.1L559.7,374.2L561.6,372.7L560.3,368.3L566.1,366.3L564.5,362.9L566.2,360.1L575.4,356.5L577.9,357.9L583.9,354.6L586.1,356.8L589.7,351.3L595,353.3L597.2,347.5L606,338.7L610.9,334.6L609.7,330.3L615.1,329.5L619.2,334.5L629.4,335L632.7,336.4L638.2,332.5L639.3,335.5L643.4,338L643.7,343.2L650.3,351L655.3,352.6L650.7,358.5L645.7,362.2L644.1,366.8L639.9,370.3L633.1,374.1L620.4,376L601.1,378.2L593.6,378.6L571,381.5L568.3,384.2L547.8,386.1L550.1,384.8Z","cx":607,"cy":360},{"n":"Maryland","d":"M683.1,305.9L710.2,299.9L734.3,293.9L741.6,316.2L750.7,314L750,322.2L744.3,325.3L740.9,325.8L732.3,318L732.8,323L725,323.6L720.5,318L721.1,315L722.5,312.8L719.4,312.7L712.9,310.7L709.3,307.7L705,303L701.3,302.3L698,306.5L693.3,305.6L684.9,315.2Z","cx":725,"cy":310},{"n":"Michigan","d":"M575.4,285.2L577.9,282.5L581.6,271.8L580.7,261.1L575.1,249.9L576.2,247.4L574.7,242.7L577.1,236.8L576.5,230.6L578.6,226.8L584.6,223L589.4,216.3L589.1,212.6L593,207.9L600.6,209.8L602.9,212.1L611.6,214.5L612.4,220.9L615.3,224.7L615.6,231.6L613.1,233.7L613.1,237.2L610,239L609,243.6L613.5,245.7L617.6,238.2L621.9,235.6L626.1,239L629.6,250L631.6,253.8L631.5,261.3L626.9,263.8L624.9,272.2L621.6,279.4L603.1,282.8L602.9,281.7ZM519.8,201.2L527.4,196.1L531.8,195.3L546.5,182.5L551.2,181.9L544.1,191.8L552,192.5L555,194.3L558.2,198.7L564.1,199.2L569.5,197.4L573.6,194.2L587.4,191.8L588,195.8L594.7,195.6L598,193.4L600.2,199.6L602.3,202.1L607.3,200.2L608.1,203.5L600.9,203.3L597.6,204.7L593.8,203L589.4,204.4L582.9,203.8L581.3,206.2L574.4,207.3L562.7,214.2L558.4,225.1L554.6,221L555.1,216.1L550.3,210.7L541.4,209.7L537.3,207.8L523.9,205.2Z","cx":589,"cy":236},{"n":"Mississippi","d":"M525.6,453.6L526.8,450.5L524.1,445.4L523.9,441L528.6,434.1L527.7,431.9L533.2,426.1L536.5,415.1L568.8,412.4L570.5,414.3L570.4,433.2L570.2,471.2L574.1,499.9L562.9,500.9L555.9,505.1L550.7,498.1L551,489.8L520.2,491.9L525.3,475.4L530.5,465.8L526.3,460.4Z","cx":550,"cy":457},{"n":"Montana","d":"M208.8,128.5L236.6,135.2L259.4,140.1L292.5,146.1L311,149L327,151.1L351.8,154L350.7,165.5L346.2,210L344.2,227.4L311.7,223.7L289.8,220.4L258.4,215.2L254,214.2L252.2,223.8L248.8,217.7L246.5,220.2L242.4,221.1L236.6,218.8L233.9,219.9L227,219L226.6,212.9L222.7,210.2L223.6,206.8L221,201.1L221.3,196L219.4,193.7L213.9,197L211.9,193.1L216.9,180.1L219.1,176.4L215.5,175L209.5,161.8L205.5,157.7L206.8,152.7L204.1,146.7Z","cx":279,"cy":180},{"n":"New Hampshire","d":"M763.5,183.8L763.8,178.6L767.1,176.8L779,208.6L784.7,214.7L784.3,218.6L779.2,223.5L763.8,227.7L760.3,212.6L762,202L760.7,198L765.4,193L763.4,188.8Z","cx":770,"cy":207},{"n":"New York","d":"M669.6,260.5L676.7,253.7L679.8,248.7L676.8,245.4L675.2,240.8L682.2,237L687.1,235.7L696.9,235.3L702.7,234.1L711.2,226.3L710.3,219.7L706.8,218.7L706.9,215.4L711.2,211.1L716.7,200.7L720.3,197L740.6,190.8L741.9,197.5L744.2,200.7L744.3,208.3L749.3,216.3L753.3,230.5L753.9,243.8L757,257.3L757.2,263.4L757.9,265L771.5,258.8L774.8,260.3L765,267.9L755.6,271.6L753.4,270.1L753.7,264L741.3,260.6L736.7,259L733.5,253.5L729.5,251.5L694.3,260.2L670.6,265.4Z","cx":723,"cy":235},{"n":"Ohio","d":"M603.1,282.8L621.6,279.4L630.3,280.6L635.9,283.6L641.8,280L645.6,279.8L654.3,271.5L660.5,267.8L665.3,292.1L663.4,293.8L665.3,298.2L663.1,312L660,316.7L656.3,317.2L649.6,325.4L647.7,330.1L648.9,333.3L647.3,336.8L643.4,338L639.3,335.5L638.2,332.5L632.7,336.4L629.4,335L619.2,334.5L615.1,329.5L609.7,330.3L606.9,308.4Z","cx":635,"cy":304},{"n":"Oregon","d":"M104.9,149.3L109.7,152.4L111.9,157.7L110.7,163.1L116,167.3L122.6,166.2L132.9,170.6L138,170.7L142.3,172.2L145.7,171.6L156.6,172.8L158.7,172L184.2,179.3L188.1,187.9L172.5,206.6L175.8,211.7L172.3,217.9L163.6,250.1L142.8,244.5L124.4,238.8L124.4,238.9L124.4,238.8L110.8,234.6L91.9,227.9L69.7,220.2L68.6,218L71.1,209.4L70.8,204L80.5,191.3L92.7,166.7L96.4,158L97.6,152.8L100.1,149.4Z","cx":128,"cy":202},{"n":"Tennessee","d":"M543.9,395.8L546.4,390.3L546,386.2L546.8,386.2L547.8,386.1L568.3,384.2L571,381.5L593.6,378.6L601.1,378.2L620.4,376L633.1,374.1L662.7,369.2L662.5,372.9L659,378.6L656.3,378.6L651.7,383.3L648.7,382.7L645.8,387.7L638.9,392.6L634.7,393.5L627.8,401L628,405.3L608.4,408.2L589.3,410.4L568.8,412.4L536.5,415.1L543.1,400.4Z","cx":595,"cy":393},{"n":"Utah","d":"M203.4,260.3L228.5,265.6L243.6,268.6L240.2,286.7L267.7,291.6L261.3,329.9L255.7,365L220.9,358.7L204.4,355.4L182.5,350.5L189.5,320L195.4,294.3Z","cx":226,"cy":316},{"n":"Virginia","d":"M744.3,325.3L750,322.2L746.8,328.6L745.7,339.9L742.2,337.9L742.2,332.5ZM655.3,352.6L656.5,355.8L660.7,358L664.9,354.6L667.3,356.1L676.7,349.7L682.4,338.1L685,330L690.5,329.2L693.2,320.3L695.4,321.5L700.4,312.6L699.9,307L708.6,311.5L709.3,307.7L712.9,310.7L719.4,312.7L721.1,315L720.5,318L718.6,321.3L723.4,322.5L724.8,325.2L729.9,325.1L736.5,328.4L736,333.9L738.1,335.9L739.3,344.6L744.5,345L748,351.3L727.2,356.6L709.5,360.7L683.4,366.3L662.7,369.2L633.1,374.1L639.9,370.3L644.1,366.8L645.7,362.2L650.7,358.5Z","cx":701,"cy":344},{"n":"Washington","d":"M123.5,110.1L129.2,111L126.2,114.6ZM197.3,125.5L189.9,152.5L184.7,171.6L184.2,179.3L158.7,172L156.6,172.8L145.7,171.6L142.3,172.2L138,170.7L132.9,170.6L122.6,166.2L116,167.3L110.7,163.1L111.9,157.7L109.7,152.4L104.9,149.3L100.5,147.9L99.6,144.8L102.6,143L101.5,138.5L103.3,128.5L103.7,118.2L103.1,111.3L105.5,107.7L111.8,114.5L126.2,120.9L126.7,127.9L123.1,134.8L126,135.5L126.7,129.7L131.3,124L130.3,121.9L132.6,110.4L131,105L142.6,108.9L169.4,117.5Z","cx":149,"cy":142},{"n":"Wisconsin","d":"M499.6,199.9L505.8,198.6L512.4,194.9L515.5,200.1L519.8,201.2L523.9,205.2L537.3,207.8L541.4,209.7L550.3,210.7L555.1,216.1L554.6,221L558.4,225.1L554,232.5L563.8,226.9L561,235L558.8,247.6L559.6,251.3L557.7,259.6L560.6,273.2L547.2,274.6L522.1,276.2L521,274L516.1,272.3L514,265.2L515.5,262.9L513.1,258.4L511.9,252.2L509.6,249.4L503.6,246L502.9,243.6L494.6,239.6L490.9,236.1L491.1,226.5L492.5,224.4L489.5,218.6L491.3,215.4L496.6,211.8L496.1,201Z","cx":528,"cy":237},{"n":"Nebraska","d":"M340.6,264.1L373.2,266.9L400.9,268.5L415.4,269L421.7,273.7L424.1,271.7L431.4,271.8L439.7,276L443,279L447.3,288.6L447.9,296.7L450.1,298L451.5,306.9L450.7,311.7L452.5,314.1L454.5,319.3L458.9,325L444.9,325.1L417.2,324.6L395,323.8L363.3,321.8L364.7,303.3L336.9,300.9Z","cx":397,"cy":295},{"n":"South Carolina","d":"M646.4,402.3L658.2,396.5L677.2,394L681.8,397.1L682,399.4L699.1,396.3L720,410.1L714.8,415.3L712.6,420.4L712.9,424L703.8,436.1L697.7,441.2L696.2,444.4L690.5,451.3L686.8,450.5L686,447.3L681,442.5L677.7,434.8L673.4,433.1L669.7,428L663.4,423.2L658.1,420.5L651.5,411.3L643.8,408.8Z","cx":684,"cy":417},{"n":"Idaho","d":"M184.2,179.3L184.7,171.6L189.9,152.5L197.3,125.5L208.8,128.5L204.1,146.7L206.8,152.7L205.5,157.7L209.5,161.8L215.5,175L219.1,176.4L216.9,180.1L211.9,193.1L213.9,197L219.4,193.7L221.3,196L221,201.1L223.6,206.8L222.7,210.2L226.6,212.9L227,219L233.9,219.9L236.6,218.8L242.4,221.1L246.5,220.2L248.8,217.7L252.2,223.8L249.5,238.5L243.6,268.6L228.5,265.6L203.4,260.3L186.4,256L163.6,250.1L172.3,217.9L175.8,211.7L172.5,206.6L188.1,187.9Z","cx":206,"cy":216},{"n":"Nevada","d":"M124.4,238.9L124.4,238.8L142.8,244.5L163.6,250.1L186.4,256L203.4,260.3L195.4,294.3L189.5,320L182.5,350.5L179.1,365.2L168.2,364.6L166.8,376.6L166.9,382.6L165.4,384.9L147.3,355.7L135,336L123.2,316.8L108,291.8L117.6,260.9Z","cx":156,"cy":299},{"n":"Vermont","d":"M740.6,190.8L763.5,183.8L763.4,188.8L765.4,193L760.7,198L762,202L760.3,212.6L763.8,227.7L753.3,230.5L749.3,216.3L744.3,208.3L744.2,200.7L741.9,197.5Z","cx":754,"cy":205},{"n":"Louisiana","d":"M480.2,455.1L513.2,454.1L525.6,453.6L526.3,460.4L530.5,465.8L525.3,475.4L520.2,491.9L551,489.8L550.7,498.1L555.9,505.1L551.3,508.2L554.2,511.4L556.7,507.7L559.9,509.8L556.7,515.2L557.4,520.2L562.6,520.5L564.7,523.4L560.8,526.4L558.2,523.6L552,521.9L546,526.8L544.3,523.5L539.4,523.4L536.4,527.1L528.1,524.9L521.9,515.9L517.3,514.2L512.2,516.2L510.4,520.5L496,516.5L485,518.3L483.6,515.9L487.2,511L487.2,500.9L489.6,492.8L484.6,480L480.6,474.6Z","cx":515,"cy":491},{"n":"Rhode Island","d":"M779.4,250.2L779.6,248.2L776.4,237.8L781.8,235.9L785.7,240.6L783.6,240.5L784.1,247.7Z","cx":781,"cy":242}],"pts":[{"n":"Toronto","x":669,"y":235},{"n":"Calgary","x":241,"y":97},{"n":"Vancouver","x":129,"y":99},{"n":"Montréal","x":735,"y":183},{"n":"Ashburn","x":714,"y":312},{"n":"Chicago","x":564,"y":284},{"n":"Dallas","x":436,"y":460}]},"pjm":{"W":960,"H":560,"ca":[{"id":"ON","d":"M769,0L752.2,17.2L709.6,37.6L703.5,50.5L678.4,40.3L618.1,54.1L596.4,70.6L588.1,85.1L607.1,92.9L619.4,87.9L618.3,113.9L602.8,111.6L569.6,117.1L555.4,130.3L537.2,124.1L519.5,125.1L467.4,161.4L449,163.9L438.9,158.1L443.4,143.8L467.4,144.5L462.9,132.3L471.6,104.8L501.6,82.6L502.5,38.5L510.1,22.3L523.8,6.2L524.1,0L545.1,0L545.1,0L553.5,7.1L574.6,15.6L580.7,0L769,0Z","cx":581,"cy":59}],"us":[{"n":"Indiana","d":"M240.5,168.3L253.5,174.8L272.1,167.7L362.3,173.5L362.1,177.1L358.1,261.4L353.4,332.9L354.5,347.4L336.6,357.3L303.1,380L292.5,396.8L277,387.3L262.1,402.5L256.5,394.3L235.5,401.1L228.4,395.1L196.9,400.9L194.1,394.6L204.2,371.3L218.5,359.8L227.1,346.6L222.3,320.3L228.3,309.9L233.8,243.3Z","cx":289,"cy":282},{"n":"Massachusetts","d":"M960,145.8L945.3,147.6L869.7,151.3L876.8,108.5L876.8,108.5L912.3,106.9L960,104.3L960,145.8Z","cx":917,"cy":128},{"n":"Minnesota","d":"M66.9,0L82.4,12.8L88.1,23.3L88.2,44L3.5,32.6L0,32L0,0Z","cx":44,"cy":20},{"n":"New Jersey","d":"M786.4,298.8L790.3,292L821.4,269.2L804.9,253.8L797.6,237.9L799.4,220.9L818.1,196.3L855.2,215.8L850,234.8L849.2,236.7L841.2,246.8L853.4,251.5L851.4,290.9L841.5,311.4L828.4,324.9L816.9,329.1L797.9,322.3L785.7,312.7Z","cx":824,"cy":266},{"n":"North Carolina","d":"M378.3,560L393.5,548.9L407.3,548.8L432.2,537.6L444.4,523.5L453.5,527.4L470.9,515.2L479.6,517.2L494.1,501.3L497.2,489.9L497.2,489.9L564.4,493.6L650.6,493L709.2,491.7L778.4,488.5L777.3,509L762.6,516.3L774.8,527.9L787.2,532.1L770,560L378.3,560Z","cx":611,"cy":528},{"n":"Pennsylvania","d":"M555.2,165.9L589.2,148.5L589.2,164.7L668.1,163.8L786.3,159.5L798,168.5L804.5,188.1L818.1,196.3L799.4,220.9L797.6,237.9L804.9,253.8L821.4,269.2L790.3,292L773.4,297.6L692.9,300.6L602.6,302L554.4,302L554.7,246.6Z","cx":679,"cy":231},{"n":"Connecticut","d":"M869.7,151.3L945.3,147.6L948.5,183L946.4,189.3L906.5,195.7L866.6,216.2L870.2,196.6Z","cx":905,"cy":175},{"n":"Missouri","d":"M0,209L43.6,214L55.9,229.5L50.1,249.4L53.3,268.7L79.7,302.2L80.3,320.5L92.2,320L105.4,328.2L89.4,365.2L125.6,400.6L128.5,418.5L123.1,424.6L132.2,443.7L139.8,445.1L131,469.6L122.9,472.4L119.5,472.1L117.1,471.8L115.8,485L104.8,500.8L73.3,497.3L89.6,482.8L87.8,468.6L0,457.6L0,209Z","cx":53,"cy":367},{"n":"West Virginia","d":"M455.8,378.6L469.1,377.2L476.4,367.1L474.3,356.2L483.5,342.6L510.1,320.8L522.2,321.6L534.9,308.5L550.9,265.9L547.8,250.8L554.7,246.6L554.4,302L602.6,302L602.3,332.8L635.1,307.8L649.5,313.6L662.8,302.5L674,307L684.7,324.9L679.8,336.4L655.2,316.5L653.2,334.6L631.5,359.6L625.4,354.2L611,380.9L593.1,379.8L579.4,403.9L554.1,436.9L520,451.1L513.3,444.9L497.9,453.1L486.1,443.2L484.4,432.4L469.3,424.2L453.5,395.4Z","cx":549,"cy":366},{"n":"Illinois","d":"M55.9,229.5L60.3,216.7L71.7,213.9L82.5,189.1L76.3,179.9L80.8,169.5L98.6,168.6L113.4,163L122,150.6L125,132.2L115.8,125.7L106.4,106.4L188.1,116.3L231.9,120.3L229.2,131.6L240.5,168.3L233.8,243.3L228.3,309.9L222.3,320.3L227.1,346.6L218.5,359.8L204.2,371.3L194.1,394.6L196.9,400.9L189.9,408.7L192.7,420.5L173.2,423.5L174.8,438.2L167.7,441.8L151.3,431.7L139.8,445.1L132.2,443.7L123.1,424.6L128.5,418.5L125.6,400.6L89.4,365.2L105.4,328.2L92.2,320L80.3,320.5L79.7,302.2L53.3,268.7L50.1,249.4Z","cx":155,"cy":261},{"n":"Arkansas","d":"M0,457.6L87.8,468.6L89.6,482.8L73.3,497.3L104.8,500.8L99.3,514.8L69.8,557.7L68.6,560L0,560Z","cx":43,"cy":510},{"n":"Delaware","d":"M773.4,297.6L790.3,292L786.4,298.8L783.4,312.8L792.9,325L793.4,335.8L809.3,353.1L811.8,372.2L781.6,373.2Z","cx":790,"cy":342},{"n":"District of Columbia","d":"M713.3,347.5L723.3,349.6L717.4,355.8Z","cx":718,"cy":351},{"n":"Iowa","d":"M0,32L3.5,32.6L88.2,44L93.3,59.8L87.2,66.4L89.5,90.4L104.2,98.8L106.4,106.4L115.8,125.7L125,132.2L122,150.6L113.4,163L98.6,168.6L80.8,169.5L76.3,179.9L82.5,189.1L71.7,213.9L60.3,216.7L55.9,229.5L43.6,214L0,209L0,32Z","cx":50,"cy":125},{"n":"Kentucky","d":"M139.8,445.1L151.3,431.7L167.7,441.8L174.8,438.2L173.2,423.5L192.7,420.5L189.9,408.7L196.9,400.9L228.4,395.1L235.5,401.1L256.5,394.3L262.1,402.5L277,387.3L292.5,396.8L303.1,380L336.6,357.3L354.5,347.4L353.4,332.9L371.1,333.8L381,352.3L413.1,360.3L422.8,366.7L442.8,357.8L444.4,368L455.8,378.6L453.5,395.4L469.3,424.2L484.4,432.4L465.8,448.2L447.8,456.7L439.7,470.3L424.5,478.9L400.5,486.4L358.9,484.5L296.7,479.8L272.7,476.4L199.3,471.8L189,478.8L122.9,472.4L131,469.6Z","cx":326,"cy":427},{"n":"Maryland","d":"M602.6,302L692.9,300.6L773.4,297.6L781.6,373.2L811.8,372.2L804.2,398L784,403.8L773,403.1L750.9,372.7L749.2,389L724,385.7L713.4,365L717.4,355.8L723.3,349.6L713.3,347.5L694.3,336.7L684.7,324.9L674,307L662.8,302.5L649.5,313.6L635.1,307.8L602.3,332.8Z","cx":732,"cy":341},{"n":"Michigan","d":"M437.6,0L434.5,20.8L425.2,25.9L423,37.3L412,41.1L405.7,55.4L418.8,65L436.7,43.3L452.1,37.8L463.4,51.4L467.6,89L471.7,102.4L466.6,126.4L450.4,131.4L438.4,156.9L423.3,178.1L362.1,177.1L362.3,173.5L272.1,167.7L272.1,167.7L281.6,160.6L300,128.6L303.8,93.8L292.9,54.3L297.8,46.8L295.9,30.9L307.5,13.5L308.7,0L437.6,0Z","cx":375,"cy":90},{"n":"Mississippi","d":"M68.6,560L69.8,557.7L92.8,560L68.6,560Z","cx":77,"cy":559},{"n":"New Hampshire","d":"M960,104.3L912.3,106.9L911.6,56.1L924.1,23.4L922.9,9.6L936.9,0L960,0Z","cx":938,"cy":57},{"n":"New York","d":"M865,0L868,6.7L863.3,31.3L873.7,60.3L876.8,108.5L869.7,151.3L870.2,196.6L866.6,216.2L867.9,221.5L915.5,211.3L924.7,218.4L888.6,235.7L855.9,241.1L850,234.8L855.2,215.8L818.1,196.3L804.5,188.1L798,168.5L786.3,159.5L668.1,163.8L589.2,164.7L589.2,148.5L589.2,148.5L616.2,131.4L629.4,117.4L622.2,104.8L619.8,89.1L644.8,81.5L661.4,80.6L693.2,85.9L712.5,85.9L744.7,66.5L746.4,44.7L735.8,39.1L738.4,28.7L755.2,17.7L769.8,0L865,0Z","cx":774,"cy":109},{"n":"Ohio","d":"M362.1,177.1L423.3,178.1L450.5,187.5L466.4,200.6L487.8,192.7L499.9,194.7L533.1,173.5L555.2,165.9L554.7,246.6L547.8,250.8L550.9,265.9L534.9,308.5L522.2,321.6L510.1,320.8L483.5,342.6L474.3,356.2L476.4,367.1L469.1,377.2L455.8,378.6L444.4,368L442.8,357.8L422.8,366.7L413.1,360.3L381,352.3L371.1,333.8L353.4,332.9L358.1,261.4Z","cx":450,"cy":265},{"n":"Tennessee","d":"M92.8,560L69.8,557.7L99.3,514.8L104.8,500.8L104.8,500.8L115.8,485L117.1,471.8L119.5,472.1L122.9,472.4L189,478.8L199.3,471.8L272.7,476.4L296.7,479.8L358.9,484.5L400.5,486.4L497.2,489.9L494.1,501.3L479.6,517.2L470.9,515.2L453.5,527.4L444.4,523.5L432.2,537.6L407.3,548.8L393.5,548.9L378.3,560L92.8,560Z","cx":269,"cy":519},{"n":"Virginia","d":"M784,403.8L804.2,398L789.8,416.2L778.6,451.1L769.1,442.5L772.6,425.4ZM484.4,432.4L486.1,443.2L497.9,453.1L513.3,444.9L520,451.1L554.1,436.9L579.4,403.9L593.1,379.8L611,380.9L625.4,354.2L631.5,359.6L653.2,334.6L655.2,316.5L679.8,336.4L684.7,324.9L694.3,336.7L713.3,347.5L717.4,355.8L713.4,365L705.2,374.3L719.6,381.1L722.3,390.6L738.5,393.7L757.1,408.6L752.1,425.7L757.2,433.3L755.5,461.7L771.6,466.5L778.4,488.5L709.2,491.7L650.6,493L564.4,493.6L497.2,489.9L400.5,486.4L424.5,478.9L439.7,470.3L447.8,456.7L465.8,448.2Z","cx":636,"cy":435},{"n":"Wisconsin","d":"M255.8,0L241.7,37L242,49.1L231,74.8L231.9,120.3L188.1,116.3L106.4,106.4L104.2,98.8L89.5,90.4L87.2,66.4L93.3,59.8L88.2,44L88.1,23.3L82.4,12.8L66.9,0L255.8,0Z","cx":166,"cy":54},{"n":"Vermont","d":"M936.9,0L922.9,9.6L924.1,23.4L911.6,56.1L912.3,106.9L876.8,108.5L873.7,60.3L863.3,31.3L868,6.7L865,0L936.9,0Z","cx":894,"cy":47},{"n":"Rhode Island","d":"M960,185.6L946.4,189.3L946.4,189.3L948.5,183L945.3,147.6L960,145.8L960,185.6Z","cx":953,"cy":166}],"pts":[{"n":"Ashburn","x":696,"y":341},{"n":"Chicago","x":236,"y":158},{"n":"Columbus","x":440,"y":285},{"n":"Philadelphia","x":802,"y":282},{"n":"Pittsburgh","x":579,"y":259},{"n":"Richmond","x":701,"y":432},{"n":"Toronto","x":606,"y":65},{"n":"New York","x":852,"y":233}]},"can":{"W":960,"H":560,"ca":[{"id":"QC","d":"M607.1,181.4L604.1,185.6L602.6,191.8L596.6,192.3L598.6,186.5L601.8,185L602.3,177.7ZM823.6,244.5L837.3,243.6L846.8,244.6L850,249.1L845,251.7L833.5,253.4L826.3,253.2L821.2,250L815.6,250.1L814.4,246.3ZM881.4,179.5L878.9,178.8L873.8,182.4L872.4,186.8L867.9,189.3L865.2,198.1L866.7,200.9L863.1,207.6L861.6,215.1L842.1,230.2L839.5,228.8L825.5,233.2L818.9,237.6L808.3,240.9L803.9,243.9L799,245L790.2,251.5L785.4,251.8L780.4,263.7L781.2,274L772.7,278.4L773,281.7L768.3,285L764.7,292.1L763.2,302.5L760.8,307.6L760.6,315L758.6,321.4L755.6,324L754.9,331.2L757.9,332.3L761.8,322.6L766.4,307.7L770.5,298.7L782.7,283.5L791.8,274L803.4,266.2L811.6,263.7L822.4,265.5L825.8,270.4L825.5,274.9L821.3,278.5L821.8,281.4L817.2,287.5L809.6,288.3L801.5,291.7L797.8,295.8L792.5,301.4L788.2,299.7L781.8,302.2L779.3,304.9L781.7,311.7L775.2,319.7L771.7,317.8L767.1,335.6L767.5,354.7L764.8,363.3L761.4,368.5L758.2,369.8L758,374.5L724,385.6L714.2,388.5L718.7,382.8L715.9,381.1L715.6,376.1L708.7,376.4L701.6,380.9L696.9,385.3L693.1,383.4L689.8,385.3L684.6,384L668,375.9L653.5,376L649.4,373.4L640.2,363.1L637.3,354.3L632.2,331L622.7,287.9L622.6,287.5L620.4,278.2L622,273.7L626.8,276.4L628.9,273.2L627.4,268.9L629.2,257.8L620.6,246.2L618.9,235.5L616.1,227.1L610.9,224.3L606,214.7L619,205L624.3,198.6L628.9,191.1L632.6,180.6L632.7,175.6L628.8,159.8L623,149.7L617.8,143.7L607.2,138.9L599.9,132.5L603.4,116.5L606.1,111.5L606.3,104.8L600.3,98.1L598.6,91.4L594.1,90.2L597.1,82.6L593.7,72.9L591.5,72.8L587.6,62.3L593.5,55.2L597.4,54.4L610.6,56.2L622.2,53.8L627.5,47.4L634.9,51.5L639.1,51.5L650.6,60.6L652.6,64.9L656.9,66.4L666.9,64.3L672.2,67.6L674.6,62L677.7,66.4L675.3,70.1L677.4,77.3L682.4,85L683.1,92.5L691.4,103.2L696.8,100.2L701.2,100.9L703.1,104.7L711,105.3L715,107L717.7,101.1L720.9,100L719.8,93.3L723.7,92.7L725.8,85.3L724.5,76.2L721.4,72.4L723.7,67.5L723,58.1L726.3,58L727.6,68L729.8,73.5L733.7,73.9L738.2,81.9L745.8,88.7L745.4,98.4L751.6,102.6L754.8,102.1L758.4,108.4L760.4,120.3L770.9,136L778,140.2L781.1,143.7L778.6,147.5L781.2,150.9L781.8,158.6L773.7,159.2L765.8,164L759.6,166.2L756.2,163.3L751.5,163.5L746,160.2L743.8,168.6L743.2,182.9L741.9,187.5L756.8,197.1L757.8,205.1L759.8,209.7L764.1,207.3L762.6,203.1L765.8,201.4L768.1,210L775.6,215.7L781.7,214.7L786,210.2L794.6,213.9L797,212.4L795.9,201.5L793,198.8L791,193.2L794.1,186L797.9,191.8L795.5,197.3L798.4,202.8L802.6,206.5L872.7,170.8L875.6,169.2Z","cx":704,"cy":222},{"id":"NL","d":"M726.3,58L733.3,63.7L733.3,66.8L740.4,69.2L747.1,75.2L749.8,74.8L762.7,88.8L768.6,90.2L773.9,95L778.4,103.4L783.9,102.5L781.1,110.4L784.8,112.5L786.5,118L791.8,118.1L793.4,123.1L797.6,123.5L805.8,121.3L812.2,128.7L826.1,125.6L828.9,129.8L840.8,125.8L847.8,127.4L846.2,131L841.3,134L839.8,142.4L832.9,150.8L826.4,155.4L828.7,159.8L834.2,157L838.4,145.4L842.2,139.9L842.4,136.4L850.6,133.2L858.1,139.1L864.5,134.5L868.9,137.4L875.6,138.1L879,149.6L886.5,152.6L889.5,158.7L887.2,167.3L885.2,169.4L883,178.1L881.4,179.5L875.6,169.2L872.7,170.8L802.6,206.5L798.4,202.8L795.5,197.3L797.9,191.8L794.1,186L791,193.2L793,198.8L795.9,201.5L797,212.4L794.6,213.9L786,210.2L781.7,214.7L775.6,215.7L768.1,210L765.8,201.4L762.6,203.1L764.1,207.3L759.8,209.7L757.8,205.1L756.8,197.1L741.9,187.5L743.2,182.9L743.8,168.6L746,160.2L751.5,163.5L756.2,163.3L759.6,166.2L765.8,164L773.7,159.2L781.8,158.6L781.2,150.9L778.6,147.5L781.1,143.7L778,140.2L770.9,136L760.4,120.3L758.4,108.4L754.8,102.1L751.6,102.6L745.4,98.4L745.8,88.7L738.2,81.9L733.7,73.9L729.8,73.5L727.6,68ZM960,234.8L959.3,227.6L952.8,220.5L950.9,222.6L951.7,231.8L948,234.1L948,244.4L942.9,249.4L939.1,246.5L942.8,242.6L943,235.3L937.7,238.7L934.2,236.8L912.9,249.3L907.2,250.2L895.8,259.8L893.1,259.9L889.1,255.2L892.1,248.9L893.7,240.9L891,239.2L889.3,230.3L892.5,227.2L888.7,221.7L889.1,215.1L886.6,195.4L887.8,190.3L886.6,178.1L892.2,168.1L898.1,166L900.2,181.3L900.2,181.3L899.2,185.1L899.2,201.3L902.7,207.4L904.5,195.3L914.1,194.9L910.6,202.8L917.8,205.3L920.1,200.4L923.9,204.4L928.7,200.1L928.7,195.1L934.7,192.6L943.6,192.4L944.4,196.9L942.9,202.8L945.6,207L951.5,205L954.1,206.1L953.1,212.2L959.1,216.7L960,216.7L960,234.8Z","cx":834,"cy":173},{"id":"BC","d":"M0,134.2L2.9,130.9L10,136L14.6,141.8L8.9,146.7L4.8,152.9L0,152.2L0,134.2ZM31.3,166.9L28.9,162.8L28,154.4L31,153.3L33.4,164ZM35.6,182.3L31.2,177.7L32.3,172.6L37.9,169.4L39.7,173.4ZM0,157.7L6.8,154L5.6,160.6L2.4,160.5L1.4,167.2L4.6,176.3L4.6,176.3L1.5,176.9L0.8,168.2L0,165.7L0,157.7ZM27.7,241L25.8,233.9L21.9,227.4L20.7,217.2L25.7,217.4L31.1,222.2L33.2,226.8L51.3,241.6L52,260.5L58.3,266.5L61.1,271.8L62.2,285.5L58.1,288.1L54,285.1L42.3,272.3L44,267.1L39.4,266.8L36.4,261.3L39.1,259.2L31.7,251.9L33.5,242.8ZM15.2,0L45,19.3L54.7,25.1L134,65.4L144.9,70.3L181.2,84.3L140.6,197.5L138.7,205.4L139.4,210.1L143.1,212.2L143.4,215.7L148.7,219.2L151.1,229.5L150.2,235.5L154.2,235.8L155.9,242.4L158.8,243.1L161.4,253L164.9,255.1L171.7,274L177.9,281.4L179.8,286.5L178.5,297.8L176.4,302.4L178.6,310.3L181.5,315.2L156.2,308.1L121.3,297L96.3,288.2L73,279.2L68.7,276.2L69.3,269.8L62.8,264.9L60.9,257.3L56.6,251.6L60.4,247.1L55.4,243.2L57,240.4L46.5,236L44.8,233L47.2,227.5L43.2,226.8L40.1,222.7L37.1,223.9L33.7,219.9L31.3,213.5L34.9,212.5L34.7,204L36.8,199.9L48.1,196.2L48.3,192.9L39.6,194.3L37.8,187.9L41.6,183.3L38.6,180.3L40.1,174.3L38.2,169.8L39.4,164.3L34.3,165.6L31.1,151.1L34.2,137.3L41.3,133.4L45.1,128.3L47.1,118.7L51.4,112.6L48.3,110.7L47,104.6L44.5,102.6L40.5,91.3L42.3,53.8L41.4,47L38.9,42.5L39.8,36.7L37.1,31.5L39.6,26.2L38,19.8L28.4,18.5L24,23.1L11,23.8L13.6,17.6L10.8,2.8L10.8,0L15.2,0Z","cx":98,"cy":168},{"id":"NU","d":"M502.9,0L501.7,1.9L501.8,5L497.1,13.1L489.8,15.1L484.2,10.2L474.2,3.7L471.6,6.8L476.5,10.6L480.5,15.9L497.9,16.1L499,19.9L492.4,35.3L485.6,43.6L481.7,42L476.7,43L473.5,46.4L473.1,50.9L466.3,53.4L468.8,57.3L469.7,63.4L463.2,69.3L456,68L452.9,69.4L457.9,74.9L450.8,76.4L450.2,82.3L443.7,88.6L446,90.6L439.1,97.2L440.7,99.4L435.6,109.5L431.2,126.9L431.2,126.9L382.4,125.4L358.4,123.5L366.8,38.1L303.8,15.9L295.9,0.1L295.4,0L502.9,0ZM701,0L702.1,2.3L697.3,2.4L703,10L699.2,12.3L690.6,14.8L672.1,10.8L664.2,7.5L662.6,11.4L672,17.7L677,17L684.9,21.8L687.8,22L693.6,27.1L698.4,27.9L697,35.8L686,34.1L674.9,36.2L669.9,35.5L662.7,31.8L644.1,29.6L638.5,24.6L641.9,20L638.8,17.4L630.1,17.8L624.2,12.4L619.5,11.5L616.7,5.8L612.8,9.8L609.1,5.8L607.8,12.8L599.2,13.5L590,20.6L581,19.8L576.2,15L576.3,6.5L580.9,2.2L580,0L701,0ZM505,29L506.4,21.5L505.3,14.4L505.6,5.4L507.1,2.3L512.6,3L512,8.1L525.3,14.2L529.4,13.9L531.8,17.5L542.4,21.4L546.5,28.4L551.6,32.2L562.3,35.8L555.9,44.6L541.6,40.7L540.9,36.5L531.6,35.3L530.8,42.1L525.7,47.6L524.6,52.7L519.4,57.4L515.3,55.4L514.4,46.7L505.5,47.8L501.9,43.2L508.1,38.6ZM547.6,55.9L550.9,60.9L542.8,72.9L535.6,72L533.2,69.6L535.9,61.2L540.3,60ZM576.8,74.7L576.4,78.1L569.8,75.9L568.7,69.9L570.5,63.7L574,62.4L577.9,67ZM595.1,248.2L600,252.3L601.5,256.9L586.1,254.4L586.1,249.9ZM581.4,38.1L586.5,38.3L588.8,43.1L585.6,45.7L578.8,40.8ZM714.5,34.5L714.2,39.8L708.6,38.2L710.4,34.1Z","cx":453,"cy":45},{"id":"NT","d":"M295.4,0L295.9,0.1L303.8,15.9L366.8,38.1L358.4,123.5L358.4,123.5L335.6,121L307.1,117L278.4,111.4L181.2,84.3L144.9,70.3L143.2,53.7L145.5,49.4L136.9,49.5L134.3,47.2L123.2,43.2L126.7,31.9L121.6,22L120.5,11.7L115.6,9.3L118.5,2.5L118.1,0L295.4,0Z","cx":252,"cy":54},{"id":"NB","d":"M775.2,319.7L781.7,311.7L779.3,304.9L781.8,302.2L788.2,299.7L792.5,301.4L797.8,295.8L803.9,293.1L811.7,292.5L815.4,295.7L819.1,291L824.3,288.8L826.6,299.2L830.3,302.8L831,306.9L840.8,316L851.2,314L848.9,317.8L847.2,321.9L842.6,329L836.7,334.9L833,341.1L822.4,349.2L813.4,350.6L805.7,344.4L802.8,344L792.8,318.1L785.1,314.9L777.8,321.3Z","cx":814,"cy":319},{"id":"NS","d":"M890.3,293.3L887.8,304.5L893,303.4L890.3,299L894,291.2L900.5,289L899.5,299.9L895.3,305.2L892.1,305L887.8,309.4L884.1,307.4L880,302.3L882.8,281.6L888.2,279.9L889.7,284.4ZM848.9,317.8L852.8,318.3L868.2,313.8L871.7,314.6L876.6,307.1L878.9,310.4L884.2,308.1L889,310.9L890.5,314.6L887.3,320L879.4,327.7L878.2,330.7L868.5,338.8L866,344.1L859.9,342.7L857.4,345.6L858.7,350.1L857.9,356L854.6,365.6L846.9,373.5L842.9,369.5L839.7,371.3L835.7,365L835.1,360.1L837.2,351.1L845.3,338.2L851.4,335.3L849.5,331.2L842.4,333.3L847.2,321.9Z","cx":864,"cy":330},{"id":"SK","d":"M358.4,123.5L354.8,161.1L352.7,183.6L350.4,207.1L350.5,214.4L349.3,256.6L348.3,270.6L348.3,284.6L346.8,305L346.9,312.2L345.6,344.1L310.4,340.4L283.6,336.6L256,332L233.4,327.6L253.8,229.4L263.5,183.2L274.2,131.8L278.4,111.4L307.1,117L335.6,121Z","cx":302,"cy":234},{"id":"AB","d":"M181.5,315.2L178.6,310.3L176.4,302.4L178.5,297.8L179.8,286.5L177.9,281.4L171.7,274L164.9,255.1L161.4,253L158.8,243.1L155.9,242.4L154.2,235.8L150.2,235.5L151.1,229.5L148.7,219.2L143.4,215.7L143.1,212.2L139.4,210.1L138.7,205.4L140.6,197.5L181.2,84.3L278.4,111.4L274.2,131.8L263.5,183.2L253.8,229.4L233.4,327.6L205.3,321.3Z","cx":209,"cy":198},{"id":"PE","d":"M846.3,310.2L846.4,305.1L855.7,305L863.5,301.3L868.8,308.2L865.6,311L860.9,308.4L857.6,310.6Z","cx":858,"cy":307},{"id":"YT","d":"M118.1,0L118.5,2.5L115.6,9.3L120.5,11.7L121.6,22L126.7,31.9L123.2,43.2L134.3,47.2L136.9,49.5L145.5,49.4L143.2,53.7L144.9,70.3L144.9,70.3L134,65.4L54.7,25.1L45,19.3L15.2,0L118.1,0Z","cx":90,"cy":24},{"id":"MB","d":"M358.4,123.5L382.4,125.4L431.2,126.9L432.2,139.7L431.3,146.9L435.3,152.8L437.8,151.7L448.6,152.1L449,156.8L456.8,178.1L457.2,186.1L460,186.2L472.7,181L478.7,182.1L483.9,185.2L493.1,187.5L492,192.4L476.2,212.8L459.5,234.5L445.2,253.1L427.4,271L427.2,340.3L427.1,347.7L390.6,347L361,345.3L345.6,344.1L346.9,312.2L346.8,305L348.3,284.6L348.3,270.6L349.3,256.6L350.5,214.4L350.4,207.1L352.7,183.6L354.8,161.1Z","cx":401,"cy":232},{"id":"ON","d":"M620.4,278.2L622.6,287.5L619.2,284.2ZM622.7,287.9L632.2,331L637.3,354.3L640.2,363.1L649.4,373.4L653.5,376L668,375.9L684.6,384L689.8,385.3L693.1,383.4L696.9,385.3L701.6,380.9L708.7,376.4L715.6,376.1L715.9,381.1L718.7,382.8L714.2,388.5L707,394.3L700.3,405.1L687.9,414.7L686.8,419.4L677.9,417.8L659.1,426.5L653.2,433.4L651.4,438.7L658.2,440L661.9,437.5L663.3,446.1L658.1,446.4L647.6,450.5L643.8,455.8L637.4,455L631.6,456.5L616.9,472L611,474L607.3,472.8L607.8,467.7L615.8,466.4L613.5,462.7L614.5,453L622.9,443.7L620.2,429.2L621.7,423.4L625.1,417.3L623.9,409.7L634.8,415.6L642.3,416.9L644,406.9L632.1,396.4L627.3,390.2L616.8,391.2L614.6,388.5L595.6,390.8L580.6,389.9L574.4,383.3L573.3,378.6L568.7,378.5L569.8,370.6L563.6,366.4L565.2,359.3L555.7,361L551.6,360.3L547.3,355.8L542.1,345.5L530.8,347L521.7,344.3L515.1,346.9L511.8,352.6L507,355L504.9,362.4L497.6,365.6L494.1,363.4L486.2,364.3L484.4,361.2L479.5,364.9L475.2,365.9L473.1,362.8L465.4,360.1L456.3,354.8L449,356.9L434.9,353.5L431.4,341.1L427.2,340.3L427.4,271L445.2,253.1L459.5,234.5L476.2,212.8L492,192.4L493.1,187.5L496.4,187.4L502.7,193.1L507,194.9L514.9,204L531.4,207.2L538.3,212.2L547.7,214.3L555.2,211.6L567.4,213.1L571.2,212.2L576.2,217.9L575.1,227.8L580.7,238.2L580.3,242.4L582.7,248.7L581.6,255.2L592.2,263.4L596.1,270L600.7,271L606.6,275.9L610.7,282.7L615.8,283.4ZM597.8,394.5L599.9,396.8L605.7,392.8L610.9,392L615.1,398.8L610.4,400.7L601,397.6L593.6,397.3Z","cx":548,"cy":313}],"us":[{"n":"Arizona","d":"M116.3,560L118.9,550.2L143,556.4L158.2,560L116.3,560Z","cx":131,"cy":557},{"n":"Colorado","d":"M201,560L206.7,530.2L214.8,488.3L214.8,488.3L236.2,492.3L265.2,497L290.6,500.4L321.1,503.8L319.2,524.1L315.7,560L201,560Z","cx":261,"cy":529},{"n":"Indiana","d":"M569.8,560L568.3,559.4L567.9,560L542.6,560L542.6,560L542.9,558.7L547,553.9L549,549L545.8,540.5L547.1,536.6L544.8,514.1L542.4,488.8L542.4,488.8L547.1,490.1L552.8,486.6L583,482.8L583.2,484L587.3,512.2L590.3,536.3L591.6,541.1L586.3,545.6L576.6,555.3L574.7,560L569.8,560Z","cx":566,"cy":522},{"n":"Kansas","d":"M315.7,560L319.2,524.1L319.2,524.1L354.1,526.9L378.4,528.3L408.9,529.2L424.3,529.4L431.1,532.9L427.6,539L430.9,543.9L435.4,547.4L435.4,560L315.7,560Z","cx":373,"cy":544},{"n":"Maine","d":"M781.8,408L775.5,401.4L761.9,366.9L767.2,362.7L765.8,359.1L769,352.1L766.6,346.5L768,341.1L767,335.7L771.6,317.6L777.8,321.3L785.1,314.9L792.7,317.9L802.8,344L808,343.7L809.8,349.9L816.1,351.1L820.1,356L815.3,364.6L811.2,366.7L806.4,373.9L797,374.7L796.4,384.4L793.6,385.6L789.3,391.3L785,393.6L782.1,402.3Z","cx":786,"cy":357},{"n":"Massachusetts","d":"M747.6,425.8L759.1,422.6L775.9,417.8L781.4,412.2L783.1,415.5L782.1,423.6L786.2,424.1L792.3,431L791.6,434.2L786.1,440L783.7,436.9L783.3,436.4L779,431.2L773,433.4L748.5,440.3Z","cx":769,"cy":428},{"n":"Minnesota","d":"M399.9,347.3L427.2,347.7L427.2,340.1L431.5,341.9L433.9,352.9L444.7,355L455.8,355L465,360.7L473,362.8L476.9,365.6L484,361.2L485.9,364.1L494.3,363.4L498,365.6L496.9,368.9L486.8,373.7L477.2,384.1L469.2,391.3L470.4,392.8L466.5,394L467,405.8L461.2,409.6L459.2,413.1L462.4,419.5L460.9,421.7L460.5,432.2L464.5,436.1L473.6,440.6L474.3,443.2L480.9,447L483.3,450.1L484.6,456.9L456,458L434.8,458.3L407.9,458.1L408.7,421.8L403,415.4L407.4,408.9L407,401.1L404.4,394.4L404,375.3L400.7,364.6L401.4,353.5Z","cx":439,"cy":402},{"n":"New Jersey","d":"M731.9,495.1L732.7,492.5L741.3,482.7L734.7,478.9L731.2,474.1L730.5,468.4L734.9,458.9L748.5,462.6L748.2,469.3L748.1,469.9L746.2,473.9L750.6,474.5L752.8,487.7L751.1,495.2L747.7,500.6L744.3,502.9L737.4,502.1L732.7,499.7Z","cx":742,"cy":481},{"n":"North Carolina","d":"M738.9,560L743.2,558.9L743.3,560L738.9,560Z","cx":742,"cy":560},{"n":"North Dakota","d":"M310.5,340.4L334.4,343L365.4,345.6L399.9,347.3L401.4,353.5L400.7,364.6L404,375.3L404.4,394.4L407,401.1L407.4,408.9L381.5,408L350.2,406.1L331.4,404.5L303.1,401.1L309.1,352.9Z","cx":355,"cy":376},{"n":"Pennsylvania","d":"M646.1,467.5L656.1,459.5L657.3,464.8L683.2,459L721.7,449.1L726.2,451.3L729.8,457.2L734.9,458.9L730.5,468.4L731.2,474.1L734.7,478.9L741.3,482.7L732.7,492.5L727.5,495.6L701,502.4L671.2,509.3L655.2,512.6L651.5,494.2Z","cx":691,"cy":480},{"n":"South Dakota","d":"M300.5,420.1L303.1,401.1L331.4,404.5L350.2,406.1L381.5,408L407.4,408.9L403,415.4L408.7,421.8L407.9,458.1L406.2,463.7L406.9,467.2L404.9,474L407.5,478.5L404,475.2L394.9,470.5L386.9,470.2L384.3,472.4L377.4,467.2L361.6,466.3L331.2,464L295.6,460.2Z","cx":354,"cy":436},{"n":"Wyoming","d":"M300.5,420.1L295.6,460.2L290.6,500.4L265.2,497L236.2,492.3L214.8,488.3L184.8,482L189.2,462.2L196.6,429.5L200.1,413.5L202.4,403L207.1,404.3L241.2,410.9L265,415.2Z","cx":244,"cy":453},{"n":"Connecticut","d":"M748.5,440.3L773,433.4L776.8,444.8L776.5,447L763.9,452.2L752.3,461.9L752,455.2Z","cx":762,"cy":445},{"n":"Missouri","d":"M435.4,560L435.4,547.4L430.9,543.9L427.6,539L431.1,532.9L424.3,529.4L419.6,523L417.4,517.3L417.4,517.3L435.5,517.7L454.7,517.3L479.7,515.8L484.8,520.3L484,527.3L486.2,533.5L497,543.1L498.3,549.2L502.2,548.3L507.1,550.3L504.9,560L435.4,560Z","cx":462,"cy":539},{"n":"West Virginia","d":"M637.9,560L635.1,559.2L627.9,550.6L627.6,544.8L627.6,544.8L631.9,543.5L633.6,539.6L632.2,536.1L634.4,530.9L641.7,521.9L645.8,521.3L649.1,516.1L651.6,500.9L649.5,496.1L651.5,494.2L655.2,512.6L671.2,509.3L673.2,519.5L682.4,508.9L687.6,509.8L691.2,505.2L695.2,505.9L700.1,511.1L699.3,515.3L689.7,510.4L690.3,516.6L684.8,526.4L682.4,525.1L679.5,534.9L673.4,535.8L670.6,544.8L664.4,557.6L660.9,560L637.9,560Z","cx":658,"cy":533},{"n":"Illinois","d":"M504.9,560L507.1,550.3L502.2,548.3L498.3,549.2L497,543.1L486.2,533.5L484,527.3L484.8,520.3L484.8,520.3L485.5,515.7L489.1,514.1L491.2,505.3L488.6,502.5L489.5,498.8L495.4,497.5L499.9,494.8L502.1,490.1L501.9,483.9L498.5,482.2L494.3,476.4L521.8,474.8L536.6,473.5L536.4,477.4L542.4,488.8L544.8,514.1L547.1,536.6L545.8,540.5L549,549L547,553.9L542.9,558.7L542.6,560L504.9,560Z","cx":519,"cy":518},{"n":"California","d":"M0,559.6L2.2,554.2L0,548.4L0,404.2L0,404.2L0.5,401.8L0.5,401.8L24.4,411.4L44.8,419.7L59.6,424.8L59.6,425L51.1,448.8L39.1,482.4L54.9,510.6L67,532.3L79.8,554.6L82.8,560L0,560Z","cx":28,"cy":491},{"n":"Delaware","d":"M727.5,495.6L732.7,492.5L731.9,495.1L731.9,500L736,503.3L737,506.9L743.5,511.4L745.7,517.6L735.8,520.1Z","cx":736,"cy":509},{"n":"District of Columbia","d":"M711.2,516.6L714.7,516.5L713.1,519Z","cx":713,"cy":517},{"n":"Iowa","d":"M407.9,458.1L434.8,458.3L456,458L484.6,456.9L487.2,461.8L485.6,464.3L487.7,472.1L493.1,474.1L494.3,476.4L498.5,482.2L501.9,483.9L502.1,490.1L499.9,494.8L495.4,497.5L489.5,498.8L488.6,502.5L491.2,505.3L489.1,514.1L485.5,515.7L484.8,520.3L479.7,515.8L454.7,517.3L435.5,517.7L417.4,517.3L415.5,514.6L416.4,509.3L415,499.6L412.6,498.1L412.1,489.2L407.5,478.5L404.9,474L406.9,467.2L406.2,463.7Z","cx":452,"cy":487},{"n":"Kentucky","d":"M567.9,560L568.3,559.4L569.8,560L567.9,560ZM574.7,560L576.6,555.3L586.3,545.6L591.6,541.1L590.3,536.3L596.3,535.5L600.8,541L612.1,541.6L615.7,543.1L621.8,538.7L623,542.1L627.6,544.8L627.9,550.6L635.1,559.2L637.9,560L574.7,560Z","cx":605,"cy":551},{"n":"Maryland","d":"M671.2,509.3L701,502.4L727.5,495.6L735.8,520.1L745.7,517.6L745.1,526.7L738.8,530.2L735.1,530.7L725.5,522.2L726.1,527.8L717.5,528.5L712.5,522.4L713.1,519L714.7,516.5L711.2,516.6L704.1,514.3L700.1,511.1L695.2,505.9L691.2,505.2L687.6,509.8L682.4,508.9L673.2,519.5Z","cx":717,"cy":513},{"n":"Michigan","d":"M552.8,486.6L555.5,483.7L559.6,472L558.6,460.3L552.6,447.9L553.7,445.2L552.1,440.1L554.8,433.6L554.1,426.8L556.4,422.7L563,418.6L568.2,411.2L568,407.2L572.2,402.1L580.5,404.2L583,406.7L592.5,409.2L593.4,416.3L596.5,420.4L596.8,427.9L594.1,430.2L594.2,434.1L590.8,436.1L589.7,441.1L594.6,443.4L599,435.2L603.7,432.3L608.3,436.1L612.2,448.1L614.4,452.2L614.3,460.5L609.3,463.2L607,472.4L603.4,480.4L583.2,484L583,482.8ZM492.4,394.5L500.7,388.9L505.5,388.1L521.6,374.3L526.7,373.6L519,384.4L527.6,385.2L530.8,387.1L534.2,392L540.7,392.5L546.6,390.6L551,387.1L566.1,384.5L566.7,388.9L574.1,388.7L577.7,386.3L580.1,393.1L582.3,395.8L587.8,393.7L588.6,397.2L580.8,397L577.2,398.6L573,396.7L568.3,398.2L561.2,397.5L559.4,400.2L551.9,401.3L539.1,408.9L534.4,420.7L530.2,416.3L530.8,410.9L525.6,405L515.9,403.8L511.4,401.8L496.9,398.8Z","cx":568,"cy":433},{"n":"Montana","d":"M156.3,308.1L186.2,316.5L210.8,322.6L246.4,330.2L266.5,333.8L283.7,336.6L310.5,340.4L309.1,352.9L303.1,401.1L300.5,420.1L265,415.2L241.2,410.9L207.1,404.3L202.4,403L200.1,413.5L196.6,406.7L193.9,409.4L189.4,410.2L183.2,407.5L180.2,408.6L172.7,407.4L172.4,400.7L168.4,397.6L169.5,393.9L166.8,387.6L167.3,382.1L165.3,379.5L159.2,382.8L157.2,378.5L163.1,364.5L165.6,360.6L161.8,358.9L155.8,344.3L151.6,339.8L153.2,334.4L150.5,327.7Z","cx":230,"cy":367},{"n":"New Hampshire","d":"M758.1,374.5L758.4,368.9L761.9,366.9L775.5,401.4L781.8,408L781.4,412.2L775.9,417.8L759.1,422.6L755.1,406.1L756.7,394.5L755.3,390.1L760.3,384.6L758,380Z","cx":766,"cy":400},{"n":"New York","d":"M656.1,459.5L663.9,452L667.2,446.5L664,442.8L662.1,437.9L669.7,433.7L675.1,432.2L685.9,431.7L692.2,430.3L701.4,421.7L700.4,414.4L696.5,413.4L696.6,409.8L701.3,405L707.1,393.6L711.1,389.6L733.2,382.5L734.7,389.8L737.2,393.2L737.5,401.6L743,410.2L747.6,425.8L748.5,440.3L752,455.2L752.3,461.9L753.1,463.5L768,456.6L771.6,458.2L761,466.7L750.6,470.9L748.2,469.3L748.5,462.6L734.9,458.9L729.8,457.2L726.2,451.3L721.7,449.1L683.2,459L657.3,464.8Z","cx":714,"cy":431},{"n":"Ohio","d":"M583.2,484L603.4,480.4L613,481.7L619.2,485L625.7,480.9L629.9,480.8L639.4,471.6L646.1,467.5L651.5,494.2L649.5,496.1L651.6,500.9L649.1,516.1L645.8,521.3L641.7,521.9L634.4,530.9L632.2,536.1L633.6,539.6L631.9,543.5L627.6,544.8L623,542.1L621.8,538.7L615.7,543.1L612.1,541.6L600.8,541L596.3,535.5L590.3,536.3L587.3,512.2Z","cx":618,"cy":508},{"n":"Oregon","d":"M0,397.6L2.5,390.1L2.5,384.2L13.8,370.7L28.3,344.5L32.8,335.2L34.4,329.6L37.2,326L42.4,326.2L42.4,326.2L47.6,329.8L49.7,335.6L48.1,341.5L53.7,346.3L60.9,345.4L72,350.7L77.6,351L82.1,352.9L85.9,352.3L97.7,354.1L100.1,353.4L127.6,362.3L131.4,371.9L113.6,391.7L117,397.4L113,404L102.1,439L79.5,431.9L59.6,424.8L59.6,425L59.6,424.8L44.8,419.7L24.4,411.4L0.5,401.8L0,400.7L0,397.6Z","cx":65,"cy":385},{"n":"Utah","d":"M158.2,560L143,556.4L118.9,550.2L127.8,516.9L135.3,488.8L145.3,451.7L145.3,451.7L172.7,458.4L189.2,462.2L184.8,482L214.8,488.3L206.7,530.2L201,560L158.2,560Z","cx":167,"cy":513},{"n":"Virginia","d":"M738.8,530.2L745.1,526.7L741.7,533.9L740.5,546.3L736.7,544.2L736.6,538.2ZM660.9,560L664.4,557.6L670.6,544.8L673.4,535.8L679.5,534.9L682.4,525.1L684.8,526.4L690.3,516.6L689.7,510.4L699.3,515.3L700.1,511.1L704.1,514.3L711.2,516.6L713.1,519L712.5,522.4L710.4,526.1L715.7,527.3L717.3,530.3L722.9,530.1L730.2,533.7L729.8,539.8L732,542L733.5,551.6L739.3,552L743.2,558.9L738.9,560L660.9,560Z","cx":703,"cy":542},{"n":"Washington","d":"M64.6,284.5L70.7,285.7L67.3,289.5ZM144,304.4L134.8,333.5L128.4,354L127.6,362.3L100.1,353.4L97.7,354.1L85.9,352.3L82.1,352.9L77.6,351L72,350.7L60.9,345.4L53.7,346.3L48.1,341.5L49.7,335.6L47.6,329.8L42.4,326.2L37.7,324.4L36.9,321L40.2,319.2L39.3,314.2L41.8,303.5L42.7,292.3L42.4,284.8L45.2,280.9L51.6,288.7L67.1,296.3L67.2,303.9L63,311.3L66.2,312.1L67.2,305.8L72.4,299.9L71.4,297.6L74.5,285.2L73,279.2L85.4,284.1L114,294.5Z","cx":90,"cy":321},{"n":"Wisconsin","d":"M470.4,392.8L477.2,391.5L484.4,387.5L487.8,393.2L492.4,394.5L496.9,398.8L511.4,401.8L515.9,403.8L525.6,405L530.8,410.9L530.2,416.3L534.4,420.7L529.6,428.9L540.3,422.7L537.2,431.6L534.7,445.4L535.5,449.4L533.5,458.5L536.6,473.5L521.8,474.8L494.3,476.4L493.1,474.1L487.7,472.1L485.6,464.3L487.2,461.8L484.6,456.9L483.3,450.1L480.9,447L474.3,443.2L473.6,440.6L464.5,436.1L460.5,432.2L460.9,421.7L462.4,419.5L459.2,413.1L461.2,409.6L467,405.8L466.5,394Z","cx":501,"cy":433},{"n":"Nebraska","d":"M295.6,460.2L331.2,464L361.6,466.3L377.4,467.2L384.3,472.4L386.9,470.2L394.9,470.5L404,475.2L407.5,478.5L412.1,489.2L412.6,498.1L415,499.6L416.4,509.3L415.5,514.6L417.4,517.3L419.6,523L424.3,529.4L408.9,529.2L378.4,528.3L354.1,526.9L319.2,524.1L321.1,503.8L290.6,500.4Z","cx":357,"cy":496},{"n":"Idaho","d":"M127.6,362.3L128.4,354L134.8,333.5L144,304.4L156.3,308.1L150.5,327.7L153.2,334.4L151.6,339.8L155.8,344.3L161.8,358.9L165.6,360.6L163.1,364.5L157.2,378.5L159.2,382.8L165.3,379.5L167.3,382.1L166.8,387.6L169.5,393.9L168.4,397.6L172.4,400.7L172.7,407.4L180.2,408.6L183.2,407.5L189.4,410.2L193.9,409.4L196.6,406.7L200.1,413.5L196.6,429.5L189.2,462.2L172.7,458.4L145.3,451.7L126.8,446.4L102.1,439L113,404L117,397.4L113.6,391.7L131.4,371.9Z","cx":150,"cy":404},{"n":"Nevada","d":"M82.8,560L79.8,554.6L67,532.3L54.9,510.6L39.1,482.4L51.1,448.8L59.6,425L59.6,425L59.6,424.8L79.5,431.9L102.1,439L126.8,446.4L145.3,451.7L135.3,488.8L127.8,516.9L118.9,550.2L116.3,560L82.8,560Z","cx":92,"cy":490},{"n":"Vermont","d":"M733.2,382.5L758.1,374.5L758,380L760.3,384.6L755.3,390.1L756.7,394.5L755.1,406.1L759.1,422.6L747.6,425.8L743,410.2L737.5,401.6L737.2,393.2L734.7,389.8Z","cx":748,"cy":398},{"n":"Rhode Island","d":"M776.5,447L776.8,444.8L773,433.4L779,431.2L783.3,436.4L781,436.3L781.7,444.2Z","cx":778,"cy":438}],"pts":[{"n":"Toronto","x":656,"y":431},{"n":"Calgary","x":192,"y":276},{"n":"Edmonton","x":212,"y":229},{"n":"Vancouver","x":71,"y":272},{"n":"Montréal","x":727,"y":374},{"n":"Québec City","x":750,"y":339},{"n":"Winnipeg","x":402,"y":329}]}};
+(function(){
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=(v,d=0)=>v==null?'–':Number(v).toLocaleString(undefined,{maximumFractionDigits:d,minimumFractionDigits:d});
+function shell(id,title,sub,series,isBox){
+  const host=document.getElementById(id);host.innerHTML='';
+  host.insertAdjacentHTML('beforeend',`<div class="ct">${title}</div><div class="cs">${sub||''}</div>`);
+  if(series&&series.length>1){const lg=document.createElement('div');lg.className='legend';
+    series.forEach(s=>lg.insertAdjacentHTML('beforeend',`<span><i class="${isBox?'box':''}" style="background:${s.hatch?`repeating-linear-gradient(45deg,${css(s.color)} 0 2px,transparent 2px 4px)`:css(s.color)}"></i>${s.name}</span>`));host.appendChild(lg);}
+  const tip=document.createElement('div');tip.className='tip';host.appendChild(tip);return {host,tip};
+}
+function dataTable(host,cats,series,dp,note){
+  const d=document.createElement('details');
+  let h=`<summary>Show data table</summary><div class="scroll"><table><tr><th></th>${series.map(s=>`<th>${s.name}</th>`).join('')}</tr>`;
+  cats.forEach((c,i)=>{h+=`<tr><td>${c}</td>${series.map(s=>`<td>${fmt(s.values[i],dp??1)}</td>`).join('')}</tr>`});
+  d.innerHTML=h+'</table></div>';host.appendChild(d);
+  if(note)host.insertAdjacentHTML('beforeend',`<div class="note">${note}</div>`);
+}
+function niceMax(m){const p=Math.pow(10,Math.floor(Math.log10(m)));const n=m/p;return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*p;}
+function axes(svg,W,H,m,yMax,ticks,yFmt,yTitle){
+  const g=el('g',{class:'axis'},svg);
+  for(let i=0;i<=ticks;i++){const v=yMax*i/ticks;const y=H-m.b-(H-m.t-m.b)*i/ticks;
+    el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,class:i?'gridline':'baseline'},g);
+    const t=el('text',{x:m.l-8,y:y+4,'text-anchor':'end'},g);t.textContent=yFmt(v);}
+  if(yTitle){const t=el('text',{x:m.l,y:m.t-10},g);t.textContent=yTitle;}
+}
+function placeTip(host,tip,x,y){const r=host.getBoundingClientRect();let L=x+14;if(L+tip.offsetWidth>r.width-4)L=x-tip.offsetWidth-14;tip.style.left=Math.max(4,L)+'px';tip.style.top=Math.max(4,y-tip.offsetHeight/2)+'px';}
+
+function lineChart(cfg){
+  const {host,tip}=shell(cfg.id,cfg.title,cfg.sub,cfg.series);
+  const W=560,H=cfg.h||300,m={l:48,r:cfg.labelR||16,t:26,b:30};
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':cfg.title},host);
+  const yMax=cfg.yMax;axes(svg,W,H,m,yMax,cfg.ticks||5,cfg.yFmt||(v=>fmt(v)),cfg.yTitle);
+  const xs=cfg.xv,x0=xs[0],x1=xs[xs.length-1];
+  const X=v=>m.l+(W-m.l-m.r)*(v-x0)/(x1-x0),Y=v=>H-m.b-(H-m.t-m.b)*v/yMax;
+  const ga=el('g',{class:'axis'},svg);
+  (cfg.xTicks||xs).forEach(v=>{const t=el('text',{x:X(v),y:H-m.b+16,'text-anchor':'middle'},ga);t.textContent=v;});
+  cfg.series.forEach(s=>{let d='';s.values.forEach((v,i)=>{if(v==null)return;d+=(d?'L':'M')+X(xs[i])+','+Y(v);});
+    el('path',{d,fill:'none',stroke:css(s.color),'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round','stroke-dasharray':s.dash?'5 4':''},svg);
+    s.values.forEach((v,i)=>{if(v!=null&&s.markers)el('circle',{cx:X(xs[i]),cy:Y(v),r:4,fill:css(s.color),stroke:css('--surface-1'),'stroke-width':2},svg)});
+    if(s.label){let li=s.values.length-1;while(s.values[li]==null)li--;const t=el('text',{x:X(xs[li])+7,y:Y(s.values[li])+4,'font-size':11,fill:css('--text-secondary')},svg);t.textContent=s.label;}});
+  const cross=el('line',{y1:m.t,y2:H-m.b,stroke:css('--text-muted'),opacity:0},svg);
+  const hit=el('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:'transparent'},svg);
+  hit.addEventListener('mousemove',e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());
+    let bi=0,bd=1e9;xs.forEach((v,i)=>{const d=Math.abs(X(v)-p.x);if(d<bd){bd=d;bi=i}});
+    cross.setAttribute('x1',X(xs[bi]));cross.setAttribute('x2',X(xs[bi]));cross.setAttribute('opacity',.5);
+    tip.innerHTML=`<div class="h">${cfg.xLabels?cfg.xLabels[bi]:xs[bi]}</div>`+cfg.series.map(s=>`<div class="r"><span><span class="sw" style="background:${css(s.color)}"></span>${s.name}</span><b>${s.values[bi]==null?'–':(cfg.tipFmt||fmt)(s.values[bi])}</b></div>`).join('');
+    tip.style.opacity=1;const r=host.getBoundingClientRect();placeTip(host,tip,e.clientX-r.left,e.clientY-r.top);});
+  hit.addEventListener('mouseleave',()=>{tip.style.opacity=0;cross.setAttribute('opacity',0)});
+  dataTable(host,cfg.xLabels||xs,cfg.series,cfg.dp,cfg.note);
+}
+
+function barChart(cfg){
+  const {host,tip}=shell(cfg.id,cfg.title,cfg.sub,cfg.series,true);
+  const W=cfg.w||560,H=cfg.h||300,m={l:cfg.ml||48,r:16,t:26,b:cfg.mb||30};
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':cfg.title},host);
+  const n=cfg.cats.length,k=cfg.series.length;
+  const tots=cfg.cats.map((_,i)=>cfg.stacked?cfg.series.reduce((a,s)=>a+(s.values[i]||0),0):Math.max(...cfg.series.map(s=>s.values[i]||0)));
+  const yMax=cfg.yMax||niceMax(Math.max(...tots)*1.1);
+  axes(svg,W,H,m,yMax,cfg.ticks||5,cfg.yFmt||(v=>fmt(v)),cfg.yTitle);
+  if(cfg.refLine!=null){const y=H-m.b-(H-m.t-m.b)*cfg.refLine/yMax;el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:css('--text-secondary'),'stroke-dasharray':'4 3'},svg);const t=el('text',{x:W-m.r,y:y-5,'text-anchor':'end','font-size':11,fill:css('--text-secondary')},svg);t.textContent=cfg.refLabel;}
+  const band=(W-m.l-m.r)/n,Y=v=>H-m.b-(H-m.t-m.b)*v/yMax,bh=v=>(H-m.t-m.b)*v/yMax;
+  const ga=el('g',{class:'axis'},svg);
+  const groupW=Math.min(band*.7,cfg.stacked?48:k*30);const bw=cfg.stacked?groupW:(groupW-(k-1)*2)/k;
+  let defs=null;
+  cfg.cats.forEach((c,i)=>{
+    const x0=m.l+band*i+(band-groupW)/2;
+    String(c).split('\n').forEach((ln,j)=>{const t=el('text',{x:m.l+band*i+band/2,y:H-m.b+15+j*12,'text-anchor':'middle'},ga);t.textContent=ln;});
+    let acc=0;
+    cfg.series.forEach((s,j)=>{const v=s.values[i];if(v==null||v===0)return;
+      const col=s.colors?s.colors[i]:s.color;
+      const x=cfg.stacked?x0:x0+j*(bw+2);const yTop=cfg.stacked?Y(acc+v):Y(v);let h=bh(v);
+      const isTop=!cfg.stacked||cfg.series.slice(j+1).every(z=>!z.values[i]);
+      if(cfg.stacked&&j>0)h=Math.max(0,h-2);
+      const r=Math.min(4,bw/2,h);
+      const d=isTop?`M${x},${yTop+h}V${yTop+r}Q${x},${yTop} ${x+r},${yTop}H${x+bw-r}Q${x+bw},${yTop} ${x+bw},${yTop+r}V${yTop+h}Z`:`M${x},${yTop+h}V${yTop}H${x+bw}V${yTop+h}Z`;
+      let fill=css(col);
+      if(s.hatch){if(!defs)defs=el('defs',{},svg);const pid=`h-${cfg.id}-${j}-${i}`;const pat=el('pattern',{id:pid,width:6,height:6,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);el('rect',{width:6,height:6,fill:css('--surface-2')},pat);el('line',{x1:0,y1:0,x2:0,y2:6,stroke:css(col),'stroke-width':2.5},pat);fill=`url(#${pid})`;}
+      el('path',{d,fill},svg);acc+=v;});
+    if(cfg.topLabel){const t=el('text',{x:m.l+band*i+band/2,y:Y(tots[i])-6,'text-anchor':'middle','font-size':11.5,'font-weight':600,fill:css('--text-secondary')},svg);t.textContent=cfg.topLabel(i,tots[i]);}
+    const hit=el('rect',{x:m.l+band*i,y:m.t,width:band,height:H-m.t-m.b,fill:'transparent'},svg);
+    hit.addEventListener('mousemove',e=>{tip.innerHTML=`<div class="h">${String(c).replace(/\n/g,' ')}</div>`+cfg.series.map(s=>`<div class="r"><span>${s.name}</span><b>${s.values[i]==null?'–':(cfg.tipFmt||fmt)(s.values[i])}</b></div>`).join('')+(cfg.tipExtra?cfg.tipExtra(i):'');
+      tip.style.opacity=1;const r=host.getBoundingClientRect();placeTip(host,tip,e.clientX-r.left,e.clientY-r.top);hit.setAttribute('fill',css('--text-primary'));hit.setAttribute('fill-opacity',.04);});
+    hit.addEventListener('mouseleave',()=>{tip.style.opacity=0;hit.setAttribute('fill','transparent');});
+  });
+  if(!cfg.noTable)dataTable(host,cfg.cats.map(c=>String(c).replace(/\n/g,' ')),cfg.series,cfg.dp,cfg.note);
+  else if(cfg.note)host.insertAdjacentHTML('beforeend',`<div class="note">${cfg.note}</div>`);
+}
+
+
+
+/* ===== region data ===== */
+const R={
+ PJM:{name:'PJM Interconnection',color:'--s1',page:'pjm',model:'Capacity market: annual product, 3 yrs ahead; summer/winter market in design',dec:'Utilities + PJM; states and towns on siting',rule:'Backstop procurement; price collar to 2029/30; curtail loads without own supply first',plus:['Deep market; prices reveal scarcity','Data Center Alley ecosystem'],minus:['Price at cap 3×; 6.8 GW short','Turbines sold out to ~2031'],verdict:'Click to open the PJM page.'},
+ MISO:{name:'MISO (Midcontinent)',color:'--s7',model:'Seasonal capacity auction (4 seasons), year-ahead; most utilities vertically integrated',dec:'State regulators + utilities',rule:'Utilities self-supply; auction fills shortfalls',plus:['True seasonal prices','2026/27 cleared above target as more supply came online'],minus:['Summer price spiked to $666.50 in 2025/26','Load growth still needs faster new supply'],verdict:'A seasonal model PJM could learn from.'},
+ NYISO:{name:'NYISO (New York)',color:'--s7',model:'Capacity market with summer and winter capability periods',dec:'NYISO + NY PSC',rule:'Large-load planning and market reforms targeted ~2027',plus:['Seasonal pricing already exists'],minus:['Tight New York City zone'],verdict:'Seasonal, but not yet a data-centre hotspot.'},
+ ISONE:{name:'ISO New England',color:'--s7',model:'Forward capacity market → prompt + seasonal auctions from 2028',dec:'ISO-NE + states',rule:'Proposes excluding large loads from the capacity requirement',plus:['Prompt auction buys from real, built resources'],minus:['Winter gas constraint'],verdict:'Little data-centre growth so far; redesigning early.'},
+ ERCOT:{name:'ERCOT (Texas)',color:'--s3',model:'Energy-only market (no capacity market)',dec:'ERCOT + PUCT under SB 6',rule:'75 MW threshold; study fees; $50k/MW security; curtailment in emergencies; batch studies',plus:['Fast, open market; lots of gas, solar and batteries in the queue'],minus:['~474 GW of large-load requests (~90% data centres)','Energization paused for audit (2026)'],verdict:'The US "Alberta": the developer carries the risk.'},
+ CAISO:{name:'CAISO (California)',color:'--s4',model:'State resource-adequacy obligation; no central capacity auction',dec:'CPUC + utilities',rule:'Utilities buy RA bilaterally',plus:['Large battery fleet'],minus:['High costs; slow transmission'],verdict:'Not a major data-centre market.'},
+ SPP:{name:'SPP (Southwest Power Pool)',color:'--s4',model:'Resource-adequacy requirement on utilities; no capacity auction',dec:'Utilities + states',rule:'Planning reserve margins on members',plus:['Wind-rich, cheap land'],minus:['Winter reliability risk'],verdict:'Emerging data-centre interest.'},
+ SE:{name:'US Southeast (no RTO)',color:'--neutral',model:'Vertically integrated utilities',dec:'State commissions',rule:'Utility large-load tariffs and IRPs',plus:['One planner; can build fast'],minus:['Customers carry stranded-asset risk'],verdict:'Closest US analogue to Canada\'s Crown utilities.'},
+ WEST:{name:'US West (outside California)',color:'--neutral',model:'Vertically integrated utilities; regional energy markets only',dec:'State commissions',rule:'Utility tariffs',plus:['Land and hydro in places'],minus:['Fragmented planning'],verdict:'Mixed.'},
+ ON:{name:'Ontario',color:'--s2',page:'canada',model:'Hybrid: IESO energy market + long-term contracts + seasonal (summer/winter) capacity auction',dec:'Minister of Energy & Mines (Bill 40, Playbook), then IESO / Hydro One / LDC',rule:'Draft Playbook tests; proposed Class C rate for new DCs >1 MW; no ICI',
+   plus:['Clean, nuclear-heavy grid; long-range planning to 2050','Demand-side tools: ICI ~1,600 MW, Peak Perks ≥220 MW','Utilities can move fast: 80 MW in 18 months (Grandbridge)'],
+   minus:['>10 GW pipeline ≈ 40% of peak','Capacity gap from 2035 (950 → ~2,500 MW)','Approval up to 3 years; municipal pauses (Oakville)'],verdict:'Strong planner. The risk is the political gate becoming slow and unpredictable.'},
+ AB:{name:'Alberta',color:'--s3',page:'canada',model:'Energy-only market (restructured market from ~2028), no capacity market',dec:'AESO under the Data Centre Regulation (June 2026)',rule:'Bring your own generation: projects tethered to new supply connect first; Phase 1 cap 1.2 GW',
+   plus:['Fastest path in Canada if you bring supply','Cheap gas and available land','Causer-pays protects other customers'],
+   minus:['Requests ~19.6 GW vs record peak 12.8 GW','BYOG in practice means gas, with carbon-price risk (panel)','Volatile energy-only prices'],verdict:'Speed and cost-protection, traded for gas lock-in.'},
+ BC:{name:'British Columbia',color:'--neutral',page:'canada',model:'Crown utility (BC Hydro), calls for power',dec:'Province + BC Hydro competitive call (Bill 31)',rule:'Cap: 300 MW AI + 100 MW DC per 2 years; LNG/mining prioritised; crypto banned',
+   plus:['Clean hydro; sovereignty-focused selection','Predictable, transparent scoring','Winners get lower price premium and less curtailment'],
+   minus:['400 MW is tiny vs hyperscale (100–1,000 MW sites)','Demand +20% by 2030; BC has been importing power','Power steered to LNG electrification first'],verdict:'Rationing clean power. Investment will go elsewhere unless supply grows.'},
+ QC:{name:'Québec',color:'--neutral',page:'canada',model:'Crown utility (Hydro-Québec), heritage pool + tenders',dec:'Government approval for any load >5 MW',rule:'Proposed data-centre tariff ~13¢/kWh (≈2× industrial)',
+   plus:['Large, clean, cheap hydro (peak >38 GW)','Rate reflects true cost of new supply','Sovereign selection of projects'],
+   minus:['Imports during cold snaps in low-water years','Rate contested before the Régie (Google)','DC load ~200 MW now → ~1,000 MW by 2035'],verdict:'Uses price to ration hydro rent. Economically sound, but legally contested.'},
+ MB:{name:'Manitoba',color:'--neutral',page:'canada',model:'Crown utility (Manitoba Hydro)',dec:'Hydro feasibility test (>5 MW) + government',rule:'Bill 39: separate DC class; levy effectively doubles rates; revenue lowers residential rates',
+   plus:['Levy revenue recycled to households','Clean hydro'],minus:['New supply needed by ~2030 even before DCs','Rejected a 500 MW gas-powered AI campus'],verdict:'Open in principle, cautious in practice.'},
+ SK:{name:'Saskatchewan',color:'--neutral',page:'canada',model:'Crown utility (SaskPower)',dec:'SaskPower / Province',rule:'No dedicated data-centre framework yet',plus:['Considering SMRs'],minus:['Small, transitioning system'],verdict:'Not a focus market yet.'},
+ AT:{name:'Atlantic Canada',color:'--neutral',page:'canada',model:'Crown / regulated utilities (NB Power, NS Power, NL Hydro)',dec:'Utilities / provinces',rule:'Not profiled in detail',plus:['Wind resource, coastal cooling'],minus:['Small systems relative to hyperscale loads'],verdict:'Not a focus market yet.'}
+};
+const ST={};
+['Pennsylvania','New Jersey','Maryland','Delaware','District of Columbia','Virginia','West Virginia','Ohio'].forEach(s=>ST[s]='PJM');
+['Minnesota','Iowa','Wisconsin','Missouri','Arkansas','Louisiana','Mississippi','North Dakota','Illinois','Indiana','Michigan'].forEach(s=>ST[s]='MISO');
+['Kansas','Oklahoma','Nebraska','South Dakota'].forEach(s=>ST[s]='SPP');
+ST['Texas']='ERCOT';ST['California']='CAISO';ST['New York']='NYISO';
+['Maine','New Hampshire','Vermont','Massachusetts','Rhode Island','Connecticut'].forEach(s=>ST[s]='ISONE');
+['Florida','Georgia','Alabama','South Carolina','Tennessee','Kentucky','North Carolina'].forEach(s=>ST[s]='SE');
+['Washington','Oregon','Idaho','Nevada','Utah','Arizona','Colorado','Wyoming','Montana','New Mexico'].forEach(s=>ST[s]='WEST');
+const PJMPART=new Set(['Illinois','Indiana','Kentucky','Michigan','North Carolina','Tennessee']);
+const CA2R={ON:'ON',AB:'AB',BC:'BC',QC:'QC',MB:'MB',SK:'SK',NB:'AT',NS:'AT',PE:'AT',NL:'AT'};
+
+/* ===== map drawing ===== */
+function hatch(svg,id,base,stripe){const defs=el('defs',{},svg);const p=el('pattern',{id,width:7,height:7,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);el('rect',{width:7,height:7,fill:base},p);el('line',{x1:0,y1:0,x2:0,y2:7,stroke:stripe,'stroke-width':3.2},p);}
+function label(svg,x,y,txt,size=14,w=700,col,noHalo){const a={x,y,'text-anchor':'middle','font-size':size,'font-weight':w,fill:col||css('--text-primary')};if(!noHalo){a.stroke=css('--surface-1');a['stroke-width']=3;a['paint-order']='stroke';}const t=el('text',a,svg);t.textContent=txt;return t;}
+function cities(svg,pts,right){pts.forEach(p=>{el('circle',{cx:p.x,cy:p.y,r:3.5,fill:css('--text-primary'),stroke:css('--surface-1'),'stroke-width':1.5},svg);const r=right.includes(p.n);const t=el('text',{x:p.x+(r?6:-6),y:p.y-6,'text-anchor':r?'start':'end','font-size':12.5,fill:css('--text-secondary'),stroke:css('--surface-1'),'stroke-width':3,'paint-order':'stroke'},svg);t.textContent=p.n==='Ashburn'?'Ashburn (Data Center Alley)':p.n;});}
+let naSel='PJM';
+function drawNA(){
+  const M=MAPS.na,svg=document.getElementById('naMap');svg.innerHTML='';svg.setAttribute('viewBox',`0 0 ${M.W} ${M.H}`);
+  const regions=new Set(Object.values(ST));
+  M.us.forEach(u=>{const r=ST[u.n];if(!r){el('path',{d:u.d,class:'bg'},svg);return;}
+    const p=el('path',{d:u.d,class:'reg'+(r===naSel||(naSel==='PJM'&&PJMPART.has(u.n))?' on':'')},svg);
+    if(PJMPART.has(u.n)){const id='hp-'+u.n.replace(/\W/g,'');hatch(svg,id,css(R[r].color),css('--s1'));p.setAttribute('fill',`url(#${id})`);}
+    else p.setAttribute('fill',css(R[r].color));
+    const tt=el('title',{},p);tt.textContent=u.n+' — '+R[r].name+(PJMPART.has(u.n)?' (partly PJM)':'');
+    p.addEventListener('click',()=>{ if(r==='PJM'||(PJMPART.has(u.n)&&false)){go('pjm');} else {naSel=r;drawNA();naPanel();} });});
+  M.ca.forEach(c=>{const r=CA2R[c.id];if(!r){el('path',{d:c.d,class:'ghost'},svg);return;}
+    const p=el('path',{d:c.d,class:'reg'+(naSel===r?' on':''),fill:css(R[r].color)},svg);const tt=el('title',{},p);tt.textContent=R[r].name+' — click to open Canada page';
+    p.addEventListener('click',()=>{canSel=r;go('canada');});});
+  const U=Object.fromEntries(M.us.map(u=>[u.n,u])),C=Object.fromEntries(M.ca.map(c=>[c.id,c]));
+  label(svg,(U.Pennsylvania.cx+U.Ohio.cx)/2,(U.Pennsylvania.cy+U.Ohio.cy)/2+4,'PJM',20,800);
+  label(svg,U.Iowa.cx+10,U.Iowa.cy,'MISO',14);label(svg,U.Texas.cx,U.Texas.cy,'ERCOT',15);label(svg,U.California.cx+5,U.California.cy+10,'CAISO',12);
+  label(svg,U.Kansas.cx,U.Kansas.cy+4,'SPP',13);label(svg,U['New York'].cx,U['New York'].cy+2,'NYISO',11);label(svg,U.Maine.cx-4,U.Maine.cy+30,'ISO-NE',11);
+  label(svg,U.Georgia.cx-20,U.Georgia.cy-10,'SOUTHEAST',11,600,css('--text-secondary'));label(svg,U.Utah.cx+10,U.Utah.cy,'WEST',11,600,css('--text-secondary'));
+  const P=Object.fromEntries(M.pts.map(p=>[p.n,p]));label(svg,C.ON.cx-5,C.ON.cy+40,'ONTARIO',14);label(svg,P.Calgary.x+5,P.Calgary.y-38,'ALBERTA',12);label(svg,P.Vancouver.x+45,P.Vancouver.y-45,'BC',13);label(svg,C.QC.cx,C.QC.cy+50,'QUÉBEC',13);label(svg,C.MB.cx,C.MB.cy+50,'MB',12);label(svg,C.SK.cx,C.SK.cy+50,'SK',12);
+  cities(svg,M.pts,['Chicago','Vancouver','Calgary','Dallas','Ashburn']);
+  document.getElementById('naLegend').innerHTML=[['--s1','PJM capacity market'],['--s7','Other capacity markets (MISO, NYISO, ISO-NE)'],['--s2','Ontario hybrid'],['--s3','Energy-only (ERCOT, Alberta)'],['--s4','RA obligation, no auction (CAISO, SPP)'],['--neutral','Vertically integrated / Crown utility']].map(([c,l])=>`<span><i class="box" style="background:${css(c)}"></i>${l}</span>`).join('');
+}
+function regionPanelHTML(k,withBtn){const j=R[k];return `<div><h3>${j.name}</h3><div class="kv"><div>Market model</div><div>${j.model}</div><div>Who decides</div><div>${j.dec}</div><div>Large-load rule</div><div>${j.rule}</div></div>${withBtn?`<a class="btn" href="javascript:void(0)" data-go="${withBtn}">Open ${withBtn==='pjm'?'PJM':'Canada'} page →</a>`:''}</div>
+<div><div class="pm"><div class="plus"><b>+ Benefits</b>${j.plus.map(x=>'• '+x).join('<br>')}</div><div class="minus"><b>− Challenges</b>${j.minus.map(x=>'• '+x).join('<br>')}</div></div><p style="margin:12px 0 0;font-size:13.5px"><b>Bottom line:</b> ${j.verdict}</p></div>`;}
+function naPanel(){document.getElementById('naPanel').innerHTML=regionPanelHTML(naSel,naSel==='PJM'?'pjm':(R[naSel].page==='canada'?'canada':null));}
+
+function drawPJM(){
+  const M=MAPS.pjm,svg=document.getElementById('pjmMap');svg.innerHTML='';svg.setAttribute('viewBox',`0 0 ${M.W} ${M.H}`);
+  hatch(svg,'pjmH',css('--land'),css('--s1'));
+  M.us.forEach(u=>{const inF=ST[u.n]==='PJM',inP=PJMPART.has(u.n);el('path',{d:u.d,class:(inF||inP)?'reg':'bg',fill:inF?css('--s1'):inP?'url(#pjmH)':''},svg);});
+  M.ca.forEach(c=>el('path',{d:c.d,class:c.id==='ON'?'reg':'bg',fill:c.id==='ON'?css('--s2'):''},svg));
+  const big={Pennsylvania:[0,-25,'PENNSYLVANIA'],Ohio:[0,-45,'OHIO'],Virginia:[-30,10,'VIRGINIA'],'West Virginia':[-15,10,'W. VIRGINIA']};
+  M.us.forEach(u=>{if(big[u.n]){const b=big[u.n];label(svg,u.cx+b[0],u.cy+b[1],b[2],15,800,'#fff',true);}
+    if(PJMPART.has(u.n))label(svg,u.cx,u.cy+20,u.n.toUpperCase(),11,700,css('--text-secondary'));});
+  label(svg,560,95,'ONTARIO',15,800,'#fff',true);
+  cities(svg,M.pts,['Chicago','Columbus','Ashburn','Richmond','Toronto']);
+}
+let canSel='ON';
+function drawCAN(){
+  const M=MAPS.can,svg=document.getElementById('canMap');svg.innerHTML='';svg.setAttribute('viewBox',`0 0 ${M.W} ${M.H}`);
+  M.us.forEach(u=>el('path',{d:u.d,class:'ghost'},svg));
+  M.ca.forEach(c=>{const r=CA2R[c.id];if(!r){el('path',{d:c.d,class:'ghost'},svg);return;}
+    const p=el('path',{d:c.d,class:'reg'+(canSel===r?' on':''),fill:css(R[r].color)},svg);const tt=el('title',{},p);tt.textContent=R[r].name;
+    p.addEventListener('click',()=>{canSel=r;drawCAN();canPanel();focusCard();});});
+  const C=Object.fromEntries(M.ca.map(c=>[c.id,c]));
+  const P=Object.fromEntries(M.pts.map(p=>[p.n,p]));label(svg,C.BC.cx+20,C.BC.cy+30,'BC',15);label(svg,P.Edmonton.x,P.Edmonton.y-34,'ALBERTA',14);label(svg,C.SK.cx,C.SK.cy+30,'SASK.',13);label(svg,C.MB.cx,C.MB.cy+30,'MANITOBA',13);
+  label(svg,C.ON.cx-5,C.ON.cy+25,'ONTARIO',16);label(svg,C.QC.cx,C.QC.cy+35,'QUÉBEC',15);label(svg,C.NB.cx+25,C.NB.cy-25,'ATLANTIC',11,600);
+  label(svg,480,M.H-20,'UNITED STATES',12,600,css('--text-muted'));
+  cities(svg,M.pts,['Vancouver','Calgary','Edmonton','Winnipeg','Toronto']);
+}
+function canPanel(){document.getElementById('canPanel').innerHTML=regionPanelHTML(canSel,null);}
+function focusCard(){document.querySelectorAll('.sc').forEach(c=>c.classList.toggle('focus',c.dataset.k===canSel));}
+
+/* ===== scorecards ===== */
+function scorecards(){
+  document.getElementById('scGrid').innerHTML=['ON','AB','BC','QC','MB'].map(k=>{const j=R[k];return `<div class="card sc" data-k="${k}" style="border-top:3px solid ${css(j.color)}"><h3>${j.name}</h3><div class="model">${j.model}</div>
+  <div class="cols"><div><h4 style="color:var(--good)">+ Benefits</h4><ul>${j.plus.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h4 style="color:var(--bad)">− Challenges</h4><ul>${j.minus.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>
+  <div class="verdict"><b>Bottom line:</b> ${j.verdict}</div></div>`}).join('')+
+  `<div class="card sc" style="border-top:3px solid var(--s7)"><h3>Federal &amp; cross-cutting (panel)</h3>
+  <div class="cols"><div><h4 style="color:var(--good)">+ Canada's advantages</h4><ul><li>Clean, reliable grids; investment tax credits (~30–50% of capex)</li><li>Federal AI strategy (850 MW AI compute by 2030); $2B sovereign compute</li><li>Indigenous equity partnerships (up to ~50% ownership)</li></ul></div>
+  <div><h4 style="color:var(--bad)">− Shared challenges</h4><ul><li>Social licence: about two-thirds of Canadians oppose a DC "in their backyard"</li><li>Speculative applications clog queues</li><li>Grid plans to 1-in-10 (~2.4 h/yr outage); DCs want "five nines" (~5 min/yr)</li></ul></div></div></div>`;
+  const us=['MISO','ERCOT','NYISO','ISONE','CAISO','SPP'];
+  document.getElementById('usCards').innerHTML=us.map(k=>{const j=R[k];return `<div class="card" style="border-top:3px solid ${css(j.color)}"><h4 style="margin-top:0">${j.name}</h4><p style="font-size:13px;color:var(--text-secondary)">${j.model}</p><p style="font-size:13.5px"><span class="yes">+</span> ${j.plus[0]}<br><span class="no">−</span> ${j.minus[0]}</p><p style="font-size:13px;margin-bottom:0"><b>Bottom line:</b> ${j.verdict}</p></div>`}).join('');
+}
+
+/* ===== charts ===== */
+function charts(){
+  barChart({id:'cBRA',title:'PJM capacity price, by delivery year',sub:'$/MW-day (RTO). Hatched = extra price PJM estimates without the cap.',
+    cats:['16/17','17/18','18/19','19/20','20/21','21/22','22/23','23/24','24/25','25/26','26/27','27/28','28/29'],stacked:true,yMax:600,dp:2,
+    series:[{name:'Cleared price',color:'--s1',values:[59.37,120,164.77,100,76.53,140,50,34.13,28.92,269.92,329.17,333.44,325]},
+            {name:'Without cap (est.)',color:'--s2',hatch:true,values:[0,0,0,0,0,0,0,0,0,0,0,0,229.72]}],
+    tipFmt:v=>'$'+fmt(v,2),note:'Source: PJM BRA results. 2028/29 uncapped estimate $554.72 (PJM).'});
+  lineChart({id:'cPJMLoad',title:'PJM peak-load forecast: winter is catching up',sub:'GW, PJM 2026 Long-Term Load Forecast (published points).',
+    xv:[2027,2035,2036,2041,2046],xTicks:[2027,2031,2036,2041,2046],yMax:280,ticks:7,yTitle:'GW',labelR:60,dp:1,
+    series:[{name:'Summer peak',color:'--s2',markers:true,values:[160.5,null,222.1,241,253.1],label:'Summer'},
+            {name:'Winter peak',color:'--s1',markers:true,values:[142.5,199.6,null,224,null],label:'Winter'}],
+    tipFmt:v=>fmt(v,1)+' GW',note:'Winter is forecast to grow ~4%/yr over the next decade vs 3.6% for summer, which is why a seasonal market is being designed.'});
+  const cats=['Alberta\n(requests)','Ontario\n(pipeline)','BC\n(2-yr cap)','Québec\n(2035 plan)'],mw=[19565,10000,400,1000],peak=[12785,24862,11100,38000];
+  barChart({id:'cPeakShare',title:'Data-centre demand as a share of today\'s provincial peak',sub:'%, my calculation from operator data. Dashed line = 100% (a second grid the size of the first).',
+    cats,h:310,mb:42,yMax:180,ticks:6,refLine:100,refLabel:'= entire current peak',
+    series:[{name:'% of peak',color:'--s3',colors:['--s3','--s2','--neutral','--neutral'],values:mw.map((v,i)=>v/peak[i]*100)}],
+    topLabel:(i,v)=>fmt(v)+'%',tipFmt:v=>fmt(v,1)+'%',dp:1,
+    tipExtra:i=>`<div class="r"><span>Data-centre MW</span><b>${fmt(mw[i])}</b></div><div class="r"><span>Peak MW</span><b>${fmt(peak[i])}</b></div>`,
+    note:'Peaks: AESO 12,785 MW (Dec 2025); IESO 24,862 MW (Jun 2025); BC ≈11,100 MW (2025); Hydro-Québec >38,000 MW (Jan 2026).'});
+  calc();
+  lineChart({id:'cAPO',title:'Ontario electricity demand outlook to 2050',sub:'Net annual energy, TWh: IESO 2026 Annual Planning Outlook scenarios.',
+    xv:[2026,2030,2034,2038,2042,2046,2050],yMax:320,ticks:4,yTitle:'TWh',labelR:64,dp:0,
+    series:[{name:'High',color:'--s2',values:[152,180,210,245,265,282,297],label:'High 297'},{name:'Reference',color:'--s1',values:[152,170,192,212,228,240,250],label:'Ref. 250'},{name:'Low',color:'--s3',values:[152,162,175,185,195,202,207],label:'Low 207'}],
+    tipFmt:v=>fmt(v)+' TWh',note:'2050 endpoints as published by IESO; interim years approximate.'});
+  barChart({id:'cIESO',title:'Ontario capacity auction: summer vs winter price',sub:'CAD $/MW-business day, by obligation period (IESO).',
+    cats:['2024 auction\n(2025/26)','2025 auction\n(2026/27)'],h:300,mb:42,dp:2,
+    series:[{name:'Summer (May–Oct)',color:'--s2',values:[332.39,645.24]},{name:'Winter (Nov–Apr)',color:'--s1',values:[139.00,725.31]}],
+    tipFmt:v=>'$'+fmt(v,2),note:'2026 auction (Nov 25–26) targets 1,800 MW summer / 1,200 MW winter; results Dec 3, 2026.'});
+  barChart({id:'cFlex',title:'Ontario\'s peak-reduction tools',sub:'MW of demand reduction on the 2025 system peak, and demand response cleared in the 2026/27 capacity auction.',
+    cats:['Peak Perks\n(VPP)','Other DSM\nprograms','ICI (large-user\npeak shaving)','DR cleared in\ncapacity auction'],h:300,mb:42,
+    series:[{name:'MW',color:'--s2',colors:['--s2','--s2','--neutral','--s1'],values:[200,316,1600,748]}],topLabel:(i,v)=>fmt(v)+' MW',
+    tipFmt:v=>fmt(v)+' MW',dp:0,note:'Sources: IESO 2025 Year in Review (peak 24,862 MW, Jun 24 2025); 2026/27 capacity auction. For scale: one 2,000 MW data-centre campus with 2-h UPS would exceed ICI\u2019s whole peak response.'});
+  gantt();
+}
+const CJ=[{n:'Alberta',mw:19565,twh:90.4,scale:true},{n:'Ontario',mw:10000,twh:145.6,scale:true},{n:'Québec',mw:1000,twh:184.9,scale:false},{n:'BC',mw:400,twh:56.0,scale:false}];
+function calc(){
+  const mat=+document.getElementById('sMat').value/100,lf=+document.getElementById('sLF').value/100;
+  document.getElementById('vMat').textContent=Math.round(mat*100)+'%';document.getElementById('vLF').textContent=Math.round(lf*100)+'%';
+  const add=CJ.map(j=>j.mw*(j.scale?mat:1)*lf*8760/1e6);
+  barChart({id:'cCalc',title:'Added data-centre energy vs today\'s annual demand',sub:`At ${Math.round(mat*100)}% built, ${Math.round(lf*100)}% load factor. Labels = % increase.`,
+    cats:CJ.map(j=>j.n),stacked:true,h:330,w:820,yMax:Math.max(250,niceMax(Math.max(...CJ.map((j,i)=>j.twh+add[i]))*1.08)),
+    series:[{name:'Current annual demand (TWh)',color:'--neutral',values:CJ.map(j=>j.twh)},{name:'Added by data centres (TWh)',color:'--s7',values:add}],
+    topLabel:i=>'+'+fmt(add[i]/CJ[i].twh*100)+'%',tipFmt:v=>fmt(v,1)+' TWh',noTable:true,
+    note:'Annual demand: AESO 2025 90.4 TWh; IESO 2025 145.6 TWh; Hydro-Québec 2025 Québec sales 184.9 TWh; BC Hydro F2025 domestic sales 56.0 TWh.'});
+}
+document.getElementById('sMat').addEventListener('input',calc);document.getElementById('sLF').addEventListener('input',calc);
+function gantt(){
+  const host=document.getElementById('cGantt');host.innerHTML='';
+  host.insertAdjacentHTML('beforeend','<div class="ct">How long until each option delivers power?</div><div class="cs">Indicative years from decision to power.</div><div class="legend"><span><i class="box" style="background:'+css('--s3')+'"></i>Demand-side / use what exists</span><span><i class="box" style="background:'+css('--s4')+'"></i>Fast new supply</span><span><i class="box" style="background:'+css('--s1')+'"></i>Large firm supply &amp; wires</span></div>');
+  const tip=document.createElement('div');tip.className='tip';host.appendChild(tip);
+  const rows=[['Existing grid headroom',0,2,'--s3'],['Flexible connection + on-site UPS',0,2,'--s3'],['Demand response / VPP',0.5,1,'--s3'],['Battery storage (4-h)',1,2,'--s4'],['Recip. engines / aero turbines',1,3,'--s4'],['Solar / wind + storage',2,4,'--s4'],['Heavy-duty gas / combined cycle',4,6,'--s1'],['New transmission',5,10,'--s1'],['SMR (BWRX-300)',5,8,'--s1'],['Large hydro / nuclear',10,15,'--s1']];
+  const W=1120,rowH=30,m={l:250,r:30,t:10,b:30},H=m.t+m.b+rowH*rows.length,X=v=>m.l+(W-m.l-m.r)*v/15;
+  const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Lead times'},host);const g=el('g',{class:'axis'},svg);
+  for(let v=0;v<=15;v++){el('line',{x1:X(v),x2:X(v),y1:m.t,y2:H-m.b,class:v?'gridline':'baseline'},g);const t=el('text',{x:X(v),y:H-m.b+16,'text-anchor':'middle'},g);t.textContent=v===15?'15 yrs':v;}
+  [[0,3,'SHORT RUN'],[3,7,'MEDIUM'],[7,15,'LONG RUN']].forEach(([a,b,l])=>{const t=el('text',{x:(X(a)+X(b))/2,y:H-2,'text-anchor':'middle','font-size':10.5,'font-weight':700,fill:css('--text-muted')},svg);t.textContent=l;});
+  rows.forEach((r,i)=>{const y=m.t+i*rowH;const t=el('text',{x:m.l-10,y:y+rowH/2+4,'text-anchor':'end','font-size':12.5,fill:css('--text-primary')},svg);t.textContent=r[0];
+    const x=X(r[1]),w=Math.max(6,X(r[2])-X(r[1]));el('rect',{x,y:y+7,width:w,height:rowH-14,rx:4,fill:css(r[3])},svg);
+    const lt=el('text',{x:x+w+6,y:y+rowH/2+4,'font-size':11,fill:css('--text-secondary')},svg);lt.textContent=`${r[1]}–${r[2]} yrs`;});
+  host.insertAdjacentHTML('beforeend','<div class="note">Indicative ranges compiled from EIA, OEM disclosures, OPG and IESO conference material.</div>');
+}
+
+/* ===== router (works in sandboxed previews: no reliance on URL hash) ===== */
+let current='overview';
+function go(p){
+  if(!document.getElementById('p-'+p))p='overview';current=p;
+  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='p-'+p));
+  document.querySelectorAll('#tabs a').forEach(a=>a.classList.toggle('on',a.dataset.p===p));
+  if(p==='canada'){drawCAN();canPanel();focusCard();}
+  try{history.replaceState(null,'','#'+p);}catch(e){}
+  try{window.scrollTo({top:0,behavior:'instant'});}catch(e){window.scrollTo(0,0);}
+}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();go(a.dataset.go);});
+function drawAll(){drawNA();naPanel();drawPJM();drawCAN();canPanel();scorecards();charts();focusCard();}
+drawAll();
+let start='overview';try{const h=(location.hash||'').slice(1);if(h)start=h;}catch(e){}
+go(start);
+document.getElementById('themeBtn').addEventListener('click',()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';drawAll();});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawAll);
+})();
+</script>
+</body>
+</html>
