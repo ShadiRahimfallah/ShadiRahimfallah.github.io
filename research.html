@@ -105,6 +105,11 @@ details.abstract .paper-dimensions {
 .paper .pbody p + p { margin-top: 8px; }
 .paper .pnote { color: var(--muted); font-size: 14px; }
 .paper .jmp-links { margin-top: 4px; }
+.paper .plinks { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.paper .plinks a { text-decoration: none; display: inline-block; border: 1px solid var(--burgundy); color: var(--burgundy); font-size: 13px; font-weight: 600; padding: 2px 11px; line-height: 1.6; }
+.paper .plinks a:hover { background: var(--burgundy); color: #fff; text-decoration: none; }
+.paper .plinks a.primary { background: var(--burgundy); color: #fff; }
+.paper .plinks a.primary:hover { background: var(--burgundy-dark); }
 .paper .paper-dimensions { margin-top: 4px; }
 
 @media (max-width: 900px) { .research [id] { scroll-margin-top: 120px; } }
@@ -146,7 +151,7 @@ details.abstract .paper-dimensions {
     <div class="plist">
 
       <details class="paper" id="jmp">
-        <summary><span class="ptitle">Financial Frictions, Used Capital, and Misallocation</span><span class="ptag">Job Market Paper &bull; Macro-Finance / Applied Micro</span></summary>
+        <summary><span class="ptitle">Financial Frictions, Used Capital, and Misallocation</span><span class="ptag">Job Market Paper &bull; Macro-Finance / Applied Micro</span><span class="plinks"><a class="primary" href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7571042" target="_blank" rel="noopener">SSRN</a><a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">Code &amp; data</a></span></summary>
         <div class="pbody">
           <div class="paper-dimensions">
             <div class="dim-box">
@@ -165,12 +170,6 @@ details.abstract .paper-dimensions {
               </ul>
             </div>
           </div>
-          <ul class="jmp-links">
-            <li><a class="primary" href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_Paper.pdf">Paper (PDF)</a></li>
-            <li><a href="files/Shadi_Rahimfallah_PhD_Econ_YorU_Jobmarket_slide.pdf">Slides</a></li>
-            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7571042" target="_blank" rel="noopener">SSRN</a></li>
-            <li><a href="https://doi.org/10.5281/zenodo.22947884" target="_blank" rel="noopener">Code &amp; data</a></li>
-          </ul>
         </div>
       </details>
 
@@ -183,7 +182,7 @@ details.abstract .paper-dimensions {
       </details>
 
       <details class="paper" id="second-hand-machines">
-        <summary><span class="ptitle">Second-Hand Machines, Firm Capability, and Technology Adoption</span><span class="ptag">Working Paper &bull; Empirical IO / Development</span></summary>
+        <summary><span class="ptitle">Second-Hand Machines, Firm Capability, and Technology Adoption</span><span class="ptag">Working Paper &bull; Empirical IO / Development</span><span class="plinks"><a class="primary" href="files/Shadi_Rahimfallah_SecondHand_Machines_Paper.pdf">Paper (PDF)</a><a href="files/Shadi_Rahimfallah_SecondHand_Machines_Slides.pdf">Slides</a></span></summary>
         <div class="pbody">
           <div class="paper-dimensions">
             <div class="dim-box">
@@ -211,10 +210,6 @@ details.abstract .paper-dimensions {
             </div>
           </div>
           <p>Many firms in developing countries produce only with second-hand machines. Is it because they cannot pay for new machines, or because they cannot use the technology new machines carry? Using the World Bank FAT survey (15 countries) and a panel of Vietnamese small and medium manufacturers, I show that capability strongly predicts using only second-hand machines, wealth does not once firm size is held fixed, and these firms are not short of capital. A calibrated model of new versus used capital, with an adoption cost that falls with capability and a collateral constraint, attributes 96% of these firms to a lack of know-how and 4% to finance.</p>
-          <ul class="jmp-links">
-            <li><a class="primary" href="files/Shadi_Rahimfallah_SecondHand_Machines_Paper.pdf">Paper (PDF)</a></li>
-            <li><a href="files/Shadi_Rahimfallah_SecondHand_Machines_Slides.pdf">Slides</a></li>
-          </ul>
         </div>
       </details>
 
