@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Canada's Energy Goes: Energy Flows by Province, 2024–2025</title>
+<style>
+:root{color-scheme:light;--bg:#f6f5f2;--surface-1:#fcfcfb;--surface-2:#f0efeb;--line:#e2e0da;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#7a7873;
+--hydro:#2a78d6;--gas:#eb6834;--oil:#7d6b5d;--ngl:#eda100;--coal:#3d3c39;--elec:#2a78d6;--loss:#b9b7b0;--accent:#2a78d6}
+@media (prefers-color-scheme: dark){:root:where(:not([data-theme="light"])){color-scheme:dark;--bg:#121211;--surface-1:#1a1a19;--surface-2:#232321;--line:#33322f;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#8f8d86;--hydro:#3987e5;--gas:#d95926;--oil:#a08c7c;--ngl:#c98500;--coal:#8f8d86;--elec:#3987e5;--loss:#5a5955;--accent:#3987e5}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121211;--surface-1:#1a1a19;--surface-2:#232321;--line:#33322f;--text-primary:#f0efec;--text-secondary:#c3c2b7;--text-muted:#8f8d86;--hydro:#3987e5;--gas:#d95926;--oil:#a08c7c;--ngl:#c98500;--coal:#8f8d86;--elec:#3987e5;--loss:#5a5955;--accent:#3987e5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-primary);font:15.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:48px 0 26px;border-bottom:1px solid var(--line)}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:600}
+h1{font-size:36px;line-height:1.15;margin:8px 0 12px;letter-spacing:-.01em;max-width:900px}
+h2{font-size:24px;margin:0 0 6px}
+h3{font-size:17px;margin:18px 0 6px}
+.lede{font-size:17.5px;color:var(--text-secondary);max-width:860px;margin:0}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+.sub{color:var(--text-secondary);margin:0 0 18px;max-width:880px}
+.card{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:900px){.g4,.g2{grid-template-columns:1fr 1fr}h1{font-size:28px}}
+.stat .num{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .lab{font-size:13px;color:var(--text-secondary);margin-top:4px}
+.controls{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-bottom:12px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface-1)}
+.seg button{font:inherit;font-size:13px;border:0;background:transparent;color:var(--text-secondary);padding:6px 11px;cursor:pointer;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--text-primary);color:var(--bg);font-weight:600}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);font-weight:600;margin-right:4px}
+.chart{background:var(--surface-1);border:1px solid var(--line);border-radius:12px;padding:16px 18px 12px;position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.ct{font-weight:650;font-size:15.5px}.cs{font-size:12.5px;color:var(--text-secondary);margin-bottom:8px}
+.note{font-size:12px;color:var(--text-muted);margin-top:6px}
+.tip{position:absolute;pointer-events:none;background:var(--surface-1);border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.14);border-radius:8px;padding:8px 10px;font-size:12.5px;max-width:300px;opacity:0;transition:opacity .08s;z-index:5}
+.tip b{font-variant-numeric:tabular-nums}
+path.link{mix-blend-mode:multiply;cursor:pointer;transition:opacity .12s}
+:root[data-theme="dark"] path.link{mix-blend-mode:screen}
+svg.dim path.link{opacity:.12}
+svg.dim path.link.hl{opacity:.85}
+rect.node{cursor:pointer}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface-1);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.t th,table.t td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t th{background:var(--surface-2);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary)}
+table.t td.n{text-align:right;font-variant-numeric:tabular-nums}
+table.t tr:last-child td{border-bottom:none}
+.scroll{overflow-x:auto}
+.callout{border-left:3px solid #6250d6;background:var(--surface-1);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0 0;color:var(--text-secondary)}
+.callout b{color:var(--text-primary)}
+.pill{display:inline-block;font-size:11px;font-weight:650;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2)}
+footer{padding:30px 0 60px;color:var(--text-secondary);font-size:13px}
+#themeBtn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface-1);color:var(--text-secondary);border-radius:6px;padding:5px 10px;cursor:pointer;float:right}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <button id="themeBtn" type="button">◐ Theme</button>
+  <div class="kicker">Data report · Statistics Canada energy balance</div>
+  <h1>Where Canada's energy goes: fuels, electricity and end uses, 2024–2025</h1>
+  <p class="lede">A flow (Sankey) diagram of Canada's domestic energy use, built from Statistics Canada's official energy balance. Pick Canada or a province to see which fuels feed electricity, which go straight to homes, industry and vehicles, and how much energy thermal power plants lose as heat.</p>
+</div></header>
+
+<section><div class="wrap">
+  <div class="controls">
+    <span class="lbl">Region</span><div class="seg" id="geoSeg"></div>
+    <span class="lbl">Year</span><div class="seg" id="yearSeg"></div>
+  </div>
+  <div class="grid g4" id="kpis"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="chart" id="sankeyCard">
+    <div class="ct" id="sTitle"></div>
+    <div class="cs">Petajoules (PJ). Width of each band = energy flow. Hover a band or a box for values; click a box to highlight its flows.</div>
+    <svg id="sankey" role="img" aria-label="Sankey diagram of energy flows"></svg>
+    <div class="tip" id="tip"></div>
+    <div class="note" id="sNote"></div>
+  </div>
+  <div class="callout"><b>How to read it.</b> On the left are the fuels Canadians use at home: electricity from hydro, nuclear, wind and solar, and fossil fuels. Some fossil fuel is burned in power plants (the middle box). On the right is where the energy ends up: homes, businesses, industry, vehicles, the energy industry's own use, and materials such as plastics feedstock. The grey band is energy lost as heat when fuel is burned to make electricity.</div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What the data shows</h2>
+  <div class="grid g2" id="insights"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>The numbers behind the chart</h2>
+  <p class="sub">Final energy demand by fuel and sector, petajoules, for the region and year selected.</p>
+  <div class="scroll" id="tableWrap"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Which Canadian energy data is available?</h2>
+  <div class="scroll"><table class="t">
+    <thead><tr><th>Dataset</th><th>Publisher</th><th>What it covers</th><th>Use here</th></tr></thead>
+    <tbody>
+      <tr><td><b>Report on Energy Supply and Demand (RESD)</b>, table 25-10-0029-01</td><td>Statistics Canada</td><td>Annual energy balance in terajoules, 1995–2025, for Canada, regions and provinces: production, trade, conversion to electricity and refined products, and final use by sector</td><td><span class="pill">Used</span> All flows in this chart</td></tr>
+      <tr><td><b>Consolidated Energy Statistics Table (CEST)</b></td><td>Statistics Canada</td><td>Monthly national supply and demand by fuel, in terajoules</td><td>Not used (national only; good for recent months)</td></tr>
+      <tr><td><b>Electric power generation by type</b>, table 25-10-0015-01</td><td>Statistics Canada</td><td>Monthly electricity generation by source (hydro, nuclear, wind, solar, gas, coal…) by province</td><td>Next step: split the "hydro, nuclear, wind &amp; solar" box into each source</td></tr>
+      <tr><td><b>Canada's Energy Future 2023</b></td><td>Canada Energy Regulator</td><td>Scenarios to 2050 (Current Measures, Canada Net-zero, Global Net-zero), by province, with open CSV data</td><td>Next step: a "today vs 2050 net-zero" comparison</td></tr>
+      <tr><td><b>Useful vs wasted energy at the point of use</b></td><td>No official Canadian series</td><td>How much of each fuel does useful work in an engine, furnace or motor</td><td>Not shown: it needs efficiency assumptions, not official data</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Method and caveats</h2>
+  <div class="card"><ul style="margin:0;padding-left:18px">
+    <li><b>Source:</b> Statistics Canada, table 25-10-0029-01, retrieved November 2026 through Statistics Canada's Web Data Service. Values are converted from terajoules to petajoules (1 PJ = 1,000 TJ) and rounded. 2025 is the latest year published.</li>
+    <li><b>Electricity from fuels:</b> fuel burned in power plants (by utilities and industry) flows into the Electricity box. What comes out is Statistics Canada's "secondary electricity, thermal". The difference is the conversion loss.</li>
+    <li><b>Hydro, nuclear, wind &amp; solar:</b> Statistics Canada reports these together as "primary electricity". The band equals electricity used in the region minus thermal generation, so it is domestic use after trade and grid losses. Electricity exports and imports are listed in the totals.</li>
+    <li><b>Oil products</b> are refined products as used (gasoline, diesel, jet fuel, heavy fuel oil…). Refinery losses and crude-oil exports are not drawn. <b>NGLs</b> are natural gas liquids (propane, ethane, butane), mostly used as petrochemical feedstock.</li>
+    <li><b>Commercial &amp; institutional</b> includes public administration. "Energy industry own use" is Statistics Canada's "producer consumption". The statistical difference is left out.</li>
+    <li><b>Suppressed values:</b> Statistics Canada withholds some provincial cells for confidentiality. They are counted as zero, so small provinces may be slightly understated.</li>
+    <li>This chart covers <b>domestic</b> energy use. Canada also produces far more energy than it uses: most crude oil and natural gas is exported (see the export figure above the chart).</li>
+  </ul></div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b>Source:</b> Statistics Canada. <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2510002901">Table 25-10-0029-01, Supply and demand of primary and secondary energy in terajoules, annual</a>. DOI: <a href="https://doi.org/10.25318/2510002901-eng">10.25318/2510002901-eng</a>. Contains information licensed under the Statistics Canada Open Licence.</p>
+  <p style="color:var(--text-muted)">This report is my own analysis. All errors are my own.</p>
+</div></footer>
+
+<script>
+const DATA={"1":{"2024":{"ein":{"coal":179,"gas":1108,"oil":64,"ngl":0,"bio":0,"total":1352},"th":516,"el":[715,34,39,646,50,490,97,0],"f":{"gas":[1688,215,55,607,28,530,659,191],"oil":[279,2337,195,40,46,105,462,408],"ngl":[68,10,8,13,0,33,8,601],"coal":[117,0,0,0,0,0,0,4],"steam":[35,0,0,0,0,0,0,0]},"ex":{"elexp":130,"elimp":85,"prodPrimary":24665,"exportsPrimary":14599,"elprod":1723},"nulls":2},"2025":{"ein":{"coal":165,"gas":1167,"oil":59,"ngl":0,"bio":0,"total":1391},"th":535,"el":[694,35,40,674,52,500,95,0],"f":{"gas":[1703,244,59,651,29,579,682,182],"oil":[280,2364,191,40,45,104,449,394],"ngl":[76,13,9,15,0,38,19,609],"coal":[107,0,0,0,0,0,0,5],"steam":[33,0,0,0,0,0,0,0]},"ex":{"elexp":115,"elimp":92,"prodPrimary":25484,"exportsPrimary":15074,"elprod":1767},"nulls":2}},"2":{"2024":{"ein":{"coal":62,"gas":47,"oil":35,"ngl":0,"bio":0,"total":144},"th":53,"el":[37,0,3,57,2,32,7,0],"f":{"gas":[20,1,0,1,3,8,22,0],"oil":[21,160,6,20,8,14,0,8],"ngl":[1,0,0,1,0,3,0,5],"coal":[5,0,0,0,0,0,0,0],"steam":[3,0,0,0,0,0,0,0]},"ex":{"elexp":15,"elimp":3,"prodPrimary":0,"exportsPrimary":488,"elprod":180},"nulls":4},"2025":{"ein":{"coal":79,"gas":34,"oil":31,"ngl":0,"bio":0,"total":144},"th":52,"el":[35,0,3,58,2,33,7,0],"f":{"gas":[19,1,0,1,3,8,24,0],"oil":[20,160,6,20,8,14,0,8],"ngl":[1,0,0,1,0,3,0,5],"coal":[4,0,0,0,0,0,0,0],"steam":[4,0,0,0,0,0,0,0]},"ex":{"elexp":11,"elimp":2,"prodPrimary":0,"exportsPrimary":598,"elprod":165},"nulls":4}},"7":{"2024":{"ein":{"coal":0,"gas":2,"oil":6,"ngl":0,"bio":0,"total":8},"th":8,"el":[306,2,7,258,27,112,6,0],"f":{"gas":[146,7,1,24,4,58,0,1],"oil":[54,496,20,10,7,32,28,75],"ngl":[2,1,3,1,0,5,1,8],"coal":[10,0,0,0,0,0,0,4],"steam":[5,0,0,0,0,0,0,0]},"ex":{"elexp":21,"elimp":14,"prodPrimary":671,"exportsPrimary":210,"elprod":661},"nulls":2},"2025":{"ein":{"coal":0,"gas":3,"oil":5,"ngl":0,"bio":0,"total":8},"th":7,"el":[296,2,8,278,28,114,5,0],"f":{"gas":[141,8,1,28,5,69,0,1],"oil":[56,511,21,10,6,33,28,68],"ngl":[2,1,4,1,0,6,1,8],"coal":[11,0,0,0,0,0,0,4],"steam":[5,0,0,0,0,0,0,0]},"ex":{"elexp":15,"elimp":27,"prodPrimary":704,"exportsPrimary":205,"elprod":695},"nulls":2}},"8":{"2024":{"ein":{"coal":2,"gas":241,"oil":1,"ngl":0,"bio":0,"total":243},"th":102,"el":[140,2,11,164,8,189,15,0],"f":{"gas":[271,34,35,287,5,223,0,22],"oil":[57,787,26,8,11,31,88,177],"ngl":[7,4,3,7,0,10,0,90],"coal":[99,0,0,0,0,0,0,0],"steam":[6,0,0,0,0,0,0,0]},"ex":{"elexp":46,"elimp":2,"prodPrimary":655,"exportsPrimary":373,"elprod":494},"nulls":2},"2025":{"ein":{"coal":0,"gas":296,"oil":2,"ngl":0,"bio":0,"total":298},"th":127,"el":[136,2,11,168,8,192,13,0],"f":{"gas":[256,40,38,328,5,261,0,21],"oil":[58,774,25,9,11,31,86,168],"ngl":[7,5,3,8,0,12,2,91],"coal":[89,0,0,0,0,0,0,0],"steam":[6,0,0,0,0,0,0,0]},"ex":{"elexp":44,"elimp":8,"prodPrimary":655,"exportsPrimary":369,"elprod":497},"nulls":2}},"9":{"2024":{"ein":{"coal":0,"gas":1,"oil":0,"ngl":0,"bio":0,"total":1},"th":1,"el":[16,7,4,31,1,20,0,0],"f":{"gas":[25,5,0,19,1,25,0,11],"oil":[6,91,23,0,3,4,0,5],"ngl":[2,0,1,0,0,1,0,2],"coal":[0,0,0,0,0,0,0,0],"steam":[0,0,0,0,0,0,0,0]},"ex":{"elexp":22,"elimp":11,"prodPrimary":0,"exportsPrimary":715,"elprod":109},"nulls":1},"2025":{"ein":{"coal":0,"gas":3,"oil":0,"ngl":0,"bio":0,"total":3},"th":1,"el":[17,7,4,32,1,20,0,0],"f":{"gas":[25,8,0,20,1,27,0,9],"oil":[6,92,21,0,3,3,0,6],"ngl":[2,0,1,0,0,1,0,2],"coal":[0,0,0,0,0,0,0,0],"steam":[0,0,0,0,0,0,0,0]},"ex":{"elexp":12,"elimp":18,"prodPrimary":0,"exportsPrimary":741,"elprod":95},"nulls":2}},"10":{"2024":{"ein":{"coal":93,"gas":114,"oil":1,"ngl":0,"bio":0,"total":208},"th":72,"el":[41,13,4,13,1,18,2,0],"f":{"gas":[157,35,3,37,3,28,58,17],"oil":[13,118,60,0,7,4,12,12],"ngl":[3,0,0,0,0,0,0,10],"coal":[0,0,0,0,0,0,0,0],"steam":[3,0,0,0,0,0,0,0]},"ex":{"elexp":2,"elimp":0,"prodPrimary":1318,"exportsPrimary":1622,"elprod":17},"nulls":3},"2025":{"ein":{"coal":86,"gas":118,"oil":1,"ngl":0,"bio":0,"total":205},"th":70,"el":[41,13,5,14,1,18,2,0],"f":{"gas":[154,36,3,39,4,29,60,17],"oil":[12,115,59,0,7,4,14,12],"ngl":[3,0,0,0,0,1,0,10],"coal":[0,0,0,0,0,0,0,0],"steam":[4,0,0,0,0,0,0,0]},"ex":{"elexp":5,"elimp":0,"prodPrimary":1268,"exportsPrimary":1634,"elprod":20},"nulls":3}},"11":{"2024":{"ein":{"coal":22,"gas":673,"oil":9,"ngl":0,"bio":0,"total":706},"th":256,"el":[101,8,7,43,7,61,63,0],"f":{"gas":[1019,105,6,162,9,134,476,140],"oil":[72,338,41,0,5,9,296,114],"ngl":[51,1,1,2,0,10,6,471],"coal":[0,0,0,0,0,0,0,0],"steam":[17,0,0,0,0,0,0,0]},"ex":{"elexp":2,"elimp":2,"prodPrimary":0,"exportsPrimary":8307,"elprod":66},"nulls":3},"2025":{"ein":{"coal":0,"gas":683,"oil":9,"ngl":0,"bio":0,"total":692},"th":254,"el":[100,9,7,44,7,63,63,0],"f":{"gas":[1063,121,6,160,9,132,474,133],"oil":[75,351,41,0,4,8,283,115],"ngl":[57,1,1,2,0,12,13,474],"coal":[0,0,0,0,0,0,0,0],"steam":[14,0,0,0,0,0,0,0]},"ex":{"elexp":4,"elimp":1,"prodPrimary":0,"exportsPrimary":8463,"elprod":76},"nulls":3}},"12":{"2024":{"ein":{"coal":0,"gas":28,"oil":0,"ngl":0,"bio":0,"total":29},"th":20,"el":[73,2,3,79,4,56,2,0],"f":{"gas":[49,28,10,77,3,54,103,1],"oil":[48,331,19,0,3,10,0,17],"ngl":[2,4,0,1,0,2,0,14],"coal":[2,0,0,0,0,0,0,0],"steam":[1,0,0,0,0,0,0,0]},"ex":{"elexp":23,"elimp":52,"prodPrimary":4680,"exportsPrimary":2883,"elprod":194},"nulls":5},"2025":{"ein":{"coal":0,"gas":29,"oil":1,"ngl":0,"bio":0,"total":30},"th":20,"el":[69,2,3,79,4,58,2,0],"f":{"gas":[45,30,11,75,3,53,123,1],"oil":[46,345,18,0,3,10,0,16],"ngl":[3,5,0,2,0,3,0,18],"coal":[2,0,0,0,0,0,0,0],"steam":[1,0,0,0,0,0,0,0]},"ex":{"elexp":24,"elimp":37,"prodPrimary":4858,"exportsPrimary":3064,"elprod":216},"nulls":4}}};
+(function(){
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+const fmt=v=>Math.round(v).toLocaleString();
+const GEO={1:'Canada',2:'Atlantic provinces',7:'Quebec',8:'Ontario',9:'Manitoba',10:'Saskatchewan',11:'Alberta',12:'British Columbia'};
+const ORDER=[1,12,11,10,9,8,7,2];
+const SECT=['Industry','Transportation','Agriculture','Residential','Commercial & institutional','Energy industry own use','Non-energy (feedstocks)'];
+let geo='1',year='2025',focus=null;
+
+function build(){
+  const r=DATA[geo][year];
+  const el7=r.el; // [31,42,43,44,45,46,16,17]
+  const sec=v=>[v[0],v[1],v[2],v[3],v[4]+v[5],v[6],v[7]]; // merge 45+46
+  const elS=sec(el7), gasS=sec(r.f.gas), oilS=sec(r.f.oil), nglS=sec(r.f.ngl);
+  const coalS=sec(r.f.coal.map((v,i)=>v+r.f.steam[i]));
+  const elUse=elS.reduce((a,b)=>a+b,0);
+  const fuelIn={gas:r.ein.gas,oil:r.ein.oil,coal:r.ein.coal};
+  const fuelInTot=fuelIn.gas+fuelIn.oil+fuelIn.coal;
+  const loss=Math.max(0,fuelInTot-r.th);
+  const primEl=Math.max(0,elUse-r.th);
+  const src=[
+    {id:'hyd',name:'Hydro, nuclear, wind & solar',color:'--hydro'},
+    {id:'gas',name:'Natural gas',color:'--gas'},
+    {id:'oil',name:'Oil products',color:'--oil'},
+    {id:'ngl',name:'Natural gas liquids',color:'--ngl'},
+    {id:'coal',name:'Coal, coke & steam',color:'--coal'}];
+  const sinks=SECT.map((n,i)=>({id:'s'+i,name:n})).concat([{id:'loss',name:'Lost as heat in power plants'}]);
+  const links=[];
+  const add=(s,t,v,c)=>{if(v>0.4)links.push({s,t,v,c});};
+  add('hyd','elec',primEl,'--hydro');add('gas','elec',fuelIn.gas,'--gas');add('oil','elec',fuelIn.oil,'--oil');add('coal','elec',fuelIn.coal,'--coal');
+  elS.forEach((v,i)=>add('elec','s'+i,v,'--elec'));add('elec','loss',loss,'--loss');
+  gasS.forEach((v,i)=>add('gas','s'+i,v,'--gas'));oilS.forEach((v,i)=>add('oil','s'+i,v,'--oil'));
+  nglS.forEach((v,i)=>add('ngl','s'+i,v,'--ngl'));coalS.forEach((v,i)=>add('coal','s'+i,v,'--coal'));
+  return {r,src,sinks,links,elUse,fuelInTot,loss,primEl,secs:{elS,gasS,oilS,nglS,coalS}};
+}
+
+function draw(){
+  const M=build(),svg=document.getElementById('sankey');svg.innerHTML='';
+  const W=1120,H=640,padT=48,padB=14,x0=210,x1=520,x2=860,nw=16,MIN=26;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const nodes={};
+  const val=id=>M.links.filter(l=>l.s===id).reduce((a,l)=>a+l.v,0)||M.links.filter(l=>l.t===id).reduce((a,l)=>a+l.v,0);
+  const srcs=M.src.filter(n=>val(n.id)>0), sinks=M.sinks.filter(n=>M.links.some(l=>l.t===n.id));
+  const total=srcs.reduce((a,n)=>a+val(n.id),0);
+  const avail=H-padT-padB;
+  const fitK=(list,gap)=>{let k=(avail-gap*(list.length-1))/total;for(let i=0;i<6;i++){const extra=list.reduce((a,n)=>a+Math.max(0,MIN-val(n.id)*k),0);k=(avail-gap*(list.length-1)-extra)/total;}return k;};
+  const gapL=12,gapR=10;
+  const k=Math.min(fitK(srcs,gapL),fitK(sinks,gapR));
+  const place=(list,gap,x,extra)=>{const used=list.reduce((a,n)=>a+Math.max(MIN,val(n.id)*k),0)+gap*(list.length-1);let y=padT+(avail-used)/2;
+    list.forEach(n=>{const h=val(n.id)*k,slot=Math.max(MIN,h);nodes[n.id]={...n,...extra(n),x,y:y+(slot-h)/2,h,v:val(n.id)};y+=slot+gap;});};
+  place(srcs,gapL,x0,()=>({}));
+  place(sinks,gapR,x2,n=>({color:n.id==='loss'?'--loss':'--text-muted'}));
+  const ev=val('elec');
+  // electricity node: vertical position near its sources' weighted center
+  const ein=M.links.filter(l=>l.t==='elec');
+  let cy=ein.reduce((a,l)=>a+(nodes[l.s].y+nodes[l.s].h/2)*l.v,0)/ev;
+  const eh=ev*k; let ey=Math.max(padT,Math.min(H-padB-eh,cy-eh/2-30));
+  nodes.elec={id:'elec',name:'Electricity',x:x1,y:ey,h:eh,v:ev,color:'--elec'};
+  // link ordering
+  const outOff={},inOff={};
+  const ordered=[...M.links].sort((a,b)=>{const ta=nodes[a.t],tb=nodes[b.t];return ta.y-tb.y;});
+  const tip=document.getElementById('tip'),host=document.getElementById('sankeyCard');
+  const showTip=(e,html)=>{tip.innerHTML=html;tip.style.opacity=1;const r=host.getBoundingClientRect();let L=e.clientX-r.left+14;if(L+tip.offsetWidth>r.width-6)L=e.clientX-r.left-tip.offsetWidth-14;tip.style.left=L+'px';tip.style.top=(e.clientY-r.top-tip.offsetHeight/2)+'px';};
+  const hideTip=()=>tip.style.opacity=0;
+  // compute positions: sources sorted by target y; targets incoming sorted by source y
+  const lk=ordered.map(l=>({...l}));
+  const byS={},byT={};lk.forEach(l=>{(byS[l.s]=byS[l.s]||[]).push(l);(byT[l.t]=byT[l.t]||[]).push(l);});
+  Object.values(byS).forEach(a=>{a.sort((p,q)=>(nodes[p.t].y+(p.t==='elec'?-1e4:0))-(nodes[q.t].y+(q.t==='elec'?-1e4:0)));let o=0;a.forEach(l=>{l.sy=nodes[l.s].y+o;o+=l.v*k;});});
+  Object.values(byT).forEach(a=>{a.sort((p,q)=>(nodes[p.s].y+(p.s==='elec'?-1e4:0))-(nodes[q.s].y+(q.s==='elec'?-1e4:0)));let o=0;a.forEach(l=>{l.ty=nodes[l.t].y+o;o+=l.v*k;});});
+  svg.classList.toggle('dim',!!focus);
+  const g=el('g',{},svg);
+  lk.forEach(l=>{
+    const a=nodes[l.s],b=nodes[l.t];const xa=a.x+nw,xb=b.x,h=l.v*k,xm=(xa+xb)/2;
+    const d=`M${xa},${l.sy}C${xm},${l.sy} ${xm},${l.ty} ${xb},${l.ty}L${xb},${l.ty+h}C${xm},${l.ty+h} ${xm},${l.sy+h} ${xa},${l.sy+h}Z`;
+    const p=el('path',{d,class:'link'+(focus&&(l.s===focus||l.t===focus)?' hl':''),fill:css(l.c),'fill-opacity':l.t==='loss'?0.55:0.42},g);
+    const share=l.v/nodes[l.s].v*100;
+    p.addEventListener('mousemove',e=>showTip(e,`<b>${a.name} → ${b.name}</b><br>${fmt(l.v)} PJ<br><span style="color:var(--text-secondary)">${share.toFixed(0)}% of ${a.name.toLowerCase()}</span>`));
+    p.addEventListener('mouseleave',hideTip);
+  });
+  Object.values(nodes).forEach(n=>{
+    const r=el('rect',{class:'node',x:n.x,y:n.y,width:nw,height:Math.max(1.5,n.h),rx:3,fill:css(n.color)},svg);
+    r.addEventListener('mousemove',e=>showTip(e,`<b>${n.name}</b><br>${fmt(n.v)} PJ`));r.addEventListener('mouseleave',hideTip);
+    r.addEventListener('click',()=>{focus=focus===n.id?null:n.id;draw();});
+    const left=n.x===x0, mid=n.x===x1;
+    const tx=left?n.x-10:mid?n.x+nw/2:n.x+nw+10, ty=mid?n.y-10:n.y+n.h/2;
+    const t=el('text',{x:tx,y:ty,'text-anchor':left?'end':mid?'middle':'start','font-size':13,'font-weight':600,fill:css('--text-primary')},svg);t.textContent=n.name;
+    const t2=el('text',{x:tx,y:mid?ty-16:ty+15,'text-anchor':left?'end':mid?'middle':'start','font-size':12,fill:css('--text-secondary')},svg);t2.textContent=fmt(n.v)+' PJ';
+    if(mid){t.setAttribute('y',n.y-26);t2.setAttribute('y',n.y-10);}
+    else {t.setAttribute('y',n.y+n.h/2-1);t2.setAttribute('y',n.y+n.h/2+14);}
+  });
+  document.getElementById('sTitle').textContent=`Energy flows in ${GEO[geo]}, ${year}`;
+  document.getElementById('sNote').textContent=`Total shown: ${fmt(total)} PJ (domestic final energy use plus power-plant losses). Source: Statistics Canada, table 25-10-0029-01.`+(M.r.nulls?` Some cells are suppressed by Statistics Canada for confidentiality and counted as zero.`:'');
+  kpis(M,total);insights(M,total);table(M);
+}
+
+function kpis(M,total){
+  const fin=total-M.loss;
+  const elShare=(M.elUse-M.secs.elS[5]-M.secs.elS[6])/(fin-[M.secs.elS,M.secs.gasS,M.secs.oilS,M.secs.nglS,M.secs.coalS].reduce((a,s)=>a+s[5]+s[6],0))*100;
+  const eff=M.fuelInTot>0?M.r.th/M.fuelInTot*100:null;
+  const ex=M.r.ex;
+  const cards=[
+    [fmt(fin)+' PJ','Final energy used (all sectors, incl. energy industry own use and feedstocks)'],
+    [elShare.toFixed(0)+'%','Electricity\'s share of final energy for end uses (excl. energy industry and feedstocks)'],
+    [eff==null?'—':eff.toFixed(0)+'%','Efficiency of fuel-burning power plants (electricity out ÷ fuel in)'],
+    ex.prodPrimary>0?[fmt(ex.exportsPrimary)+' PJ','Primary energy exported, vs '+fmt(ex.prodPrimary)+' PJ produced ('+(ex.exportsPrimary/ex.prodPrimary*100).toFixed(0)+'%)']:[fmt(ex.elexp)+' / '+fmt(ex.elimp)+' PJ','Electricity exported / imported (incl. to other provinces where reported)']
+  ];
+  document.getElementById('kpis').innerHTML=cards.map(c=>`<div class="card stat"><div class="num">${c[0]}</div><div class="lab">${c[1]}</div></div>`).join('');
+}
+
+function insights(M,total){
+  const S=M.secs,fin=total-M.loss;
+  const fossilEnd=[S.gasS,S.oilS,S.nglS,S.coalS].reduce((a,s)=>a+s[0]+s[1]+s[2]+s[3]+s[4],0);
+  const endAll=fossilEnd+S.elS.slice(0,5).reduce((a,b)=>a+b,0);
+  const tr=S.oilS[1]/(S.oilS[1]+S.gasS[1]+S.elS[1]+S.nglS[1])*100;
+  const homeEl=S.elS[3]/(S.elS[3]+S.gasS[3]+S.oilS[3]+S.nglS[3]+S.coalS[3])*100;
+  const own=[S.elS,S.gasS,S.oilS,S.nglS,S.coalS].reduce((a,s)=>a+s[5],0);
+  const homeOther=[['natural gas',S.gasS[3]],['heating oil and other oil products',S.oilS[3]],['propane and other NGLs',S.nglS[3]],['coal',S.coalS[3]]].sort((a,b)=>b[1]-a[1])[0][0];
+  const items=[
+    [fossilEnd/endAll>0.5?'Fossil fuels still supply most end-use energy':'Electricity supplies most end-use energy',`${(fossilEnd/endAll*100).toFixed(0)}% of the energy used by industry, transport, farms, homes and businesses in ${GEO[geo]} comes straight from fossil fuels; ${(100-fossilEnd/endAll*100).toFixed(0)}% comes as electricity.`],
+    ['Transport runs on oil',`Oil products supply ${tr.toFixed(0)}% of transportation energy. This is where electrification (EVs) cuts the most waste, since engines lose most of their fuel as heat.`],
+    ['Homes: electricity vs fuels',`Electricity is ${homeEl.toFixed(0)}% of residential energy; the largest other fuel is ${homeOther}. Heat pumps are the electrification lever here. (Wood and other biomass used in homes is not in this table.)`],
+    ['The energy industry is a big user',`${fmt(own)} PJ (${(own/fin*100).toFixed(0)}% of final use) is consumed by the energy industry itself, such as oil sands, gas processing and pipelines.`+(M.loss>0?` A further ${fmt(M.loss)} PJ is lost as heat in fuel-burning power plants.`:'')]
+  ];
+  document.getElementById('insights').innerHTML=items.map(i=>`<div class="card"><h3 style="margin-top:0">${i[0]}</h3><p style="margin:0;color:var(--text-secondary)">${i[1]}</p></div>`).join('');
+}
+
+function table(M){
+  const S=M.secs,rows=[['Electricity',S.elS],['Natural gas',S.gasS],['Oil products',S.oilS],['Natural gas liquids',S.nglS],['Coal, coke & steam',S.coalS]];
+  const tot=SECT.map((_,i)=>rows.reduce((a,r)=>a+r[1][i],0));
+  let h=`<table class="t"><thead><tr><th>Fuel</th>${SECT.map(s=>`<th style="text-align:right">${s}</th>`).join('')}<th style="text-align:right">Total</th></tr></thead><tbody>`;
+  rows.forEach(r=>{h+=`<tr><td>${r[0]}</td>${r[1].map(v=>`<td class="n">${fmt(v)}</td>`).join('')}<td class="n"><b>${fmt(r[1].reduce((a,b)=>a+b,0))}</b></td></tr>`;});
+  h+=`<tr><td><b>Total</b></td>${tot.map(v=>`<td class="n"><b>${fmt(v)}</b></td>`).join('')}<td class="n"><b>${fmt(tot.reduce((a,b)=>a+b,0))}</b></td></tr></tbody></table>`;
+  h+=`<p class="note">Power plants: ${fmt(M.fuelInTot)} PJ of fuel in → ${fmt(M.r.th)} PJ of electricity out (${fmt(M.loss)} PJ lost). Electricity from hydro, nuclear, wind &amp; solar used in the region: ${fmt(M.primEl)} PJ.</p>`;
+  document.getElementById('tableWrap').innerHTML=h;
+}
+
+function controls(){
+  document.getElementById('geoSeg').innerHTML=ORDER.map(g=>`<button data-g="${g}" class="${String(g)===geo?'on':''}">${GEO[g]}</button>`).join('');
+  document.getElementById('yearSeg').innerHTML=['2024','2025'].map(y=>`<button data-y="${y}" class="${y===year?'on':''}">${y}</button>`).join('');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-g],button[data-y]');if(!b)return;if(b.dataset.g)geo=b.dataset.g;if(b.dataset.y)year=b.dataset.y;focus=null;controls();draw();});
+document.getElementById('themeBtn').addEventListener('click',()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';draw();});
+controls();draw();
+})();
+</script>
+</body>
+</html>
